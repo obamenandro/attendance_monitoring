@@ -1,0 +1,105 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: false
+  # Set the formatter to 'html'
+  formatter: html
+  # Output file instead of logging results
+  output-file: 'linters/sass-lint.html'
+  # Raise an error if more than 50 warnings are generated
+  max-warnings: 50
+# File Options
+files:
+  include: 'scss/**/*.s+(a|c)ss'
+  ignore:
+    - scss/generics/_reset.scss
+# Rule Configuration
+rules:
+  bem-depth: 1
+  brace-style:
+    - '1tbs'
+    -
+      allow-single-line: false
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholder-in-extend: 2
+  mixins-before-declarations:
+    - 2
+    -
+      exclude:
+        - breakpoint
+        - mq
+  no-warn: 1
+  no-debug: 1
+  no-ids: 2
+  no-important: 2
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+  indentation:
+    - 2
+    -
+      size: 2
+  property-sort-order:
+    - 1
+    -
+      order:
+        - display
+        - margin
+      ignore-custom-properties: true
+      allow-leading-underscore:
+      convention: hyphenatedlowercase
+  max-file-line-count: 300
+  empty-line-between-blocks:
+    - true
+    -
+      include: true
+      allow-single-line-rulesets: false
+  class-name-format:
+    - 1
+    -
+      convention: hyphenatedbem
+  final-newline:
+    -
+      include: false
+  leading-zero:
+    - 1
+    -
+      include: true
+  nesting-depth:
+    - 1
+    -
+      max-depth: 3
+  no-attribute-selectors: 1
+  no-color-keywords: 2
+  no-duplicate-properties: 2
+  no-empty-rulesets: 2
+  no-invalid-hex: true
+  no-mergeable-selectors: true
+  no-misspelled-properties: true
+  no-qualifying-elements:
+    - 2
+    -
+      allow-element-with-attribute: true
+  no-trailing-whitespace: true
+  no-trailing-zero: true
+  no-url-domains: true
+  one-declaration-per-line: true
+  pseudo-element: true
+  quotes:
+    - 2
+    -
+      style: single
+  single-line-per-selector: true
+  space-after-colon: true
+  space-after-comma: true
+  space-around-operator: true
+  space-before-bang: true
+  space-before-brace: true
+  trailing-semicolon: true
+  url-quotes: true
+  zero-unit: true
