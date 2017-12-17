@@ -1,0 +1,132 @@
+.form {
+  margin-top: 10px;
+  border-radius: 5px;
+  background: $white-color;
+
+  &__content {
+    padding: 15px;
+  }
+
+  &__title {
+    padding: 15px 0 10px;
+    font-size: $form-title;
+    color: $primary-color;
+    border-bottom: 1px dotted $tertiary-color;
+  }
+
+  &__label-wrapper {
+    display: inline-block;
+    width: 120px;
+    font-size: $secondary-fontsize;
+    padding: 8px 0;
+    vertical-align: top;
+  }
+
+  &__input {
+    display: inline-block;
+    width: 75%;
+    vertical-align: top;
+  }
+
+  &__inputbox {
+    width: 100%;
+    border: 1px solid $light-gray;
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  &__data {
+    padding: 25px 15px;
+  }
+
+  &__info {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+  }
+
+  &__uploadimage {
+    position: relative;
+  }
+
+  &__hidden-upload {
+    visibility: hidden;
+  }
+
+  &__uploadinput {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    background: $white-color;
+    border: 1px solid $light-gray;
+    width: 55%;
+    padding: 5px;
+  }
+
+  &__upload {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    padding-left: 20px;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    height: 130px;
+  } 
+  
+  &__list {
+    padding-bottom: 5px;
+  }
+
+  &__error {
+    display: block;
+    color: #FF0000;
+    font-size: $tertiary-fontsize;
+    padding: 5px 0;
+  }
+
+  &__inputdate {
+    border: 1px solid $light-gray;
+    padding: 8px;
+    border-radius: 5px;
+    width: 70%;
+  }
+
+  &__button {
+    padding-top: 50px;
+    text-align: center;
+  }
+}
+
+.form__input.form__input--fullwidth {
+  width: 83%;
+}
+
+.form__list.form__list--enumerate {
+  
+  .form__label-wrapper {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .form__input {
+    width: 100%;
+    padding-bottom: 5px;
+
+    &::before {
+      display: inline-block;
+      margin: 0 30px;
+      width: 5px;
+      content: '';
+      height: 5px;
+      border-radius: 50%;
+      background: $primary-color;
+    }
+  }
+
+  .form__inputbox {
+    width: 90%;
+  }
+}

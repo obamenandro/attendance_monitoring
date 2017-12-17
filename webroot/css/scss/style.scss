@@ -1,2 +1,12 @@
 @import 'generics/reset';
 @import 'variables/variables';
+
+@import 'elements/element';
+
+/*components*/
+@import 'components/component.header';
+@import 'components/component.main-content';
+@import 'components/component.sidebar';
+@import 'components/component.panel';
+@import 'components/component.form';
+@import 'components/component.button';

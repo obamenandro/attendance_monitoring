@@ -1,0 +1,14 @@
+.button {
+  padding: 10px;
+  font-size: $secondary-fontsize; 
+  border-radius: 5px;
+  border: 1px solid $light-gray;
+  outline: none;
+  cursor: pointer;
+}
+
+.button.button--submit {
+  width: 25%;
+  background-color: $secondary-color;
+  color: $white-color;
+}

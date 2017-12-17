@@ -1,0 +1,38 @@
+.header {
+  background: $primary-color;
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px 10px 10px;
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 80%;
+    vertical-align: middle;
+    padding-left: 100px;
+  }
+
+  &__control {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+    text-align: right;
+  }
+
+  &__logo-image {
+    width: 90px;
+  }
+
+  &__control-link {
+    margin-right: 20px;
+    color: $light-gray;
+    font-size: $default-fontsize;
+    text-decoration: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
