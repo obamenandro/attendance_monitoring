@@ -11,8 +11,11 @@ $this->layout = false;
   <meta name="author" content="">
   <meta name="keywords" content="">
   <title>Attendance Monitoring</title>
+  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.css"/>
+  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/>
   <link rel="stylesheet" type="text/css" href="/css/style.css"/>
   <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="/js/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
 
@@ -53,6 +56,12 @@ $this->layout = false;
             </li>
             <li class="sidebar__list">
               <a href="" class="sidebar__item">Menu4</a>
+            </li>
+            <li class="sidebar__list">
+              <a href="" class="sidebar__item">Menu5</a>
+            </li>
+            <li class="sidebar__list">
+              <a href="" class="sidebar__item">Menu6</a>
             </li>
           </ul>
         </nav>
@@ -124,7 +133,7 @@ $this->layout = false;
                       <label class="form__label">Birth date:</label>
                     </div>
                     <div class="form__input">
-                      <input type="text" name="" class="form__inputdate" placeholder="yyyy/mm/dd">
+                      <input type="text" name="" class="form__inputdate form__date" placeholder="yyyy/mm/dd">
                       <span class="form__error">Error</span>
                     </div>
                   </div>
@@ -326,6 +335,12 @@ $this->layout = false;
     </div>
   </main>
 
+<footer>
+  
+</footer>
 
+<script type="text/javascript">
+  $('.form__date').datepicker();
+</script>
 </body>
 </html>
