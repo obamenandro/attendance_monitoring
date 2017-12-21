@@ -10,9 +10,7 @@ class UserMigration extends AbstractMigration
      * http://docs.phinx.org/en/latest/migrations.html#the-change-method
      * @return void
      */
-    // public function change()
-    // {
-    // }
+
     public function up()
     {
         $usersTable = $this->table('users');
@@ -80,6 +78,7 @@ class UserMigration extends AbstractMigration
             ])
             ->create();
     }
+
     public function down()
     {
         $this->dropTable('users');
