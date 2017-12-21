@@ -15,11 +15,6 @@ class GovernmentMigration extends AbstractMigration
         $usersTable = $this->table('governments');
         $usersTable
             ->addColumn('user_id', 'integer', ['length' => 11])
-            ->addColumn('sss', 'integer', [
-                'default'=>null,
-                'length' => 11,
-                'null' => true
-            ])
              ->addColumn('sss', 'integer', [
                 'default'=>null,
                 'length' => 11,

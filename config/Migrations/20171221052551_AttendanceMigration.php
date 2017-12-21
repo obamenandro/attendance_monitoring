@@ -12,7 +12,7 @@ class AttendanceMigration extends AbstractMigration
      */
     public function up()
     {
-        $usersTable = $this->table('governments');
+        $usersTable = $this->table('attendances');
         $usersTable
             ->addColumn('user_id', 'integer', ['length' => 11])
             ->addColumn('timein', 'string', ['length' => 255])
@@ -38,6 +38,6 @@ class AttendanceMigration extends AbstractMigration
 
     public function down()
     {
-        $this->dropTable('governments');
+        $this->dropTable('attendances');
     }
 }
