@@ -16,6 +16,7 @@ files:
   include: 'scss/**/*.s+(a|c)ss'
   ignore:
     - scss/generics/_reset.scss
+    - scss/elements/_element.scss
 # Rule Configuration
 rules:
   bem-depth: 1

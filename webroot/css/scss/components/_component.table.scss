@@ -1,0 +1,44 @@
+.table {
+  display: block;
+  border: 1px solid $light-gray;
+
+  &__head {
+    background-color: $secondary-color;
+    font-size: 0;
+  }
+
+  &__head-list,
+  &__body-list {
+    display: inline-block;
+    width: 13%;
+    vertical-align: top;
+    font-size: $tertiary-fontsize;
+    padding: 15px 0;
+    text-align: center;
+    color: $white-color;
+
+    &:first-child {
+      width: 9%;
+    }
+  }
+
+  &__body {
+    &:nth-child(odd) {
+      background: #EFFAFF;
+      border-top: 1px solid $tertiary-color;
+      border-bottom: 1px solid $tertiary-color;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    };
+  }
+
+  &__body-list {
+    color: $tertiary-color;
+  }
+
+  &__view {
+    color: $secondary-color;
+  }
+}

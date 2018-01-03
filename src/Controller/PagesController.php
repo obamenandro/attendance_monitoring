@@ -74,4 +74,8 @@ class PagesController extends AppController
     public function admin_login() {
 
     }
+
+    public function admin_employee() {
+
+    }
 }

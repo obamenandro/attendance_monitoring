@@ -1,0 +1,16 @@
+.pagination {
+  padding: 45px 0 35px;
+  text-align: center;
+
+  &__list {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  &__link {
+    font-size: $secondary-fontsize;
+    color: $white-color;
+  }
+}

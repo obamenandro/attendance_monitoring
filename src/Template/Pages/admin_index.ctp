@@ -71,17 +71,6 @@ $this->layout = false;
 
       <div class="panel">
         <div class="panel__content">
-          <div class="panel__search">
-            <div class="panel__select">
-              <select class="panel__selectbox">
-                <option selected="">---</option>
-                <option selected="">option1</option>
-              </select>
-            </div>
-            <div class="panel__searchbox">
-              <input type="text" name="" placeholder="search" class="panel__search-input">
-            </div>
-          </div>
 
           <div class="form">
             <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -137,14 +126,6 @@ $this->layout = false;
                       </div>
                     </div>
                   </div>
-
-            <!--       <div class="form__upload">
-                    <div class="form__uploadimage">
-                      <img src="img/upload/laptop-bottom.png" alt="upload" class="form__image">
-                      <input type="file" name="" class="form__hidden-upload">
-                      <input type="submit" name="" value="upload" class="form__uploadinput">
-                    </div>
-                  </div> -->
 
                   <div class="form__list">
                     <div class="form__label-wrapper">
@@ -218,7 +199,37 @@ $this->layout = false;
                  
                   <div class="form__list">
                     <div class="form__label-wrapper">
-                      <label class="form__label">Government Id:</label>
+                      <label class="form__label">GSIS/SSS Number:</label>
+                    </div>
+                    <div class="form__input form__input--fullwidth">
+                      <input type="text" name="" class="form__inputbox">
+                      <span class="form__error">Error</span>
+                    </div>
+                  </div>
+
+                  <div class="form__list">
+                    <div class="form__label-wrapper">
+                      <label class="form__label">TIN Number:</label>
+                    </div>
+                    <div class="form__input form__input--fullwidth">
+                      <input type="text" name="" class="form__inputbox">
+                      <span class="form__error">Error</span>
+                    </div>
+                  </div>
+
+                  <div class="form__list">
+                    <div class="form__label-wrapper">
+                      <label class="form__label">Philhealth Number:</label>
+                    </div>
+                    <div class="form__input form__input--fullwidth">
+                      <input type="text" name="" class="form__inputbox">
+                      <span class="form__error">Error</span>
+                    </div>
+                  </div>
+
+                  <div class="form__list">
+                    <div class="form__label-wrapper">
+                      <label class="form__label">Pagibig Number:</label>
                     </div>
                     <div class="form__input form__input--fullwidth">
                       <input type="text" name="" class="form__inputbox">
