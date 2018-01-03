@@ -35,4 +35,53 @@
       color: $white-color;
     }
   }
+
+  &__image {
+    text-align: center;
+  }
+
+  &__user-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__content {
+    padding: 20px 0;
+  }
+
+  &__name {
+    display: block;
+    padding: 20px 0 50px;
+    border-bottom: 1px dotted $white-color;
+  }
+
+  &__user-name,
+  &__position {
+    display: block;
+    font-size: $default-fontsize;
+    color: $white-color;
+    text-align: center;
+    padding: 3px;
+  }
+
+  &__position {
+    font-size: $tertiary-fontsize;
+  }
+
+  &__information {
+    padding: 20px 0;
+  }
+
+  &__information-list {
+    display: block;
+    padding: 10px;
+  }
+
+  &__information-data {
+    margin-right: 10px;
+    font-size: $secondary-fontsize;
+    color: $white-color;
+  }
 }

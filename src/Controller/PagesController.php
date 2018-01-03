@@ -90,4 +90,8 @@ class PagesController extends AppController
     public function admin_edit_attendance() {
 
     }
+
+    public function user_home() {
+
+    }
 }

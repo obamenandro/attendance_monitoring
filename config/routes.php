@@ -57,6 +57,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/add/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_add_attendance']);
     $routes->connect('/edit/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_edit_attendance']);
 
+    $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'user_home']);
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

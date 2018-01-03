@@ -123,6 +123,36 @@ a {
     .sidebar__item:hover {
       background: #097CA9;
       color: #FFFFFF; }
+  .sidebar__image {
+    text-align: center; }
+  .sidebar__user-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; }
+  .sidebar__content {
+    padding: 20px 0; }
+  .sidebar__name {
+    display: block;
+    padding: 20px 0 50px;
+    border-bottom: 1px dotted #FFFFFF; }
+  .sidebar__user-name, .sidebar__position {
+    display: block;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 3px; }
+  .sidebar__position {
+    font-size: 12px; }
+  .sidebar__information {
+    padding: 20px 0; }
+  .sidebar__information-list {
+    display: block;
+    padding: 10px; }
+  .sidebar__information-data {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #FFFFFF; }
 
 .panel {
   display: inline-block;
@@ -368,3 +398,61 @@ a {
   .pagination__link {
     font-size: 14px;
     color: #FFFFFF; }
+
+.user-panel {
+  display: inline-block;
+  width: 76%;
+  vertical-align: top;
+  border-radius: 5px;
+  border: 2px solid #C4C5C3;
+  padding: 10px;
+  background: #FFFFFF; }
+  .user-panel__greetings {
+    font-size: 35px;
+    color: #2D3134;
+    text-align: center;
+    padding: 40px 0 20px;
+    font-weight: 600; }
+  .user-panel__subtitle {
+    display: block;
+    padding: 20px;
+    font-size: 20px;
+    color: #666666; }
+  .user-panel__menu {
+    padding: 20px 0 30px; }
+  .user-panel__menu-list {
+    display: inline-block;
+    width: 33.3%;
+    vertical-align: top;
+    padding: 20px 25px;
+    text-align: center;
+    border-bottom: 1px solid #C4C5C3;
+    border-right: 1px solid #C4C5C3;
+    height: 190px; }
+    .user-panel__menu-list:hover {
+      cursor: pointer;
+      color: #049EDA; }
+    .user-panel__menu-list:nth-child(3n) {
+      border-right: none; }
+    .user-panel__menu-list:nth-child(4), .user-panel__menu-list:nth-child(5), .user-panel__menu-list:nth-child(6) {
+      border-bottom: none; }
+  .user-panel__menu-link {
+    display: block;
+    color: #2D3134; }
+  .user-panel__menu-text {
+    font-size: 20px; }
+  .user-panel__name {
+    padding-top: 20px; }
+  .user-panel__paragraph {
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #666666;
+    padding: 3px 0; }
+  .user-panel__icon {
+    display: block;
+    font-size: -webkit-xxx-large;
+    padding-bottom: 10px;
+    color: #CCCCCC; }
+
+.user-panel__menu-link:hover .user-panel__icon {
+  color: #049EDA; }
