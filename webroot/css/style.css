@@ -354,6 +354,8 @@ a {
     color: #666666; }
   .table__view {
     color: #049EDA; }
+  .table__note {
+    color: #FF0000; }
 
 .pagination {
   padding: 45px 0 35px;
