@@ -82,4 +82,12 @@ class PagesController extends AppController
     public function admin_attendance() {
 
     }
+
+    public function admin_add_attendance() {
+
+    }
+
+    public function admin_edit_attendance() {
+
+    }
 }

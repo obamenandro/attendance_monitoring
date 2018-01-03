@@ -54,6 +54,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/login', ['controller' => 'Pages', 'action' => 'display', 'admin_login']);
     $routes->connect('/employee', ['controller' => 'Pages', 'action' => 'display', 'admin_employee']);
     $routes->connect('/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_attendance']);
+    $routes->connect('/add/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_add_attendance']);
+    $routes->connect('/edit/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_edit_attendance']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

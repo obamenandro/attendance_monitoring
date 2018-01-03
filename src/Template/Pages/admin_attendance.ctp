@@ -117,7 +117,7 @@ $this->layout = false;
                     <li class="table__body-list">Math Department</li>
                     <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">2018-01-03</li>
-                    <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="/edit/attendance" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
@@ -128,7 +128,7 @@ $this->layout = false;
                     <li class="table__body-list">Science Department</li>
                     <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">2018-01-03</li>
-                    <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="/edit/attendance" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
@@ -139,7 +139,7 @@ $this->layout = false;
                     <li class="table__body-list">Math Department</li>
                     <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">2018-01-03</li>
-                    <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="/edit/attendance" class="table__view">Edit</a></li>
                   </ul>
 
 
@@ -151,7 +151,7 @@ $this->layout = false;
                     <li class="table__body-list">Science Department</li>
                     <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">2018-01-03</li>
-                    <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="/edit/attendance" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
@@ -162,7 +162,7 @@ $this->layout = false;
                     <li class="table__body-list">Science Department</li>
                     <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">2018-01-03</li>
-                    <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="/edit/attendance" class="table__view">Edit</a></li>
                   </ul>
 
 
@@ -174,7 +174,7 @@ $this->layout = false;
                     <li class="table__body-list">Science Department</li>
                     <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">2018-01-03</li>
-                    <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="/edit/attendance" class="table__view">Edit</a></li>
                   </ul>
 
 
