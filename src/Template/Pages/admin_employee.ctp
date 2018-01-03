@@ -28,7 +28,7 @@ $this->layout = false;
       </div>
       <div class="header__control">
         <a href="#" class="header__control-link">
-          <span>Setting</span>
+          <span>Hi! Admin</span>
         </a>
         <a href="#" class="header__control-link">
           <span>Logout</span>
