@@ -9,7 +9,7 @@
     max-width: 600px;
     text-align: center;
     border-radius: 8px;
-    background: $light-gray;
+    background: $secondary-color;
   }
 
   &__logo {
@@ -53,16 +53,5 @@
   &__button {
     text-align: center;
     padding-bottom: 50px;
-  }
-
-  &__title-text {
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 50%;
-      border-top: 2px solid #CCCCCC;
-    };
   }
 }

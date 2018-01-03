@@ -47,9 +47,13 @@ body {
 a {
   text-decoration: none; }
 
+.jFiler-input-dragDrop {
+  width: 600px;
+  padding: 70px; }
+
 /*components*/
 .header {
-  background: #2D3134; }
+  background: #049EDA; }
   .header__content {
     margin: 0 auto;
     max-width: 1200px;
@@ -65,10 +69,10 @@ a {
     vertical-align: middle;
     text-align: right; }
   .header__logo-image {
-    width: 90px; }
+    width: 75px; }
   .header__control-link {
     margin-right: 20px;
-    color: #C4C5C3;
+    color: #FFFFFF;
     font-size: 16px;
     text-decoration: none; }
     .header__control-link:last-child {
@@ -81,22 +85,22 @@ a {
     height: 150px;
     top: 0;
     position: absolute;
-    background: #2D3134;
+    background: #049EDA;
     z-index: 1; }
   .main-content__content {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1300px;
     position: relative;
     z-index: 2;
-    padding: 20px 10px 10px; }
+    padding: 10px; }
 
 .sidebar {
   display: inline-block;
-  margin-right: 5%;
-  width: 25%;
+  margin-right: 2%;
+  width: 22%;
   vertical-align: top;
   padding: 10px 5px;
-  background: #2D3134;
+  background: #049EDA;
   border: 2px solid #FFFFFF;
   border-radius: 5px;
   height: 600px; }
@@ -110,24 +114,24 @@ a {
   .sidebar__item {
     display: inline-block;
     width: 100%;
-    background: #2D3134;
+    background: #FFFFFF;
     border: 1px solid #C4C5C3;
     font-size: 14px;
     padding: 15px 5px;
     cursor: pointer;
-    color: #C4C5C3; }
+    color: #2D3134; }
     .sidebar__item:hover {
-      background: #C4C5C3;
-      color: #2D3134; }
+      background: #097CA9;
+      color: #FFFFFF; }
 
 .panel {
   display: inline-block;
-  width: 70%;
+  width: 76%;
   vertical-align: top;
   border-radius: 5px;
   border: 2px solid #FFFFFF;
   padding: 10px;
-  background: #2D3134; }
+  background: #049EDA; }
   .panel__select {
     display: inline-block;
     width: 20%;
@@ -162,7 +166,7 @@ a {
     border-bottom: 1px dotted #666666; }
   .form__label-wrapper {
     display: inline-block;
-    width: 120px;
+    width: 100%;
     font-size: 14px;
     padding: 8px 0;
     vertical-align: top; }
@@ -179,7 +183,7 @@ a {
     padding: 25px 15px; }
   .form__info {
     display: inline-block;
-    width: 70%;
+    width: 100%;
     vertical-align: top; }
   .form__uploadimage {
     position: relative; }
@@ -203,6 +207,8 @@ a {
     object-fit: cover;
     height: 130px; }
   .form__list {
+    display: inline-block;
+    width: 50%;
     padding-bottom: 5px; }
   .form__error {
     display: block;
@@ -221,24 +227,32 @@ a {
 .form__input.form__input--fullwidth {
   width: 83%; }
 
-.form__list.form__list--enumerate .form__label-wrapper {
-  width: 100%;
-  padding-bottom: 10px; }
+.form__list.form__list--enumerate {
+  width: 100%; }
+  .form__list.form__list--enumerate .form__input {
+    width: 100%;
+    padding-bottom: 5px; }
+    .form__list.form__list--enumerate .form__input::before {
+      display: inline-block;
+      margin: 0 30px;
+      width: 5px;
+      content: '';
+      height: 5px;
+      border-radius: 50%;
+      background: #2D3134; }
+  .form__list.form__list--enumerate .form__inputbox {
+    width: 90%; }
 
-.form__list.form__list--enumerate .form__input {
-  width: 100%;
-  padding-bottom: 5px; }
-  .form__list.form__list--enumerate .form__input::before {
-    display: inline-block;
-    margin: 0 30px;
-    width: 5px;
-    content: '';
-    height: 5px;
-    border-radius: 50%;
-    background: #2D3134; }
+.form__info .form__list {
+  display: inline-block;
+  width: 33.3%; }
 
-.form__list.form__list--enumerate .form__inputbox {
-  width: 90%; }
+.form__info .form__input {
+  width: 85%; }
+
+.form__list.form__list--uploadimage {
+  width: 100%;
+  padding: 20px 0; }
 
 .button {
   padding: 10px;
@@ -250,7 +264,7 @@ a {
 
 .button.button--submit {
   width: 25%;
-  background-color: #02ACEE;
+  background-color: #049EDA;
   color: #FFFFFF; }
 
 .login {
@@ -263,7 +277,7 @@ a {
     max-width: 600px;
     text-align: center;
     border-radius: 8px;
-    background: #C4C5C3; }
+    background: #049EDA; }
   .login__logo {
     padding: 20px; }
   .login__title {
@@ -283,16 +297,9 @@ a {
     font-size: 14px;
     border-radius: 5px;
     width: 100%;
-    border: 1px solid #02ACEE; }
+    border: 1px solid #049EDA; }
   .login__image {
     width: 90px; }
   .login__button {
     text-align: center;
     padding-bottom: 50px; }
-  .login__title-text {
-    position: relative; }
-    .login__title-text::before {
-      content: '';
-      position: absolute;
-      width: 50%;
-      border-top: 2px solid #CCCCCC; }

@@ -1,11 +1,11 @@
 .panel {
   display: inline-block;
-  width: 70%;
+  width: 76%;
   vertical-align: top;
   border-radius: 5px;
   border: 2px solid $white-color;
   padding: 10px;
-  background: $primary-color;
+  background: $secondary-color;
 
   &__select {
     display: inline-block;

@@ -16,7 +16,7 @@
 
   &__label-wrapper {
     display: inline-block;
-    width: 120px;
+    width: 100%;
     font-size: $secondary-fontsize;
     padding: 8px 0;
     vertical-align: top;
@@ -41,7 +41,7 @@
 
   &__info {
     display: inline-block;
-    width: 70%;
+    width: 100%;
     vertical-align: top;
   }
 
@@ -77,6 +77,8 @@
   } 
   
   &__list {
+    display: inline-block;
+    width: 50%;
     padding-bottom: 5px;
   }
 
@@ -105,11 +107,7 @@
 }
 
 .form__list.form__list--enumerate {
-  
-  .form__label-wrapper {
-    width: 100%;
-    padding-bottom: 10px;
-  }
+  width: 100%;
 
   .form__input {
     width: 100%;
@@ -129,4 +127,20 @@
   .form__inputbox {
     width: 90%;
   }
+}
+
+.form__info {
+  .form__list {
+    display: inline-block;
+    width: 33.3%;
+  }
+
+  .form__input {
+    width: 85%;
+  }
+}
+
+.form__list.form__list--uploadimage {
+  width: 100%;
+  padding: 20px 0;
 }

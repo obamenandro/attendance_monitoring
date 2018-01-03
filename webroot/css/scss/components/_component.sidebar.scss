@@ -1,10 +1,10 @@
 .sidebar {
   display: inline-block;
-  margin-right: 5%;
-  width: 25%;
+  margin-right: 2%;
+  width: 22%;
   vertical-align: top;
   padding: 10px 5px;
-  background: $primary-color;
+  background: $secondary-color;
   border: 2px solid $white-color;
   border-radius: 5px;
   height: 600px;
@@ -23,16 +23,16 @@
   &__item {
     display: inline-block;
     width: 100%;
-    background: $primary-color;
+    background: $white-color;
     border: 1px solid $light-gray;
     font-size: $secondary-fontsize;
     padding: 15px 5px;
     cursor: pointer;
-    color: $light-gray;
+    color: $primary-color;
 
     &:hover {
-      background: $light-gray;
-      color: $primary-color;
+      background: #097CA9;
+      color: $white-color;
     }
   }
 }

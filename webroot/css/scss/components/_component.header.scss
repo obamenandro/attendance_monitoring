@@ -1,5 +1,5 @@
 .header {
-  background: $primary-color;
+  background: $secondary-color;
 
   &__content {
     margin: 0 auto;
@@ -22,12 +22,12 @@
   }
 
   &__logo-image {
-    width: 90px;
+    width: 75px;
   }
 
   &__control-link {
     margin-right: 20px;
-    color: $light-gray;
+    color: $white-color;
     font-size: $default-fontsize;
     text-decoration: none;
 
