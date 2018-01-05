@@ -53,9 +53,9 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/admin', ['controller' => 'Pages', 'action' => 'display', 'admin_index']);
     $routes->connect('/login', ['controller' => 'Pages', 'action' => 'display', 'admin_login']);
     $routes->connect('/employee', ['controller' => 'Pages', 'action' => 'display', 'admin_employee']);
-    $routes->connect('/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_attendance']);
     $routes->connect('/add/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_add_attendance']);
-    $routes->connect('/edit/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_edit_attendance']);
+    $routes->connect('/view/info', ['controller' => 'Pages', 'action' => 'display', 'admin_view_info']);
+    $routes->connect('/admin/edit', ['controller' => 'Pages', 'action' => 'display', 'admin_edit']);
 
     $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'user_home']);
 

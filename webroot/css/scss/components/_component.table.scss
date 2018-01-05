@@ -20,6 +20,11 @@
     &:first-child {
       width: 9%;
     }
+
+    &:nth-child(8),
+    &:last-child {
+      width: 6%;
+    }
   }
 
   &__body {
@@ -40,6 +45,7 @@
 
   &__view {
     color: $secondary-color;
+    cursor: pointer;
   }
 
   &__note {

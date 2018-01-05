@@ -106,7 +106,8 @@ $this->layout = false;
                     <li class="table__head-list">Status</li>
                     <li class="table__head-list">Designation</li>
                     <li class="table__head-list">Date Hired</li>
-                    <li class="table__head-list">Action</li>
+                    <li class="table__head-list"></li>
+                    <li class="table__head-list"></li>
                   </ul>
 
                   <ul class="table__body">
@@ -118,6 +119,7 @@ $this->layout = false;
                     <li class="table__body-list">Sample</li>
                     <li class="table__body-list">2018-01-02</li>
                     <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="#" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
@@ -129,50 +131,55 @@ $this->layout = false;
                     <li class="table__body-list">Sample</li>
                     <li class="table__body-list">2018-01-02</li>
                     <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="#" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
-                    <li class="table__body-list">1003</li>
-                    <li class="table__body-list">Heidee</li>
+                    <li class="table__body-list">1001</li>
+                    <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">Teacher</li>
                     <li class="table__body-list">Department of Justice</li>
                     <li class="table__body-list">Married</li>
                     <li class="table__body-list">Sample</li>
                     <li class="table__body-list">2018-01-02</li>
                     <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="#" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
-                    <li class="table__body-list">1004</li>
-                    <li class="table__body-list">Paw</li>
+                    <li class="table__body-list">1001</li>
+                    <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">Teacher</li>
                     <li class="table__body-list">Department of Justice</li>
                     <li class="table__body-list">Married</li>
                     <li class="table__body-list">Sample</li>
                     <li class="table__body-list">2018-01-02</li>
                     <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="#" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
-                    <li class="table__body-list">1004</li>
-                    <li class="table__body-list">Paw</li>
+                    <li class="table__body-list">1001</li>
+                    <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">Teacher</li>
                     <li class="table__body-list">Department of Justice</li>
                     <li class="table__body-list">Married</li>
                     <li class="table__body-list">Sample</li>
                     <li class="table__body-list">2018-01-02</li>
                     <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="#" class="table__view">Edit</a></li>
                   </ul>
 
                   <ul class="table__body">
-                    <li class="table__body-list">1004</li>
-                    <li class="table__body-list">Paw</li>
+                    <li class="table__body-list">1001</li>
+                    <li class="table__body-list">Menandro</li>
                     <li class="table__body-list">Teacher</li>
                     <li class="table__body-list">Department of Justice</li>
                     <li class="table__body-list">Married</li>
                     <li class="table__body-list">Sample</li>
                     <li class="table__body-list">2018-01-02</li>
                     <li class="table__body-list"><a href="#" class="table__view">View</a></li>
+                    <li class="table__body-list"><a href="#" class="table__view">Edit</a></li>
                   </ul>
                 </div>
 

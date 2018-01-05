@@ -76,7 +76,7 @@ $this->layout = false;
             <form action="upload.php" method="post" enctype="multipart/form-data">
               <div class="form__content">
                 <div class="form__title">
-                  <h3>Register Information</h3>
+                  <h3>Edit Employee Information</h3>
                 </div>
                 <div class="form__data">
                   <div class="form__info">
@@ -196,13 +196,6 @@ $this->layout = false;
                       <span class="form__error">Error</span>
                     </div>
                   </div>
-                </div>
-
-                <div class="form__title">
-                  <h3>Government ID</h3>
-                </div>
-
-                <div class="form__data">
                  
                   <div class="form__list">
                     <div class="form__label-wrapper">
@@ -240,46 +233,6 @@ $this->layout = false;
                     </div>
                     <div class="form__input form__input--fullwidth">
                       <input type="text" name="" class="form__inputbox">
-                      <span class="form__error">Error</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form__title">
-                  <h3>Position and Department</h3>
-                </div>
-
-                <div class="form__data">
-                 
-                  <div class="form__list">
-                    <div class="form__label-wrapper">
-                      <label class="form__label">Position</label>
-                    </div>
-                    <div class="form__input form__input--fullwidth">
-                      <select class="form__inputbox">
-                          <option selected>-- Position --</option>
-                          <option>Teacher</option>
-                          <option>Dean</option>
-                          <option>HR</option>
-                        </select>
-                        <span class="form__error">Error</span>
-                    </div>
-                  </div>
-
-                  <div class="form__list">
-                    <div class="form__label-wrapper">
-                      <label class="form__label">Deparment:</label>
-                    </div>
-                    <div class="form__input form__input--fullwidth">
-                      
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
                       <span class="form__error">Error</span>
                     </div>
                   </div>

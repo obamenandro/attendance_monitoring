@@ -79,19 +79,21 @@ class PagesController extends AppController
 
     }
 
-    public function admin_attendance() {
-
-    }
-
     public function admin_add_attendance() {
 
     }
 
-    public function admin_edit_attendance() {
+    public function admin_view_info() {
+
+    }
+
+    public function admin_edit() {
 
     }
 
     public function user_home() {
 
     }
+
+
 }
