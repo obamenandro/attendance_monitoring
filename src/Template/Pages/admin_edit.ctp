@@ -76,7 +76,7 @@ $this->layout = false;
             <form action="upload.php" method="post" enctype="multipart/form-data">
               <div class="form__content">
                 <div class="form__title">
-                  <h3>Edit Employee Information</h3>
+                  <h3>Register Information</h3>
                 </div>
                 <div class="form__data">
                   <div class="form__info">
@@ -196,6 +196,13 @@ $this->layout = false;
                       <span class="form__error">Error</span>
                     </div>
                   </div>
+                </div>
+
+                <div class="form__title">
+                  <h3>Government ID</h3>
+                </div>
+
+                <div class="form__data">
                  
                   <div class="form__list">
                     <div class="form__label-wrapper">
@@ -233,6 +240,65 @@ $this->layout = false;
                     </div>
                     <div class="form__input form__input--fullwidth">
                       <input type="text" name="" class="form__inputbox">
+                      <span class="form__error">Error</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form__title">
+                  <h3>Position and Department</h3>
+                </div>
+
+                <div class="form__data">
+                 
+                  <div class="form__list">
+                    <div class="form__label-wrapper">
+                      <label class="form__label">Position</label>
+                    </div>
+                    <div class="form__input form__input--fullwidth">
+                      <select class="form__inputbox">
+                          <option selected>-- Position --</option>
+                          <option>Teacher</option>
+                          <option>Dean</option>
+                          <option>HR</option>
+                        </select>
+                        <span class="form__error">Error</span>
+                    </div>
+                  </div>
+
+                  <div class="form__list form__list--checkbox">
+                    <div class="form__label-wrapper">
+                      <label class="form__label">Deparment:</label>
+                    </div>
+                    <div class="form__input form__input--fullwidth">
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox1" class="form__input-checkbox">
+                        <label for="#checkbox1" class="form__input-label">Math Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox2" class="form__input-checkbox">
+                        <label for="#checkbox2" class="form__input-label">Science Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox3" class="form__input-checkbox">
+                        <label for="#checkbox3" class="form__input-label">IT Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox4" class="form__input-checkbox">
+                        <label for="#checkbox4" class="form__input-label">HRM Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
+                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
+                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
+                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                      </div>
                       <span class="form__error">Error</span>
                     </div>
                   </div>

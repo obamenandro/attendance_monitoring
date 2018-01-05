@@ -97,6 +97,26 @@
     padding-top: 50px;
     text-align: center;
   }
+
+
+  &__input-label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+  }
+
+  &__input-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  &__checkbox {
+    display: inline-block;
+    width: 33%;
+    padding: 10px 0;
+    vertical-align: middle;
+  }
 }
 
 .form__input.form__input--fullwidth {
@@ -144,4 +164,9 @@
 
 .form__data.form__data--modal {
   padding: 5px 15px;
+}
+
+.form__list.form__list--checkbox {
+  display: block;
+  width: 100%;
 }

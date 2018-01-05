@@ -278,6 +278,22 @@ a {
   padding-top: 50px;
   text-align: center; }
 
+.form__input-label {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px; }
+
+.form__input-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; }
+
+.form__checkbox {
+  display: inline-block;
+  width: 33%;
+  padding: 10px 0;
+  vertical-align: middle; }
+
 .form__input.form__input--fullwidth {
   width: 83%; }
 
@@ -310,6 +326,10 @@ a {
 
 .form__data.form__data--modal {
   padding: 5px 15px; }
+
+.form__list.form__list--checkbox {
+  display: block;
+  width: 100%; }
 
 .button {
   padding: 10px;

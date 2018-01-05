@@ -266,20 +266,39 @@ $this->layout = false;
                     </div>
                   </div>
 
-                  <div class="form__list">
+                  <div class="form__list form__list--checkbox">
                     <div class="form__label-wrapper">
                       <label class="form__label">Deparment:</label>
                     </div>
                     <div class="form__input form__input--fullwidth">
-                      
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
-                      <input type="checkbox" name="" id="checkbox1">
-                      <label>Math Department</label>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox1" class="form__input-checkbox">
+                        <label for="#checkbox1" class="form__input-label">Math Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox2" class="form__input-checkbox">
+                        <label for="#checkbox2" class="form__input-label">Science Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox3" class="form__input-checkbox">
+                        <label for="#checkbox3" class="form__input-label">IT Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox4" class="form__input-checkbox">
+                        <label for="#checkbox4" class="form__input-label">HRM Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
+                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
+                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                      </div>
+                      <div class="form__checkbox">
+                        <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
+                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                      </div>
                       <span class="form__error">Error</span>
                     </div>
                   </div>
