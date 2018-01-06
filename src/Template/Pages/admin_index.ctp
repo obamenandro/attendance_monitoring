@@ -256,48 +256,53 @@ $this->layout = false;
                       <label class="form__label">Position</label>
                     </div>
                     <div class="form__input form__input--fullwidth">
-                      <select class="form__inputbox">
-                          <option selected>-- Position --</option>
-                          <option>Teacher</option>
-                          <option>Dean</option>
-                          <option>HR</option>
-                        </select>
-                        <span class="form__error">Error</span>
+                      <textarea class="form__textarea"></textarea>
+                      <span class="form__error">Error</span>
+                    </div>
+                  </div>
+
+                  <div class="form__list">
+                    <div class="form__label-wrapper">
+                      <label class="form__label">Department</label>
+                    </div>
+                    <div class="form__input form__input--fullwidth">
+                      <textarea class="form__textarea"></textarea>
+                      <span class="form__error">Error</span>
                     </div>
                   </div>
 
                   <div class="form__list form__list--checkbox">
                     <div class="form__label-wrapper">
-                      <label class="form__label">Deparment:</label>
+                      <label class="form__label">Subject:</label>
                     </div>
                     <div class="form__input form__input--fullwidth">
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox1" class="form__input-checkbox">
-                        <label for="#checkbox1" class="form__input-label">Math Department</label>
+                        <label for="#checkbox1" class="form__input-label">Math</label>
                       </div>
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox2" class="form__input-checkbox">
-                        <label for="#checkbox2" class="form__input-label">Science Department</label>
+                        <label for="#checkbox2" class="form__input-label">Science</label>
                       </div>
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox3" class="form__input-checkbox">
-                        <label for="#checkbox3" class="form__input-label">IT Department</label>
+                        <label for="#checkbox3" class="form__input-label">IT</label>
                       </div>
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox4" class="form__input-checkbox">
-                        <label for="#checkbox4" class="form__input-label">HRM Department</label>
+                        <label for="#checkbox4" class="form__input-label">HRM</label>
                       </div>
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
-                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                        <label for="#checkbox5" class="form__input-label">Filipino</label>
                       </div>
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
-                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                        <label for="#checkbox5" class="form__input-label">PE</label>
                       </div>
                       <div class="form__checkbox">
                         <input type="checkbox" name="" id="checkbox5" class="form__input-checkbox">
-                        <label for="#checkbox5" class="form__input-label">Accounting Department</label>
+                        <label for="#checkbox5" class="form__input-label">Araling Panlipunan</label>
                       </div>
                       <span class="form__error">Error</span>
                     </div>
