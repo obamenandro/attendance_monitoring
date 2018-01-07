@@ -5,10 +5,24 @@
   border: 1px solid $light-gray;
   outline: none;
   cursor: pointer;
+  opacity: 0.8;
+
+  &:hover {
+    transition: 0.2s;
+    opacity: 1;
+  }
 }
 
 .button.button--submit {
   width: 25%;
   background-color: #341A94;
+  color: $white-color;
+}
+
+.button.button--add {
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+  background-color: #049EDA;
   color: $white-color;
 }

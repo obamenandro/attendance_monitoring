@@ -11,8 +11,8 @@ $this->layout = false;
   <meta name="author" content="">
   <meta name="keywords" content="">
   <title>Attendance Monitoring</title>
-  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.css"/>
-  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/>
+  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.min.css"/>
+  <!-- <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/> -->
   <link rel="stylesheet" type="text/css" href="/js/plugins/jfiler/jquery.filer-dragdropbox-theme.css"/>
   <link rel="stylesheet" type="text/css" href="/css/style.css"/>
   <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
@@ -446,12 +446,8 @@ $this->layout = false;
     </div>
   </main>
 
-<footer>
-  
-</footer>
-
 <script type="text/javascript">
-  $('.form__date').datepicker();
+    $('.form__date').datepicker();
 
   $('#input2').filer({
             limit: null,
@@ -562,7 +558,7 @@ $this->layout = false;
                     filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB."
                 }
             }
-        });
+  });
 </script>
 </body>
 </html>

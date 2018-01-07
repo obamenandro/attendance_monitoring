@@ -126,6 +126,22 @@
     height: 100px;
     resize: none;
   }
+
+  &__add-input {
+    display: block;
+    margin: 10px auto 0;
+    width: 80%;
+    text-align: right;
+  }
+
+  &__remove {
+    font-size: 18px;
+    position: absolute;
+    top: 10%;
+    right: -30px;
+    color: #FF0000;
+    cursor: pointer;
+  }
 }
 
 .form__input.form__input--fullwidth {
@@ -178,4 +194,19 @@
 .form__list.form__list--checkbox {
   display: block;
   width: 100%;
+}
+
+.form__list.form__list--center {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+
+  .form__label-wrapper {
+    width: 20%;
+  }
+
+  .form__input {
+    width: 80%;
+    position: relative;
+  }
 }
