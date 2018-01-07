@@ -15,7 +15,7 @@
 
 .button.button--submit {
   width: 25%;
-  background-color: #341A94;
+  background-color: $secondary-color;
   color: $white-color;
 }
 
@@ -23,12 +23,12 @@
   display: inline-block;
   text-align: center;
   width: 20%;
-  background-color: #049EDA;
+  background-color: #1F6DA8;
   color: $white-color;
 }
 
 .button.button--link {
   display: block;
-  background-color: #341A94;
+  background-color: #1F6DA8;
   color: $white-color;
 }
