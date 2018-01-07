@@ -23,57 +23,66 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['register']);
+        $this->Auth->allow(['add']);
+        $this->Auth->allow(['edit']);
+        $this->Auth->allow(['login']);
+        $this->Auth->allow(['employee']);
+        $this->Auth->allow(['add_attendance']);
+        $this->Auth->allow(['view_info']);
+        $this->Auth->allow(['add_department']);
+        $this->Auth->allow(['add_subject']);
+        $this->Auth->allow(['list_department']);
+        $this->Auth->allow(['list_subject']);
+        $this->Auth->allow(['success']);
+        
     }
 
     public function register() 
     {
         // $data = ['email' => 'admin@gmail.com', 'password']
     }
+    
     public function add() {
 
     }
 
-    public function admin_index() {
+    public function edit() {
 
     }
 
-    public function admin_login() {
+    public function login() {
 
     }
 
-    public function admin_employee() {
+    public function employee() {
 
     }
 
-    public function admin_add_attendance() {
+    public function add_attendance() {
 
     }
 
-    public function admin_view_info() {
+    public function view_info() {
 
     }
 
-    public function admin_edit() {
+    public function add_department() {
 
     }
 
-    public function admin_add_department() {
+    public function add_subject() {
 
     }
 
-    public function admin_add_subject() {
+    public function list_department() {
 
     }
 
-    public function admin_list_department() {
+    public function list_subject() {
 
     }
 
-    public function admin_list_subject() {
-
-    }
-
-    public function admin_success() {
+    public function success() {
 
     }
 

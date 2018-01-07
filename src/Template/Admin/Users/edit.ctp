@@ -1,11 +1,27 @@
 <div class="panel__content">
   <div class="form">
-    <form method="POST" enctype="multipart/form-data">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
       <div class="form__content">
         <div class="form__title">
-          <h3>Register Information</h3>
+          <h3>Edit Information</h3>
         </div>
         <div class="form__data">
+          <div class="form__info">
+            <div class="form__list">
+              <div class="form__label-wrapper">
+                <label class="form__label">Prefix:</label>
+              </div>
+              <div class="form__input">
+                <select class="form__inputbox">
+                  <option selected>--Select--</option>
+                  <option>Mr.</option>
+                  <option>Ms.</option>
+                  <option>Mrs.</option>
+                </select>
+                <span class="form__error">Error</span>
+              </div>
+            </div>
+          </div>
           <div class="form__info">
             <div class="form__list">
               <div class="form__label-wrapper">
