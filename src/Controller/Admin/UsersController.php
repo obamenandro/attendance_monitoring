@@ -13,6 +13,16 @@ use Cake\Core\Configure;
  */
 class UsersController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('Admin');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow();
+    }
 
     public function add() {
 
