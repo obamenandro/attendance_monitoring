@@ -28,14 +28,22 @@ $this->layout = false;
       <div class="login__title">
         <h2 class="login__title-text">LOGIN</h2>
       </div>
-      <form>
+      <?= $this->Flash->render() ?>
+      <?= $this->Form->create(); ?>
         <ul class="login__form">
           <li class="login__list">
             <div class="login__label-wrap">
-              <label class="login__label">Username</label>
+              <label class="login__label">Email</label>
             </div>
             <div class="login__input-wrap">
-              <input type="text" name="" class="login__input" placeholder="username">
+               <?= 
+                $this->Form->control('email', [
+                  'class'       =>'login__input',
+                  'required'    => false,
+                  'placeholder' => __('Email'),
+                  'label'       => false
+                ]);
+              ?>
             </div>
           </li>
 
@@ -44,23 +52,29 @@ $this->layout = false;
               <label class="login__label">Password</label>
             </div>
             <div class="login__input-wrap">
-              <input type="password" name="" class="login__input" placeholder="*****">
-            </div>
-          </li>
-
-          <li class="login__list">
-            <div class="login__label-wrap">
-              <a href="" class="login__label">Forgot Password?</a>
+              <?= 
+                $this->Form->control('password', [
+                  'type'        => 'password',
+                  'class'       =>'login__input',
+                  'required'    => false,
+                  'placeholder' => __('Password'),
+                  'label'       => false
+                ]); 
+              ?>
             </div>
           </li>
 
           <li class="login__button">
             <div class="login__label-wrap">
-              <input type="button" name="" class="button button--submit" value="Login">
+              <?= 
+                $this->Form->submit('Login', [
+                  'class' => 'button button--submit'
+                ]);
+              ?>
             </div>
           </li>
         </ul>
-      </form>
+      <?= $this->Form->end(); ?>
     </div>
   </main>
 

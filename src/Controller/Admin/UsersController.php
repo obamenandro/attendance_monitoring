@@ -2,6 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use App\Form\LoginForm;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Event\Event;
@@ -22,12 +23,53 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['register']);
+        parent::beforeFilter($event);
+        $this->Auth->allow(['add', 'login', 'register']);
+        $this->User = TableRegistry::get('Users');
     }
 
     public function register() 
     {
-        // $data = ['email' => 'admin@gmail.com', 'password']
+        $entity = $this->User->newEntity();
+        $entity = $this->User->patchEntity($entity, [
+            'firstname' => 'admin',
+            'lastname' => '',
+            'bday'=>'',
+            'address'=>'',
+            'contact'=>'123',
+            'place_of_birth'=>'',
+            'citizenship'=>'',
+            'civil_status'=>'',
+            'government_id'=>'1234',
+            'educational_attainment'=>'',
+            'password'=>'admin',
+            'email' => 'admin@gmail.com', ]);
+        
+        if ($this->User->save($entity)) {
+            die();
+        }
+    }
+
+    public function login() 
+    {
+        $this->request->session()->destroy();
+        // Modelless intantiate for form validation
+        $loginForm = new LoginForm();
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $redirectUrl = '/admin/users/login';
+                if ($user['role'] === 2) {
+                    $this->Flash->error(__('Incorrect Login'));
+                } else {
+                    $this->Auth->setUser($user);
+                    $redirectUrl = '/admin/users/add';
+                    return $this->redirect($redirectUrl);
+                }
+            } else {
+                $this->Flash->error(__('Incorrect Login'));
+            }
+        }
     }
     public function add() {
 

@@ -10,7 +10,6 @@ class UserMigration extends AbstractMigration
      * http://docs.phinx.org/en/latest/migrations.html#the-change-method
      * @return void
      */
-
     public function up()
     {
         $usersTable = $this->table('users');
@@ -27,6 +26,7 @@ class UserMigration extends AbstractMigration
             ->addColumn('contact', 'integer', ['length' => 11])
             ->addColumn('email', 'string', ['length' => 255])
             ->addColumn('password', 'string', ['length' => 255])
+            ->addColumn('role', 'integer', ['default'=>1,'length' => 11])
             ->addColumn('place_of_birth', 'string', ['length' => 255])
             ->addColumn('citizenship', 'string', ['length' => 255])
             ->addColumn('civil_status', 'string', ['length' => 255])
