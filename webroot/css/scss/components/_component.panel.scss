@@ -54,3 +54,13 @@
     cursor: pointer;
   }
 }
+
+.panel__search.panel__search--list-view {
+  text-align: center;
+
+  .panel__search-box {
+    &:first-child {
+      width: 60%;
+    }
+  }
+}

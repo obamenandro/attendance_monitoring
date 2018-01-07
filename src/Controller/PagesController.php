@@ -99,6 +99,14 @@ class PagesController extends AppController
 
     }
 
+    public function admin_list_department() {
+
+    }
+
+    public function admin_list_subject() {
+
+    }
+
     public function user_home() {
 
     }
