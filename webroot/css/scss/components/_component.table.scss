@@ -52,3 +52,10 @@
     color: #FF0000;
   }
 }
+
+.table.table--view-list {
+  .table__head-list,
+  .table__body-list {
+    width: 33.3%;
+  }
+}

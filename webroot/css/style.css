@@ -196,6 +196,11 @@ a {
     border: none;
     cursor: pointer; }
 
+.panel__search.panel__search--list-view {
+  text-align: center; }
+  .panel__search.panel__search--list-view .panel__search-box:first-child {
+    width: 60%; }
+
 .form__content {
   padding: 15px; }
 
@@ -384,8 +389,8 @@ a {
   display: inline-block;
   text-align: center;
   width: 20%;
-  background-color: #049eda;
-  color: #FFFF; }
+  background-color: #049EDA;
+  color: #FFFFFF; }
 
 .login {
   width: 100%;
@@ -455,6 +460,10 @@ a {
     cursor: pointer; }
   .table__note {
     color: #FF0000; }
+
+.table.table--view-list .table__head-list,
+.table.table--view-list .table__body-list {
+  width: 33.3%; }
 
 .pagination {
   padding: 45px 0 35px;

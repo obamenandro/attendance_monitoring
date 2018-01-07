@@ -58,6 +58,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/admin/edit', ['controller' => 'Pages', 'action' => 'display', 'admin_edit']);
     $routes->connect('/admin/department/add', ['controller' => 'Pages', 'action' => 'display', 'admin_add_department']);
     $routes->connect('/admin/subject/add', ['controller' => 'Pages', 'action' => 'display', 'admin_add_subject']);
+    $routes->connect('/admin/department/list', ['controller' => 'Pages', 'action' => 'display', 'admin_list_department']);
+    $routes->connect('/admin/subject/list', ['controller' => 'Pages', 'action' => 'display', 'admin_list_subject']);
 
     $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'user_home']);
 
