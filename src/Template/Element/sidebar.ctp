@@ -1,4 +1,7 @@
 <aside class="sidebar">
+  <div class="sidebar__image">
+    <img src="/img/logo/logo.png" alt="user-image" class="sidebar__user-image">
+  </div>
   <div class="sidebar__title">
     <h2>MENU</h2>
   </div>
