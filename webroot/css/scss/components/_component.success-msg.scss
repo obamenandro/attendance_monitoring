@@ -1,0 +1,35 @@
+.success-msg {
+  &__content {
+    padding: 50px 0;
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    color: #00930A;
+    padding-bottom: 20px;
+  }
+
+  &__icon {
+    padding: 5px 0 20px;
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    text-align: center;
+    color: $primary-color;
+  }
+
+  &__buttons {
+    margin: 50px auto;
+    width: 40%;
+  }
+
+  &__back {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+  }
+}
