@@ -107,6 +107,10 @@ class PagesController extends AppController
 
     }
 
+    public function admin_success() {
+
+    }
+
     public function user_home() {
 
     }

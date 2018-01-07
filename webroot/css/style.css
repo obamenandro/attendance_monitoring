@@ -392,6 +392,11 @@ a {
   background-color: #049EDA;
   color: #FFFFFF; }
 
+.button.button--link {
+  display: block;
+  background-color: #341A94;
+  color: #FFFFFF; }
+
 .login {
   width: 100%;
   height: 100%;
@@ -605,3 +610,31 @@ a {
   height: 130px;
   object-fit: cover;
   border-radius: 50%; }
+
+.success-msg__content {
+  padding: 50px 0; }
+
+.success-msg__title {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  color: #00930A;
+  padding-bottom: 20px; }
+
+.success-msg__icon {
+  padding: 5px 0 20px; }
+
+.success-msg__paragraph {
+  font-size: 16px;
+  text-align: center;
+  color: #2D3134; }
+
+.success-msg__buttons {
+  margin: 50px auto;
+  width: 40%; }
+
+.success-msg__back {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 10px; }

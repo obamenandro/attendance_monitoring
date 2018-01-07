@@ -60,6 +60,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/admin/subject/add', ['controller' => 'Pages', 'action' => 'display', 'admin_add_subject']);
     $routes->connect('/admin/department/list', ['controller' => 'Pages', 'action' => 'display', 'admin_list_department']);
     $routes->connect('/admin/subject/list', ['controller' => 'Pages', 'action' => 'display', 'admin_list_subject']);
+    $routes->connect('/admin/success', ['controller' => 'Pages', 'action' => 'display', 'admin_success']);
 
     $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'user_home']);
 
