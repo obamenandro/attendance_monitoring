@@ -74,7 +74,11 @@ a {
     margin-right: 20px;
     color: #FFFFFF;
     font-size: 16px;
-    text-decoration: none; }
+    text-decoration: none;
+    padding-bottom: 2px; }
+    .header__control-link:hover {
+      color: #049EDA;
+      border-bottom: 1px solid #049EDA; }
     .header__control-link:last-child {
       margin-right: 0; }
 
