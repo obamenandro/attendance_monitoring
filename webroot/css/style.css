@@ -645,6 +645,28 @@ a {
   text-align: center;
   padding: 10px; }
 
+.flash-message {
+  margin-top: 15px;
+  padding: 15px;
+  background: #05A205;
+  border-radius: 5px;
+  position: relative; }
+  .flash-message__text {
+    font-size: 14px;
+    color: #FFFFFF; }
+  .flash-message__close {
+    position: absolute;
+    right: 20px;
+    top: 13px; }
+  .flash-message__close-msg {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer; }
+
+.flash-message.flash-message--error {
+  background: #FF0000; }
+
 .footer {
   background: #2D3134; }
   .footer__copyright {

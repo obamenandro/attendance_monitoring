@@ -5,6 +5,10 @@
         <div class="form__title">
           <h3>Register Information</h3>
         </div>
+      
+        <?= $this->element('flash_success') ?>
+        <?= $this->element('flash_error') ?>
+      
         <div class="form__data">
           <div class="form__info">
             <div class="form__list">
