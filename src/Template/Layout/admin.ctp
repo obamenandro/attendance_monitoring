@@ -10,14 +10,14 @@ $this->layout = false;
   <meta name="author" content="">
   <meta name="keywords" content="">
   <title><?php echo __('Attendance Monitoring'); ?></title>
-  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.css"/>
-  <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/>
-  <link rel="stylesheet" type="text/css" href="/js/plugins/jfiler/jquery.filer-dragdropbox-theme.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/plugins/font-awesome-4.7.0/css/font-awesome.min.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-  <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
-  <script type="text/javascript" src="/js/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="/js/plugins/jfiler/jquery.filer.min.js"></script>
+  <?= $this->Html->css('/js/plugins/jquery-ui-1.12.1/jquery-ui.css') ?>
+  <?= $this->Html->css('/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css') ?>
+  <?= $this->Html->css('/js/plugins/jfiler/jquery.filer-dragdropbox-theme.css') ?>
+  <?= $this->Html->css('plugins/font-awesome-4.7.0/css/font-awesome.min.css') ?>
+  <?= $this->Html->css('style.css') ?>
+  <?= $this->Html->script('jquery-3.1.0.min.js') ?>
+  <?= $this->Html->script('plugins/jquery-ui-1.12.1/jquery-ui.min.js') ?>
+  <?= $this->Html->script('plugins/jfiler/jquery.filer.min.js') ?>
 </head>
 <body>
 
