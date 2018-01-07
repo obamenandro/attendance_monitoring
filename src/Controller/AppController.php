@@ -43,28 +43,28 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        // $this->loadComponent('Auth', [
-        //         'authenticate' => [
-        //             'Form' => [
-        //                 'fields' => [
-        //                     'username' => 'name',
-        //                     'password' => 'password'
-        //                 ],
-        //                 'finder' => 'auth'
-        //             ]
-        //         ],
-        //         'loginAction' => [
-        //             'controller' => 'Users',
-        //             'action' => 'login'
-        //         ]
-        //     ]
-        // );
-        // // check if it is accessing admin page && with UsersAuthentication's role = 1
-        // if ($this->request->action !== 'login' 
-        //     && $this->request->prefix == 'admin' 
-        //     && $this->Auth->user('role') !== 1) {
-        //     return $this->redirect('/users/login');
-        // };
+        $this->loadComponent('Auth', [
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => [
+                            'username' => 'name',
+                            'password' => 'password'
+                        ],
+                        'finder' => 'auth'
+                    ]
+                ],
+                'loginAction' => [
+                    'controller' => 'Users',
+                    'action' => 'login'
+                ]
+            ]
+        );
+        // check if it is accessing admin page && with UsersAuthentication's role = 1
+        if ($this->request->action !== 'login' 
+            && $this->request->prefix == 'admin' 
+            && $this->Auth->user('role') !== 1) {
+            return $this->redirect('/users/login');
+        };
 
         /*
          * Enable the following components for recommended CakePHP security settings.

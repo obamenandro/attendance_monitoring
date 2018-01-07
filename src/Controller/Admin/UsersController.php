@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
+use Cake\Event\Event;
 
 /**
  * Admin/Users Controller
@@ -21,9 +22,13 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow();
+        $this->Auth->allow(['register']);
     }
 
+    public function register() 
+    {
+        // $data = ['email' => 'admin@gmail.com', 'password']
+    }
     public function add() {
 
     }
