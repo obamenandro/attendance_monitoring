@@ -2,7 +2,6 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
-use App\Form\LoginForm;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Event\Event;
@@ -65,8 +64,6 @@ class UsersController extends AppController
     public function login() 
     {
         $this->request->session()->destroy();
-        // Modelless intantiate for form validation
-        $loginForm = new LoginForm();
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -89,10 +86,6 @@ class UsersController extends AppController
     }
 
     public function edit() {
-
-    }
-
-    public function login() {
 
     }
 

@@ -8,22 +8,22 @@
   <nav class="sidebar__menu">
     <ul>
       <li class="sidebar__list">
-        <a href="" class="sidebar__item">Menu1</a>
+        <a href="" class="sidebar__item">Employee's</a>
       </li>
       <li class="sidebar__list">
-        <a href="" class="sidebar__item">Menu2</a>
+        <a href="" class="sidebar__item">Employee Registration</a>
       </li>
       <li class="sidebar__list">
-        <a href="" class="sidebar__item">Menu3</a>
+        <a href="" class="sidebar__item">Subjects</a>
       </li>
       <li class="sidebar__list">
-        <a href="" class="sidebar__item">Menu4</a>
+        <a href="" class="sidebar__item">Subject Registration</a>
       </li>
       <li class="sidebar__list">
-        <a href="" class="sidebar__item">Menu5</a>
+        <a href="" class="sidebar__item">Departments</a>
       </li>
       <li class="sidebar__list">
-        <a href="" class="sidebar__item">Menu6</a>
+        <a href="" class="sidebar__item">Department Registration</a>
       </li>
     </ul>
   </nav>
