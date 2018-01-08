@@ -437,7 +437,9 @@ a {
     width: 90px; }
   .login__button {
     text-align: center;
-    padding-bottom: 50px; }
+    padding: 20px 0 50px; }
+  .login__flash {
+    padding: 0 110px; }
 
 .table {
   display: block;
@@ -647,25 +649,49 @@ a {
 
 .flash-message {
   margin-top: 15px;
-  padding: 15px;
-  background: #05A205;
-  border-radius: 5px;
-  position: relative; }
+  background: #FFFFFF;
+  border-radius: 8px;
+  position: relative;
+  border: 2px solid #05A205;
+  text-align: left; }
+  .flash-message__text-wrapper {
+    display: inline-block;
+    padding: 10px 0;
+    vertical-align: middle; }
+  .flash-message__text-status {
+    font-size: 18px;
+    color: #05A205;
+    padding-bottom: 5px; }
   .flash-message__text {
     font-size: 14px;
-    color: #FFFFFF; }
+    color: #2D3134; }
   .flash-message__close {
     position: absolute;
-    right: 20px;
-    top: 13px; }
+    right: 10px;
+    top: 6px;
+    background: #05A205;
+    padding: 3px 5px;
+    border-radius: 50%; }
   .flash-message__close-msg {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    color: #000000;
+    color: #FFFFFF;
     cursor: pointer; }
+  .flash-message__icon {
+    font-size: 20px;
+    display: inline-block;
+    padding: 15px;
+    vertical-align: middle;
+    color: #05A205; }
 
 .flash-message.flash-message--error {
-  background: #FF0000; }
+  border: 3px solid #FF5050; }
+  .flash-message.flash-message--error .flash-message__close {
+    background: #FF5050; }
+  .flash-message.flash-message--error .flash-message__text-status {
+    color: #FF5050; }
+  .flash-message.flash-message--error .flash-message__icon {
+    color: #FF5050; }
 
 .footer {
   background: #2D3134; }

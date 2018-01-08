@@ -1,29 +1,65 @@
 .flash-message {
   margin-top: 15px;
-  padding: 15px;
-  background: #05A205;
-  border-radius: 5px;
+  background: $white-color;
+  border-radius: 8px;
   position: relative;
+  border: 2px solid #05A205;
+  text-align: left;
+
+  &__text-wrapper {
+    display: inline-block;
+    padding: 10px 0;
+    vertical-align: middle;
+  }
+
+  &__text-status {
+    font-size: 18px;
+    color: #05A205;
+    padding-bottom: 5px;
+  }
 
   &__text {
     font-size: 14px;
-    color: $white-color;
+    color: $primary-color;
   }
 
   &__close {
     position: absolute;
-    right: 20px;
-    top: 13px;
+    right: 10px;
+    top: 6px;
+    background: #05A205;
+    padding: 3px 5px;
+    border-radius: 50%;
   }
 
   &__close-msg {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    color: #000000;
+    color: $white-color;
     cursor: pointer;
+  }
+
+  &__icon {
+    font-size: 20px;
+    display: inline-block;
+    padding: 15px;
+    vertical-align: middle;
+    color: #05A205;
   }
 }
 
 .flash-message.flash-message--error {
-  background: #FF0000;
+  border: 3px solid #FF5050;
+
+  .flash-message__close {
+    background: #FF5050;
+  }
+
+  .flash-message__text-status {
+    color: #FF5050;
+  }
+
+  .flash-message__icon {
+    color: #FF5050;
+  }
 }

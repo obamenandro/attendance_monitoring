@@ -13,6 +13,7 @@ $this->layout = false;
   <title>Attendance Monitoring</title>
   <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.css"/>
   <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/plugins/font-awesome-4.7.0/css/font-awesome.min.css"/>
   <link rel="stylesheet" type="text/css" href="/css/style.css"/>
   <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="/js/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
@@ -28,7 +29,9 @@ $this->layout = false;
       <div class="login__title">
         <h2 class="login__title-text">LOGIN</h2>
       </div>
-      <?= $this->Flash->render() ?>
+      <div class="login__flash">
+        <?= $this->Flash->render() ?>
+      </div>
       <?= $this->Form->create(); ?>
         <ul class="login__form">
           <li class="login__list">

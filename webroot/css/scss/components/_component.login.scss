@@ -52,7 +52,11 @@
 
   &__button {
     text-align: center;
-    padding-bottom: 50px;
+    padding: 20px 0 50px;
+  }
+
+  &__flash {
+    padding: 0 110px;
   }
 }
 
