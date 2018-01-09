@@ -9,6 +9,7 @@ $this->layout = false;
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
+  <link rel="icon" href="/img/logo/namei_logo.ico">
   <title><?php echo __('Attendance Monitoring'); ?></title>
   <?= $this->Html->css('/js/plugins/jquery-ui-1.12.1/jquery-ui.css') ?>
   <?= $this->Html->css('/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css') ?>
@@ -26,7 +27,7 @@ $this->layout = false;
   <main class="main-content">
     <div class="main-content__bgcolor"></div>
     <div class="main-content__content">
-    
+
       <?= $this->element('sidebar') ?>
       <div class="panel">
         <?= $this->fetch('content') ?>
