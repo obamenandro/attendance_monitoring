@@ -51,7 +51,10 @@
 .flash-message.flash-message--error {
   border: 3px solid #FF5050;
 
-  .flash-message__close,
+  .flash-message__close {
+    background: #FF5050;
+  }
+
   .flash-message__text-status,
   .flash-message__icon {
     color: #FF5050;
