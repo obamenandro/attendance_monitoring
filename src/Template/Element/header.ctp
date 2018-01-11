@@ -1,10 +1,10 @@
 <header class="header">
   <div class="header__content">
     <div class="header__control">
-      <a href="#" class="header__control-link">
-        <span>Hi! Admin</span>
+      <a href="javascript:void(0);" class="header__control-link">
+        <span>Hi! <?= ucfirst($user); ?></span>
       </a>
-      <a href="#" class="header__control-link">
+      <a href="/admin/users/logout" class="header__control-link">
         <span>Logout</span>
       </a>
     </div>

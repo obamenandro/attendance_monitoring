@@ -27,7 +27,7 @@ class SubjectsController extends AppController
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -39,7 +39,7 @@ class SubjectsController extends AppController
      */
     public function view($id = null)
     {
-        
+
     }
 
     /**
@@ -53,7 +53,10 @@ class SubjectsController extends AppController
         if ($this->request->is('POST')) {
             $entities = $this->Subject->newEntities($this->request->getData('data'));
             foreach ($entities as $entity) {
-                $this->Subject->save($entity);
+                if (!$this->Subject->save($entity)) {
+                    $this->Flash->error(__('Your subject has been failed to added.'));
+                    return $this->redirect('/admin/subjects/add');
+                }
             }
             $this->Flash->success(__('Your subject has been successfully added.'));
             return $this->redirect('/admin/subjects/add');
@@ -69,7 +72,7 @@ class SubjectsController extends AppController
      */
     public function edit($id = null)
     {
-        
+
     }
 
     /**
@@ -81,6 +84,6 @@ class SubjectsController extends AppController
      */
     public function delete($id = null)
     {
-        
+
     }
 }

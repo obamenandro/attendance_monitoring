@@ -3,7 +3,6 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
     $message = h($message);
 }
 ?>
-<!-- <div class="message success" onclick="this.classList.add('hidden')"><?= $message ?></div> -->
 <div class="flash-message">
 	<i class="fa fa-check flash-message__icon" aria-hidden="true"></i>
 	<div class="flash-message__text-wrapper">
@@ -16,7 +15,10 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
 </div>
 
 <script type="text/javascript">
-	$('.flash-message__close-msg').on('click', function() {
-		$(this).parent().parent().hide();
-	});
+    $(document).ready(function () {
+    	$('.flash-message__close-msg').on('click', function() {
+    		$(this).parent().parent().hide();
+    	});
+        setTimeout(function(){ $('.flash-message__close-msg').parent().parent().fadeOut(); }, 3000);
+    });
 </script>

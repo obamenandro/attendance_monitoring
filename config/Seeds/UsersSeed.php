@@ -18,11 +18,9 @@ class UsersSeed extends AbstractSeed
      */
     public function run()
     {
-        //to run seeds bin/cake migrations seed
-        //to generate seed bin/cake seed --data Users
         $data = [
             [
-                'id' => '1',
+                'id' => '2',
                 'firstname' => 'admin',
                 'middlename' => NULL,
                 'lastname' => '',
@@ -30,7 +28,7 @@ class UsersSeed extends AbstractSeed
                 'address' => '',
                 'contact' => '123',
                 'email' => 'admin@gmail.com',
-                'password' => '$2y$10$Iw6djN8glzros8XwpJSy0.MoHjoVRL.nTo.NE2tKrNky.Z/uHlzj6',
+                'password' => '$2y$10$Q2vgYtfbhQxiZbYtO4E1GePNS7RJ7GGbNgestqtCosxxgvVWenqNS',
                 'role' => '1',
                 'place_of_birth' => '',
                 'citizenship' => '',
@@ -44,8 +42,8 @@ class UsersSeed extends AbstractSeed
                 'trainings' => NULL,
                 'jobtype' => NULL,
                 'destination_id' => NULL,
-                'created' => '2018-01-07 06:11:36',
-                'modified' => '2018-01-07 06:11:36',
+                'created' => '2018-01-09 03:08:58',
+                'modified' => '2018-01-09 03:08:58',
             ],
         ];
 

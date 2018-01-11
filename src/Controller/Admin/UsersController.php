@@ -39,7 +39,7 @@ class UsersController extends AppController
         $this->Auth->allow(['success']);
     }
 
-    public function register() 
+    public function register()
     {
         $entity = $this->User->newEntity();
         $entity = $this->User->patchEntity($entity, [
@@ -55,13 +55,13 @@ class UsersController extends AppController
             'educational_attainment'=>'',
             'password'=>'admin',
             'email' => 'admin@gmail.com', ]);
-        
+
         if ($this->User->save($entity)) {
             die();
         }
     }
 
-    public function login() 
+    public function login()
     {
         $this->request->session()->destroy();
         if ($this->request->is('post')) {
@@ -69,18 +69,22 @@ class UsersController extends AppController
             if ($user) {
                 $redirectUrl = '/admin/users/login';
                 if ($user['role'] === 2) {
-                    $this->Flash->error(__('Incorrect Login'));
+                    $this->Flash->error(__('Invalid email address or password.'));
                 } else {
                     $this->Auth->setUser($user);
-                    $redirectUrl = '/admin/users/add';
-                    return $this->redirect($redirectUrl);
+                    $redirectUrl = '/admin/users';
                 }
+                return $this->redirect($redirectUrl);
             } else {
-                $this->Flash->error(__('Incorrect Login'));
+                $this->Flash->error(__('Invalid email address or password.'));
             }
         }
     }
-    
+
+    public function logout() {
+        return $this->redirect($this->Auth->logout());
+    }
+
     public function add() {
 
     }
