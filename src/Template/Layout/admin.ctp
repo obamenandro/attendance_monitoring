@@ -25,7 +25,6 @@ $this->layout = false;
   <?= $this->element('header') ?>
 
   <main class="main-content">
-    <div class="main-content__bgcolor"></div>
     <div class="main-content__content">
 
       <?= $this->element('sidebar') ?>
@@ -34,8 +33,6 @@ $this->layout = false;
       </div>
     </div>
   </main>
-
-  <?= $this->element('footer') ?>
 
 </body>
 </html>

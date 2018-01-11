@@ -1,11 +1,11 @@
 .panel {
   display: inline-block;
-  width: 76%;
+  margin-left: 20%;
+  margin-top: 60px;
+  width: 80%;
   vertical-align: top;
   border-radius: 5px;
-  border: 2px solid $white-color;
-  padding: 10px;
-  background: $primary-color;
+  background: #F0F0F0;
 
   &__search-box {
     display: inline-block;
@@ -17,10 +17,26 @@
     }
   }
 
+  &__container {
+    padding: 70px 10px 10px 3%;
+  }
+
+  &__title {
+    font-size: 20px;
+    padding: 20px 20px 20px 3%;
+    background: $white-color;
+    border-bottom: 1px solid #C2C2C2;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    z-index: 11;
+  }
+
   &__content {
     margin-top: 10px;
     border-radius: 5px;
     background: $white-color;
+    border: solid 1px #C2C2C2;
   }
 
   &__search {
