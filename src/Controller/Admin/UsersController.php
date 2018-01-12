@@ -37,6 +37,7 @@ class UsersController extends AppController
         $this->Auth->allow(['list_department']);
         $this->Auth->allow(['list_subject']);
         $this->Auth->allow(['success']);
+        $this->Auth->allow(['user_home']);
     }
 
     public function register()

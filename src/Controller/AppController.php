@@ -60,13 +60,13 @@ class AppController extends Controller
             ]
         );
         // check if it is accessing admin page && with UsersAuthentication's role = 1
-        if ($this->request->action !== 'login'
-            && $this->request->prefix == 'admin'
-            && $this->Auth->user('role') !== 1) {
-            return $this->redirect('/users/login');
-        } else {
-            $this->set('user', $this->Auth->user('firstname'));
-        }
+        // if ($this->request->action !== 'login'
+        //     && $this->request->prefix == 'admin'
+        //     && $this->Auth->user('role') !== 1) {
+        //     return $this->redirect('/admin/users/login');
+        // } else {
+        //     $this->set('user', $this->Auth->user('firstname'));
+        // }
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
