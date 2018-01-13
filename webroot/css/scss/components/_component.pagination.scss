@@ -11,6 +11,10 @@
 
   &__link {
     font-size: $secondary-fontsize;
-    color: $white-color;
+    color: $primary-color;
+
+    &:hover {
+      color: $secondary-color;
+    }
   }
 }
