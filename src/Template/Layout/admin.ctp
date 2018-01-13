@@ -10,7 +10,7 @@ $this->layout = false;
   <meta name="author" content="">
   <meta name="keywords" content="">
   <link rel="icon" href="/img/logo/namei_logo.ico">
-  <title><?php echo __('Attendance Monitoring'); ?></title>
+  <title><?php echo __('Namei Polytechnic Institute'); ?></title>
   <?= $this->Html->css('/js/plugins/jquery-ui-1.12.1/jquery-ui.css') ?>
   <?= $this->Html->css('/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css') ?>
   <?= $this->Html->css('/js/plugins/jfiler/jquery.filer-dragdropbox-theme.css') ?>

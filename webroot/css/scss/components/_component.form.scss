@@ -129,8 +129,8 @@
 
   &__add-input {
     display: block;
-    margin: 10px auto 0;
-    width: 80%;
+    margin: 20px auto 0;
+    width: 52%;
     text-align: right;
   }
 
@@ -199,10 +199,12 @@
 .form__list.form__list--center {
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 65%;
+  text-align: center;
 
   .form__label-wrapper {
-    width: 20%;
+    text-align: left;
+    padding: 10px 65px;
   }
 
   .form__input {

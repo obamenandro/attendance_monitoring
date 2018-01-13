@@ -105,7 +105,6 @@ a {
   display: inline-block;
   width: 20%;
   vertical-align: top;
-  padding: 20px 0;
   background: #049FDA;
   position: fixed;
   left: 0;
@@ -117,7 +116,7 @@ a {
     width: 100%;
     background: #049FDA;
     font-size: 14px;
-    padding: 20px;
+    padding: 18px 20px;
     cursor: pointer;
     color: #FFFFFF; }
     .sidebar__item:hover {
@@ -164,9 +163,15 @@ a {
     color: #FFFFFF; }
   .sidebar__sub-list {
     display: none; }
+  .sidebar__text {
+    vertical-align: middle; }
 
 .sidebar__item-list .sidebar__item {
   padding-left: 56px; }
+
+.sidebar__icon.sidebar__icon--sub {
+  margin: 0;
+  font-size: medium; }
 
 .panel {
   display: inline-block;
@@ -335,8 +340,8 @@ a {
 
 .form__add-input {
   display: block;
-  margin: 10px auto 0;
-  width: 80%;
+  margin: 20px auto 0;
+  width: 52%;
   text-align: right; }
 
 .form__remove {
@@ -387,9 +392,11 @@ a {
 .form__list.form__list--center {
   display: block;
   margin: 0 auto;
-  width: 80%; }
+  width: 65%;
+  text-align: center; }
   .form__list.form__list--center .form__label-wrapper {
-    width: 20%; }
+    text-align: left;
+    padding: 10px 65px; }
   .form__list.form__list--center .form__input {
     width: 80%;
     position: relative; }
@@ -414,7 +421,7 @@ a {
 .button.button--add {
   display: inline-block;
   text-align: center;
-  width: 20%;
+  width: 25%;
   background-color: #1F6DA8;
   color: #FFFFFF; }
 

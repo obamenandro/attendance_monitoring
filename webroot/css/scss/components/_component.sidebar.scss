@@ -2,7 +2,6 @@
   display: inline-block;
   width: 20%;
   vertical-align: top;
-  padding: 20px 0;
   background: $secondary-color;
   position: fixed;
   left: 0;
@@ -15,7 +14,7 @@
     width: 100%;
     background: $secondary-color;
     font-size: $secondary-fontsize;
-    padding: 20px;
+    padding: 18px 20px;
     cursor: pointer;
     color: $white-color;
 
@@ -90,10 +89,19 @@
   &__sub-list {
     display: none;
   }
+
+  &__text {
+    vertical-align: middle;
+  }
 }
 
 .sidebar__item-list {
   .sidebar__item {
     padding-left: 56px;
   }
+}
+
+.sidebar__icon.sidebar__icon--sub {
+  margin: 0;
+  font-size: medium;
 }
