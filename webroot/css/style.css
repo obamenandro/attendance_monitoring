@@ -524,17 +524,21 @@ a {
 
 .user-panel {
   display: inline-block;
-  width: 76%;
+  margin-left: 20%;
+  width: 80%;
   vertical-align: top;
   border-radius: 5px;
-  border: 2px solid #C4C5C3;
-  padding: 10px;
-  background: #FFFFFF; }
+  background: #F0F0F0; }
+  .user-panel__container {
+    padding: 70px 10px 10px 3%; }
+  .user-panel__content {
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2; }
   .user-panel__greetings {
     font-size: 35px;
     color: #2D3134;
     text-align: center;
-    padding: 40px 0 20px;
+    padding: 35px 0 20px;
     font-weight: 600; }
   .user-panel__subtitle {
     display: block;

@@ -22,11 +22,7 @@ $this->layout = false;
 </head>
 <body>
 
-  <header class="header">
-    <div class="header__content">
-    
-    </div>
-  </header>
+  <?= $this->element('header') ?>
 
   <main class="main-content">
     <div class="main-content__bgcolor"></div>
@@ -66,86 +62,87 @@ $this->layout = false;
       </aside>
 
       <div class="user-panel">
-        <div class="user-panel__content">
+        <div class="user-panel__container">
+          <div class="user-panel__content">
 
-          <div class="user-panel__greetings">
-            <h2>Welcome, Denmark!</h2>
-            <p class="user-panel__subtitle">
-              What do you want to check?
-            </p>
+            <div class="user-panel__greetings">
+              <h2>Welcome, Denmark!</h2>
+              <p class="user-panel__subtitle">
+                What do you want to check?
+              </p>
+            </div>
+
+            <div class="user-panel__menu">
+              <ul>
+                <li class="user-panel__menu-list">
+                  <a href="" class="user-panel__menu-link">
+                    <div class="user-panel__menu-text">
+                      <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
+                      <span>Attendance Record</span>
+                      <p class="user-panel__paragraph">
+                        you can check your daily time record
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="user-panel__menu-list">
+                  <a href="" class="user-panel__menu-link">
+                    <div class="user-panel__menu-text">
+                      <i class="fa fa-bed user-panel__icon" aria-hidden="true"></i>
+                      <span>Leave</span>
+                      <p class="user-panel__paragraph">
+                        you can check your used and remaining leave
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="user-panel__menu-list">
+                  <a href="" class="user-panel__menu-link">
+                    <div class="user-panel__menu-text">
+                      <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
+                      <span>Schedule</span>
+                      <p class="user-panel__paragraph">
+                        you can check your schedule
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="user-panel__menu-list">
+                  <a href="" class="user-panel__menu-link">
+                    <div class="user-panel__menu-text">
+                      <i class="fa fa-medkit user-panel__icon" aria-hidden="true"></i>
+                      <span>Benefits</span>
+                      <p class="user-panel__paragraph">
+                        you can check your Benefits inside the company
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="user-panel__menu-list">
+                  <a href="" class="user-panel__menu-link">
+                    <div class="user-panel__menu-text">
+                      <i class="fa fa-cogs user-panel__icon" aria-hidden="true"></i>
+                      <span>Change Password</span>
+                      <p class="user-panel__paragraph">
+                        Change your password upon receiving the account
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="user-panel__menu-list">
+                  <a href="" class="user-panel__menu-link">
+                    <div class="user-panel__menu-text">
+                      <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>
+                      <span>Account</span>
+                      <p class="user-panel__paragraph">
+                        you can check your personal information on this section
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          <div class="user-panel__menu">
-            <ul>
-              <li class="user-panel__menu-list">
-                <a href="" class="user-panel__menu-link">
-                  <div class="user-panel__menu-text">
-                    <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
-                    <span>Attendance Record</span>
-                    <p class="user-panel__paragraph">
-                      you can check your daily time record
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="user-panel__menu-list">
-                <a href="" class="user-panel__menu-link">
-                  <div class="user-panel__menu-text">
-                    <i class="fa fa-bed user-panel__icon" aria-hidden="true"></i>
-                    <span>Leave</span>
-                    <p class="user-panel__paragraph">
-                      you can check your used and remaining leave
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="user-panel__menu-list">
-                <a href="" class="user-panel__menu-link">
-                  <div class="user-panel__menu-text">
-                    <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
-                    <span>Schedule</span>
-                    <p class="user-panel__paragraph">
-                      you can check your schedule
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="user-panel__menu-list">
-                <a href="" class="user-panel__menu-link">
-                  <div class="user-panel__menu-text">
-                    <i class="fa fa-plus-square user-panel__icon" aria-hidden="true"></i>
-                    <span>Benefits</span>
-                    <p class="user-panel__paragraph">
-                      you can check your Benefits inside the company
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="user-panel__menu-list">
-                <a href="" class="user-panel__menu-link">
-                  <div class="user-panel__menu-text">
-                    <i class="fa fa-cogs user-panel__icon" aria-hidden="true"></i>
-                    <span>Change Password</span>
-                    <p class="user-panel__paragraph">
-                      Change your password upon receiving the account
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li class="user-panel__menu-list">
-                <a href="" class="user-panel__menu-link">
-                  <div class="user-panel__menu-text">
-                    <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>
-                    <span>Account</span>
-                    <p class="user-panel__paragraph">
-                      you can check your personal information on this section
-                    </p>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-
         </div>
       </div>
     </div>
