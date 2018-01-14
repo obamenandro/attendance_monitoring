@@ -109,113 +109,180 @@
             </div>
           </div>
 
-          <div class="table">
-            <ul class="table__head">
-              <li class="table__head-list">Id</li>
-              <li class="table__head-list">Logged in</li>
-              <li class="table__head-list">Logged out</li>
-              <li class="table__head-list">Status</li>
-              <li class="table__head-list">Department</li>
-              <li class="table__head-list">Name</li>
-              <li class="table__head-list">Date</li>
-              <li class="table__head-list"></li>
-              <li class="table__head-list"></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1001</li>
-              <li class="table__body-list">9:00 AM</li>
-              <li class="table__body-list">4:30 PM</li>
-              <li class="table__body-list"><span class="table__note">Undertime</span></li>
-              <li class="table__body-list">Math Department</li>
-              <li class="table__body-list">Menandro</li>
-              <li class="table__body-list">2018-01-03</li>
-              <li class="table__body-list"><a href="#" class="table__view">View</a></li>
-              <li class="table__body-list"><a class="table__view js-table-edit">Edit</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1001</li>
-              <li class="table__body-list">9:00 AM</li>
-              <li class="table__body-list">4:30 PM</li>
-              <li class="table__body-list"><span class="table__note">Undertime</span></li>
-              <li class="table__body-list">Math Department</li>
-              <li class="table__body-list">Menandro</li>
-              <li class="table__body-list">2018-01-03</li>
-              <li class="table__body-list"><a href="#" class="table__view">View</a></li>
-              <li class="table__body-list"><a class="table__view js-table-edit">Edit</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1001</li>
-              <li class="table__body-list">9:00 AM</li>
-              <li class="table__body-list">4:30 PM</li>
-              <li class="table__body-list"><span class="table__note">Undertime</span></li>
-              <li class="table__body-list">Math Department</li>
-              <li class="table__body-list">Menandro</li>
-              <li class="table__body-list">2018-01-03</li>
-              <li class="table__body-list"><a href="#" class="table__view">View</a></li>
-              <li class="table__body-list"><a class="table__view js-table-edit">Edit</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1001</li>
-              <li class="table__body-list">9:00 AM</li>
-              <li class="table__body-list">4:30 PM</li>
-              <li class="table__body-list"><span>Completed</span></li>
-              <li class="table__body-list">Math Department</li>
-              <li class="table__body-list">Menandro</li>
-              <li class="table__body-list">2018-01-03</li>
-              <li class="table__body-list"><a href="#" class="table__view">View</a></li>
-              <li class="table__body-list"><a class="table__view js-table-edit">Edit</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1001</li>
-              <li class="table__body-list">9:00 AM</li>
-              <li class="table__body-list">4:30 PM</li>
-              <li class="table__body-list"><span class="table__note">Half Time</span></li>
-              <li class="table__body-list">Math Department</li>
-              <li class="table__body-list">Menandro</li>
-              <li class="table__body-list">2018-01-03</li>
-              <li class="table__body-list"><a href="#" class="table__view">View</a></li>
-              <li class="table__body-list"><a class="table__view js-table-edit">Edit</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1001</li>
-              <li class="table__body-list">9:00 AM</li>
-              <li class="table__body-list">4:30 PM</li>
-              <li class="table__body-list"><span>Completed</span></li>
-              <li class="table__body-list">Math Department</li>
-              <li class="table__body-list">Menandro</li>
-              <li class="table__body-list">2018-01-03</li>
-              <li class="table__body-list"><a href="#" class="table__view">View</a></li>
-              <li class="table__body-list"><a class="table__view js-table-edit">Edit</a></li>
-            </ul>
-          </div>
-
+          <table id="dataTable" class="display table" cellspacing="0" width="100%">
+            <thead>
+              <tr class="table__head">
+                <th class="table__head-list">ID</th>
+                <th class="table__head-list">Logged In</th>
+                <th class="table__head-list">Logged Out</th>
+                <th class="table__head-list">Status</th>
+                <th class="table__head-list">Department</th>
+                <th class="table__head-list">Name</th>
+                <th class="table__head-list">Date</th>
+                <th class="table__head-list">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">1001</td>
+                <td class="table__body-list">9:00 AM</td>
+                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list"><span class="table__note">Undertime</span></td>
+                <td class="table__body-list">Math Department</td>
+                <td class="table__body-list">Menandro</td>
+                <td class="table__body-list">2018-01-03</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">View</a>
+                  <a class="table__view js-table-edit">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </form>
-    </div>
-    <div class="pagination">
-      <ul>
-        <li class="pagination__list">
-          <a href="" class="pagination__link"><<</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">1</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">2</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">3</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">>></a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
@@ -352,5 +419,5 @@
   $('.modal__exit').on('click', function() {
     $('#js-modal-edit').hide();
     $('body').css('overflow-y', 'scroll');
-  })
+  });
 </script>

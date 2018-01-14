@@ -16,3 +16,30 @@ a {
   width: 600px;
   padding: 70px;
 }
+
+.table__head-list,
+.table__body-list {
+	padding: 15px 0!important;
+}
+
+.dataTables_wrapper {
+	padding: 20px 0 50px;	
+}
+
+.dataTables_paginate {
+	font-size: 12px;
+	padding-bottom: 20px !important;
+}
+
+.dataTables_length {
+	font-size: 12px;
+	padding: 0 0 15px;
+}
+
+.dataTables_length select {
+	width: 70px;
+  height: 30px;
+  border-radius: 5px;
+  vertical-align: middle;
+  border: 1px solid #C4C5C3;
+}

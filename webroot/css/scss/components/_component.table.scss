@@ -1,6 +1,4 @@
 .table {
-  display: block;
-  border: 1px solid $light-gray;
 
   &__head {
     background-color: $secondary-color;
@@ -10,21 +8,11 @@
   &__head-list,
   &__body-list {
     display: inline-block;
-    width: 13%;
+    width: 12.5%;
     vertical-align: top;
     font-size: $tertiary-fontsize;
-    padding: 15px 0;
     text-align: center;
     color: $white-color;
-
-    &:first-child {
-      width: 9%;
-    }
-
-    &:nth-child(8),
-    &:last-child {
-      width: 6%;
-    }
   }
 
   &__body {
@@ -44,6 +32,7 @@
   }
 
   &__view {
+    margin-left: 10px;
     color: $secondary-color;
     cursor: pointer;
   }

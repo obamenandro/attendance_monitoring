@@ -20,73 +20,69 @@
             </div>
           </div>
 
-          <div class="table table--view-list">
-            <ul class="table__head">
-              <li class="table__head-list">Id</li>
-              <li class="table__head-list">Department</li>
-              <li class="table__head-list">Action</li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">1</li>
-              <li class="table__body-list">Justice League</li>
-              <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">2</li>
-              <li class="table__body-list">Justice 1</li>
-              <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">3</li>
-              <li class="table__body-list">Justice 2</li>
-              <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">4</li>
-              <li class="table__body-list">Justice 3</li>
-              <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">5</li>
-              <li class="table__body-list">Justice 4</li>
-              <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-            </ul>
-
-            <ul class="table__body">
-              <li class="table__body-list">6</li>
-              <li class="table__body-list">Justice 5</li>
-              <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-            </ul>
-          </div>
+          <table id="dataTable" class="display table table--view-list" cellspacing="0" width="100%">
+            <thead>
+              <tr class="table__head">
+                <th class="table__head-list">ID</th>
+                <th class="table__head-list">Department</th>
+                <th class="table__head-list">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+              <tr class="table__body">
+                <td class="table__body-list">6</td>
+                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list">
+                  <a href="#" class="table__view">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
         </div>
       </form>
-
-      <div class="pagination">
-        <ul>
-          <li class="pagination__list">
-            <a href="" class="pagination__link"><<</a>
-          </li>
-          <li class="pagination__list">
-            <a href="" class="pagination__link">1</a>
-          </li>
-          <li class="pagination__list">
-            <a href="" class="pagination__link">2</a>
-          </li>
-          <li class="pagination__list">
-            <a href="" class="pagination__link">3</a>
-          </li>
-          <li class="pagination__list">
-            <a href="" class="pagination__link">>></a>
-          </li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </div>

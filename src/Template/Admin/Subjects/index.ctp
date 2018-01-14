@@ -2,7 +2,6 @@
   <h3>Subject List</h3>
 </div>
 
-
 <div class="panel__container">
   <div class="panel__content">
     <div class="form">

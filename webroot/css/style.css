@@ -52,6 +52,28 @@ a {
   width: 600px;
   padding: 70px; }
 
+.table__head-list,
+.table__body-list {
+  padding: 15px 0 !important; }
+
+.dataTables_wrapper {
+  padding: 20px 0 50px; }
+
+.dataTables_paginate {
+  font-size: 12px;
+  padding-bottom: 20px !important; }
+
+.dataTables_length {
+  font-size: 12px;
+  padding: 0 0 15px; }
+
+.dataTables_length select {
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+  vertical-align: middle;
+  border: 1px solid #C4C5C3; }
+
 /*components*/
 .header {
   position: fixed;
@@ -472,55 +494,40 @@ a {
   .login__flash {
     padding: 0 110px; }
 
-.table {
-  display: block;
-  border: 1px solid #C4C5C3; }
-  .table__head {
-    background-color: #049FDA;
-    font-size: 0; }
-  .table__head-list, .table__body-list {
-    display: inline-block;
-    width: 13%;
-    vertical-align: top;
-    font-size: 12px;
-    padding: 15px 0;
-    text-align: center;
-    color: #FFFFFF; }
-    .table__head-list:first-child, .table__body-list:first-child {
-      width: 9%; }
-    .table__head-list:nth-child(8), .table__head-list:last-child, .table__body-list:nth-child(8), .table__body-list:last-child {
-      width: 6%; }
-  .table__body:nth-child(odd) {
-    background: #EFFAFF;
-    border-top: 1px solid #666666;
-    border-bottom: 1px solid #666666; }
-  .table__body:last-child {
-    border-bottom: none; }
-  .table__body-list {
-    color: #666666; }
-  .table__view {
-    color: #049FDA;
-    cursor: pointer; }
-  .table__note {
-    color: #FF0000; }
+.table__head {
+  background-color: #049FDA;
+  font-size: 0; }
+
+.table__head-list, .table__body-list {
+  display: inline-block;
+  width: 12.5%;
+  vertical-align: top;
+  font-size: 12px;
+  text-align: center;
+  color: #FFFFFF; }
+
+.table__body:nth-child(odd) {
+  background: #EFFAFF;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666; }
+
+.table__body:last-child {
+  border-bottom: none; }
+
+.table__body-list {
+  color: #666666; }
+
+.table__view {
+  margin-left: 10px;
+  color: #049FDA;
+  cursor: pointer; }
+
+.table__note {
+  color: #FF0000; }
 
 .table.table--view-list .table__head-list,
 .table.table--view-list .table__body-list {
   width: 33.3%; }
-
-.pagination {
-  padding: 45px 0 35px;
-  text-align: center; }
-  .pagination__list {
-    display: inline-block;
-    width: 30px;
-    text-align: center;
-    vertical-align: middle; }
-  .pagination__link {
-    font-size: 14px;
-    color: #2D3134; }
-    .pagination__link:hover {
-      color: #049FDA; }
 
 .user-panel {
   display: inline-block;
