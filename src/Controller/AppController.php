@@ -65,7 +65,7 @@ class AppController extends Controller
         //     && $this->Auth->user('role') !== 1) {
         //     return $this->redirect('/admin/users/login');
         // } else {
-        //     $this->set('user', $this->Auth->user('firstname'));
+            $this->set('user', $this->Auth->user('firstname'));
         // }
         /*
          * Enable the following components for recommended CakePHP security settings.

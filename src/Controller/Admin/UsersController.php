@@ -86,6 +86,10 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
+    public function index() {
+
+    }
+
     public function add() {
 
     }
@@ -93,11 +97,6 @@ class UsersController extends AppController
     public function edit() {
 
     }
-
-    public function employee() {
-
-    }
-
     public function add_attendance() {
 
     }

@@ -27,7 +27,10 @@ class SubjectsController extends AppController
      */
     public function index()
     {
+        $subjects = $this->Subjects->find('all')
+            ->where(['del_flg' => 0]);
 
+        $this->set(compact('subjects'));
     }
 
     /**

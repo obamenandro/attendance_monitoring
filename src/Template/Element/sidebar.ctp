@@ -16,13 +16,13 @@
         </a>
         <ul class="sidebar__sub-list">
           <li class="sidebar__item-list">
-            <a href="" class="sidebar__item">
+            <a href="/admin/users/add" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Employee Registration</span>
             </a>
           </li>
           <li class="sidebar__item-list">
-            <a href="" class="sidebar__item">
+            <a href="/admin/users" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Employee List</span>
             </a>
@@ -37,13 +37,13 @@
         </a>
         <ul class="sidebar__sub-list">
           <li class="sidebar__item-list">
-            <a href="" class="sidebar__item">
+            <a href="/admin/subjects/add" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Subject Registration</span>
             </a>
           </li>
           <li class="sidebar__item-list">
-            <a href="" class="sidebar__item">
+            <a href="/admin/subjects" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Subject List</span>
             </a>
@@ -58,13 +58,13 @@
         </a>
         <ul class="sidebar__sub-list">
           <li class="sidebar__item-list">
-            <a href="" class="sidebar__item">
+            <a href="/admin/departments/add" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Department Registration</span>
             </a>
           </li>
           <li class="sidebar__item-list">
-            <a href="" class="sidebar__item">
+            <a href="/admin/departments" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Department List</span>
             </a>

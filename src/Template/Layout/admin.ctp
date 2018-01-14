@@ -17,6 +17,7 @@ $this->layout = false;
   <?= $this->Html->css('plugins/font-awesome-4.7.0/css/font-awesome.min.css') ?>
   <?= $this->Html->css('style.css') ?>
   <?= $this->Html->script('jquery-3.1.0.min.js') ?>
+  <?= $this->Html->script('jquery.dataTables.min.js') ?>
   <?= $this->Html->script('plugins/jquery-ui-1.12.1/jquery-ui.min.js') ?>
   <?= $this->Html->script('plugins/jfiler/jquery.filer.min.js') ?>
 </head>
