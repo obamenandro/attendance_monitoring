@@ -16,22 +16,24 @@
               <input type="submit" name="" class="panel__search-button" value="search">
             </div>
           </div>
-
-          <div class="table table--view-list" id="subjectTable">
-            <ul class="table__head">
-              <li class="table__head-list">Id</li>
-              <li class="table__head-list">Subject</li>
-              <li class="table__head-list">Action</li>
-            </ul>
-            <?php foreach($subjects as $subject): ?>
-              <ul class="table__body">
-                <li class="table__body-list"><?= $subject->id ?></li>
-                <li class="table__body-list"><?= $subject->name ?></li>
-                <li class="table__body-list"><a href="#" class="table__view">Delete</a></li>
-              </ul>
-            <?php endforeach; ?>
-          </div>
-
+          <table id="dataTable" class="display table" cellspacing="0" width="100%">
+             <thead>
+              <tr class="table__head">
+                <th class="table__head-list">ID</th>
+                <th class="table__head-list">Subject</th>
+                <th class="table__head-list">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach($subjects as $subject): ?>
+              <tr class="table__body">
+                <td class="table__body-list"><?= $subject->id ?></td>
+                <td class="table__body-list"><?= $subject->name ?></td>
+                <td class="table__body-list"><a href="#" class="table__view">Delete</a></td>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
         </div>
       </form>
 
