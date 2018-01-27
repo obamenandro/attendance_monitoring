@@ -1,12 +1,14 @@
-<div class="panel">
+<div class="panel__title">
+  <h3>Register Department</h3>
+</div>
+
+<div class="panel__container">
+  <?= $this->Flash->render() ?>  
   <div class="panel__content">
     <div class="form">
       <?= $this->Flash->render() ?>
       <?= $this->Form->create(); ?>
         <div class="form__content">
-          <div class="form__title">
-            <h3>Register Department</h3>
-          </div>
           <div class="form__data">
             <div class="form__info">
               <div class="form__list form__list--center">
@@ -34,7 +36,7 @@
 
 <script type="text/javascript">
   $('.button--add').on('click', function() {
-    $('.form__info').append('<div class="form__list form__list--center"><div class="form__label-wrapper"></div><div class="form__input"><input type="text" name="" class="form__inputbox"></div></div>');
+    $('.form__info').append('<div class="form__list form__list--center"><div class="form__input"><input type="text" name="" class="form__inputbox"></div></div>');
   });
 
   $('html').delegate('.form__remove','click', function() {
