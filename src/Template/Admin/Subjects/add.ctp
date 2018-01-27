@@ -4,7 +4,6 @@
 
 <div class="panel__container">
   <?= $this->Flash->render() ?>
-  
   <div class="panel__content">
     <div class="form">
       <?= $this->Form->create(); ?>

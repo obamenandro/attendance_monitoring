@@ -74,6 +74,10 @@ a {
   vertical-align: middle;
   border: 1px solid #C4C5C3; }
 
+.table.table--view-list .table__head-list,
+.table.table--view-list .table__body-list {
+  width: 33.3% !important; }
+
 /*components*/
 .header {
   position: fixed;
@@ -525,10 +529,6 @@ a {
 .table__note {
   color: #FF0000; }
 
-.table.table--view-list .table__head-list,
-.table.table--view-list .table__body-list {
-  width: 33.3%; }
-
 .user-panel {
   display: inline-block;
   margin-left: 20%;
@@ -693,7 +693,7 @@ a {
 
 .flash-message {
   margin-top: 15px;
-  background: #FFFFFF;
+  background: #DDFBE2;
   border-radius: 8px;
   position: relative;
   border: 2px solid #05A205;
@@ -729,7 +729,8 @@ a {
     color: #05A205; }
 
 .flash-message.flash-message--error {
-  border: 3px solid #FF5050; }
+  border: 3px solid #FF5050;
+  background: #FFE8E8; }
   .flash-message.flash-message--error .flash-message__close {
     background: #FF5050; }
   .flash-message.flash-message--error .flash-message__text-status,

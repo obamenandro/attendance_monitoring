@@ -43,3 +43,10 @@ a {
   vertical-align: middle;
   border: 1px solid #C4C5C3;
 }
+
+.table.table--view-list {
+  .table__head-list,
+  .table__body-list {
+    width: 33.3% !important;
+  }
+}
