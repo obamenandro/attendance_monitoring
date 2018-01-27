@@ -1,16 +1,24 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
+use Cake\Core\Configure;
+use Cake\Event\Event;
 /**
  * Admin/Departments Controller
  *
  *
  * @method \App\Model\Entity\Admin/Department[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class Admin/DepartmentsController extends AppController
+class DepartmentsController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('Admin');
+    }
 
     /**
      * Index method
@@ -19,9 +27,7 @@ class Admin/DepartmentsController extends AppController
      */
     public function index()
     {
-        $admin/departments = $this->paginate($this->Admin/Departments);
-
-        $this->set(compact('admin/departments'));
+       
     }
 
     /**
@@ -33,11 +39,7 @@ class Admin/DepartmentsController extends AppController
      */
     public function view($id = null)
     {
-        $admin/department = $this->Admin/Departments->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('admin/department', $admin/department);
+        
     }
 
     /**
@@ -47,17 +49,18 @@ class Admin/DepartmentsController extends AppController
      */
     public function add()
     {
-        $admin/department = $this->Admin/Departments->newEntity();
-        if ($this->request->is('post')) {
-            $admin/department = $this->Admin/Departments->patchEntity($admin/department, $this->request->getData());
-            if ($this->Admin/Departments->save($admin/department)) {
-                $this->Flash->success(__('The admin/department has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+        $this->Department = TableRegistry::get('Departments');
+        if ($this->request->is('POST')) {
+            $entities = $this->Department->newEntities($this->request->getData('data'));
+            foreach ($entities as $entity) {
+                if (!$this->Department->save($entity)) {
+                    $this->Flash->error(__('Your department has been failed to added.'));
+                    return $this->redirect('/admin/departments/add');
+                }
             }
-            $this->Flash->error(__('The admin/department could not be saved. Please, try again.'));
+            $this->Flash->success(__('Your department has been successfully added.'));
+            return $this->redirect('/admin/departments/add');
         }
-        $this->set(compact('admin/department'));
     }
 
     /**
@@ -69,19 +72,7 @@ class Admin/DepartmentsController extends AppController
      */
     public function edit($id = null)
     {
-        $admin/department = $this->Admin/Departments->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $admin/department = $this->Admin/Departments->patchEntity($admin/department, $this->request->getData());
-            if ($this->Admin/Departments->save($admin/department)) {
-                $this->Flash->success(__('The admin/department has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The admin/department could not be saved. Please, try again.'));
-        }
-        $this->set(compact('admin/department'));
+       
     }
 
     /**
@@ -93,14 +84,6 @@ class Admin/DepartmentsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $admin/department = $this->Admin/Departments->get($id);
-        if ($this->Admin/Departments->delete($admin/department)) {
-            $this->Flash->success(__('The admin/department has been deleted.'));
-        } else {
-            $this->Flash->error(__('The admin/department could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);
+        
     }
 }
