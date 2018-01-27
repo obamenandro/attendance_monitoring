@@ -28,10 +28,15 @@ class SubjectsController extends AppController
      */
     public function index()
     {
-        $subjects = $this->Subjects->find('all')
-            ->where(['del_flg' => 0]);
+        $condition = [];
+        if (isset($_GET['name'])) {
+            $condition['name LIKE'] = '%'.$_GET['name'].'%';
+        }
+        $condition['del_flg'] = 0;
+        $subjects = $this->Subject->find('all')
+            ->where([$condition]);
 
-        $this->set(compact('subjects'));
+        $this->set(compact('subjects')); 
     }
 
     /**

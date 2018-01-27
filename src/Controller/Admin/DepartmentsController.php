@@ -28,8 +28,13 @@ class DepartmentsController extends AppController
      */
     public function index()
     {
+        $condition = [];
+        if (isset($_GET['name'])) {
+            $condition['name LIKE'] = '%'.$_GET['name'].'%';
+        }
+        $condition['del_flg'] = 0;
         $departments = $this->Department->find('all')
-            ->where(['del_flg' => 0]);
+            ->where([$condition]);
 
         $this->set(compact('departments'));  
     }
@@ -101,4 +106,5 @@ class DepartmentsController extends AppController
         }
         return $this->redirect('/admin/departments');
     }
+
 }
