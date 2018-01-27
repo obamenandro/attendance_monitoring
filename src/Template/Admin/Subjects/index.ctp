@@ -17,7 +17,7 @@
               <input type="submit" name="" class="panel__search-button" value="search">
             </div>
           </div>
-          <table id="dataTable" class="display table table--view-list" cellspacing="0" width="100%">
+          <table id="dataTable" class="display table table--view-list">
              <thead>
               <tr class="table__head">
                 <th class="table__head-list">ID</th>
