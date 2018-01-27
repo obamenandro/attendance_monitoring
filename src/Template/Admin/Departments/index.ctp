@@ -3,9 +3,7 @@
 </div>
 
 <div class="panel__container">
-  <?= $this->element('Flash/success') ?>
-  <?= $this->element('Flash/error') ?>
-
+  <?= $this->Flash->render() ?>     
   <div class="panel__content">
     <div class="form">
       <form>
@@ -29,60 +27,26 @@
               </tr>
             </thead>
             <tbody>
+              <?php foreach($departments as $key => $value): ?>
               <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
+                <td class="table__body-list"><?= $value['id'] ?></td>
+                <td class="table__body-list"><?= $value['name'] ?></td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
+                  <a href="javascript:void(0);" class="table__view" onclick="deleteDepartment(<?= $value['id'] ?>)">Delete</a>
                 </td>
               </tr>
-              <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">6</td>
-                <td class="table__body-list">Justice 5</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">Delete</a>
-                </td>
-              </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
-
         </div>
       </form>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  function deleteDepartment (id) {
+    if (confirm("Do you want to delete this department?")) {
+      window.location.href = "/admin/departments/delete/"+id;
+    }
+  }
+</script>

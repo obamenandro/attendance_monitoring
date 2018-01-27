@@ -15,6 +15,7 @@ class Departments extends AbstractMigration
         $departmentsTable = $this->table('departments');
         $departmentsTable
             ->addColumn('name', 'string', ['length' => 255])
+            ->addColumn('del_flg', 'integer', ['length' => 11, 'default' => 0])
             ->addColumn('created', 'datetime', [
                 'default' => 'CURRENT_TIMESTAMP',
                 'limit' => null,

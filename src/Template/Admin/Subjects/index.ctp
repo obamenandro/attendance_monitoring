@@ -3,6 +3,7 @@
 </div>
 
 <div class="panel__container">
+  <?= $this->Flash->render() ?>    
   <div class="panel__content">
     <div class="form">
       <form>
@@ -29,7 +30,7 @@
               <tr class="table__body">
                 <td class="table__body-list"><?= $subject->id ?></td>
                 <td class="table__body-list"><?= $subject->name ?></td>
-                <td class="table__body-list"><a href="#" class="table__view">Delete</a></td>
+                <td class="table__body-list"><a href="javascript:void(0);" onclick="deleteSubject(<?= $subject->id ?>)" class="table__view">Delete</a></td>
               </tr>
               <?php endforeach; ?>
             </tbody>
@@ -64,4 +65,9 @@
   $(document).ready(function(){
     $('#subjectTable').dataTable();
   });
+  function deleteSubject (id) {
+    if (confirm("Do you want to delete this subject?")) {
+      window.location.href = "/admin/subjects/delete/"+id;
+    }
+  }
 </script>

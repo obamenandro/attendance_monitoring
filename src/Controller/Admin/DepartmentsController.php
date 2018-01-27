@@ -18,6 +18,7 @@ class DepartmentsController extends AppController
     {
         parent::initialize();
         $this->viewBuilder()->setLayout('Admin');
+        $this->Department = TableRegistry::get('Departments');
     }
 
     /**
@@ -27,7 +28,10 @@ class DepartmentsController extends AppController
      */
     public function index()
     {
-       
+        $departments = $this->Department->find('all')
+            ->where(['del_flg' => 0]);
+
+        $this->set(compact('departments'));  
     }
 
     /**
@@ -49,17 +53,19 @@ class DepartmentsController extends AppController
      */
     public function add()
     {
-        $this->Department = TableRegistry::get('Departments');
         if ($this->request->is('POST')) {
-            $entities = $this->Department->newEntities($this->request->getData('data'));
-            foreach ($entities as $entity) {
-                if (!$this->Department->save($entity)) {
-                    $this->Flash->error(__('Your department has been failed to added.'));
-                    return $this->redirect('/admin/departments/add');
+            $datas = $this->request->getData('data');
+            foreach ($datas as $key => $value) {
+                if (empty($value['name'])) {
+                    unset($datas[$key]);
                 }
             }
+            $entities = $this->Department->newEntities($datas);
+            foreach ($entities as $entity) {
+                $this->Department->save($entity);
+            }
             $this->Flash->success(__('Your department has been successfully added.'));
-            return $this->redirect('/admin/departments/add');
+            return $this->redirect('/admin/departments');
         }
     }
 
@@ -84,6 +90,15 @@ class DepartmentsController extends AppController
      */
     public function delete($id = null)
     {
-        
+        $this->autoRender    = false;
+        $department          = $this->Department->get($id);
+        $department->del_flg = 1;
+
+        if ($this->Department->save($department)) {
+            $this->Flash->success(__('Your department has been deleted.'));
+        } else {
+            $this->Flash->success(__('Your department has been failed to delete.'));
+        }
+        return $this->redirect('/admin/departments');
     }
 }

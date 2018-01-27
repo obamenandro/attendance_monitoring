@@ -19,6 +19,7 @@ class SubjectsController extends AppController
     {
         parent::initialize();
         $this->viewBuilder()->setLayout('Admin');
+        $this->Subject = TableRegistry::get('Subjects');
     }
     /**
      * Index method
@@ -52,17 +53,13 @@ class SubjectsController extends AppController
      */
     public function add()
     {
-        $this->Subject = TableRegistry::get('Subjects');
         if ($this->request->is('POST')) {
             $entities = $this->Subject->newEntities($this->request->getData('data'));
             foreach ($entities as $entity) {
-                if (!$this->Subject->save($entity)) {
-                    $this->Flash->error(__('Your subject has been failed to added.'));
-                    return $this->redirect('/admin/subjects/add');
-                }
+                $this->Subject->save($entity);
             }
             $this->Flash->success(__('Your subject has been successfully added.'));
-            return $this->redirect('/admin/subjects/add');
+            return $this->redirect('/admin/subjects/');
         }
     }
 
@@ -87,6 +84,15 @@ class SubjectsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->autoRender = false;
+        $subject          = $this->Subject->get($id);
+        $subject->del_flg = 1;
 
+        if ($this->Subject->save($subject)) {
+            $this->Flash->success(__('Your subject has been deleted.'));
+        } else {
+            $this->Flash->success(__('Your subject has been failed to delete.'));
+        }
+        return $this->redirect('/admin/subjects');
     }
 }
