@@ -28,7 +28,7 @@
             </div>
           </div>
 
-          <table id="dataTable" class="display table" cellspacing="0" width="100%">
+          <table id="dataTable" class="display table">
             <thead>
               <tr class="table__head">
                 <th class="table__head-list">ID</th>
