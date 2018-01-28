@@ -3,6 +3,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
+use App\Form\EmployeeRegistrationForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 
@@ -91,7 +92,19 @@ class UsersController extends AppController
     }
 
     public function add() {
-
+        $addForm = new EmployeeRegistrationForm();
+        if ($this->request->is('post')) {
+            if ($addForm->execute($this->request->getData())) {
+                // $user = $this->Users->patchEntity($user, $this->request->getData());
+                // if ($this->Users->save($user)) {
+                //     return $this->redirect(['action' => 'productivity']);
+                // }
+                // $this->Flash->error(__('Success'));
+            } else {
+                $this->Flash->error(__('Invalid Input'));
+            }
+        }
+        $this->set('addForm', $addForm);
     }
 
     public function edit() {

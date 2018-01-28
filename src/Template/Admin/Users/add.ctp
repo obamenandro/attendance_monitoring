@@ -3,12 +3,15 @@
 </div>
 
 <div class="panel__container">
-  <?= $this->element('Flash/success') ?>
-  <?= $this->element('Flash/error') ?>
-
+  <?= $this->Flash->render(); ?> 
   <div class="panel__content">
     <div class="form">
-      <form method="POST" enctype="multipart/form-data">
+      <?= 
+        $this->Form->create($addForm, [
+          'enctype' => 'multipart/form-data',
+          'type'    => 'POST'
+        ]); 
+      ?>
         <div class="form__content">
           <div class="form__data">
             <div class="form__info">
@@ -17,8 +20,15 @@
                   <label class="form__label">Last Name:</label>
                 </div>
                 <div class="form__input">
-                  <input type="text" name="" class="form__inputbox">
-                  <span class="form__error">Error</span>
+                  <?= 
+                    $this->Form->control('lastname', [
+                      'type'     => 'text',
+                      'class'    => 'form__inputbox',
+                      'label'    => false,
+                      'required' => false
+                    ]); 
+                  ?>
+                  <span class="form__error"><?= $this->Form->error('lastname');?></span>
                 </div>
               </div>
 
@@ -27,7 +37,14 @@
                   <label class="form__label">First Name:</label>
                 </div>
                 <div class="form__input">
-                  <input type="text" name="" class="form__inputbox">
+                  <?= 
+                    $this->Form->control('firstname', [
+                      'type'     => 'text',
+                      'class'    => 'form__inputbox',
+                      'label'    => false,
+                      'required' => false
+                    ]); 
+                  ?>
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -37,7 +54,14 @@
                   <label class="form__label">Middle Name:</label>
                 </div>
                 <div class="form__input">
-                  <input type="text" name="" class="form__inputbox">
+                  <?= 
+                    $this->Form->control('middlename', [
+                      'type'     => 'text',
+                      'class'    => 'form__inputbox',
+                      'label'    => false,
+                      'required' => false
+                    ]); 
+                  ?>
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -350,7 +374,7 @@
             </div>
           </div>
         </div>
-      </form>
+      <?= $this->Form->end(); ?>
     </div>
   </div>
 </div>
