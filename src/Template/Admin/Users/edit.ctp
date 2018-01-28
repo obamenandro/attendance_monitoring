@@ -11,22 +11,6 @@
             <div class="form__info">
               <div class="form__list">
                 <div class="form__label-wrapper">
-                  <label class="form__label">Prefix:</label>
-                </div>
-                <div class="form__input">
-                  <select class="form__inputbox">
-                    <option selected>--Select--</option>
-                    <option>Mr.</option>
-                    <option>Ms.</option>
-                    <option>Mrs.</option>
-                  </select>
-                  <span class="form__error">Error</span>
-                </div>
-              </div>
-            </div>
-            <div class="form__info">
-              <div class="form__list">
-                <div class="form__label-wrapper">
                   <label class="form__label">Last Name:</label>
                 </div>
                 <div class="form__input">
@@ -61,7 +45,7 @@
                 <label class="form__label">Birth date:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox form__date" placeholder="yyyy/mm/dd">
+                <input type="text" name="" class="form__inputbox" id="form__date" placeholder="yyyy/mm/dd">
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -121,7 +105,14 @@
                 <label class="form__label">Civil Status:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <select class="form__inputbox">
+                  <option>--Select--</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                  <option>Divorced</option>
+                  <option>Others</option>
+                </select>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -138,8 +129,7 @@
                 <label class="form__label">GSIS/SSS Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-                <span class="form__error">Error</span>
+                <input type="text" name="" class="form__inputbox" disabled value="333333333333">
               </div>
             </div>
 
@@ -148,8 +138,7 @@
                 <label class="form__label">TIN Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-                <span class="form__error">Error</span>
+                <input type="text" name="" class="form__inputbox" disabled value="333333333333">
               </div>
             </div>
 
@@ -158,8 +147,7 @@
                 <label class="form__label">Philhealth Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-                <span class="form__error">Error</span>
+                <input type="text" name="" class="form__inputbox" disabled value="333333333333">
               </div>
             </div>
 
@@ -168,8 +156,7 @@
                 <label class="form__label">Pagibig Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-                <span class="form__error">Error</span>
+                <input type="text" name="" class="form__inputbox" disabled value="333333333333">
               </div>
             </div>
           </div>
@@ -369,7 +356,7 @@
 </div>
 
 <script type="text/javascript">
-  $('.form__date').datepicker();
+   $("#form__date").datepicker();
 
   $('#input2').filer({
             limit: null,
