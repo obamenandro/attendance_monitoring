@@ -45,7 +45,7 @@
                       'required' => false
                     ]); 
                   ?>
-                  <span class="form__error">Error</span>
+                  <span class="form__error"><?= $this->Form->error('firstname');?></span>
                 </div>
               </div>
 
@@ -62,7 +62,7 @@
                       'required' => false
                     ]); 
                   ?>
-                  <span class="form__error">Error</span>
+                  <span class="form__error"><?= $this->Form->error('middlename');?></span>
                 </div>
               </div>
             </div>
@@ -72,8 +72,16 @@
                 <label class="form__label">Birth date:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox" id="form__date" placeholder="yyyy-mm-dd">
-                <span class="form__error">Error</span>
+                <?= 
+                  $this->Form->control('bday', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('bday');?></span>
               </div>
             </div>
 
@@ -82,7 +90,14 @@
                 <label class="form__label">Address:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?= 
+                  $this->Form->control('address', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -92,7 +107,15 @@
                 <label class="form__label">Contact Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('contact', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -102,7 +125,15 @@
                 <label class="form__label">Email Address:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?= 
+                  $this->Form->control('email', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -112,7 +143,15 @@
                 <label class="form__label">Place of Birth:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('place_of_birth', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -122,7 +161,15 @@
                 <label class="form__label">Citizenship:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('citizenship', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -153,10 +200,36 @@
            
             <div class="form__list">
               <div class="form__label-wrapper">
-                <label class="form__label">GSIS/SSS Number:</label>
+                <label class="form__label">SSS Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('sss', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
+                <span class="form__error">Error</span>
+              </div>
+            </div>
+
+            <div class="form__list">
+              <div class="form__label-wrapper">
+                <label class="form__label">GSIS Number:</label>
+              </div>
+              <div class="form__input form__input--fullwidth">
+                <?=
+                  $this->Form->control('gsis', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -166,7 +239,15 @@
                 <label class="form__label">TIN Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('tin', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -176,7 +257,15 @@
                 <label class="form__label">Philhealth Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('philhealth', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -186,7 +275,15 @@
                 <label class="form__label">Pagibig Number:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('pagibig', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'id'       => 'form__date',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error">Error</span>
               </div>
             </div>
