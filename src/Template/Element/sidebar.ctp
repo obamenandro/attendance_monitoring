@@ -2,7 +2,7 @@
   <nav class="sidebar__menu">
     <ul>
       <li class="sidebar__list">
-        <a href="#" class="sidebar__item">
+        <a href="#" class="sidebar__item sidebar__item--active">
           <i class="fa fa-home sidebar__icon" aria-hidden="true"></i>
           <span class="sidebar__link-text">Home</span>
           <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>

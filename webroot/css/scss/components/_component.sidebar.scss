@@ -105,3 +105,8 @@
   margin: 0;
   font-size: medium;
 }
+
+.sidebar__item.sidebar__item--active {
+  background: #F0F0F0;
+  color: #049FDA;
+}

@@ -72,7 +72,7 @@
                 <label class="form__label">Birth date:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox form__date" placeholder="yyyy/mm/dd">
+                <input type="text" name="" class="form__inputbox" id="form__date" placeholder="yyyy-mm-dd">
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -132,7 +132,14 @@
                 <label class="form__label">Civil Status:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <select class="form__inputbox">
+                  <option>--Select--</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                  <option>Divorced</option>
+                  <option>Others</option>
+                </select>
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -380,7 +387,9 @@
 </div>
 
 <script type="text/javascript">
-  $('.form__date').datepicker();
+  $('#form__date').datepicker({
+    format: 'yyyy-mm-dd'
+  });
 
   $('#input2').filer({
             limit: null,
