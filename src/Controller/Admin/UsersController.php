@@ -3,6 +3,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
+use App\Form\EmployeeRegistrationForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 
@@ -91,7 +92,21 @@ class UsersController extends AppController
     }
 
     public function add() {
+        $addForm          = new EmployeeRegistrationForm();
+        $civilStatus      =  Configure::read('civil_status');
+        $this->Department = TableRegistry::get('Departments');
 
+        $departments = $this->Department->find('all')
+            ->where(['del_flg' => 0]);
+
+        if ($this->request->is('post')) {
+            if ($addForm->execute($this->request->getData())) {
+
+            } else {
+                $this->Flash->error(__('Invalid Input'));
+            }
+        }
+        $this->set(compact('addForm', 'civilStatus', 'departments'));
     }
 
     public function edit() {
