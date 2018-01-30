@@ -223,3 +223,14 @@ Configure::write('civil_status', [
     '4' => 'Divorced',
     '5' => 'Others'
 ]);
+
+Configure::write('job_type', [
+    '1' => 'Full Time',
+    '2' => 'Part Time',
+    '3' => 'Resigned'
+]);
+
+Configure::write('designation', [
+    '1' => 'Teaching',
+    '2' => 'Non-Teaching'
+]);

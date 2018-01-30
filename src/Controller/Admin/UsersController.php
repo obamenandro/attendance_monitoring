@@ -93,10 +93,16 @@ class UsersController extends AppController
 
     public function add() {
         $addForm          = new EmployeeRegistrationForm();
-        $civilStatus      =  Configure::read('civil_status');
+        $civilStatus      = Configure::read('civil_status');
+        $designation      = Configure::read('designation');
+        $jobtype          = Configure::read('job_type');
         $this->Department = TableRegistry::get('Departments');
+        $this->Subject    = TableRegistry::get('Subjects');
 
         $departments = $this->Department->find('all')
+            ->where(['del_flg' => 0]);
+
+        $subjects = $this->Subject->find('all')
             ->where(['del_flg' => 0]);
 
         if ($this->request->is('post')) {
@@ -106,7 +112,7 @@ class UsersController extends AppController
                 $this->Flash->error(__('Invalid Input'));
             }
         }
-        $this->set(compact('addForm', 'civilStatus', 'departments'));
+        $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
     }
 
     public function edit() {

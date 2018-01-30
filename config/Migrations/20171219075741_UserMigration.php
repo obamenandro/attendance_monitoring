@@ -40,7 +40,6 @@ class UserMigration extends AbstractMigration
                 'length' => 11,
                 'null' => true
             ])
-            ->addColumn('government_id', 'integer', ['length' => 1])
             ->addColumn('educational_attainment', 'string', ['length' => 255])
             ->addColumn('eligibility', 'string', [
                 'default'=>null,
@@ -62,7 +61,7 @@ class UserMigration extends AbstractMigration
                 'length' => 11,
                 'null' => true
             ])
-            ->addColumn('destination_id', 'integer', [
+            ->addColumn('designation', 'integer', [
                 'default'=>null,
                 'length' => 11,
                 'null' => true
