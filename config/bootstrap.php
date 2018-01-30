@@ -215,3 +215,11 @@ if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
 Plugin::load('Migrations');
+
+Configure::write('civil_status', [
+    '1' => 'Single',
+    '2' => 'Married',
+    '3' => 'Widowed',
+    '4' => 'Divorced',
+    '5' => 'Others'
+]);

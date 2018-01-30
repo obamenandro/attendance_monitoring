@@ -92,19 +92,21 @@ class UsersController extends AppController
     }
 
     public function add() {
-        $addForm = new EmployeeRegistrationForm();
+        $addForm          = new EmployeeRegistrationForm();
+        $civilStatus      =  Configure::read('civil_status');
+        $this->Department = TableRegistry::get('Departments');
+
+        $departments = $this->Department->find('all')
+            ->where(['del_flg' => 0]);
+
         if ($this->request->is('post')) {
             if ($addForm->execute($this->request->getData())) {
-                // $user = $this->Users->patchEntity($user, $this->request->getData());
-                // if ($this->Users->save($user)) {
-                //     return $this->redirect(['action' => 'productivity']);
-                // }
-                // $this->Flash->error(__('Success'));
+
             } else {
                 $this->Flash->error(__('Invalid Input'));
             }
         }
-        $this->set('addForm', $addForm);
+        $this->set(compact('addForm', 'civilStatus', 'departments'));
     }
 
     public function edit() {
