@@ -384,6 +384,21 @@ a {
   color: #FF0000;
   cursor: pointer; }
 
+.form__upload-picture {
+  object-fit: cover;
+  width: 150px;
+  height: 150px; }
+
+.form__upload-image {
+  display: inline-block;
+  width: 15%;
+  vertical-align: middle; }
+
+.form__list-image {
+  display: inline-block;
+  width: 35%;
+  vertical-align: middle; }
+
 .form__input.form__input--fullwidth {
   width: 83%; }
 
@@ -412,7 +427,8 @@ a {
 
 .form__list.form__list--uploadimage {
   width: 100%;
-  padding: 20px 0; }
+  padding: 20px 0;
+  text-align: center; }
 
 .form__data.form__data--modal {
   padding: 5px 15px; }
@@ -433,6 +449,11 @@ a {
     width: 80%;
     position: relative;
     text-align: left; }
+
+.form__inputbox.form__inputbox--textarea {
+  height: 100px;
+  resize: none;
+  width: 100%; }
 
 .button {
   padding: 10px;

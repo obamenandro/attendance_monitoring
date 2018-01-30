@@ -132,7 +132,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -145,7 +144,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -158,7 +156,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -171,7 +168,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -184,7 +180,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -197,7 +192,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -210,7 +204,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -223,7 +216,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -236,7 +228,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -249,7 +240,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -262,7 +252,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>
@@ -275,7 +264,6 @@
                 <td class="table__body-list">Menandro</td>
                 <td class="table__body-list">2018-01-03</td>
                 <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
                   <a class="table__view js-table-edit">Edit</a>
                 </td>
               </tr>

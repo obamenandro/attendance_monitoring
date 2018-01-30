@@ -12,14 +12,12 @@ $this->layout = false;
   <link rel="icon" href="/img/logo/namei_logo.ico">
   <title><?php echo __('Namei Polytechnic Institute'); ?></title>
   <?= $this->Html->css('/js/plugins/bootstrap-datepicker/datepicker.css') ?>
-  <?= $this->Html->css('/js/plugins/jfiler/jquery.filer-dragdropbox-theme.css') ?>
   <?= $this->Html->css('plugins/font-awesome-4.7.0/css/font-awesome.min.css') ?>
   <?= $this->Html->css('/js/plugins/datatables/datatables.min.css') ?>
   <?= $this->Html->css('style.css') ?>
   <?= $this->Html->script('jquery-3.1.0.min.js') ?>
   <?= $this->Html->script('jquery.dataTables.min.js') ?>
   <?= $this->Html->script('plugins/bootstrap-datepicker/datepicker.js') ?>
-  <?= $this->Html->script('plugins/jfiler/jquery.filer.min.js') ?>
   <?= $this->Html->script('plugins/datatables/datatables.min.js') ?>
   <?= $this->Html->script('common.js') ?>
 </head>
