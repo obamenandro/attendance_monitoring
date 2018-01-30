@@ -106,6 +106,8 @@ class UsersController extends AppController
             ->where(['del_flg' => 0]);
 
         if ($this->request->is('post')) {
+            pr($this->request->getData());
+            die();
             if ($addForm->execute($this->request->getData())) {
 
             } else {
