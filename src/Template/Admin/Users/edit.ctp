@@ -264,7 +264,7 @@
               </div>
             </div>
 
-            <div class="form__list form__list--enumerate">
+            <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Seminars training:</label>
               </div>
@@ -322,7 +322,7 @@
               </div>
             </div>
 
-            <div class="form__list form__list--enumerate">
+            <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Work Experience:</label>
               </div>
@@ -364,6 +364,7 @@
 
 <script type="text/javascript">
   $("#form__date").datepicker({
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    endDate: '+0d'
   });
 </script>
