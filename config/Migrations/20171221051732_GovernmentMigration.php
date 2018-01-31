@@ -14,33 +14,49 @@ class GovernmentMigration extends AbstractMigration
     {
         $usersTable = $this->table('governments');
         $usersTable
-            ->addColumn('user_id', 'integer', ['length' => 11])
-             ->addColumn('sss', 'integer', [
-                'default'=>null,
-                'length' => 11,
-                'null' => true
+            ->addColumn('user_id', 'integer', [
+                'length' => 11
             ])
-            ->addColumn('gsis', 'integer', [
-                'default'=>null,
-                'length' => 11,
-                'null' => true
+             ->addColumn('sss_number', 'biginteger', [
+                'default' => null,
+                'length'  => 11,
+                'null'    => true
             ])
-            ->addColumn('tin', 'integer', [
-                'default'=>null,
-                'length' => 11,
-                'null' => true
+            ->addColumn('gsis_number', 'biginteger', [
+                'default' => null,
+                'length'  => 11,
+                'null'    => true
             ])
-            ->addColumn('philhealth', 'integer', ['length' => 11])
-            ->addColumn('pagibig', 'integer', ['length' => 11])
+            ->addColumn('tin_number', 'biginteger', [
+                'default' => null,
+                'length'  => 11,
+                'null'    => true
+            ])
+            ->addColumn('philhealth_number', 'biginteger', [
+                'length' => 11,
+                'null'   => true
+            ])
+            ->addColumn('pagibig_number', 'biginteger', [
+                'length' => 11,
+                'null'   => true
+            ])
+            ->addColumn('del_flg', 'integer', [
+                'length'  => 11,
+                'default' => 0
+            ])
+            ->addColumn('deleted_date', 'string', [
+                'length' => 255,
+                'null'   => true
+            ])
             ->addColumn('created', 'datetime', [
                 'default' => 'CURRENT_TIMESTAMP',
-                'limit' => null,
-                'null' => true,
+                'limit'   => null,
+                'null'    => true,
             ])
             ->addColumn('modified', 'datetime', [
                 'default' => 'CURRENT_TIMESTAMP',
-                'limit' => null,
-                'null' => true,
+                'limit'   => null,
+                'null'    => true,
             ])
             ->create();
     }

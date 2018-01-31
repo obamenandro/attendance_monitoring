@@ -25,11 +25,11 @@ class EmployeeRegistrationForm extends Form
             ->addField('governme_id', 'integer')
             ->addField('educational_attainment', 'string')
             ->addField('eligibility', 'string')
-            ->addField('sss', 'integer')
-            ->addField('gsis', 'integer')
-            ->addField('tin', 'integer')
-            ->addField('philhealth', 'integer')
-            ->addField('pagibig', 'integer')
+            ->addField('sss_number', 'integer')
+            ->addField('gsis_number', 'integer')
+            ->addField('tin_number', 'integer')
+            ->addField('philhealth_number', 'integer')
+            ->addField('pagibig_number', 'integer')
             ;
     }
 
@@ -46,15 +46,19 @@ class EmployeeRegistrationForm extends Form
                          ->notEmpty('citizenship', __('Citizenship is required.'))
                          ->notEmpty('civil_status', __('Civil status is required.'))
                          ->notEmpty('place_of_birth', __('Place of birth is required.'))
-                         ->notEmpty('sss', __('SSS is required.'))
-                         ->notEmpty('gsis', __('GSIS is required.'))
-                         ->notEmpty('tin', __('TIN is required.'))
-                         ->notEmpty('philhealth', __('Philhealth is required.'))
-                         ->notEmpty('pagibig', __('PAGIBIG is required.'))
-                         ->add('sss',[
+                         ->notEmpty('tin_number', __('TIN is required.'))
+                         ->notEmpty('philhealth_number', __('Philhealth is required.'))
+                         ->notEmpty('pagibig_number', __('PAGIBIG is required.'))
+                         ->add('sss_number',[
                             'numeric' => [
                                 'rule' => 'numeric',
-                                'message' => 'Contact must be a number.'
+                                'message' => 'SSS must be a number.'
+                            ]
+                         ])
+                         ->add('gsis_number',[
+                            'numeric' => [
+                                'rule' => 'numeric',
+                                'message' => 'GSIS must be a number.'
                             ]
                          ])
                          ->add('contact',[

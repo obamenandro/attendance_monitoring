@@ -200,14 +200,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('sss', [
+                  $this->Form->control('sss_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('sss'); ?></span>
+                <span class="form__error"><?= $this->Form->error('sss_number'); ?></span>
               </div>
             </div>
 
@@ -217,14 +217,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('gsis', [
+                  $this->Form->control('gsis_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('gsis'); ?></span>
+                <span class="form__error"><?= $this->Form->error('gsis_number'); ?></span>
               </div>
             </div>
 
@@ -234,14 +234,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('tin', [
+                  $this->Form->control('tin_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('tin'); ?></span>
+                <span class="form__error"><?= $this->Form->error('tin_number'); ?></span>
               </div>
             </div>
 
@@ -251,14 +251,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('philhealth', [
+                  $this->Form->control('philhealth_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('philhealth'); ?></span>
+                <span class="form__error"><?= $this->Form->error('philhealth_number'); ?></span>
               </div>
             </div>
 
@@ -268,14 +268,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('pagibig', [
+                  $this->Form->control('pagibig_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('pagibig'); ?></span>
+                <span class="form__error"><?= $this->Form->error('pagibig_number'); ?></span>
               </div>
             </div>
           </div>
@@ -389,7 +389,7 @@
                 <span class="form__error"><?= $this->Form->error('educational_attainment'); ?></span>
               </div>
             </div>
-            <div class="form__list form__list--enumerate">
+            <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Seminars training:</label>
               </div>
@@ -462,7 +462,7 @@
               </div>
             </div>
 
-            <div class="form__list form__list--enumerate">
+            <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Work Experience:</label>
               </div>
@@ -497,6 +497,7 @@
 
 <script type="text/javascript">
   $('#form__date').datepicker({
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    endDate: '+0d'
   });
 </script>

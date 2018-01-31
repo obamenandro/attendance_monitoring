@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use App\Form\EmployeeRegistrationForm;
-use App\Form\EmployeeGovernmentForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
@@ -95,7 +94,6 @@ class UsersController extends AppController
 
     public function add() {
         $addForm          = new EmployeeRegistrationForm();
-        $governmentForm   = new EmployeeGovernmentForm();
         $civilStatus      = Configure::read('civil_status');
         $designation      = Configure::read('designation');
         $jobtype          = Configure::read('job_type');
@@ -138,6 +136,7 @@ class UsersController extends AppController
                 $entity = $this->User->newEntity();
                 $entity = $this->User->patchEntity($entity, $userData);
                 if ($user = $this->User->save($entity)) {
+                    $userId    = $user->id;
                     $send_mail = $email->transport('gmail')
                        ->to($userData['email'])
                        ->from('obamenandro@gmail.com')
@@ -149,15 +148,25 @@ class UsersController extends AppController
                         ])
                        ->subject(__('Namei Polytechnic Institute'))
                        ->send();
+                    $governmentData = [
+                        'user_id'           => $userId,
+                        'sss_number'        => $data['sss_number'],
+                        'gsis_number'       => $data['gsis_number'],
+                        'philhealth_number' => $data['philhealth_number'],
+                        'pagibig_number'    => $data['pagibig_number']
+                    ];
+                    $government = $this->Government->newEntity();
+                    $government = $this->Government->patchEntity($government, $governmentData);
+                    if ($this->Government->save($government)) {
+                        $this->Flash->success(__('Your employee has been successfully added.'));
+                    } else {
+                        $this->Flash->error(__("There's an error occur saving has been failed."));
+                    }
                 }
-                // $userData = [
-                // ]
-                // if ($saveData = $this) {
-
-                // }
             } else {
                 $this->Flash->error(__('Invalid Input'));
             }
+            return $this->redirect('/admin/users/');
         }
         $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
     }

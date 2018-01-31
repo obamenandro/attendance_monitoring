@@ -236,13 +236,13 @@ Configure::write('designation', [
 ]);
 /*
  * Configuration of Gmail SMTP server
- * 
+ *
  */
 Email::configTransport('gmail', [
     'className' => 'Smtp',
     'host'      => 'ssl://smtp.gmail.com',
     'port'      => 465,
     'timeout'   => 30,
-    'username'  => 'obamenandro@gmail.com',
-    'password'  => '09152016'
+    'username'  => 'nameihris@gmail.com',
+    'password'  => 'id0ntknow'
 ]);

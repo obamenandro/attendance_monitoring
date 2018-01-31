@@ -41,6 +41,8 @@ class UsersSeed extends AbstractSeed
                 'trainings' => NULL,
                 'jobtype' => NULL,
                 'designation' => NULL,
+                'del_flg' => 0,
+                'deleted_date' => NULL,
                 'created' => '2018-01-09 03:08:58',
                 'modified' => '2018-01-09 03:08:58',
             ],
