@@ -7,6 +7,7 @@ use App\Form\EmployeeRegistrationForm;
 use App\Form\EmployeeGovernmentForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
+use Cake\Mailer\Email;
 
 /**
  * Admin/Users Controller
@@ -111,7 +112,8 @@ class UsersController extends AppController
             $data = $this->request->getData();
 
             if ($addForm->execute($data)) {
-                $data['password'] = 'admin';
+                $data['password'] = substr(md5(microtime()), rand(0, 26), 10);;
+                $email = new Email('default');
                 $userData = [
                     'firstname'          => $data['firstname'],
                     'middlename'         => $data['middlename'],
@@ -134,10 +136,19 @@ class UsersController extends AppController
                     'password'           => $data['password']
                 ];
                 $entity = $this->User->newEntity();
-                $entity = $this->User->patchEntity($entity,$data);
+                $entity = $this->User->patchEntity($entity, $userData);
                 if ($user = $this->User->save($entity)) {
-                    echo $user->id;
-                    die();
+                    $send_mail = $email->transport('gmail')
+                       ->to($userData['email'])
+                       ->from('obamenandro@gmail.com')
+                       ->emailFormat('html')
+                       ->template('temporary_password_mail')
+                       ->viewVars([
+                            'user_name' => $userData['firstname'],
+                            'password'  => $userData['password']
+                        ])
+                       ->subject(__('Namei Polytechnic Institute'))
+                       ->send();
                 }
                 // $userData = [
                 // ]

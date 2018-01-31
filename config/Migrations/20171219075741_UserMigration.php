@@ -23,7 +23,7 @@ class UserMigration extends AbstractMigration
             ->addColumn('lastname', 'string', ['length' => 255])
             ->addColumn('bday', 'string', ['length' => 255])
             ->addColumn('address', 'string', ['length' => 255])
-            ->addColumn('contact', 'integer', ['length' => 11])
+            ->addColumn('contact', 'biginteger', ['length' => 11])
             ->addColumn('email', 'string', ['length' => 255])
             ->addColumn('password', 'string', ['length' => 255])
             ->addColumn('role', 'integer', ['default'=>1,'length' => 11])
