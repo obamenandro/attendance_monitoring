@@ -25,12 +25,17 @@ class EmployeeRegistrationForm extends Form
             ->addField('governme_id', 'integer')
             ->addField('educational_attainment', 'string')
             ->addField('eligibility', 'string')
+            ->addField('sss', 'integer')
+            ->addField('gsis', 'integer')
+            ->addField('tin', 'integer')
+            ->addField('philhealth', 'integer')
+            ->addField('pagibig', 'integer')
             ;
     }
 
     protected function _buildValidator(Validator $validator)
     {
-        return $validator->notEmpty('firstname', __('Firstname is required..'))
+        return $validator->notEmpty('firstname', __('Firstname is required.'))
                          ->notEmpty('lastname', __('Lastname is required.'))
                          ->notEmpty('middlename', __('Middlename is required.'))
                          ->notEmpty('bday', __('Birthday is required.'))
@@ -40,6 +45,18 @@ class EmployeeRegistrationForm extends Form
                          ->notEmpty('password', __('Password is required.'))
                          ->notEmpty('citizenship', __('Citizenship is required.'))
                          ->notEmpty('civil_status', __('Civil status is required.'))
+                         ->notEmpty('place_of_birth', __('Place of birth is required.'))
+                         ->notEmpty('sss', __('SSS is required.'))
+                         ->notEmpty('gsis', __('GSIS is required.'))
+                         ->notEmpty('tin', __('TIN is required.'))
+                         ->notEmpty('philhealth', __('Philhealth is required.'))
+                         ->notEmpty('pagibig', __('PAGIBIG is required.'))
+                         ->add('sss',[
+                            'numeric' => [
+                                'rule' => 'numeric',
+                                'message' => 'Contact must be a number.'
+                            ]
+                         ])
                          ->add('contact',[
                             'numeric' => [
                                 'rule' => 'numeric',

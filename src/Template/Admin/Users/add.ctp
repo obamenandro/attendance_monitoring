@@ -21,7 +21,7 @@
                 </div>
                 <div class="form__input">
                   <?=
-                    $this->Form->control('User.lastname', [
+                    $this->Form->control('lastname', [
                       'type'     => 'text',
                       'class'    => 'form__inputbox',
                       'label'    => false,
@@ -38,14 +38,14 @@
                 </div>
                 <div class="form__input">
                   <?=
-                    $this->Form->control('User.firstname', [
+                    $this->Form->control('firstname', [
                       'type'     => 'text',
                       'class'    => 'form__inputbox',
                       'label'    => false,
                       'required' => false
                     ]);
                   ?>
-                  <span class="form__error"><?= $this->Form->error('User.firstname');?></span>
+                  <span class="form__error"><?= $this->Form->error('firstname');?></span>
                 </div>
               </div>
 
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form__input">
                   <?=
-                    $this->Form->control('User.middlename', [
+                    $this->Form->control('middlename', [
                       'type'     => 'text',
                       'class'    => 'form__inputbox',
                       'label'    => false,
@@ -73,7 +73,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.bday', [
+                  $this->Form->control('bday', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'id'       => 'form__date',
@@ -91,7 +91,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.address', [
+                  $this->Form->control('address', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -108,7 +108,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.contact', [
+                  $this->Form->control('contact', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -125,7 +125,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.email', [
+                  $this->Form->control('email', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -142,7 +142,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.place_of_birth', [
+                  $this->Form->control('place_of_birth', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -159,7 +159,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.citizenship', [
+                  $this->Form->control('citizenship', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -176,7 +176,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                    $this->Form->control('User.civil_status', [
+                    $this->Form->control('civil_status', [
                         'options'  => $civilStatus,
                         'required' => false,
                         'div'      => false,
@@ -200,7 +200,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('Government.sss', [
+                  $this->Form->control('sss', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -217,7 +217,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('Government.gsis', [
+                  $this->Form->control('gsis', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -234,7 +234,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('Government.tin', [
+                  $this->Form->control('tin', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -251,7 +251,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('Government.philhealth', [
+                  $this->Form->control('philhealth', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -268,7 +268,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('Government.pagibig', [
+                  $this->Form->control('pagibig', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -291,11 +291,11 @@
                 <label class="form__label">Position</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <textarea name="User[position]" class="form__inputbox form__inputbox--textarea"></textarea>
+                <textarea name="position" class="form__inputbox form__inputbox--textarea"></textarea>
                 <span class="form__error"><?= $this->Form->error('position'); ?></span>
               </div>
             </div>
-
+            <?php if(!$departments->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Deparment:</label>
@@ -310,7 +310,8 @@
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
             </div>
-
+            <?php endif; ?>
+            <?php if(!$subjects->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Subject:</label>
@@ -325,6 +326,7 @@
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
             </div>
+            <?php endif; ?>
           </div>
 
 
@@ -338,7 +340,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.name_of_spouse', [
+                  $this->Form->control('name_of_spouse', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -355,7 +357,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.number_of_children', [
+                  $this->Form->control('number_of_children', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -377,7 +379,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.educational_attainment', [
+                  $this->Form->control('educational_attainment', [
                     'type'     => 'textarea',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -393,7 +395,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.trainings', [
+                  $this->Form->control('trainings', [
                     'type'     => 'textarea',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -413,8 +415,8 @@
                 <label class="form__label">Eligibility:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <?= 
-                  $this->Form->control('User.eligibility', [
+                <?=
+                  $this->Form->control('eligibility', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
@@ -430,7 +432,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.jobtype', [
+                  $this->Form->control('jobtype', [
                     'options'  => $jobtype,
                     'required' => false,
                     'div'      => false,
@@ -448,7 +450,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('User.designation', [
+                  $this->Form->control('designation', [
                     'options'  => $designation,
                     'required' => false,
                     'div'      => false,
@@ -465,7 +467,7 @@
                 <label class="form__label">Work Experience:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <textarea name="User[work_experience]" class="form__inputbox form__inputbox--textarea"></textarea>
+                <textarea name="work_experience" class="form__inputbox form__inputbox--textarea"></textarea>
               </div>
             </div>
           </div>
@@ -480,7 +482,7 @@
                 <img src="/img/logo/logo.png" alt="form-image" class="form__upload-picture">
               </div>
               <div class="form__list-image">
-                <input type="file" multiple="multiple" name="User[image]" id="input2">  
+                <input type="file" multiple="multiple" name="image" id="input2">
               </div>
             </div>
             <div class="form__button">

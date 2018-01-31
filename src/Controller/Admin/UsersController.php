@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use App\Form\EmployeeRegistrationForm;
+use App\Form\EmployeeGovernmentForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 
@@ -93,6 +94,7 @@ class UsersController extends AppController
 
     public function add() {
         $addForm          = new EmployeeRegistrationForm();
+        $governmentForm   = new EmployeeGovernmentForm();
         $civilStatus      = Configure::read('civil_status');
         $designation      = Configure::read('designation');
         $jobtype          = Configure::read('job_type');
@@ -106,10 +108,42 @@ class UsersController extends AppController
             ->where(['del_flg' => 0]);
 
         if ($this->request->is('post')) {
-            pr($this->request->getData());
-            die();
-            if ($addForm->execute($this->request->getData())) {
+            $data = $this->request->getData();
 
+            if ($addForm->execute($data)) {
+                $data['password'] = 'admin';
+                $userData = [
+                    'firstname'          => $data['firstname'],
+                    'middlename'         => $data['middlename'],
+                    'lastname'           => $data['lastname'],
+                    'bday'               => $data['bday'],
+                    'address'            => $data['address'],
+                    'contact'            => $data['contact'],
+                    'email'              => $data['email'],
+                    'place_of_birth'     => $data['place_of_birth'],
+                    'citizenship'        => $data['citizenship'],
+                    'civil_status'       => $data['civil_status'],
+                    'position'           => $data['position'],
+                    'work_experience'    => $data['work_experience'],
+                    'name_of_spouse'     => $data['name_of_spouse'],
+                    'number_of_children' => $data['number_of_children'],
+                    'trainings'          => $data['trainings'],
+                    'eligibility'        => $data['eligibility'],
+                    'jobtype'            => $data['jobtype'],
+                    'designation'        => $data['designation'],
+                    'password'           => $data['password']
+                ];
+                $entity = $this->User->newEntity();
+                $entity = $this->User->patchEntity($entity,$data);
+                if ($user = $this->User->save($entity)) {
+                    echo $user->id;
+                    die();
+                }
+                // $userData = [
+                // ]
+                // if ($saveData = $this) {
+
+                // }
             } else {
                 $this->Flash->error(__('Invalid Input'));
             }
