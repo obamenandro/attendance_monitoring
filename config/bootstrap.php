@@ -246,3 +246,5 @@ Email::configTransport('gmail', [
     'username'  => 'nameihris@gmail.com',
     'password'  => 'id0ntknow'
 ]);
+
+Plugin::load('Josegonzalez/Upload');

@@ -46,24 +46,26 @@ class EmployeeRegistrationForm extends Form
                          ->notEmpty('citizenship', __('Citizenship is required.'))
                          ->notEmpty('civil_status', __('Civil status is required.'))
                          ->notEmpty('place_of_birth', __('Place of birth is required.'))
-                         ->notEmpty('tin_number', __('TIN is required.'))
-                         ->notEmpty('philhealth_number', __('Philhealth is required.'))
-                         ->notEmpty('pagibig_number', __('PAGIBIG is required.'))
+                         ->allowEmpty('tin_number')
+                         ->allowEmpty('philhealth_number')
+                         ->allowEmpty('pagibig_number')
+                         ->allowEmpty('sss_number')
+                         ->allowEmpty('gsis_number')
                          ->add('sss_number',[
                             'numeric' => [
-                                'rule' => 'numeric',
+                                'rule'    => 'numeric',
                                 'message' => 'SSS must be a number.'
                             ]
                          ])
                          ->add('gsis_number',[
                             'numeric' => [
-                                'rule' => 'numeric',
+                                'rule'    => 'numeric',
                                 'message' => 'GSIS must be a number.'
                             ]
                          ])
                          ->add('contact',[
                             'numeric' => [
-                                'rule' => 'numeric',
+                                'rule'    => 'numeric',
                                 'message' => 'Contact must be a number.'
                             ]
                          ])

@@ -25,6 +25,10 @@ class UserMigration extends AbstractMigration
             ->addColumn('lastname', 'string', [
                 'length' => 255
             ])
+            ->addColumn('image', 'string', [
+                'length' => 255,
+                'null'   => true
+            ])
             ->addColumn('birthdate', 'string', [
                 'length' => 255
             ])
