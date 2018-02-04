@@ -247,4 +247,4 @@ Email::configTransport('gmail', [
     'password'  => 'id0ntknow'
 ]);
 
-Plugin::load('Josegonzalez/Upload');
+// Plugin::load('Josegonzalez/Upload');

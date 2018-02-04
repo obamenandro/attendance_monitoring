@@ -99,7 +99,7 @@ class UsersController extends AppController
         $designation      = Configure::read('designation');
         $jobtype          = Configure::read('job_type');
         $this->Department = TableRegistry::get('Departments');
-        $this->Government = TableRegistry::get('Government');
+        $this->Government = TableRegistry::get('Governments');
         $this->Subject    = TableRegistry::get('Subjects');
 
         $departments = $this->Department->find('all')
@@ -110,7 +110,6 @@ class UsersController extends AppController
 
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-
             if ($addForm->execute($data)) {
                 $data['password'] = substr(md5(microtime()), rand(0, 26), 10);;
                 $email = new Email('default');
@@ -118,7 +117,7 @@ class UsersController extends AppController
                     'firstname'              => $data['firstname'],
                     'middlename'             => $data['middlename'],
                     'lastname'               => $data['lastname'],
-                    'bday'                   => $data['bday'],
+                    'birthdate'              => $data['birthdate'],
                     'address'                => $data['address'],
                     'contact'                => $data['contact'],
                     'email'                  => $data['email'],
@@ -142,7 +141,7 @@ class UsersController extends AppController
                     $userId    = $user->id;
                     $send_mail = $email->transport('gmail')
                        ->to($userData['email'])
-                       ->from('obamenandro@gmail.com')
+                       ->from('nameihris@gmail.com')
                        ->emailFormat('html')
                        ->template('temporary_password_mail')
                        ->viewVars([
@@ -151,12 +150,25 @@ class UsersController extends AppController
                         ])
                        ->subject(__('Namei Polytechnic Institute'))
                        ->send();
+                    $this->Upload->upload($data['image']);
+                    if($this->Upload->uploaded) {
+                        $imageName = md5(time());
+                        $this->Upload->file_new_name_body = $imageName;
+                        $this->Upload->process('uploads/employee/'.$userId.'/');
+                        $profileImage = $this->Upload->file_dst_name;
+
+                        $addImage = $this->User->get($userId);
+                        $addImage->image = 'uploads/employee/'.$userId.'/'.$profileImage;
+                        $this->User->save($addImage);
+
+                    }
                     $governmentData = [
                         'user_id'           => $userId,
                         'sss_number'        => $data['sss_number'],
                         'gsis_number'       => $data['gsis_number'],
                         'philhealth_number' => $data['philhealth_number'],
-                        'pagibig_number'    => $data['pagibig_number']
+                        'pagibig_number'    => $data['pagibig_number'],
+                        'tin_number'        => $data['tin_number']
                     ];
                     $government = $this->Government->newEntity();
                     $government = $this->Government->patchEntity($government, $governmentData);
@@ -165,7 +177,6 @@ class UsersController extends AppController
                         return $this->redirect('/admin/users/');
                     } else {
                         $this->Flash->error(__("There's an error occur saving has been failed."));
-                        return $this->redirect('/admin/users/add/');
                     }
                 }
             } else {
@@ -222,9 +233,6 @@ class UsersController extends AppController
                 $this->Upload->file_new_name_body = $name;
                 $this->Upload->process('uploads/user_images/');
                 $profileImage = $this->Upload->file_dst_name;
-                pr($profileImage);
-                die();
-                $user->user_detail->profile_image  = $profileImage;
             }
 
             // if ($this->Images->save($user)) {

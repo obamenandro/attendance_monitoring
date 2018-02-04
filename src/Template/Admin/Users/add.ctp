@@ -73,7 +73,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('bday', [
+                  $this->Form->control('birthdate', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'id'       => 'form__date',
@@ -81,7 +81,7 @@
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('bday');?></span>
+                <span class="form__error"><?= $this->Form->error('birthdate');?></span>
               </div>
             </div>
 
@@ -295,11 +295,11 @@
                 <span class="form__error"><?= $this->Form->error('position'); ?></span>
               </div>
             </div>
-            <?php if(!$departments->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Deparment:</label>
               </div>
+              <?php if(!$departments->isEmpty()): ?>
               <div class="form__input form__input--fullwidth">
                 <?php foreach($departments as $department): ?>
                 <div class="form__checkbox">
@@ -309,13 +309,15 @@
                 <?php endforeach; ?>
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
+              <?php else: ?>
+              <label class="form__input-label">No Departments available</label>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
-            <?php if(!$subjects->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Subject:</label>
               </div>
+              <?php if(!$subjects->isEmpty()): ?>
               <div class="form__input form__input--fullwidth">
                 <?php foreach($subjects as $subject): ?>
                 <div class="form__checkbox">
@@ -325,8 +327,10 @@
                 <?php endforeach; ?>
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
+              <?php else: ?>
+              <label class="form__input-label">No Subjects available</label>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
           </div>
 
 
@@ -482,7 +486,15 @@
                 <img src="/img/logo/logo.png" alt="form-image" class="form__upload-picture">
               </div>
               <div class="form__list-image">
-                <input type="file" multiple="multiple" name="image" id="input2">
+                <?=
+                    $this->Form->control('image', [
+                        'type'  => 'file',
+                        'id'    => 'input2',
+                        'div'   => false,
+                        'label' => false
+                    ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('image'); ?></span>
               </div>
             </div>
             <div class="form__button">
