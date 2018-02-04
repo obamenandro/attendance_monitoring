@@ -24,7 +24,7 @@ class UsersSeed extends AbstractSeed
                 'firstname' => 'admin',
                 'middlename' => NULL,
                 'lastname' => '',
-                'bday' => '',
+                'birthdate' => '',
                 'address' => '',
                 'contact' => '123',
                 'email' => 'admin@gmail.com',

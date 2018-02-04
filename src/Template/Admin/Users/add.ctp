@@ -73,7 +73,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('bday', [
+                  $this->Form->control('birthdate', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'id'       => 'form__date',
@@ -81,7 +81,7 @@
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('bday');?></span>
+                <span class="form__error"><?= $this->Form->error('birthdate');?></span>
               </div>
             </div>
 
