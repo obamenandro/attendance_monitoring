@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use App\Form\EmployeeRegistrationForm;
-use App\Form\EmployeeGovernmentForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
@@ -21,6 +20,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         $this->viewBuilder()->setLayout('Admin');
+        $this->loadComponent('Upload');    ## Load upload component for uploading images
     }
 
     public function beforeFilter(Event $event)
@@ -95,11 +95,11 @@ class UsersController extends AppController
 
     public function add() {
         $addForm          = new EmployeeRegistrationForm();
-        $governmentForm   = new EmployeeGovernmentForm();
         $civilStatus      = Configure::read('civil_status');
         $designation      = Configure::read('designation');
         $jobtype          = Configure::read('job_type');
         $this->Department = TableRegistry::get('Departments');
+        $this->Government = TableRegistry::get('Governments');
         $this->Subject    = TableRegistry::get('Subjects');
 
         $departments = $this->Department->find('all')
@@ -110,37 +110,38 @@ class UsersController extends AppController
 
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-
             if ($addForm->execute($data)) {
                 $data['password'] = substr(md5(microtime()), rand(0, 26), 10);;
                 $email = new Email('default');
                 $userData = [
-                    'firstname'          => $data['firstname'],
-                    'middlename'         => $data['middlename'],
-                    'lastname'           => $data['lastname'],
-                    'bday'               => $data['bday'],
-                    'address'            => $data['address'],
-                    'contact'            => $data['contact'],
-                    'email'              => $data['email'],
-                    'place_of_birth'     => $data['place_of_birth'],
-                    'citizenship'        => $data['citizenship'],
-                    'civil_status'       => $data['civil_status'],
-                    'position'           => $data['position'],
-                    'work_experience'    => $data['work_experience'],
-                    'name_of_spouse'     => $data['name_of_spouse'],
-                    'number_of_children' => $data['number_of_children'],
-                    'trainings'          => $data['trainings'],
-                    'eligibility'        => $data['eligibility'],
-                    'jobtype'            => $data['jobtype'],
-                    'designation'        => $data['designation'],
-                    'password'           => $data['password']
+                    'firstname'              => $data['firstname'],
+                    'middlename'             => $data['middlename'],
+                    'lastname'               => $data['lastname'],
+                    'birthdate'              => $data['birthdate'],
+                    'address'                => $data['address'],
+                    'contact'                => $data['contact'],
+                    'email'                  => $data['email'],
+                    'place_of_birth'         => $data['place_of_birth'],
+                    'citizenship'            => $data['citizenship'],
+                    'civil_status'           => $data['civil_status'],
+                    'position'               => $data['position'],
+                    'work_experience'        => $data['work_experience'],
+                    'name_of_spouse'         => $data['name_of_spouse'],
+                    'number_of_children'     => $data['number_of_children'],
+                    'educational_attainment' => $data['educational_attainment'],
+                    'trainings'              => $data['trainings'],
+                    'eligibility'            => $data['eligibility'],
+                    'jobtype'                => $data['jobtype'],
+                    'designation'            => $data['designation'],
+                    'password'               => $data['password']
                 ];
                 $entity = $this->User->newEntity();
                 $entity = $this->User->patchEntity($entity, $userData);
                 if ($user = $this->User->save($entity)) {
+                    $userId    = $user->id;
                     $send_mail = $email->transport('gmail')
                        ->to($userData['email'])
-                       ->from('obamenandro@gmail.com')
+                       ->from('nameihris@gmail.com')
                        ->emailFormat('html')
                        ->template('temporary_password_mail')
                        ->viewVars([
@@ -149,14 +150,37 @@ class UsersController extends AppController
                         ])
                        ->subject(__('Namei Polytechnic Institute'))
                        ->send();
-                }
-                // $userData = [
-                // ]
-                // if ($saveData = $this) {
+                    $this->Upload->upload($data['image']);
+                    if($this->Upload->uploaded) {
+                        $imageName = md5(time());
+                        $this->Upload->file_new_name_body = $imageName;
+                        $this->Upload->process('uploads/employee/'.$userId.'/');
+                        $profileImage = $this->Upload->file_dst_name;
 
-                // }
+                        $addImage = $this->User->get($userId);
+                        $addImage->image = 'uploads/employee/'.$userId.'/'.$profileImage;
+                        $this->User->save($addImage);
+
+                    }
+                    $governmentData = [
+                        'user_id'           => $userId,
+                        'sss_number'        => $data['sss_number'],
+                        'gsis_number'       => $data['gsis_number'],
+                        'philhealth_number' => $data['philhealth_number'],
+                        'pagibig_number'    => $data['pagibig_number'],
+                        'tin_number'        => $data['tin_number']
+                    ];
+                    $government = $this->Government->newEntity();
+                    $government = $this->Government->patchEntity($government, $governmentData);
+                    if ($this->Government->save($government)) {
+                        $this->Flash->success(__('Your employee has been successfully added.'));
+                        return $this->redirect('/admin/users/');
+                    } else {
+                        $this->Flash->error(__("There's an error occur saving has been failed."));
+                    }
+                }
             } else {
-                $this->Flash->error(__('Invalid Input'));
+                $this->Flash->error(__("There's an error occur saving has been failed."));
             }
         }
         $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
@@ -195,5 +219,30 @@ class UsersController extends AppController
 
     public function user_home() {
 
+    }
+    public function image_upload() {
+        http://codefiz.com/image-uploading-cakephp-3-x/
+        $this->Users = TableRegistry::get('Users');
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            $image = $this->request->data["image"];
+            $this->Upload->upload($image);
+            if($this->Upload->uploaded) {
+                $name=md5(time());
+                $this->Upload->file_new_name_body = $name;
+                $this->Upload->process('uploads/user_images/');
+                $profileImage = $this->Upload->file_dst_name;
+            }
+
+            // if ($this->Images->save($user)) {
+            //     $this->Flash->success(__('The user has been saved.'));
+            //     return $this->redirect(['action' => 'index']);
+            // } else {
+            //     $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            // }
+        }
+        // $this->set(compact('user'));
+        // $this->set('_serialize', ['user']);
     }
 }

@@ -15,16 +15,23 @@ class Subjects extends AbstractMigration
         $subjectsTable = $this->table('subjects');
         $subjectsTable
             ->addColumn('name', 'string', ['length' => 255])
-            ->addColumn('del_flg', 'integer', ['length' => 11, 'default' => 0])
+            ->addColumn('del_flg', 'integer', [
+                'length'  => 11,
+                'default' => 0
+            ])
+            ->addColumn('deleted_date', 'string', [
+                'length' => 255,
+                'null'   => true
+            ])
             ->addColumn('created', 'datetime', [
                 'default' => 'CURRENT_TIMESTAMP',
-                'limit' => null,
-                'null' => true,
+                'limit'   => null,
+                'null'    => true
             ])
             ->addColumn('modified', 'datetime', [
                 'default' => 'CURRENT_TIMESTAMP',
-                'limit' => null,
-                'null' => true,
+                'limit'   => null,
+                'null'    => true
             ])
 
             ->create();

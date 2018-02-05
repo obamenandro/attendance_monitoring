@@ -14,22 +14,50 @@ class UserMigration extends AbstractMigration
     {
         $usersTable = $this->table('users');
         $usersTable
-            ->addColumn('firstname', 'string', ['length' => 255])
+            ->addColumn('firstname', 'string', [
+                'length' => 255
+            ])
             ->addColumn('middlename', 'string', [
                 'default' => null,
                 'length'  => 255,
                 'null'    => true
             ])
-            ->addColumn('lastname', 'string', ['length' => 255])
-            ->addColumn('bday', 'string', ['length' => 255])
-            ->addColumn('address', 'string', ['length' => 255])
-            ->addColumn('contact', 'biginteger', ['length' => 11])
-            ->addColumn('email', 'string', ['length' => 255])
-            ->addColumn('password', 'string', ['length' => 255])
-            ->addColumn('role', 'integer', ['default'=>1,'length' => 11])
-            ->addColumn('place_of_birth', 'string', ['length' => 255])
-            ->addColumn('citizenship', 'string', ['length' => 255])
-            ->addColumn('civil_status', 'string', ['length' => 255])
+            ->addColumn('lastname', 'string', [
+                'length' => 255
+            ])
+            ->addColumn('image', 'string', [
+                'length' => 255,
+                'null'   => true
+            ])
+            ->addColumn('birthdate', 'string', [
+                'length' => 255
+            ])
+            ->addColumn('address', 'string', [
+                'length' => 255
+            ])
+            ->addColumn('contact', 'biginteger', [
+                'length' => 11
+            ])
+            ->addColumn('email', 'string', [
+                'length' => 255,
+                'null'   => false
+            ])
+            ->addColumn('password', 'string', [
+                'length' => 255
+            ])
+            ->addColumn('role', 'integer', [
+                'default' => 1,
+                'length'  => 11
+            ])
+            ->addColumn('place_of_birth', 'string', [
+                'length' => 255
+            ])
+            ->addColumn('citizenship', 'string', [
+                'length' => 255
+            ])
+            ->addColumn('civil_status', 'string', [
+                'length' => 255
+            ])
             ->addColumn('name_of_spouse', 'string', [
                 'default' => null,
                 'length'  => 255,
@@ -40,7 +68,9 @@ class UserMigration extends AbstractMigration
                 'length'  => 11,
                 'null'    => true
             ])
-            ->addColumn('educational_attainment', 'string', ['length' => 255])
+            ->addColumn('educational_attainment', 'string', [
+                'length' => 255
+            ])
             ->addColumn('eligibility', 'string', [
                 'default' => null,
                 'length'  => 255,
@@ -70,6 +100,14 @@ class UserMigration extends AbstractMigration
                 'default' => null,
                 'length'  => 255,
                 'null'    => true
+            ])
+            ->addColumn('del_flg', 'integer', [
+                'length'  => 11,
+                'default' => 0
+            ])
+            ->addColumn('deleted_date', 'string', [
+                'length' => 255,
+                'null'   => true
             ])
             ->addColumn('created', 'datetime', [
                 'default' => 'CURRENT_TIMESTAMP',

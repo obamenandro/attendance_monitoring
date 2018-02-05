@@ -73,7 +73,7 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('bday', [
+                  $this->Form->control('birthdate', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'id'       => 'form__date',
@@ -81,7 +81,7 @@
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('bday');?></span>
+                <span class="form__error"><?= $this->Form->error('birthdate');?></span>
               </div>
             </div>
 
@@ -200,14 +200,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('sss', [
+                  $this->Form->control('sss_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('sss'); ?></span>
+                <span class="form__error"><?= $this->Form->error('sss_number'); ?></span>
               </div>
             </div>
 
@@ -217,14 +217,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('gsis', [
+                  $this->Form->control('gsis_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('gsis'); ?></span>
+                <span class="form__error"><?= $this->Form->error('gsis_number'); ?></span>
               </div>
             </div>
 
@@ -234,14 +234,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('tin', [
+                  $this->Form->control('tin_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('tin'); ?></span>
+                <span class="form__error"><?= $this->Form->error('tin_number'); ?></span>
               </div>
             </div>
 
@@ -251,14 +251,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('philhealth', [
+                  $this->Form->control('philhealth_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('philhealth'); ?></span>
+                <span class="form__error"><?= $this->Form->error('philhealth_number'); ?></span>
               </div>
             </div>
 
@@ -268,14 +268,14 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('pagibig', [
+                  $this->Form->control('pagibig_number', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('pagibig'); ?></span>
+                <span class="form__error"><?= $this->Form->error('pagibig_number'); ?></span>
               </div>
             </div>
           </div>
@@ -295,11 +295,11 @@
                 <span class="form__error"><?= $this->Form->error('position'); ?></span>
               </div>
             </div>
-            <?php if(!$departments->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Deparment:</label>
               </div>
+              <?php if(!$departments->isEmpty()): ?>
               <div class="form__input form__input--fullwidth">
                 <?php foreach($departments as $department): ?>
                 <div class="form__checkbox">
@@ -309,13 +309,15 @@
                 <?php endforeach; ?>
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
+              <?php else: ?>
+              <label class="form__input-label">No Departments available</label>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
-            <?php if(!$subjects->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Subject:</label>
               </div>
+              <?php if(!$subjects->isEmpty()): ?>
               <div class="form__input form__input--fullwidth">
                 <?php foreach($subjects as $subject): ?>
                 <div class="form__checkbox">
@@ -325,8 +327,10 @@
                 <?php endforeach; ?>
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
+              <?php else: ?>
+              <label class="form__input-label">No Subjects available</label>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
           </div>
 
 
@@ -482,7 +486,15 @@
                 <img src="/img/logo/logo.png" alt="form-image" class="form__upload-picture">
               </div>
               <div class="form__list-image">
-                <input type="file" multiple="multiple" name="image" id="input2">
+                <?=
+                    $this->Form->control('image', [
+                        'type'  => 'file',
+                        'id'    => 'input2',
+                        'div'   => false,
+                        'label' => false
+                    ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('image'); ?></span>
               </div>
             </div>
             <div class="form__button">
