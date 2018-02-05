@@ -180,7 +180,7 @@ class UsersController extends AppController
                     }
                 }
             } else {
-                $this->Flash->error(__('Invalid Input'));
+                $this->Flash->error(__("There's an error occur saving has been failed."));
             }
         }
         $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
