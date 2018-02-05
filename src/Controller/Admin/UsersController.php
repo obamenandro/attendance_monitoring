@@ -245,4 +245,9 @@ class UsersController extends AppController
         // $this->set(compact('user'));
         // $this->set('_serialize', ['user']);
     }
+
+    
+    public function user_change_password() {
+
+    }
 }

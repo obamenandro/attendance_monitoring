@@ -119,7 +119,7 @@ $this->layout = false;
                   </a>
                 </li>
                 <li class="user-panel__menu-list">
-                  <a href="" class="user-panel__menu-link">
+                  <a href="/admin/users/user_change_password" class="user-panel__menu-link">
                     <div class="user-panel__menu-text">
                       <i class="fa fa-cogs user-panel__icon" aria-hidden="true"></i>
                       <span>Change Password</span>
@@ -148,7 +148,7 @@ $this->layout = false;
     </div>
   </main>
 
-<!--   <div class="modal" style="display: block";>
+  <div class="modal" style="display: block";>
     <div class="modal__container">
       <div class="modal__header">
         <div class="modal__title">
@@ -179,6 +179,6 @@ $this->layout = false;
         </div>
       </div>  
     </div>
-  </div> -->
+  </div>
 </body>
 </html>
