@@ -263,21 +263,6 @@
                 <input type="text" name="" class="form__inputbox">
               </div>
             </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Seminars training:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
-              </div>
-            </div>
           </div>
 
         <div class="form__title">
@@ -345,10 +330,10 @@
           <div class="form__data">
             <div class="form__list form__list--uploadimage">
               <div class="form__upload-image">
-                <img src="/img/logo/logo.png" alt="form-image" class="form__upload-picture">
+                <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
               </div>
               <div class="form__list-image">
-                <input type="file" multiple="multiple" name="files[]" id="input2">  
+                <input type="file" multiple="multiple" name="files[]" id="input2" class="image-upload">  
               </div>
             </div>
 
@@ -366,5 +351,19 @@
   $("#form__date").datepicker({
     format: 'yyyy-mm-dd',
     endDate: '+0d'
+  });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.form__upload-picture').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(".image-upload").change(function(){
+      readURL(this);
   });
 </script>
