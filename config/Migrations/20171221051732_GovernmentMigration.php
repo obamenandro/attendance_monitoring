@@ -12,6 +12,7 @@ class GovernmentMigration extends AbstractMigration
      */
     public function up()
     {
+        $this->dropTable('governments');
         $usersTable = $this->table('governments');
         $usersTable
             ->addColumn('user_id', 'integer', [

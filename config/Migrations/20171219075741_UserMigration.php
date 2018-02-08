@@ -12,6 +12,7 @@ class UserMigration extends AbstractMigration
      */
     public function up()
     {
+        $this->dropTable('users');
         $usersTable = $this->table('users');
         $usersTable
             ->addColumn('firstname', 'string', [
@@ -69,7 +70,8 @@ class UserMigration extends AbstractMigration
                 'null'    => true
             ])
             ->addColumn('educational_attainment', 'string', [
-                'length' => 255
+                'length' => 255,
+                'null'    => true
             ])
             ->addColumn('eligibility', 'string', [
                 'default' => null,

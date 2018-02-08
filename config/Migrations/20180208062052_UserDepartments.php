@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class AttendanceMigration extends AbstractMigration
+class UserDepartments extends AbstractMigration
 {
     /**
      * Change Method.
@@ -10,24 +10,22 @@ class AttendanceMigration extends AbstractMigration
      * http://docs.phinx.org/en/latest/migrations.html#the-change-method
      * @return void
      */
-    public function up()
+    public function change()
     {
-        $this->dropTable('attendances');
-        $usersTable = $this->table('attendances');
-        $usersTable
+        $this->dropTable('user_departments');
+        $user_departmentsTable = $this->table('user_departments');
+        $user_departmentsTable
             ->addColumn('user_id', 'integer', [
-                'length' => 11
+                'length' => 11,
+                'null'   => false
             ])
-            ->addColumn('timein', 'string', [
-                'length' => 255
+            ->addColumn('department_id', 'integer', [
+                'length' => 11,
+                'null'   => false
             ])
-            ->addColumn('timeout', 'string', [
-                'length' => 255
-            ])
-            ->addColumn('status', 'integer', [
-                'default' => null,
+            ->addColumn('del_flg', 'integer', [
                 'length'  => 11,
-                'null'    => true
+                'default' => 0
             ])
             ->addColumn('deleted_date', 'string', [
                 'length' => 255,
@@ -43,12 +41,6 @@ class AttendanceMigration extends AbstractMigration
                 'limit'   => null,
                 'null'    => true,
             ])
-
             ->create();
-    }
-
-    public function down()
-    {
-        $this->dropTable('attendances');
     }
 }

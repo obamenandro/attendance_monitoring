@@ -138,41 +138,19 @@ class EmployeeRegistrationForm extends Form
                                 'rule'    => 'numeric',
                                 'message' => 'Contact must be a number.'
                             ]
-                         ])
-                         ;
-                        //  ->add('password', [
-                        //     'minLength' => [
-                        //         'rule' => ['minLength', 8],
-                        //         'last' => true,
-                        //         'message' => 'Password must have minimum of 8 characters.'
-                        //     ],
-                        //  ])
-                        //  ->add('confirm_password', [
-                        //     'minLength' => [
-                        //         'rule' => ['minLength', 8],
-                        //         'last' => true,
-                        //         'message' => 'Password must have minimum of 8 characters.'
-                        //     ],
-                        //  ])
-                        //  // Inline Validation rule for same password
-                        //  ->add('confirm_password', 'equal', [
-                        //     'rule' => function ($value, $context) {
-                        //         return $context['data']['password'] == $value;
-                        //     },
-                        //     'message' => 'Password and Confirm Password must be equal'
-                        // ]);
+                         ]);
     }
     public function isUnique ($value, $context) {
         $Users = TableRegistry::get('Users');
         $user  = $Users->find('all')
                 ->where([
-                    'email'  => $value,
-                    'delete' => 0
+                    'email'   => $value,
+                    'del_flg' => 0
                 ]);
-        if ($user) {
-            return false;
+        if ($user->isEmpty()) {
+            return true;
         }
-        return true;
+        return false;
     }
     /**
     * _execute method

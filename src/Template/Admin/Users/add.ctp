@@ -291,7 +291,15 @@
                 <label class="form__label">Position</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <textarea name="position" class="form__inputbox form__inputbox--textarea"></textarea>
+                <!-- <textarea name="position" class="form__inputbox form__inputbox--textarea"></textarea> -->
+                <?=
+                  $this->Form->control('position', [
+                    'type'     => 'textarea',
+                    'class'    => 'form__inputbox form__inputbox--textarea',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error"><?= $this->Form->error('position'); ?></span>
               </div>
             </div>
@@ -334,7 +342,7 @@
           </div>
 
 
-          <div class="form__title">
+          <!-- <div class="form__title">
             <h3>IF MARRIED</h3>
           </div>
           <div class="form__data">
@@ -393,13 +401,13 @@
                 <span class="form__error"><?= $this->Form->error('educational_attainment'); ?></span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-        <div class="form__title">
+        <!-- <div class="form__title">
           <h3>Working Experience</h3>
-        </div>
+        </div> -->
           <div class="form__data">
-            <div class="form__list">
+            <!-- <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Eligibility:</label>
               </div>
@@ -413,7 +421,7 @@
                   ])
                 ?>
               </div>
-            </div>
+            </div> -->
 
             <div class="form__list">
               <div class="form__label-wrapper">
@@ -451,14 +459,14 @@
               </div>
             </div>
 
-            <div class="form__list">
+            <!-- <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Work Experience:</label>
               </div>
               <div class="form__input form__input--fullwidth">
                 <textarea name="work_experience" class="form__inputbox form__inputbox--textarea"></textarea>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="form__title">
