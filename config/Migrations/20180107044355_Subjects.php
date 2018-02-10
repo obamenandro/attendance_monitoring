@@ -12,6 +12,7 @@ class Subjects extends AbstractMigration
      */
     public function up()
     {
+        $this->dropTable('subjects');
         $subjectsTable = $this->table('subjects');
         $subjectsTable
             ->addColumn('name', 'string', ['length' => 255])

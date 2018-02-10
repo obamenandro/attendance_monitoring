@@ -3,6 +3,8 @@ namespace App\Form;
 
 use Cake\Form\Form;
 use Cake\Form\Schema;
+use Cake\ORM\Rule\IsUnique;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
 class EmployeeRegistrationForm extends Form
@@ -33,7 +35,7 @@ class EmployeeRegistrationForm extends Form
             ;
     }
 
-    protected function _buildValidator(Validator $validator)
+    public function _buildValidator(Validator $validator)
     {
         return $validator->notEmpty('firstname', __('Firstname is required.'))
                          ->notEmpty('lastname', __('Lastname is required.'))
@@ -58,6 +60,12 @@ class EmployeeRegistrationForm extends Form
                             'validExtension' => [
                                 'rule' => ['extension',['jpeg', 'png', 'jpg']], 
                                 'message' => __('These files extension are allowed: .png, .jpg, .jpeg')
+                            ]
+                         ])
+                         ->add('email', [
+                            'uniqueEmailRule' => [
+                                'rule'    => [$this, 'isUnique'],
+                                'message' => 'Email already registered'
                             ]
                          ])
                          ->requirePresence('email')
@@ -130,29 +138,19 @@ class EmployeeRegistrationForm extends Form
                                 'rule'    => 'numeric',
                                 'message' => 'Contact must be a number.'
                             ]
-                         ])
-                         ;
-                        //  ->add('password', [
-                        //     'minLength' => [
-                        //         'rule' => ['minLength', 8],
-                        //         'last' => true,
-                        //         'message' => 'Password must have minimum of 8 characters.'
-                        //     ],
-                        //  ])
-                        //  ->add('confirm_password', [
-                        //     'minLength' => [
-                        //         'rule' => ['minLength', 8],
-                        //         'last' => true,
-                        //         'message' => 'Password must have minimum of 8 characters.'
-                        //     ],
-                        //  ])
-                        //  // Inline Validation rule for same password
-                        //  ->add('confirm_password', 'equal', [
-                        //     'rule' => function ($value, $context) {
-                        //         return $context['data']['password'] == $value;
-                        //     },
-                        //     'message' => 'Password and Confirm Password must be equal'
-                        // ]);
+                         ]);
+    }
+    public function isUnique ($value, $context) {
+        $Users = TableRegistry::get('Users');
+        $user  = $Users->find('all')
+                ->where([
+                    'email'   => $value,
+                    'del_flg' => 0
+                ]);
+        if ($user->isEmpty()) {
+            return true;
+        }
+        return false;
     }
     public function tin_number_validation () {
         pr($value);

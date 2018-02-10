@@ -47,18 +47,19 @@ class UsersController extends AppController
     {
         $entity = $this->User->newEntity();
         $entity = $this->User->patchEntity($entity, [
-            'firstname' => 'admin',
-            'lastname' => '',
-            'bday'=>'',
-            'address'=>'',
-            'contact'=>'123',
-            'place_of_birth'=>'',
-            'citizenship'=>'',
-            'civil_status'=>'',
-            'government_id'=>'1234',
-            'educational_attainment'=>'',
-            'password'=>'admin',
-            'email' => 'admin@gmail.com', ]);
+            'firstname'              => 'admin',
+            'lastname'               => '',
+            'bday'                   => '',
+            'address'                => '',
+            'contact'                => '123',
+            'place_of_birth'         => '',
+            'citizenship'            => '',
+            'civil_status'           => '',
+            'government_id'          => '1234',
+            'educational_attainment' => '',
+            'password'               => 'admin',
+            'email'                  => 'admin@gmail.com'
+        ]);
 
         if ($this->User->save($entity)) {
             die();
@@ -110,7 +111,6 @@ class UsersController extends AppController
 
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-
             if ($addForm->execute($data)) {
                 $data['password'] = substr(md5(microtime()), rand(0, 26), 10);;
                 $email = new Email('default');
@@ -126,12 +126,6 @@ class UsersController extends AppController
                     'citizenship'            => $data['citizenship'],
                     'civil_status'           => $data['civil_status'],
                     'position'               => $data['position'],
-                    'work_experience'        => $data['work_experience'],
-                    'name_of_spouse'         => $data['name_of_spouse'],
-                    'number_of_children'     => $data['number_of_children'],
-                    'educational_attainment' => $data['educational_attainment'],
-                    'trainings'              => $data['trainings'],
-                    'eligibility'            => $data['eligibility'],
                     'jobtype'                => $data['jobtype'],
                     'designation'            => $data['designation'],
                     'password'               => $data['password']
@@ -142,7 +136,7 @@ class UsersController extends AppController
                     $userId    = $user->id;
                     $send_mail = $email->transport('gmail')
                        ->to($userData['email'])
-                       ->from('obamenandro@gmail.com')
+                       ->from('NAMEI Polytechnic')
                        ->emailFormat('html')
                        ->template('temporary_password_mail')
                        ->viewVars([
@@ -161,7 +155,6 @@ class UsersController extends AppController
                         $addImage = $this->User->get($userId);
                         $addImage->image = 'uploads/employee/'.$userId.'/'.$profileImage;
                         $this->User->save($addImage);
-
                     }
                     $governmentData = [
                         'user_id'           => $userId,
@@ -181,7 +174,7 @@ class UsersController extends AppController
                     }
                 }
             } else {
-                $this->Flash->error(__('Invalid Input'));
+                $this->Flash->error(__("There's an error occur saving has been failed."));
             }
         }
         $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
@@ -245,5 +238,10 @@ class UsersController extends AppController
         }
         // $this->set(compact('user'));
         // $this->set('_serialize', ['user']);
+    }
+
+
+    public function user_change_password() {
+
     }
 }

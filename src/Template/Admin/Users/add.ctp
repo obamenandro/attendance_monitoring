@@ -291,15 +291,23 @@
                 <label class="form__label">Position</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <textarea name="position" class="form__inputbox form__inputbox--textarea"></textarea>
+                <!-- <textarea name="position" class="form__inputbox form__inputbox--textarea"></textarea> -->
+                <?=
+                  $this->Form->control('position', [
+                    'type'     => 'textarea',
+                    'class'    => 'form__inputbox form__inputbox--textarea',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
                 <span class="form__error"><?= $this->Form->error('position'); ?></span>
               </div>
             </div>
-            <?php if(!$departments->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Deparment:</label>
               </div>
+              <?php if(!$departments->isEmpty()): ?>
               <div class="form__input form__input--fullwidth">
                 <?php foreach($departments as $department): ?>
                 <div class="form__checkbox">
@@ -309,13 +317,15 @@
                 <?php endforeach; ?>
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
+              <?php else: ?>
+              <label class="form__input-label">No Departments available</label>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
-            <?php if(!$subjects->isEmpty()): ?>
             <div class="form__list form__list--checkbox">
               <div class="form__label-wrapper">
                 <label class="form__label">Subject:</label>
               </div>
+              <?php if(!$subjects->isEmpty()): ?>
               <div class="form__input form__input--fullwidth">
                 <?php foreach($subjects as $subject): ?>
                 <div class="form__checkbox">
@@ -325,12 +335,14 @@
                 <?php endforeach; ?>
                 <span class="form__error"><?= $this->Form->error('department_id'); ?></span>
               </div>
+              <?php else: ?>
+              <label class="form__input-label">No Subjects available</label>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
           </div>
 
 
-          <div class="form__title">
+          <!-- <div class="form__title">
             <h3>IF MARRIED</h3>
           </div>
           <div class="form__data">
@@ -389,28 +401,13 @@
                 <span class="form__error"><?= $this->Form->error('educational_attainment'); ?></span>
               </div>
             </div>
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Seminars training:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('trainings', [
-                    'type'     => 'textarea',
-                    'class'    => 'form__inputbox',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-              </div>
-            </div>
-          </div>
+          </div> -->
 
-        <div class="form__title">
+        <!-- <div class="form__title">
           <h3>Working Experience</h3>
-        </div>
+        </div> -->
           <div class="form__data">
-            <div class="form__list">
+            <!-- <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Eligibility:</label>
               </div>
@@ -424,7 +421,7 @@
                   ])
                 ?>
               </div>
-            </div>
+            </div> -->
 
             <div class="form__list">
               <div class="form__label-wrapper">
@@ -462,14 +459,14 @@
               </div>
             </div>
 
-            <div class="form__list">
+            <!-- <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Work Experience:</label>
               </div>
               <div class="form__input form__input--fullwidth">
                 <textarea name="work_experience" class="form__inputbox form__inputbox--textarea"></textarea>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="form__title">
@@ -479,10 +476,19 @@
           <div class="form__data">
             <div class="form__list form__list--uploadimage">
               <div class="form__upload-image">
-                <img src="/img/logo/logo.png" alt="form-image" class="form__upload-picture">
+                <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
               </div>
               <div class="form__list-image">
-                <input type="file" multiple="multiple" name="image" id="input2">
+                <?=
+                    $this->Form->control('image', [
+                        'type'  => 'file',
+                        'id'    => 'input2',
+                        'div'   => false,
+                        'label' => false,
+                        'class' => 'image-upload'
+                    ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('image'); ?></span>
               </div>
             </div>
             <div class="form__button">
@@ -500,4 +506,19 @@
     format: 'yyyy-mm-dd',
     endDate: '+0d'
   });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.form__upload-picture').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(".image-upload").change(function(){
+      readURL(this);
+  });
+
 </script>

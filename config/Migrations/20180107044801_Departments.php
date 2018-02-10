@@ -12,6 +12,7 @@ class Departments extends AbstractMigration
      */
     public function up()
     {
+        $this->dropTable('departments');
         $departmentsTable = $this->table('departments');
         $departmentsTable
             ->addColumn('name', 'string', [
@@ -35,11 +36,6 @@ class Departments extends AbstractMigration
                 'limit'   => null,
                 'null'    => true,
             ])
-
             ->create();
-    }
-    public function down()
-    {
-        $this->dropTable('departments');
     }
 }
