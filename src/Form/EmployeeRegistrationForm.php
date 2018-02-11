@@ -140,6 +140,10 @@ class EmployeeRegistrationForm extends Form
                             ]
                          ]);
     }
+    /**
+     * This function is checking if the email is already exists
+     * @return boolean
+     */
     public function isUnique ($value, $context) {
         $Users = TableRegistry::get('Users');
         $user  = $Users->find('all')
@@ -151,10 +155,6 @@ class EmployeeRegistrationForm extends Form
             return true;
         }
         return false;
-    }
-    public function tin_number_validation () {
-        pr($value);
-        die();
     }
     /**
     * _execute method

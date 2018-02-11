@@ -12,7 +12,7 @@ class UserMigration extends AbstractMigration
      */
     public function up()
     {
-        $this->dropTable('users');
+        // $this->dropTable('users');
         $usersTable = $this->table('users');
         $usersTable
             ->addColumn('firstname', 'string', [

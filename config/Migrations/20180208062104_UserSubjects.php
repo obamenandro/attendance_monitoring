@@ -12,7 +12,7 @@ class UserSubjects extends AbstractMigration
      */
     public function change()
     {
-        $this->dropTable('user_subjects');
+        // $this->dropTable('user_subjects');
         $user_subjectsTable = $this->table('user_subjects');
         $user_subjectsTable
             ->addColumn('user_id', 'integer', [

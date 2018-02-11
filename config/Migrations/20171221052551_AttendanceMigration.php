@@ -12,7 +12,7 @@ class AttendanceMigration extends AbstractMigration
      */
     public function up()
     {
-        $this->dropTable('attendances');
+        // $this->dropTable('attendances');
         $usersTable = $this->table('attendances');
         $usersTable
             ->addColumn('user_id', 'integer', [

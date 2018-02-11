@@ -12,7 +12,7 @@ class UserDepartments extends AbstractMigration
      */
     public function change()
     {
-        $this->dropTable('user_departments');
+        // $this->dropTable('user_departments');
         $user_departmentsTable = $this->table('user_departments');
         $user_departmentsTable
             ->addColumn('user_id', 'integer', [

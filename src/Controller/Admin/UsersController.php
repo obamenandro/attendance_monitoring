@@ -136,7 +136,7 @@ class UsersController extends AppController
                     $userId    = $user->id;
                     $send_mail = $email->transport('gmail')
                        ->to($userData['email'])
-                       ->from('NAMEI Polytechnic')
+                       ->from('nameihris@gmail.com')
                        ->emailFormat('html')
                        ->template('temporary_password_mail')
                        ->viewVars([
@@ -167,6 +167,37 @@ class UsersController extends AppController
                     $government = $this->Government->newEntity();
                     $government = $this->Government->patchEntity($government, $governmentData);
                     if ($this->Government->save($government)) {
+                        if (!empty($data['department_id'])) {
+                            $this->UserDepartment = TableRegistry::get('UserDepartments');
+                            $userDepartment       = [];
+
+                            foreach ($data['department_id'] as $department) {
+                                $userDepartment[] = [
+                                    'department_id' => $department,
+                                    'user_id'       => $userId
+                                ];
+                            }
+                            
+                            $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
+                            foreach ($userDepartmentEntity as $entity) {
+                                $this->UserDepartment->save($entity);
+                            }
+                        }
+
+                        if (!empty($data['subject_id'])) {
+                            $this->UserSubject = TableRegistry::get('UserSubjects'); 
+                            $userSubject       = [];
+                            foreach ($data['subject_id'] as $subject) {
+                                $userSubject[] = [
+                                    'subject_id' => $subject,
+                                    'user_id'    => $userId
+                                ];
+                            }
+                            $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
+                            foreach ($userSubjectEntity as $entity) {
+                                $this->UserSubject->save($entity);   
+                            }
+                        }
                         $this->Flash->success(__('Your employee has been successfully added.'));
                         return $this->redirect('/admin/users/');
                     } else {
