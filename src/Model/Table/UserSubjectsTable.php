@@ -43,11 +43,11 @@ class UserSubjectsTable extends Table
 
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
+            'joinType'   => 'INNER'
         ]);
         $this->belongsTo('Subjects', [
             'foreignKey' => 'subject_id',
-            'joinType' => 'INNER'
+            'joinType'   => 'INNER'
         ]);
     }
 

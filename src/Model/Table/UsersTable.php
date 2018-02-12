@@ -43,18 +43,23 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
         // $this->belongsTo('Governments', [
-        //     'foreignKey' => 'government_id',
-        //     'joinType' => 'INNER'
+        //     'foreignKey' => 'user_id',
+        //     'joinType'   => 'INNER',
+        //     'conditions' => ['Governments.del_flg' => 0]
         // ]);
-        // $this->belongsTo('Destinations', [
-        //     'foreignKey' => 'destination_id'
-        // ]);
-        // $this->hasMany('Attendances', [
-        //     'foreignKey' => 'user_id'
-        // ]);
-        // $this->hasMany('Governments', [
-        //     'foreignKey' => 'user_id'
-        // ]);
+        $this->hasMany('Attendances', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('UserDepartments', [
+            'foreignKey' => 'user_id',
+            'joinType'   => 'INNER',
+            'conditions' => ['UserDepartments.del_flg' => 0]
+        ]);
+        $this->hasMany('UserSubjects', [
+            'foreignKey' => 'user_id',
+            'joinType'   => 'INNER',
+            'conditions' => ['UserSubjects.del_flg' => 0]
+        ]);
     }
 
     /**
@@ -89,9 +94,8 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        // $rules->add($rules->isUnique(['email']));
-        // $rules->add($rules->existsIn(['government_id'], 'Governments'));
-        // $rules->add($rules->existsIn(['destination_id'], 'Destinations'));
+        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['government_id'], 'Governments'));
 
         return $rules;
     }
@@ -103,14 +107,8 @@ class UsersTable extends Table
     {
         $query
             // We can specify which field we want to return only
-            ->select([
-                        'id','email',
-                        'password',
-                        'role',
-                    ])
-            ->where([
-                        'role'    => 2,
-                   ]);
+            ->select(['id', 'email', 'password', 'role'])
+            ->where(['role' => 2]);
         return $query;
     }
 }

@@ -91,7 +91,33 @@ class UsersController extends AppController
     }
 
     public function index() {
-
+        $user = $this->User->find('all')
+                ->contain(['UserDepartments', 'UserSubjects'])
+                ->select([
+                    'Governments.id',
+                    'Governments.sss_number',
+                    'Governments.gsis_number',
+                    'Governments.tin_number',
+                    'Governments.philhealth_number',
+                    'Governments.pagibig_number',
+                    'Governments.del_flg',
+                    'Governments.deleted_date',
+                    'Governments.created',
+                    'Governments.modified'
+                ])
+                ->join([
+                    'Governments' => [
+                        'table'      => 'governments',
+                        'type'       => 'INNER',
+                        'conditions' => 'Governments.user_id = Users.id'
+                    ]
+                ])
+                ->where(['Governments.user_id = Users.id'])
+                ->autoFields(true)
+                ->where(['Users.del_flg' => 0])
+                ->toArray();
+        pr($user);
+        die();
     }
 
     public function add() {
@@ -177,7 +203,7 @@ class UsersController extends AppController
                                     'user_id'       => $userId
                                 ];
                             }
-                            
+
                             $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
                             foreach ($userDepartmentEntity as $entity) {
                                 $this->UserDepartment->save($entity);
@@ -185,7 +211,7 @@ class UsersController extends AppController
                         }
 
                         if (!empty($data['subject_id'])) {
-                            $this->UserSubject = TableRegistry::get('UserSubjects'); 
+                            $this->UserSubject = TableRegistry::get('UserSubjects');
                             $userSubject       = [];
                             foreach ($data['subject_id'] as $subject) {
                                 $userSubject[] = [
@@ -195,7 +221,7 @@ class UsersController extends AppController
                             }
                             $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
                             foreach ($userSubjectEntity as $entity) {
-                                $this->UserSubject->save($entity);   
+                                $this->UserSubject->save($entity);
                             }
                         }
                         $this->Flash->success(__('Your employee has been successfully added.'));
