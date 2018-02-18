@@ -91,33 +91,16 @@ class UsersController extends AppController
     }
 
     public function index() {
-        $user = $this->User->find('all')
+        $users = $this->User->find('all')
                 ->contain(['UserDepartments', 'UserSubjects'])
-                ->select([
-                    'Governments.id',
-                    'Governments.sss_number',
-                    'Governments.gsis_number',
-                    'Governments.tin_number',
-                    'Governments.philhealth_number',
-                    'Governments.pagibig_number',
-                    'Governments.del_flg',
-                    'Governments.deleted_date',
-                    'Governments.created',
-                    'Governments.modified'
+                ->where([
+                    'Users.del_flg' => 0,
+                    'Users.role'    => Configure::read('role.employee')
                 ])
-                ->join([
-                    'Governments' => [
-                        'table'      => 'governments',
-                        'type'       => 'INNER',
-                        'conditions' => 'Governments.user_id = Users.id'
-                    ]
-                ])
-                ->where(['Governments.user_id = Users.id'])
-                ->autoFields(true)
-                ->where(['Users.del_flg' => 0])
-                ->toArray();
-        pr($user);
-        die();
+                ->toArray()
+                ;
+
+        $this->set(compact('users'));
     }
 
     public function add() {
@@ -154,6 +137,7 @@ class UsersController extends AppController
                     'position'               => $data['position'],
                     'jobtype'                => $data['jobtype'],
                     'designation'            => $data['designation'],
+                    'role'                   => Configure::read('role.employee'), 
                     'password'               => $data['password']
                 ];
                 $entity = $this->User->newEntity();

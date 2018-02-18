@@ -47,7 +47,7 @@ class UserMigration extends AbstractMigration
                 'length' => 255
             ])
             ->addColumn('role', 'integer', [
-                'default' => 1,
+                'default' => 2,
                 'length'  => 11
             ])
             ->addColumn('place_of_birth', 'string', [

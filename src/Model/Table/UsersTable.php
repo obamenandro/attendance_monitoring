@@ -42,11 +42,10 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-        // $this->belongsTo('Governments', [
-        //     'foreignKey' => 'user_id',
-        //     'joinType'   => 'INNER',
-        //     'conditions' => ['Governments.del_flg' => 0]
-        // ]);
+        $this->belongsTo('Governments', [
+            'foreignKey' => 'user_id',
+            'joinType'   => 'INNER',
+        ]);
         $this->hasMany('Attendances', [
             'foreignKey' => 'user_id'
         ]);
