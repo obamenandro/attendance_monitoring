@@ -3,9 +3,7 @@
 </div>
 
 <div class="panel__container">
-  <?= $this->element('Flash/success') ?>
-  <?= $this->element('Flash/error') ?>
-  
+  <?= $this->Flash->render(); ?>
   <div class="panel__content">
     <div class="form">
       <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -42,97 +40,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
-              <tr class="table__body">
-                <td class="table__body-list">1002</td>
-                <td class="table__body-list">Dave</td>
-                <td class="table__body-list">Teacher</td>
-                <td class="table__body-list">Department of Justice</td>
-                <td class="table__body-list">Married</td>
-                <td class="table__body-list">Sample</td>
-                <td class="table__body-list">2018-01-02</td>
-                <td class="table__body-list">
-                  <a href="#" class="table__view">View</a>
-                  <a class="table__view js-table-edit">Edit</a>
-                </td>
-              </tr>
+              <?php foreach($users as $user): ?>
+                <tr class="table__body">
+                  <td class="table__body-list"><?= $user['id'] ?></td>
+                  <td class="table__body-list"><?= $user['firstname']." ".$user['lastname'] ?></td>
+                  <td class="table__body-list"><?= $user['position'] ?></td>
+                  <td class="table__body-list">
+                    <?php 
+                      $department = "";
+                      foreach($user['user_departments'] as $value) {
+                        $department.=$value['department']['name'].', ';
+                      } 
+                      echo rtrim($department, ', ');
+                    ?></td>
+                  <td class="table__body-list"><?= $civil_status[$user['civil_status']] ?></td>
+                  <td class="table__body-list"><?= $designation[$user['designation']] ?></td>
+                  <td class="table__body-list"><?= $user['created']->i18nFormat('YYY-MM-dd') ?></td>
+                  <td class="table__body-list">
+                    <a href="#" class="table__view">View</a>
+                    <a class="table__view js-table-edit">Edit</a>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

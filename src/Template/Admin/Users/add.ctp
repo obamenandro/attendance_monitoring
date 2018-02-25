@@ -291,7 +291,6 @@
                 <label class="form__label">Position</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <!-- <textarea name="position" class="form__inputbox form__inputbox--textarea"></textarea> -->
                 <?=
                   $this->Form->control('position', [
                     'type'     => 'textarea',
@@ -341,88 +340,6 @@
             </div>
           </div>
 
-
-          <!-- <div class="form__title">
-            <h3>IF MARRIED</h3>
-          </div>
-          <div class="form__data">
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Name of Spouse:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('name_of_spouse', [
-                    'type'     => 'text',
-                    'class'    => 'form__inputbox',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('name_of_spouse'); ?></span>
-              </div>
-            </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Number of Children:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('number_of_children', [
-                    'type'     => 'text',
-                    'class'    => 'form__inputbox',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('number_of_children'); ?></span>
-              </div>
-            </div>
-          </div>
-
-        <div class="form__title">
-          <h3>Educational Background</h3>
-        </div>
-          <div class="form__data">
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Educational Attainment:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('educational_attainment', [
-                    'type'     => 'textarea',
-                    'class'    => 'form__inputbox',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('educational_attainment'); ?></span>
-              </div>
-            </div>
-          </div> -->
-
-        <!-- <div class="form__title">
-          <h3>Working Experience</h3>
-        </div> -->
-          <div class="form__data">
-            <!-- <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Eligibility:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('eligibility', [
-                    'type'     => 'text',
-                    'class'    => 'form__inputbox',
-                    'label'    => false,
-                    'required' => false
-                  ])
-                ?>
-              </div>
-            </div> -->
-
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Job Type:</label>
@@ -458,15 +375,6 @@
                 <span class="form__error"><?= $this->Form->error('designation'); ?></span>
               </div>
             </div>
-
-            <!-- <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Work Experience:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <textarea name="work_experience" class="form__inputbox form__inputbox--textarea"></textarea>
-              </div>
-            </div> -->
           </div>
 
           <div class="form__title">
@@ -480,13 +388,13 @@
               </div>
               <div class="form__list-image">
                 <?=
-                    $this->Form->control('image', [
-                        'type'  => 'file',
-                        'id'    => 'input2',
-                        'div'   => false,
-                        'label' => false,
-                        'class' => 'image-upload'
-                    ]);
+                  $this->Form->control('image', [
+                    'type'  => 'file',
+                    'id'    => 'input2',
+                    'div'   => false,
+                    'label' => false,
+                    'class' => 'image-upload'
+                  ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('image'); ?></span>
               </div>

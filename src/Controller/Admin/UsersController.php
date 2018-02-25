@@ -92,14 +92,24 @@ class UsersController extends AppController
 
     public function index() {
         $users = $this->User->find('all')
-                ->contain(['UserDepartments', 'UserSubjects'])
+                ->contain([
+                    'UserDepartments' => [
+                        'Departments' => [
+                            'fields' => ['name'],
+                            'conditions' => [
+                                'Departments.del_flg' => 0
+                            ]
+                        ]
+                    ]
+                ])
                 ->where([
                     'Users.del_flg' => 0,
                     'Users.role'    => Configure::read('role.employee')
                 ])
                 ->toArray()
                 ;
-
+        $this->set('civil_status',Configure::read('civil_status'));
+        $this->set('designation', Configure::read('designation'));
         $this->set(compact('users'));
     }
 
@@ -163,7 +173,7 @@ class UsersController extends AppController
                         $profileImage = $this->Upload->file_dst_name;
 
                         $addImage = $this->User->get($userId);
-                        $addImage->image = 'uploads/employee/'.$userId.'/'.$profileImage;
+                        $addImage->image = '/uploads/employee/'.$userId.'/'.$profileImage;
                         $this->User->save($addImage);
                     }
                     $governmentData = [
@@ -221,14 +231,47 @@ class UsersController extends AppController
         $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
     }
 
-    public function edit() {
+    public function edit($id = NULL) {
+        $this->User      = TableRegistry::get('Users');
+        $addForm          = new EmployeeRegistrationForm();
+        $civilStatus      = Configure::read('civil_status');
+        $designation      = Configure::read('designation');
+        $jobtype          = Configure::read('job_type');
+        $this->Department = TableRegistry::get('Departments');
+        $this->Government = TableRegistry::get('Governments');
+        $this->Subject    = TableRegistry::get('Subjects');
 
+        $departments = $this->Department->find('all')
+            ->where(['del_flg' => 0]);
+
+        $subjects = $this->Subject->find('all')
+            ->where(['del_flg' => 0]);
+
+
+        $employee = $this->User->find('all')
+        ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
+        ->where(['Users.id' => $id, 'Users.role' => 2])
+        ->first();  
+
+        if (!$employee) {
+            return $this->redirect('/admin/users/');
+        }
+
+        $this->set(compact(
+            'employee', 
+            'civilStatus', 
+            'designation', 
+            'jobtype', 
+            'subjects', 
+            'departments', 
+            'addForm')
+        );
     }
     public function add_attendance() {
 
     }
 
-    public function view_info() {
+    public function view($id = NULL) {
 
     }
 
@@ -269,16 +312,7 @@ class UsersController extends AppController
                 $this->Upload->process('uploads/user_images/');
                 $profileImage = $this->Upload->file_dst_name;
             }
-
-            // if ($this->Images->save($user)) {
-            //     $this->Flash->success(__('The user has been saved.'));
-            //     return $this->redirect(['action' => 'index']);
-            // } else {
-            //     $this->Flash->error(__('The user could not be saved. Please, try again.'));
-            // }
         }
-        // $this->set(compact('user'));
-        // $this->set('_serialize', ['user']);
     }
 
 
