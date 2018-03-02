@@ -100,11 +100,12 @@ class UsersTable extends Table
             ->notEmpty('birthdate', 'Birthdate is required.');
         $validator
             ->add('image', 'file', [
-                'rule'  => ['mimeType', ['image/jpeg', 'image/png']],
+                'rule'  => ['mimeType', ['image/jpeg', 'image/png', 'image/jpg']],
                 'on'    => function ($context) {
                     return !empty($context['data']['image']);
-                }
-            ])
+                },
+                'message' => "Image must be jpeg, jpg and jpeg"
+            ]);
         return $validator;
     }
 

@@ -489,7 +489,8 @@
                     'id'    => 'input2',
                     'div'   => false,
                     'label' => false,
-                    'class' => 'image-upload'
+                    'class' => 'image-upload',
+                    'required' => false
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('image'); ?></span>
