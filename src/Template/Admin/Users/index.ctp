@@ -46,11 +46,11 @@
                   <td class="table__body-list"><?= $user['firstname']." ".$user['lastname'] ?></td>
                   <td class="table__body-list"><?= $user['position'] ?></td>
                   <td class="table__body-list">
-                    <?php 
+                    <?php
                       $department = "";
                       foreach($user['user_departments'] as $value) {
                         $department.=$value['department']['name'].', ';
-                      } 
+                      }
                       echo rtrim($department, ', ');
                     ?></td>
                   <td class="table__body-list"><?= $civil_status[$user['civil_status']] ?></td>
@@ -58,7 +58,7 @@
                   <td class="table__body-list"><?= $user['created']->i18nFormat('YYY-MM-dd') ?></td>
                   <td class="table__body-list">
                     <a href="#" class="table__view">View</a>
-                    <a class="table__view js-table-edit">Edit</a>
+                    <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view">Edit</a>
                   </td>
                 </tr>
               <?php endforeach; ?>

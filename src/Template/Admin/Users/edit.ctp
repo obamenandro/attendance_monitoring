@@ -7,7 +7,7 @@
   <div class="panel__content">
     <div class="form">
       <?=
-        $this->Form->create('', [
+        $this->Form->create($userEdit, [
           'enctype' => 'multipart/form-data',
           'type'    => 'POST'
         ]);
@@ -193,7 +193,7 @@
           </div>
 
           <div class="form__data">
-           
+
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">SSS Number:</label>
@@ -283,7 +283,7 @@
           </div>
 
           <div class="form__data">
-           
+
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Position</label>
@@ -416,7 +416,7 @@
                 <input type="text" name="" class="form__inputbox">
               </div>
             </div>
-            
+
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Job Type:</label>
@@ -468,7 +468,7 @@
                 <span class="form__error"><?= $this->Form->error('work_experience'); ?></span>
             </div>
           </div>
-          
+
           <div class="form__title">
             <h3>Upload Image</h3>
           </div>
@@ -492,7 +492,7 @@
                     'class' => 'image-upload'
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('image'); ?></span>  
+                <span class="form__error"><?= $this->Form->error('image'); ?></span>
               </div>
             </div>
 

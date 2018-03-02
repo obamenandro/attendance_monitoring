@@ -76,12 +76,28 @@ class UsersTable extends Table
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->notEmpty('email', 'Email is required.');
         $validator
             ->scalar('password')
             ->maxLength('password', 255)
             ->requirePresence('password', 'create')
             ->notEmpty('password');
+        $validator
+            ->scalar('lastname')
+            ->requirePresence('lastname', 'update')
+            ->notEmpty('lastname', 'Lastname is required.');
+        $validator
+            ->scalar('middlename')
+            ->requirePresence('middlename', 'update')
+            ->notEmpty('middlename', 'Middlename is required.');
+        $validator
+            ->scalar('firstname', 'update')
+            ->requirePresence('firstname', 'update')
+            ->notEmpty('firstname', 'Firstname is required.');
+        $validator
+            ->scalar('birthdate')
+            ->requirePresence('birthdate', 'update')
+            ->notEmpty('birthdate', 'Birthdate is required.');
         return $validator;
     }
 

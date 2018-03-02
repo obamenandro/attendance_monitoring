@@ -3,12 +3,19 @@ namespace App\Form;
 
 use Cake\Form\Form;
 use Cake\Form\Schema;
-use Cake\ORM\Rule\IsUnique;
-use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
-class EmployeeRegistrationForm extends Form
+/**
+ * EmployeeEdit Form.
+ */
+class EmployeeEditForm extends Form
 {
+    /**
+     * Builds the schema for the modelless form
+     *
+     * @param \Cake\Form\Schema $schema From schema
+     * @return \Cake\Form\Schema
+     */
     protected function _buildSchema(Schema $schema)
     {
         return $schema->addField('firstname', 'string')
@@ -18,7 +25,6 @@ class EmployeeRegistrationForm extends Form
             ->addField('address', 'string')
             ->addField('contact', 'integer')
             ->addField('email', 'string')
-            ->addField('password', 'string')
             ->addField('place_of_birth', 'string')
             ->addField('name_of_spouse', 'string')
             ->addField('citizenship', 'string')
@@ -32,10 +38,17 @@ class EmployeeRegistrationForm extends Form
             ->addField('tin_number', 'integer')
             ->addField('philhealth_number', 'integer')
             ->addField('pagibig_number', 'integer')
+            ->addField('pagibig_number', 'integer')
             ;
     }
 
-    public function _buildValidator(Validator $validator)
+    /**
+     * Form validation builder
+     *
+     * @param \Cake\Validation\Validator $validator to use against the form
+     * @return \Cake\Validation\Validator
+     */
+    protected function _buildValidator(Validator $validator)
     {
         return $validator->notEmpty('firstname', __('Firstname is required.'))
                          ->notEmpty('lastname', __('Lastname is required.'))
@@ -44,7 +57,6 @@ class EmployeeRegistrationForm extends Form
                          ->notEmpty('address', __('Address is required.'))
                          ->notEmpty('contact', __('Contact is required.'))
                          ->notEmpty('email', __('Email is required.'))
-                         ->notEmpty('password', __('Password is required.'))
                          ->notEmpty('citizenship', __('Citizenship is required.'))
                          ->notEmpty('civil_status', __('Civil status is required.'))
                          ->notEmpty('place_of_birth', __('Place of birth is required.'))
@@ -140,27 +152,13 @@ class EmployeeRegistrationForm extends Form
                             ]
                          ]);
     }
+
     /**
-     * This function is checking if the email is already exists
-     * @return boolean
+     * Defines what to execute once the From is being processed
+     *
+     * @param array $data Form data.
+     * @return bool
      */
-    public function isUnique ($value, $context) {
-        $Users = TableRegistry::get('Users');
-        $user  = $Users->find('all')
-                ->where([
-                    'email'   => $value,
-                    'del_flg' => 0
-                ]);
-        if ($user->isEmpty()) {
-            return true;
-        }
-        return false;
-    }
-    /**
-    * _execute method
-    * this is like last callback if the validations are true
-    * we can send email or do something in this method
-    */
     protected function _execute(array $data)
     {
         return true;

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use App\Form\EmployeeRegistrationForm;
+use App\Form\EmployeeEditForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
@@ -147,7 +148,7 @@ class UsersController extends AppController
                     'position'               => $data['position'],
                     'jobtype'                => $data['jobtype'],
                     'designation'            => $data['designation'],
-                    'role'                   => Configure::read('role.employee'), 
+                    'role'                   => Configure::read('role.employee'),
                     'password'               => $data['password']
                 ];
                 $entity = $this->User->newEntity();
@@ -233,7 +234,7 @@ class UsersController extends AppController
 
     public function edit($id = NULL) {
         $this->User      = TableRegistry::get('Users');
-        $addForm          = new EmployeeRegistrationForm();
+        $addForm          = new EmployeeEditForm();
         $civilStatus      = Configure::read('civil_status');
         $designation      = Configure::read('designation');
         $jobtype          = Configure::read('job_type');
@@ -241,29 +242,34 @@ class UsersController extends AppController
         $this->Government = TableRegistry::get('Governments');
         $this->Subject    = TableRegistry::get('Subjects');
 
-        $departments = $this->Department->find('all')
-            ->where(['del_flg' => 0]);
-
-        $subjects = $this->Subject->find('all')
-            ->where(['del_flg' => 0]);
-
+        $departments = $this->Department->find('all')->where(['del_flg' => 0]);
+        $subjects    = $this->Subject->find('all')->where(['del_flg' => 0]);
 
         $employee = $this->User->find('all')
         ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
         ->where(['Users.id' => $id, 'Users.role' => 2])
-        ->first();  
-
+        ->first();
         if (!$employee) {
             return $this->redirect('/admin/users/');
         }
+        $userEdit = $this->User->get($id);
+        if ($this->request->is('POST')) {
+            $userEdit = $this->User->patchEntity($userEdit, $this->request->data);
+            $userEdit->modified = date('Y-m-d H:i:s');
+            if ($this->User->save($userEdit)) {
+                $this->Flash->success(__('Your post has been updated.'));
+                return $this->redirect(['action' => 'index']);
+            }
+        }
 
         $this->set(compact(
-            'employee', 
-            'civilStatus', 
-            'designation', 
-            'jobtype', 
-            'subjects', 
-            'departments', 
+            'userEdit',
+            'employee',
+            'civilStatus',
+            'designation',
+            'jobtype',
+            'subjects',
+            'departments',
             'addForm')
         );
     }
