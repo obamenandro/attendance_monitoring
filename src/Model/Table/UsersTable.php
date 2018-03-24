@@ -51,14 +51,18 @@ class UsersTable extends Table
             'foreignKey' => 'user_id'
         ]);
         $this->hasMany('UserDepartments', [
-            'foreignKey' => 'user_id',
-            'joinType'   => 'INNER',
-            'conditions' => ['UserDepartments.del_flg' => 0]
+            'foreignKey'       => 'user_id',
+            'joinType'         => 'INNER',
+            'dependent'        => true,
+            'cascadeCallbacks' => true,
+            'conditions'       => ['UserDepartments.del_flg' => 0]
         ]);
         $this->hasMany('UserSubjects', [
-            'foreignKey' => 'user_id',
-            'joinType'   => 'INNER',
-            'conditions' => ['UserSubjects.del_flg' => 0]
+            'foreignKey'       => 'user_id',
+            'joinType'         => 'INNER',
+            'dependent'        => true,
+            'cascadeCallbacks' => true,
+            'conditions'       => ['UserSubjects.del_flg' => 0]
         ]);
     }
 
@@ -105,7 +109,8 @@ class UsersTable extends Table
                     return !empty($context['data']['image']);
                 },
                 'message' => "Image must be jpeg, jpg and jpeg"
-            ]);
+            ])
+            ->allowEmpty('image');
         return $validator;
     }
 

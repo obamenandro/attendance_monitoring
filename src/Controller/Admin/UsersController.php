@@ -233,18 +233,19 @@ class UsersController extends AppController
     }
 
     public function edit($id = NULL) {
-        $this->User      = TableRegistry::get('Users');
-        $addForm          = new EmployeeEditForm();
-        $civilStatus      = Configure::read('civil_status');
-        $designation      = Configure::read('designation');
-        $jobtype          = Configure::read('job_type');
-        $this->Department = TableRegistry::get('Departments');
-        $this->Government = TableRegistry::get('Governments');
-        $this->Subject    = TableRegistry::get('Subjects');
+        $this->User           = TableRegistry::get('Users');
+        $addForm              = new EmployeeEditForm();
+        $civilStatus          = Configure::read('civil_status');
+        $designation          = Configure::read('designation');
+        $jobtype              = Configure::read('job_type');
+        $this->Department     = TableRegistry::get('Departments');
+        $this->Government     = TableRegistry::get('Governments');
+        $this->Subject        = TableRegistry::get('Subjects');
+        $this->UserDepartment = TableRegistry::get('UserDepartments');
 
         $departments = $this->Department->find('all')->where(['del_flg' => 0]);
         $subjects    = $this->Subject->find('all')->where(['del_flg' => 0]);
-
+        //get all employee
         $employee = $this->User->find('all')
         ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
         ->where(['Users.id' => $id, 'Users.role' => 2])
@@ -252,12 +253,28 @@ class UsersController extends AppController
         if (!$employee) {
             return $this->redirect('/admin/users/');
         }
+
+        $userDepartments = $this->UserDepartment->find('list',[
+            'keyField'   => 'department_id',
+            'valueField' => 'id'
+        ])
+        ->where(['user_id' => $id, 'del_flg' => 0])
+        ->toArray();
+                
         $userEdit = $this->User->get($id);
         if ($this->request->is('POST')) {
+
             $userEdit = $this->User->patchEntity($userEdit, $this->request->data);
             $userEdit->modified = date('Y-m-d H:i:s');
+            $userEdit->errors('sss_number',"asdsad");
+            // pr($userEdit->errors('sss_number',"asdsad"));
+            // die();
+            if ($this->request->data['image']['size'] == 0) {
+                $userEdit->image = $employee['image'];
+            }
             if ($this->User->save($userEdit)) {
-                $this->Flash->success(__('Your post has been updated.'));
+                $this->UserDepartment->deleteAll(['user_id' => $id]);
+                $this->Flash->success(__('Your employee has been successfully updated.'));
                 return $this->redirect(['action' => 'index']);
             }
         }
@@ -270,6 +287,7 @@ class UsersController extends AppController
             'jobtype',
             'subjects',
             'departments',
+            'userDepartments',
             'addForm')
         );
     }

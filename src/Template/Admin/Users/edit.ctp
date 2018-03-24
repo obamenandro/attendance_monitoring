@@ -223,7 +223,7 @@
                     'required' => false
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('sss_number'); ?></span>
+                <span class="form__error"><?= $this->Form->error('gsis_number'); ?></span>
               </div>
             </div>
             <div class="form__list">
@@ -310,7 +310,7 @@
                 <div class="form__input form__input--fullwidth">
                   <?php foreach($departments as $department): ?>
                   <div class="form__checkbox">
-                    <input type="checkbox" name="department_id[]" id="checkbox5" class="form__input-checkbox" value="<?= $department['id'] ?>">
+                    <input type="checkbox" name="department_id[]" id="checkbox5" class="form__input-checkbox" value="<?= $department['id'] ?>" <?= isset($userDepartments[$department['id']]) ? 'checked' : '' ?>>
                     <label for="#checkbox5" class="form__input-label"><?= $department['name'] ?></label>
                   </div>
                   <?php endforeach; ?>
