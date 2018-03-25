@@ -78,6 +78,10 @@ a {
 .table.table--view-list .table__body-list {
   width: 33.3% !important; }
 
+.js-no-date {
+  font-size: 0 !important;
+  border: none !important; }
+
 /*components*/
 .header {
   position: fixed;
@@ -580,50 +584,36 @@ a {
     background: #FFFFFF;
     border: 1px solid #C2C2C2;
     padding: 50px 0 0; }
-  .user-panel__greetings {
-    font-size: 35px;
-    color: #2D3134;
-    text-align: center;
-    padding: 35px 0 20px;
-    font-weight: 600; }
-  .user-panel__subtitle {
-    display: block;
-    padding: 20px;
-    font-size: 20px;
-    color: #666666; }
   .user-panel__menu {
-    padding: 20px 0 30px; }
+    padding: 10px 0 30px; }
   .user-panel__menu-list {
     display: inline-block;
-    width: 33.3%;
+    width: 20%;
     vertical-align: top;
-    padding: 20px 25px;
+    padding: 20px;
     text-align: center;
     border-bottom: 1px solid #C4C5C3;
     border-right: 1px solid #C4C5C3;
-    height: 190px; }
+    height: 130px; }
     .user-panel__menu-list:hover {
       cursor: pointer;
-      color: #049FDA; }
-    .user-panel__menu-list:nth-child(3n) {
-      border-right: none; }
-    .user-panel__menu-list:nth-child(4), .user-panel__menu-list:nth-child(5), .user-panel__menu-list:nth-child(6) {
-      border-bottom: none; }
+      color: #049FDA;
+      background-color: rgba(4, 159, 218, 0.1); }
   .user-panel__menu-link {
     display: block;
     color: #2D3134; }
   .user-panel__menu-text {
-    font-size: 20px; }
+    font-size: 16px; }
   .user-panel__name {
     padding-top: 20px; }
   .user-panel__paragraph {
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.5em;
     color: #666666;
     padding: 3px 0; }
   .user-panel__icon {
     display: block;
-    font-size: -webkit-xxx-large;
+    font-size: 20px;
     padding-bottom: 10px;
     color: #CCCCCC; }
 
@@ -781,3 +771,31 @@ a {
   .flash-message.flash-message--error .flash-message__text-status,
   .flash-message.flash-message--error .flash-message__icon {
     color: #FF5050; }
+
+.calendar {
+  padding: 20px 100px 100px; }
+  .calendar__list-weeks {
+    display: inline-block;
+    width: 14.28%;
+    vertical-align: top;
+    text-align: center;
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+    border-right: none;
+    background: #EEEEEE; }
+    .calendar__list-weeks:last-child {
+      border-right: 1px solid #EEEEEE; }
+  .calendar__weeks-day {
+    font-size: 14px; }
+  .calendar__days-number {
+    padding: 20px 20px 50px;
+    border: 1px solid #EEEEEE;
+    border-right: none;
+    font-size: 14px; }
+  .calendar__days-list {
+    display: inline-block;
+    width: 14.28%;
+    vertical-align: top;
+    text-align: right; }
+    .calendar__days-list:last-child .calendar__days-number {
+      border-right: 1px solid #EEEEEE; }

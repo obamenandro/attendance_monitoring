@@ -16,48 +16,24 @@
     padding: 50px 0 0;
   }
 
-  &__greetings {
-    font-size: 35px;
-    color: $primary-color;
-    text-align: center;
-    padding: 35px 0 20px;
-    font-weight: 600;
-  }
-
-  &__subtitle {
-    display: block;
-    padding: 20px;
-    font-size: $subtitle-fontsize;
-    color: $tertiary-color;
-  }
-
   &__menu {
-    padding: 20px 0 30px;
+    padding: 10px 0 30px;
   }
 
   &__menu-list {
     display: inline-block;
-    width: 33.3%;
+    width: 20%;
     vertical-align: top;
-    padding: 20px 25px;
+    padding: 20px;
     text-align: center;
     border-bottom: 1px solid $light-gray;
     border-right: 1px solid $light-gray;
-    height: 190px;
+    height: 130px;
 
     &:hover {
       cursor: pointer;
       color: $secondary-color;
-    }
-
-    &:nth-child(3n) {
-      border-right: none;
-    }
-
-    &:nth-child(4),
-    &:nth-child(5),
-    &:nth-child(6) {
-      border-bottom: none;
+      background-color: rgba(4, 159, 218, 0.1);
     }
   }
 
@@ -67,7 +43,7 @@
   }
 
   &__menu-text {
-    font-size: $subtitle-fontsize;
+    font-size: 16px;
   }
 
   &__name {
@@ -75,7 +51,7 @@
   }
 
   &__paragraph {
-    font-size: $default-fontsize;
+    font-size: 12px;
     line-height: 1.5em;
     color: #666666;
     padding: 3px 0;
@@ -83,7 +59,7 @@
 
   &__icon {
     display: block;
-    font-size: -webkit-xxx-large;
+    font-size: 20px;
     padding-bottom: 10px;
     color: #CCCCCC;
   }

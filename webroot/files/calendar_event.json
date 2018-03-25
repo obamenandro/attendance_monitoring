@@ -1,0 +1,135 @@
+{
+  "year" : 2018,
+  "month" : 3,
+  "currentMonth" : true,
+  "currentDate" : 2,
+  "isHoliday": true,
+  "dates" :
+  {
+  "1" :
+    {
+      "isPastday" : true
+    },
+  "2" :
+    {
+      "isPastday" : true
+    },
+  "3" :
+    {
+    "isPastday" : false
+    },
+  "4" :
+    {
+    "isPastday" : true
+    },
+  "5" :
+    {
+    "isPastday" : true
+    },
+  "6" :
+    {
+    "isPastday" : true
+    },
+  "7" :
+    {
+    "isPastday" : true
+    },
+  "8" :
+    {
+    "isPastday" : true
+    },
+  "9" :
+    {
+    "isPastday" : true
+    },
+  "10" :
+    {
+    "isPastday" : true
+    },
+  "11" :
+    {
+    "isPastday" : true
+    },
+  "12" :
+    {
+    "isPastday" : true
+    },
+  "13" :
+    {
+    "isPastday" : true
+    },
+  "14" :
+    {
+    "isPastday" : true
+    },
+  "15" :
+    {
+    "isPastday" : true
+    },
+  "16" :
+    {
+    "isPastday" : true
+    },
+  "17" :
+    {
+    "isPastday" : true
+    },
+  "18" :
+    {
+    "isPastday" : true
+    },
+  "19" :
+    {
+    "isPastday" : true
+    },
+  "20" :
+    {
+    "isPastday" : true
+    },
+  "21" :
+    {
+    "isPastday" : true
+    },
+  "22" :
+    {
+    "isPastday" : true
+    },
+  "23" :
+    {
+    "isPastday" : true
+    },
+  "24" :
+    {
+    "isPastday" : true
+    },
+  "25" :
+    {
+    "isPastday" : true
+    },
+  "26" :
+    {
+    "isPastday" : true
+    },
+  "27" :
+    {
+    "isPastday" : true
+    },
+  "28" :
+    {
+    "isPastday" : true
+    },
+  "29" :
+    {
+    "isPastday" : true
+    },
+  "30" :
+    {
+    "isPastday" : true
+    },
+  "31" :
+    {
+    "isPastday" : true
+    }
+  }
+}
+

@@ -64,14 +64,6 @@ $this->layout = false;
       <div class="user-panel">
         <div class="user-panel__container">
           <div class="user-panel__content">
-
-            <div class="user-panel__greetings">
-              <h2>Welcome, Denmark!</h2>
-              <p class="user-panel__subtitle">
-                What do you want to check?
-              </p>
-            </div>
-
             <div class="user-panel__menu">
               <ul>
                 <li class="user-panel__menu-list">
