@@ -690,7 +690,8 @@ a {
   width: 85%;
   font-size: 14px;
   vertical-align: middle;
-  padding-left: 30px; }
+  padding-left: 30px;
+  word-break: break-all; }
 
 .view-info__image {
   position: absolute;
@@ -702,6 +703,10 @@ a {
   height: 130px;
   object-fit: cover;
   border-radius: 50%; }
+
+.view-info__button {
+  text-align: center;
+  padding: 50px 0; }
 
 .success-msg__content {
   padding: 50px 0; }

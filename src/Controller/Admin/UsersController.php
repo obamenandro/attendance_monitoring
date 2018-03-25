@@ -343,4 +343,8 @@ class UsersController extends AppController
     public function user_change_password() {
 
     }
+
+    public function confirmation () {
+        
+    }
 }
