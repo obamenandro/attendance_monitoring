@@ -141,6 +141,15 @@ $this->layout = false;
 
           <div class="user-panel__field">
             <div class="calendar">
+              <div class="calendar__title">
+                <div class="calendar__arrow">
+                  <i class="fa fa-chevron-left js-prev"></i>
+                </div>
+                <div class="calendar__month-name js-yearMonths"></div>
+                <div class="calendar__arrow calendar__arrow--next">
+                  <i class="fa fa-chevron-right js-next"></i>
+                </div>
+              </div>
               <div class="calendar__weeks">
                 <ul class="js-week"> <!-- SHOW THE WEEKS --> </ul>
               </div>

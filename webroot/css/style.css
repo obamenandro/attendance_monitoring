@@ -799,3 +799,23 @@ a {
     text-align: right; }
     .calendar__days-list:last-child .calendar__days-number {
       border-right: 1px solid #EEEEEE; }
+  .calendar__title {
+    padding: 20px 0; }
+  .calendar__arrow {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+    font-size: 20px; }
+  .calendar__month-name {
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    font-size: 20px;
+    text-align: center; }
+
+.calendar__arrow.calendar__arrow--next {
+  text-align: right; }
+
+.calendar__days-number.calendar__days-number--current {
+  color: #FF0000;
+  font-weight: bold; }

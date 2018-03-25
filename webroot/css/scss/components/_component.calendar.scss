@@ -40,4 +40,32 @@
       }
     }
   }
+
+  &__title {
+    padding: 20px 0;
+  }
+
+  &__arrow {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+    font-size: 20px;
+  }
+
+  &__month-name {
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.calendar__arrow.calendar__arrow--next {
+  text-align: right;
+}
+
+.calendar__days-number.calendar__days-number--current {
+  color: #FF0000;;
+  font-weight: bold;
 }

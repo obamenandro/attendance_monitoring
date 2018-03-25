@@ -67,8 +67,6 @@ $( document ).ready( function(){
                       showDate = showDate + '</ul>'
                   });
   
-  
-  
                   $( '.js-populate-date' ).html(showDate);
   
                   // REMOVE DATE FROM PREVIOUS MONTH AND NEXT MONTH
@@ -98,6 +96,9 @@ $( document ).ready( function(){
                   // AVOID CLICKABLED WHEN LOADING
                   $( '.calendar' ).removeClass('js-loading-opacity');
                   $('.js-loading').hide();
+
+                  $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ data.currentDate+'"]').addClass('calendar__days-number--current');
+
               }
           });
       }
