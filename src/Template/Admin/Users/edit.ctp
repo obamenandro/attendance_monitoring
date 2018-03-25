@@ -467,38 +467,37 @@
                 ?>
                 <span class="form__error"><?= $this->Form->error('work_experience'); ?></span>
             </div>
-          </div>
-
-          <div class="form__title">
-            <h3>Upload Image</h3>
-          </div>
-
-          <div class="form__data">
-            <div class="form__list form__list--uploadimage">
-              <div class="form__upload-image">
-                <?php if($employee['image'] == NULL): ?>
-                  <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
-                <?php else: ?>
-                  <img src="<?= $employee['image']; ?>" alt="form-image" class="form__upload-picture">
-                <?php endif; ?>
-              </div>
-              <div class="form__list-image">
-                <?=
-                  $this->Form->control('image', [
-                    'type'  => 'file',
-                    'id'    => 'input2',
-                    'div'   => false,
-                    'label' => false,
-                    'class' => 'image-upload',
-                    'required' => false
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('image'); ?></span>
-              </div>
+            <div class="form__title">
+              <h3>Upload Image</h3>
             </div>
 
-            <div class="form__button">
-              <input type="submit" name="" class="button button--submit">
+            <div class="form__data">
+              <div class="form__list form__list--uploadimage">
+                <div class="form__upload-image">
+                  <?php if($employee['image'] == NULL): ?>
+                    <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
+                  <?php else: ?>
+                    <img src="<?= $employee['image']; ?>" alt="form-image" class="form__upload-picture">
+                  <?php endif; ?>
+                </div>
+                <div class="form__list-image">
+                  <?=
+                    $this->Form->control('image', [
+                      'type'  => 'file',
+                      'id'    => 'input2',
+                      'div'   => false,
+                      'label' => false,
+                      'class' => 'image-upload',
+                      'required' => false
+                    ]);
+                  ?>
+                  <span class="form__error"><?= $this->Form->error('image'); ?></span>
+                </div>
+              </div>
+
+              <div class="form__button">
+                <input type="submit" name="" class="button button--submit">
+              </div>
             </div>
           </div>
         </div>
