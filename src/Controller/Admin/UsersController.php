@@ -177,53 +177,60 @@ class UsersController extends AppController
                         $addImage->image = '/uploads/employee/'.$userId.'/'.$profileImage;
                         $this->User->save($addImage);
                     }
-                    $governmentData = [
-                        'user_id'           => $userId,
-                        'sss_number'        => $data['sss_number'],
-                        'gsis_number'       => $data['gsis_number'],
-                        'philhealth_number' => $data['philhealth_number'],
-                        'pagibig_number'    => $data['pagibig_number'],
-                        'tin_number'        => $data['tin_number']
-                    ];
-                    $government = $this->Government->newEntity();
-                    $government = $this->Government->patchEntity($government, $governmentData);
-                    if ($this->Government->save($government)) {
-                        if (!empty($data['department_id'])) {
-                            $this->UserDepartment = TableRegistry::get('UserDepartments');
-                            $userDepartment       = [];
-
-                            foreach ($data['department_id'] as $department) {
-                                $userDepartment[] = [
-                                    'department_id' => $department,
-                                    'user_id'       => $userId
-                                ];
-                            }
-
-                            $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
-                            foreach ($userDepartmentEntity as $entity) {
-                                $this->UserDepartment->save($entity);
-                            }
-                        }
-
-                        if (!empty($data['subject_id'])) {
-                            $this->UserSubject = TableRegistry::get('UserSubjects');
-                            $userSubject       = [];
-                            foreach ($data['subject_id'] as $subject) {
-                                $userSubject[] = [
-                                    'subject_id' => $subject,
-                                    'user_id'    => $userId
-                                ];
-                            }
-                            $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
-                            foreach ($userSubjectEntity as $entity) {
-                                $this->UserSubject->save($entity);
-                            }
-                        }
-                        $this->Flash->success(__('Your employee has been successfully added.'));
-                        return $this->redirect('/admin/users/');
-                    } else {
-                        $this->Flash->error(__("There's an error occur saving has been failed."));
+                    if (!empty($data['sss_number'])        ||
+                        !empty($data['gsis_number'])       ||
+                        !empty($data['philhealth_number']) ||
+                        !empty($data['pagibig_number'])    || 
+                        !empty($data['tin_number']))  
+                    {
+                        $governmentData = [
+                            'user_id'           => $userId,
+                            'sss_number'        => $data['sss_number'],
+                            'gsis_number'       => $data['gsis_number'],
+                            'philhealth_number' => $data['philhealth_number'],
+                            'pagibig_number'    => $data['pagibig_number'],
+                            'tin_number'        => $data['tin_number']
+                        ];
+                        $government = $this->Government->newEntity();
+                        $government = $this->Government->patchEntity($government, $governmentData);
+                        $this->Government->save($government);
                     }
+
+
+                    if (!empty($data['department_id'])) {
+                        $this->UserDepartment = TableRegistry::get('UserDepartments');
+                        $userDepartment       = [];
+
+                        foreach ($data['department_id'] as $department) {
+                            $userDepartment[] = [
+                                'department_id' => $department,
+                                'user_id'       => $userId
+                            ];
+                        }
+
+                        $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
+                        foreach ($userDepartmentEntity as $entity) {
+                            $this->UserDepartment->save($entity);
+                        }
+                    }
+
+                    if (!empty($data['subject_id'])) {
+                        $this->UserSubject = TableRegistry::get('UserSubjects');
+                        $userSubject       = [];
+                        foreach ($data['subject_id'] as $subject) {
+                            $userSubject[] = [
+                                'subject_id' => $subject,
+                                'user_id'    => $userId
+                            ];
+                        }
+                        $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
+                        foreach ($userSubjectEntity as $entity) {
+                            $this->UserSubject->save($entity);
+                        }
+                    }
+                    $this->Flash->success(__('Your employee has been successfully added.'));
+                    return $this->redirect('/admin/users/');
+                    
                 }
             } else {
                 $this->Flash->error(__("There's an error occur saving has been failed."));
@@ -234,46 +241,111 @@ class UsersController extends AppController
 
     public function edit($id = NULL) {
         $this->User           = TableRegistry::get('Users');
-        $addForm              = new EmployeeEditForm();
         $civilStatus          = Configure::read('civil_status');
         $designation          = Configure::read('designation');
         $jobtype              = Configure::read('job_type');
-        $this->Department     = TableRegistry::get('Departments');
-        $this->Government     = TableRegistry::get('Governments');
-        $this->Subject        = TableRegistry::get('Subjects');
-        $this->UserDepartment = TableRegistry::get('UserDepartments');
 
-        $departments = $this->Department->find('all')->where(['del_flg' => 0]);
-        $subjects    = $this->Subject->find('all')->where(['del_flg' => 0]);
+        //get departments
+        $departments = $this->Department->find('all')
+                       ->where(['del_flg' => 0]);
+
+        //get subjects
+        $subjects = $this->Subject->find('all')
+                    ->where(['del_flg' => 0]);
+
         //get all employee
         $employee = $this->User->find('all')
-        ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
-        ->where(['Users.id' => $id, 'Users.role' => 2])
-        ->first();
+                    ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
+                    ->where(['Users.id' => $id, 'Users.role' => 2])
+                    ->first();
+
+        //get all government
+        $government = $this->Government->find('all')
+                      ->where(['Governments.user_id' => $id])
+                      ->first();
+
         if (!$employee) {
             return $this->redirect('/admin/users/');
         }
 
         $userDepartments = $this->UserDepartment->find('list',[
-            'keyField'   => 'department_id',
-            'valueField' => 'id'
-        ])
-        ->where(['user_id' => $id, 'del_flg' => 0])
-        ->toArray();
+                            'keyField'   => 'department_id',
+                            'valueField' => 'id'
+                        ])
+                        ->where(['user_id' => $id, 'del_flg' => 0])
+                        ->toArray();
                 
         $userEdit = $this->User->get($id);
         if ($this->request->is('POST')) {
-
-            $userEdit = $this->User->patchEntity($userEdit, $this->request->data);
+            $data               = $this->request->data;
+            $userEdit           = $this->User->patchEntity($userEdit, $data);
             $userEdit->modified = date('Y-m-d H:i:s');
-            $userEdit->errors('sss_number',"asdsad");
-            // pr($userEdit->errors('sss_number',"asdsad"));
-            // die();
+
+            //validate government data
+            $this->__government_validation($data, $userEdit);
+
             if ($this->request->data['image']['size'] == 0) {
                 $userEdit->image = $employee['image'];
             }
             if ($this->User->save($userEdit)) {
                 $this->UserDepartment->deleteAll(['user_id' => $id]);
+
+                if (!empty($data['sss_number'])        ||
+                    !empty($data['gsis_number'])       ||
+                    !empty($data['philhealth_number']) ||
+                    !empty($data['pagibig_number'])    || 
+                    !empty($data['tin_number']))  
+                {
+                    $governmentData = [
+                        'sss_number'        => $data['sss_number'],
+                        'gsis_number'       => $data['gsis_number'],
+                        'philhealth_number' => $data['philhealth_number'],
+                        'pagibig_number'    => $data['pagibig_number'],
+                        'tin_number'        => $data['tin_number']
+                    ];
+                    if ($government) {
+                        $governmentEdit = $this->Government->get($government['id']);
+                        $governmentEdit = $this->Government->patchEntity($governmentEdit, $governmentData);
+                        $this->Government->save($governmentEdit);
+                    } else {
+                        $governmentData['user_id'] = $userId;
+                        $government                = $this->Government->newEntity();
+                        $government                = $this->Government->patchEntity($government, $governmentData);
+                        $this->Government->save($government);
+                    }
+                }
+                if (!empty($data['department_id'])) {
+                    $this->UserDepartment = TableRegistry::get('UserDepartments');
+                    $userDepartment       = [];
+
+                    foreach ($data['department_id'] as $department) {
+                        $userDepartment[] = [
+                            'department_id' => $department,
+                            'user_id'       => $id
+                        ];
+                    }
+
+                    $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
+                    foreach ($userDepartmentEntity as $entity) {
+                        $this->UserDepartment->save($entity);
+                    }
+                }
+
+                if (!empty($data['subject_id'])) {
+                    $this->UserSubject = TableRegistry::get('UserSubjects');
+                    $userSubject       = [];
+                    foreach ($data['subject_id'] as $subject) {
+                        $userSubject[] = [
+                            'subject_id' => $subject,
+                            'user_id'    => $id
+                        ];
+                    }
+                    $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
+                    foreach ($userSubjectEntity as $entity) {
+                        $this->UserSubject->save($entity);
+                    }
+                }
+
                 $this->Flash->success(__('Your employee has been successfully updated.'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -288,8 +360,55 @@ class UsersController extends AppController
             'subjects',
             'departments',
             'userDepartments',
-            'addForm')
-        );
+            'government'
+        ));
+    }
+    private function __government_validation($data, $entity) {
+        //validation for sss
+        if (!empty($data['sss_number'])) {
+            if (!preg_match("/^[1-9][0-9]*$/", $data['sss_number'])) {
+                $entity->errors('sss_number',"SSS number must be a number.");
+            }
+            else if (strlen($data['sss_number']) != 9) {
+                $entity->errors('sss_number',"SSS number must be 9 numbers.");   
+            }
+        }
+        //validation for gsis
+        if (!empty($data['gsis_number'])) {
+            if (!preg_match("/^[1-9][0-9]*$/", $data['gsis_number'])) {
+                $entity->errors('gsis_number',"GSIS number must be a number.");
+            }
+            else if (strlen($data['gsis_number']) != 9) {
+                $entity->errors('gsis_number',"GSIS number must be 9 numbers.");   
+            }
+        }
+        //validation for tin number
+        if (!empty($data['tin_number'])) {
+            if (!preg_match("/^[1-9][0-9]*$/", $data['tin_number'])) {
+                $entity->errors('tin_number',"TIN number must be a number.");
+            }
+            else if (strlen($data['tin_number']) != 9) {
+                $entity->errors('tin_number',"TIN number must be 9 numbers.");   
+            }
+        }
+        //validation for pagibig number
+        if (!empty($data['pagibig_number'])) {
+            if (!preg_match("/^[1-9][0-9]*$/", $data['pagibig_number'])) {
+                $entity->errors('pagibig_number',"PAGIBIG number must be a number.");
+            }
+            else if (strlen($data['pagibig_number']) != 9) {
+                $entity->errors('pagibig_number',"PAGIBIG number must be 9 numbers.");   
+            }
+        }
+        //validation for philhealth number
+        if (!empty($data['philhealth_number'])) {
+            if (!preg_match("/^[1-9][0-9]*$/", $data['philhealth_number'])) {
+                $entity->errors('philhealth_number',"PHILHEALTH number must be a number.");
+            }
+            else if (strlen($data['philhealth_number']) != 9) {
+                $entity->errors('philhealth_number',"PHILHEALTH number must be 9 numbers.");   
+            }
+        }
     }
     public function add_attendance() {
 

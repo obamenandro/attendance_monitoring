@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -77,6 +78,10 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        // $this->Auth->allow();
+        $this->Department     = TableRegistry::get('Departments');
+        $this->Government     = TableRegistry::get('Governments');
+        $this->Subject        = TableRegistry::get('Subjects');
+        $this->UserDepartment = TableRegistry::get('UserDepartments');
+        // $this->Auth->allow();    
     }
 }

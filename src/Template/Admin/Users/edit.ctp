@@ -204,7 +204,8 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'required' => false
+                    'required' => false,
+                    'value'    => $government->sss_number
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('sss_number'); ?></span>
@@ -220,7 +221,8 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'required' => false
+                    'required' => false,
+                    'value'    => $government->gsis_number
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('gsis_number'); ?></span>
@@ -236,7 +238,8 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'required' => false
+                    'required' => false,
+                    'value'    => $government->tin_number
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('tin_number'); ?></span>
@@ -253,7 +256,8 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'required' => false
+                    'required' => false,
+                    'value'    => $government->philhealth_number
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('philhealth_number'); ?></span>
@@ -270,7 +274,8 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'required' => false
+                    'required' => false,
+                    'value'    => $government->pagibig_number
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('pagibig_number'); ?></span>
