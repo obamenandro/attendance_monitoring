@@ -82,6 +82,22 @@ a {
   font-size: 0 !important;
   border: none !important; }
 
+.js-status {
+  display: block;
+  width: 90%;
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  background: #BFF2FF;
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px; }
+
+.calendar__days-number.calendar__days-number--absent .js-status {
+  background: #FF0000;
+  color: #FFFFFF; }
+
 /*components*/
 .header {
   position: fixed;
@@ -791,7 +807,8 @@ a {
     padding: 20px 20px 50px;
     border: 1px solid #EEEEEE;
     border-right: none;
-    font-size: 14px; }
+    font-size: 14px;
+    position: relative; }
   .calendar__days-list {
     display: inline-block;
     width: 14.28%;
@@ -818,4 +835,5 @@ a {
 
 .calendar__days-number.calendar__days-number--current {
   color: #FF0000;
-  font-weight: bold; }
+  font-weight: bold;
+  background: rgba(179, 179, 179, 0.2); }

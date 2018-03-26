@@ -51,9 +51,28 @@ a {
   }
 }
 
-
 //calendar
 .js-no-date {
   font-size: 0 !important;
   border: none !important;
+}
+
+.js-status {
+  display: block;
+  width: 90%;
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  background: #BFF2FF;
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.calendar__days-number.calendar__days-number--absent {
+  .js-status {
+    background: #FF0000;
+    color: #FFFFFF;
+  } 
 }

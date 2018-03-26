@@ -26,6 +26,7 @@
     border: 1px solid #EEEEEE;
     border-right: none;
     font-size: 14px;
+    position: relative;
   }
 
   &__days-list {
@@ -68,4 +69,5 @@
 .calendar__days-number.calendar__days-number--current {
   color: #FF0000;;
   font-weight: bold;
+  background: rgba(179, 179, 179, 0.2);
 }

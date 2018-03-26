@@ -32,7 +32,9 @@ $( document ).ready( function(){
                   var startWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).startOf( 'month' ).week();
                   var endWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).endOf( 'month' ).week();
                   var calendar = [];
-  
+                  var dates = data.dates
+
+                  
                   // GET MONTH AND YEAR
                   monthName.forEach( function ( k,v ) {
                       $( '.js-yearMonths' ).text( data.year + " " + k[data.month] );
@@ -80,25 +82,26 @@ $( document ).ready( function(){
                   for ( var hide = parseInt( lastEmptyDate ) + 1; hide <= 7 ; hide++ ) {
                       $('.js-populate-date ul:last-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
                   }
-
-                  // DISABLED THE PREVIOUS DATE
-                  data.currentMonth == true ? $( '.js-prev' ).attr( 'disabled','disabled' ) : $( '.js-prev' ).removeAttr( 'disabled' );
-                  for ( var prevDate = 1; prevDate < parseInt( data.currentDate ); prevDate++ ) {
-                      if ( data.currentMonth == true ) {
-                          $('.calendar__days-number[data-index="' + data.year + '-' + data.month + '-' + prevDate +'"]').removeClass('js-request-accepted js-reserve-accepted js-only-few js-full-disabled').addClass('js-disabled');
-                          $( '.js-prev' ).attr( 'disabled','disabled' );
-                      }
-                      else {
-                          $( '.js-prev' ).removeAttr( 'disabled' );
-                      }
-                  }
-  
+                  
                   // AVOID CLICKABLED WHEN LOADING
                   $( '.calendar' ).removeClass('js-loading-opacity');
                   $('.js-loading').hide();
 
                   $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ data.currentDate+'"]').addClass('calendar__days-number--current');
 
+                  var day =  Object.keys(dates).length;
+                  for ( var i = 1; i <= 31; i++ ) {
+                    if ( data.dates[i].status == 1 ) {
+                      var status = 'calendar__days-number--absent';
+                      var statusTitle = 'Absent';
+                      $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+                    }
+                    else if ( data.dates[i].status == 2 ) {
+                      var status = 'calendar__days-number--leave';
+                      var statusTitle = 'On Leave';
+                      $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+                    } 
+                  }
               }
           });
       }

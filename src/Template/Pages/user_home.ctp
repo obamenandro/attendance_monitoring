@@ -144,9 +144,11 @@ $this->layout = false;
               <div class="calendar__title">
                 <div class="calendar__arrow">
                   <i class="fa fa-chevron-left js-prev"></i>
+                  prev
                 </div>
                 <div class="calendar__month-name js-yearMonths"></div>
                 <div class="calendar__arrow calendar__arrow--next">
+                  next
                   <i class="fa fa-chevron-right js-next"></i>
                 </div>
               </div>

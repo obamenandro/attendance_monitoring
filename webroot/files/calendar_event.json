@@ -8,127 +8,127 @@
   {
   "1" :
     {
-      "isPastday" : true
+      "status" : 0
     },
   "2" :
     {
-      "isPastday" : true
+      "status" : 0
     },
   "3" :
     {
-    "isPastday" : false
+    "status" : 2
     },
   "4" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "5" :
     {
-    "isPastday" : true
+    "status" : 2
     },
   "6" :
     {
-    "isPastday" : true
+    "status" : 1
     },
   "7" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "8" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "9" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "10" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "11" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "12" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "13" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "14" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "15" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "16" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "17" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "18" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "19" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "20" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "21" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "22" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "23" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "24" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "25" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "26" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "27" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "28" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "29" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "30" :
     {
-    "isPastday" : true
+    "status" : 0
     },
   "31" :
     {
-    "isPastday" : true
+    "status" : 0
     }
   }
 }
