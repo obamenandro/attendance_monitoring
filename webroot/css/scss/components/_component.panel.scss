@@ -41,6 +41,7 @@
 
   &__search {
     padding: 15px 0;
+    position: relative;
   }
 
   &__search-label {
@@ -70,6 +71,13 @@
     cursor: pointer;
     background: #1F6DA8;
     color: $white-color;
+  }
+
+  &__add-attendance {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    z-index: 2;
   }
 }
 

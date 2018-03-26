@@ -92,23 +92,27 @@
           </div>
 
           <div class="panel__search">
-            <div class="panel__search-box">
-              <label class="panel__search-label">ID:</label>
-              <input type="text" name="" class="panel__search-input">
+            <div class="panel__search-wrapper">
+              <div class="panel__search-box">
+                <label class="panel__search-label">ID:</label>
+                <input type="text" name="" class="panel__search-input">
+              </div>
+              <div class="panel__search-box">
+                <label class="panel__search-label">Name:</label>
+                <input type="text" name="" class="panel__search-input">
+              </div>
+              <div class="panel__search-box">
+                <label class="panel__search-label">Status:</label>
+                <input type="text" name="" class="panel__search-input">
+              </div>
+              <div class="panel__search-box">
+                <input type="submit" name="" class="panel__search-button" value="search">
+              </div>
             </div>
-            <div class="panel__search-box">
-              <label class="panel__search-label">Name:</label>
-              <input type="text" name="" class="panel__search-input">
-            </div>
-            <div class="panel__search-box">
-              <label class="panel__search-label">Status:</label>
-              <input type="text" name="" class="panel__search-input">
-            </div>
-            <div class="panel__search-box">
-              <input type="submit" name="" class="panel__search-button" value="search">
+            <div class="panel__add-attendance">
+              <a class="button button--add-attendance">Add Attendance</a>
             </div>
           </div>
-
           <table id="dataTable" class="display table" cellspacing="0" width="100%">
             <thead>
               <tr class="table__head">
@@ -275,14 +279,14 @@
   </div>
 </div>
 
-<div class="modal" id="js-modal-edit">
+<div class="modal" id="js-modal-add">
   <div class="modal__container">
     <div class="modal__header">
       <div class="modal__close">
         <span class="modal__exit">x</span>
       </div>
       <div class="modal__title">
-        <h3>Edit Attendance</h3>
+        <h3>Add Attendance</h3>
       </div>
     </div>
 
@@ -291,48 +295,6 @@
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <div class="form__content">
             <div class="form__data form__data--modal">
-              <div class="form__info">
-                <div class="form__list">
-                  <div class="form__label-wrapper">
-                    <label class="form__label">ID:</label>
-                  </div>
-                  <div class="form__input">
-                    <input type="text" name="" class="form__inputbox" value="1001" disabled="true">
-                  </div>
-                </div>
-              </div>
-              <div class="form__info">
-                <div class="form__list">
-                  <div class="form__label-wrapper">
-                    <label class="form__label">Last Name:</label>
-                  </div>
-                  <div class="form__input">
-                    <input type="text" name="" class="form__inputbox">
-                    <span class="form__error">Error</span>
-                  </div>
-                </div>
-
-                <div class="form__list">
-                  <div class="form__label-wrapper">
-                    <label class="form__label">First Name:</label>
-                  </div>
-                  <div class="form__input">
-                    <input type="text" name="" class="form__inputbox">
-                    <span class="form__error">Error</span>
-                  </div>
-                </div>
-
-                <div class="form__list">
-                  <div class="form__label-wrapper">
-                    <label class="form__label">Middle Name:</label>
-                  </div>
-                  <div class="form__input">
-                    <input type="text" name="" class="form__inputbox">
-                    <span class="form__error">Error</span>
-                  </div>
-                </div>
-              </div>
-
               <div class="form__list">
                 <div class="form__label-wrapper">
                   <label class="form__label">Logged In:</label>
@@ -366,27 +328,68 @@
                     </select>
                     <span class="form__error">Error</span>
                   </div>
-              </div>
+              </div>            
 
+            <div class="modal__button">
+              <input type="submit" name="" class="button button--submit" value="Add">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<div class="modal" id="js-modal-edit">
+  <div class="modal__container">
+    <div class="modal__header">
+      <div class="modal__close">
+        <span class="modal__exit">x</span>
+      </div>
+      <div class="modal__title">
+        <h3>Edit Attendance</h3>
+      </div>
+    </div>
+
+    <div class="modal__content">
+      <div class="form">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          <div class="form__content">
+            <div class="form__data form__data--modal">
               <div class="form__list">
                 <div class="form__label-wrapper">
-                  <label class="form__label">Department:</label>
+                  <label class="form__label">Logged In:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox">
+                  <input type="text" name="" class="form__inputbox" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
 
               <div class="form__list">
                 <div class="form__label-wrapper">
-                  <label class="form__label">Date:</label>
+                  <label class="form__label">Logged Out:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox" placeholder="YYYY-MM-DD">
+                  <input type="text" name="" class="form__inputbox" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
-              </div>              
+              </div>
+
+              <div class="form__list">
+                <div class="form__label-wrapper">
+                  <label class="form__label">Status:</label>
+                </div>
+                <div class="form__input form__input--fullwidth">
+                    <select class="form__inputbox">
+                      <option selected>-- Select --</option>
+                      <option>Undertime</option>
+                      <option>Completed</option>
+                      <option>Halfday</option>
+                    </select>
+                    <span class="form__error">Error</span>
+                  </div>
+              </div>            
 
             <div class="modal__button">
               <input type="submit" name="" class="button button--submit" value="Update">
@@ -405,7 +408,11 @@
   });
 
   $('.modal__exit').on('click', function() {
-    $('#js-modal-edit').hide();
+    $('#js-modal-edit,#js-modal-add ').hide();
     $('body').css('overflow-y', 'scroll');
+  });
+
+  $('.button--add-attendance').on('click', function() {
+    $('#js-modal-add').show();
   });
 </script>

@@ -108,7 +108,7 @@ a {
   z-index: 10; }
   .header__content {
     margin: 0 auto 1px;
-    padding: 20px;
+    padding: 19px;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.23); }
   .header__logo {
     display: inline-block;
@@ -144,8 +144,7 @@ a {
   position: relative; }
   .main-content__content {
     margin: 0 auto;
-    position: relative;
-    z-index: 2; }
+    position: relative; }
 
 .sidebar {
   display: inline-block;
@@ -254,7 +253,8 @@ a {
     background: #FFFFFF;
     border: solid 1px #C2C2C2; }
   .panel__search {
-    padding: 15px 0; }
+    padding: 15px 0;
+    position: relative; }
   .panel__search-label {
     display: inline-block;
     margin-right: 5%;
@@ -278,6 +278,11 @@ a {
     cursor: pointer;
     background: #1F6DA8;
     color: #FFFFFF; }
+  .panel__add-attendance {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    z-index: 2; }
 
 .panel__search.panel__search--list-view {
   text-align: center; }
@@ -517,6 +522,10 @@ a {
   background-color: #1F6DA8;
   color: #FFFFFF; }
 
+.button.button--add-attendance {
+  background-color: #1F6DA8;
+  color: #FFFFFF; }
+
 .login {
   width: 100%;
   height: 100%;
@@ -650,7 +659,7 @@ a {
     width: 60%;
     background: #FFFFFF;
     border-radius: 7px;
-    height: 600px; }
+    height: 400px; }
   .modal__header {
     position: relative; }
   .modal__close {
@@ -789,7 +798,7 @@ a {
     color: #FF5050; }
 
 .calendar {
-  padding: 20px 100px 100px; }
+  padding: 5px 100px 100px; }
   .calendar__list-weeks {
     display: inline-block;
     width: 14.28%;
@@ -829,6 +838,15 @@ a {
     vertical-align: middle;
     font-size: 20px;
     text-align: center; }
+  .calendar__tab {
+    text-align: center;
+    padding-bottom: 20px; }
+  .calendar__tab-list {
+    display: inline-block;
+    width: 15%;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer; }
 
 .calendar__arrow.calendar__arrow--next {
   text-align: right; }
@@ -837,3 +855,8 @@ a {
   color: #FF0000;
   font-weight: bold;
   background: rgba(179, 179, 179, 0.2); }
+
+.calendar__tab-list.calendar__tab-list--active {
+  background: #049FDA;
+  color: #FFFFFF;
+  border-radius: 3px; }

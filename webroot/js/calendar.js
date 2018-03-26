@@ -115,5 +115,11 @@ $( document ).ready( function(){
               })
           });
       }
+
+
+      $('.calendar__tab-list').on('click', function() {
+        $('.calendar__tab-list').removeClass('calendar__tab-list--active');
+        $(this).toggleClass('calendar__tab-list--active');
+      });
   });
   

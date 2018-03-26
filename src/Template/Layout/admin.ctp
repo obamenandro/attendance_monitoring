@@ -23,9 +23,8 @@ $this->layout = false;
 </head>
 <body>
 
-  <?= $this->element('header') ?>
-
   <main class="main-content">
+    <?= $this->element('header') ?>
     <div class="main-content__content">
 
       <?= $this->element('sidebar') ?>

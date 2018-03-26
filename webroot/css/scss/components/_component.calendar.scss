@@ -1,5 +1,5 @@
 .calendar {
-  padding: 20px 100px 100px;
+  padding: 5px 100px 100px;
 
   &__list-weeks {
     display: inline-block;
@@ -19,7 +19,6 @@
   &__weeks-day {
     font-size: 14px;
   }
-
 
   &__days-number {
     padding: 20px 20px 50px;
@@ -60,6 +59,19 @@
     font-size: 20px;
     text-align: center;
   }
+
+  &__tab {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  &__tab-list {
+    display: inline-block;
+    width: 15%;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+  }
 }
 
 .calendar__arrow.calendar__arrow--next {
@@ -67,7 +79,13 @@
 }
 
 .calendar__days-number.calendar__days-number--current {
-  color: #FF0000;;
+  color: #FF0000;
   font-weight: bold;
   background: rgba(179, 179, 179, 0.2);
+}
+
+.calendar__tab-list.calendar__tab-list--active {
+  background: #049FDA;
+  color: #FFFFFF;
+  border-radius: 3px;
 }

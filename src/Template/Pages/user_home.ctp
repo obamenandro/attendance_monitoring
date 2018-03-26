@@ -141,6 +141,13 @@ $this->layout = false;
 
           <div class="user-panel__field">
             <div class="calendar">
+              <div class="calendar__tab">
+                <ul>
+                  <li class="calendar__tab-list calendar__tab-list--active">All</li>
+                  <li class="calendar__tab-list">Absent</li>
+                  <li class="calendar__tab-list">Leave</li>
+                </ul>
+              </div>
               <div class="calendar__title">
                 <div class="calendar__arrow">
                   <i class="fa fa-chevron-left js-prev"></i>
