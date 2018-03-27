@@ -29,13 +29,12 @@ $( document ).ready( function(){
 				'year':year,
 			},
 			success: function( result ) {
-				var data = result;
-				// var data = JSON.parse( result );
+				// var data = result;
+				var data = JSON.parse( result );
 				var startWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).startOf( 'month' ).week();
 				var endWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).endOf( 'month' ).week();
 				var calendar = [];
 				var dates = data.dates
-
 
 				// GET MONTH AND YEAR
 				monthName.forEach( function ( k,v ) {
@@ -89,9 +88,9 @@ $( document ).ready( function(){
 				$( '.calendar' ).removeClass('js-loading-opacity');
 				$('.js-loading').hide();
 				
+
 				$('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ data.currentDate+'"]').addClass('calendar__days-number--current');
 				var day =  Object.keys(dates).length;
-
 				// IF EMPLOYEE IS ABSENT
 				if ( tabId == 1 ) {
 					for ( var i = 1; i <= day; i++ ) {
