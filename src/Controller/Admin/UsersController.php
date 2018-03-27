@@ -180,8 +180,8 @@ class UsersController extends AppController
                     if (!empty($data['sss_number'])        ||
                         !empty($data['gsis_number'])       ||
                         !empty($data['philhealth_number']) ||
-                        !empty($data['pagibig_number'])    || 
-                        !empty($data['tin_number']))  
+                        !empty($data['pagibig_number'])    ||
+                        !empty($data['tin_number']))
                     {
                         $governmentData = [
                             'user_id'           => $userId,
@@ -230,7 +230,7 @@ class UsersController extends AppController
                     }
                     $this->Flash->success(__('Your employee has been successfully added.'));
                     return $this->redirect('/admin/users/');
-                    
+
                 }
             } else {
                 $this->Flash->error(__("There's an error occur saving has been failed."));
@@ -274,7 +274,7 @@ class UsersController extends AppController
                         ])
                         ->where(['user_id' => $id, 'del_flg' => 0])
                         ->toArray();
-                
+
         $userEdit = $this->User->get($id);
         if ($this->request->is('POST')) {
             $data               = $this->request->data;
@@ -283,18 +283,29 @@ class UsersController extends AppController
 
             //validate government data
             $this->__government_validation($data, $userEdit);
-
             if ($this->request->data['image']['size'] == 0) {
                 $userEdit->image = $employee['image'];
             }
             if ($this->User->save($userEdit)) {
                 $this->UserDepartment->deleteAll(['user_id' => $id]);
+                if ($this->request->data['image']['size'] != 0) {
+                    $this->Upload->upload($this->request->data['image']);
+                    if($this->Upload->uploaded) {
+                        $imageName = md5(time());
+                        $this->Upload->file_new_name_body = $imageName;
+                        $this->Upload->process('uploads/employee/'.$id.'/');
+                        $profileImage = $this->Upload->file_dst_name;
 
+                        $addImage = $this->User->get($id);
+                        $addImage->image = '/uploads/employee/'.$id.'/'.$profileImage;
+                        $this->User->save($addImage);
+                    }
+                }
                 if (!empty($data['sss_number'])        ||
                     !empty($data['gsis_number'])       ||
                     !empty($data['philhealth_number']) ||
-                    !empty($data['pagibig_number'])    || 
-                    !empty($data['tin_number']))  
+                    !empty($data['pagibig_number'])    ||
+                    !empty($data['tin_number']))
                 {
                     $governmentData = [
                         'sss_number'        => $data['sss_number'],
@@ -370,7 +381,7 @@ class UsersController extends AppController
                 $entity->errors('sss_number',"SSS number must be a number.");
             }
             else if (strlen($data['sss_number']) != 9) {
-                $entity->errors('sss_number',"SSS number must be 9 numbers.");   
+                $entity->errors('sss_number',"SSS number must be 9 numbers.");
             }
         }
         //validation for gsis
@@ -379,7 +390,7 @@ class UsersController extends AppController
                 $entity->errors('gsis_number',"GSIS number must be a number.");
             }
             else if (strlen($data['gsis_number']) != 9) {
-                $entity->errors('gsis_number',"GSIS number must be 9 numbers.");   
+                $entity->errors('gsis_number',"GSIS number must be 9 numbers.");
             }
         }
         //validation for tin number
@@ -388,7 +399,7 @@ class UsersController extends AppController
                 $entity->errors('tin_number',"TIN number must be a number.");
             }
             else if (strlen($data['tin_number']) != 9) {
-                $entity->errors('tin_number',"TIN number must be 9 numbers.");   
+                $entity->errors('tin_number',"TIN number must be 9 numbers.");
             }
         }
         //validation for pagibig number
@@ -397,7 +408,7 @@ class UsersController extends AppController
                 $entity->errors('pagibig_number',"PAGIBIG number must be a number.");
             }
             else if (strlen($data['pagibig_number']) != 9) {
-                $entity->errors('pagibig_number',"PAGIBIG number must be 9 numbers.");   
+                $entity->errors('pagibig_number',"PAGIBIG number must be 9 numbers.");
             }
         }
         //validation for philhealth number
@@ -406,7 +417,7 @@ class UsersController extends AppController
                 $entity->errors('philhealth_number',"PHILHEALTH number must be a number.");
             }
             else if (strlen($data['philhealth_number']) != 9) {
-                $entity->errors('philhealth_number',"PHILHEALTH number must be 9 numbers.");   
+                $entity->errors('philhealth_number',"PHILHEALTH number must be 9 numbers.");
             }
         }
     }
@@ -415,7 +426,18 @@ class UsersController extends AppController
     }
 
     public function view($id = NULL) {
+        $civilStatus = Configure::read('civil_status');
+        $employee = $this->User->find()
+                    ->contain(['Governments'])
+                    ->where([
+                        'Users.id'      => $id,
+                        'Users.role'    => 2,
+                        'Users.del_flg' => 0
+                    ])
+                    ->first()
+                    ->toArray();
 
+        $this->set(compact('employee', 'civilStatus'));
     }
 
     public function add_department() {
@@ -464,6 +486,6 @@ class UsersController extends AppController
     }
 
     public function confirmation () {
-        
+
     }
 }

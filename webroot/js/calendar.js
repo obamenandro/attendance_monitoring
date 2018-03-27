@@ -1,8 +1,8 @@
 $( document ).ready( function(){
-  
+
       var weekName = [{ 1: 'sun', 2: 'mon', 3: 'tue', 4: 'wed', 5: 'thu', 6: 'fri', 7: 'sat'}];
       var monthName = [{ 1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}];
-  
+
       // POPULATING DAYS OF WEEK
       weekName.forEach( function ( k,v ) {
         for ( var i = 1; i <= 7; i++ ) {
@@ -15,11 +15,11 @@ $( document ).ready( function(){
       showMonth(month, year)
       // FUNCTION DISPLAYING DATA FROM JSON
       function showMonth( month, year ) {
-      
+
           // MAKE BUTTONS CLICKABLE
           $( '.calendar' ).addClass('js-loading-opacity');
           $('.js-loading').show();
-  
+
           $.ajax({
             type: 'POST',
             url:  '/files/calendar_event.json',
@@ -28,18 +28,19 @@ $( document ).ready( function(){
               'year':year,
             },
             success: function( result ) {
-                  var data = JSON.parse( result );
+                  var data = result;
+                  // var data = JSON.parse( result );
                   var startWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).startOf( 'month' ).week();
                   var endWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).endOf( 'month' ).week();
                   var calendar = [];
                   var dates = data.dates
 
-                  
+
                   // GET MONTH AND YEAR
                   monthName.forEach( function ( k,v ) {
                       $( '.js-yearMonths' ).text( data.year + " " + k[data.month] );
                   });
-  
+
                   // GET 7 DAYS IN 1 MONTH
                   if ( endWeek != 1 ) {
                       for ( var week = startWeek; week < endWeek + 1; week++ ) {
@@ -56,7 +57,7 @@ $( document ).ready( function(){
                         getWeek ( week, calendar, data );
                       }
                   }
-  
+
                   //POPULATE LIST OF DATES
                   var showDate ="";
                   var countWeek;
@@ -68,21 +69,21 @@ $( document ).ready( function(){
                       }
                       showDate = showDate + '</ul>'
                   });
-  
+
                   $( '.js-populate-date' ).html(showDate);
-  
+
                   // REMOVE DATE FROM PREVIOUS MONTH AND NEXT MONTH
                   var emptyDate = moment(data.year + '-' + data.month +'-'+ '01','YYYY-MM-DD').format('d');
                   var lastEmptyDate = moment(data.year + '-' + data.month +'-'+ '01', 'YYYY-MM-DD').endOf('month').format('d');
-  
+
                   for ( var hide = 0; hide <= emptyDate - 1; hide++ ) {
                       $('.js-populate-date ul:first-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
                   }
-  
+
                   for ( var hide = parseInt( lastEmptyDate ) + 1; hide <= 7 ; hide++ ) {
                       $('.js-populate-date ul:last-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
                   }
-                  
+
                   // AVOID CLICKABLED WHEN LOADING
                   $( '.calendar' ).removeClass('js-loading-opacity');
                   $('.js-loading').hide();
@@ -100,7 +101,7 @@ $( document ).ready( function(){
                       var status = 'calendar__days-number--leave';
                       var statusTitle = 'On Leave';
                       $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-                    } 
+                    }
                   }
               }
           });
@@ -122,4 +123,4 @@ $( document ).ready( function(){
         $(this).toggleClass('calendar__tab-list--active');
       });
   });
-  
+

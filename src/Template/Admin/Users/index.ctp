@@ -57,7 +57,7 @@
                   <td class="table__body-list"><?= $designation[$user['designation']] ?></td>
                   <td class="table__body-list"><?= $user['created']->i18nFormat('YYY-MM-dd') ?></td>
                   <td class="table__body-list">
-                    <a href="#" class="table__view">View</a>
+                    <a href="/admin/users/view/<?= $user['id'] ?>" class="table__view">View</a>
                     <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view">Edit</a>
                   </td>
                 </tr>

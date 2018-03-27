@@ -418,7 +418,14 @@
                 <label class="form__label">Eligibility:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="" class="form__inputbox">
+                <?=
+                  $this->Form->control('eligibility', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
               </div>
             </div>
 
