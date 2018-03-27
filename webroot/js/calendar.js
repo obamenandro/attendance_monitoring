@@ -12,9 +12,10 @@ $( document ).ready( function(){
 
       var month = new Date().getMonth() + 1; // CURRENT MONTH
       var year =  new Date().getFullYear(); // CURRENT YEAR
-      showMonth(month, year)
+      var tabId = 0;
+      showMonth(month, year, tabId)
       // FUNCTION DISPLAYING DATA FROM JSON
-      function showMonth( month, year ) {
+      function showMonth( month, year, tabId ) {
       
           // MAKE BUTTONS CLICKABLE
           $( '.calendar' ).addClass('js-loading-opacity');
@@ -86,20 +87,43 @@ $( document ).ready( function(){
                   // AVOID CLICKABLED WHEN LOADING
                   $( '.calendar' ).removeClass('js-loading-opacity');
                   $('.js-loading').hide();
-
+                  
                   $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ data.currentDate+'"]').addClass('calendar__days-number--current');
-
                   var day =  Object.keys(dates).length;
-                  for ( var i = 1; i <= 31; i++ ) {
-                    if ( data.dates[i].status == 1 ) {
-                      var status = 'calendar__days-number--absent';
-                      var statusTitle = 'Absent';
-                      $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-                    }
-                    else if ( data.dates[i].status == 2 ) {
-                      var status = 'calendar__days-number--leave';
-                      var statusTitle = 'On Leave';
-                      $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+
+                  // IF EMPLOYEE IS ABSENT
+                  if ( tabId == 1 ) {
+                    for ( var i = 1; i <= day; i++ ) {
+                      $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').removeClass('calendar__days-number--leave').html('<span>'+ i +'<span>');
+                      if ( data.dates[i].status == 1 ) {
+                        var status = 'calendar__days-number--absent';
+                        var statusTitle = 'Absent';
+                        $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+                      }
+                    } 
+                  }  // IF EMPLOYEE IS ON LEAVE
+                  else if ( tabId == 2 ) {
+                    for ( var i = 1; i <= day; i++ ) {
+                      $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').removeClass('calendar__days-number--absent').html('<span>'+ i +'<span>');
+                      if ( data.dates[i].status == 2 ) {
+                        var status = 'calendar__days-number--leave';
+                        var statusTitle = 'On Leave';
+                        $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+                      }
+                    } 
+                  }  // SHOW ALL
+                  else {
+                    for ( var i = 1; i <= day; i++ ) {
+                      if ( data.dates[i].status == 1 ) {
+                        var status = 'calendar__days-number--absent';
+                        var statusTitle = 'Absent';
+                        $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+                      }
+                      else if ( data.dates[i].status == 2 ) {
+                        var status = 'calendar__days-number--leave';
+                        var statusTitle = 'On Leave';
+                        $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+                      }
                     } 
                   }
               }
@@ -116,8 +140,9 @@ $( document ).ready( function(){
           });
       }
 
-
       $('.calendar__tab-list').on('click', function() {
+        tabId = $(this).data('index');
+        showMonth( month, year, tabId )
         $('.calendar__tab-list').removeClass('calendar__tab-list--active');
         $(this).toggleClass('calendar__tab-list--active');
       });

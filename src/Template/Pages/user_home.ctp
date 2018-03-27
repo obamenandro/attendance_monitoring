@@ -129,7 +129,7 @@ $this->layout = false;
                 <a href="" class="user-panel__menu-link">
                   <div class="user-panel__menu-text">
                     <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>
-                    <span>View Information</span>
+                    <span>Edit Information</span>
                     <p class="user-panel__paragraph">
                       you can check your personal information on this section
                     </p>
@@ -143,9 +143,9 @@ $this->layout = false;
             <div class="calendar">
               <div class="calendar__tab">
                 <ul>
-                  <li class="calendar__tab-list calendar__tab-list--active">All</li>
-                  <li class="calendar__tab-list">Absent</li>
-                  <li class="calendar__tab-list">Leave</li>
+                  <li class="calendar__tab-list calendar__tab-list--active" data-index="0">All</li>
+                  <li class="calendar__tab-list" data-index="1">Absent</li>
+                  <li class="calendar__tab-list" data-index="2">Leave</li>
                 </ul>
               </div>
               <div class="calendar__title">
