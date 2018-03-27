@@ -13,12 +13,14 @@ $this->layout = false;
   <title><?php echo __('Namei Polytechnic Institute'); ?></title>
   <?= $this->Html->css('/js/plugins/bootstrap-datepicker/datepicker.css') ?>
   <?= $this->Html->css('plugins/font-awesome-4.7.0/css/font-awesome.min.css') ?>
+  <?= $this->Html->css('/js/plugins/timepicker/jquery.timepicker.min.css') ?>
   <?= $this->Html->css('/js/plugins/datatables/datatables.min.css') ?>
   <?= $this->Html->css('style.css') ?>
   <?= $this->Html->script('jquery-3.1.0.min.js') ?>
   <?= $this->Html->script('jquery.dataTables.min.js') ?>
   <?= $this->Html->script('plugins/bootstrap-datepicker/datepicker.js') ?>
   <?= $this->Html->script('plugins/datatables/datatables.min.js') ?>
+  <?= $this->Html->script('plugins/timepicker/jquery.timepicker.min.js') ?>
   <?= $this->Html->script('common.js') ?>
 </head>
 <body>

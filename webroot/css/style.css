@@ -108,7 +108,7 @@ a {
   z-index: 10; }
   .header__content {
     margin: 0 auto 1px;
-    padding: 19px;
+    padding: 20px;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.23); }
   .header__logo {
     display: inline-block;
@@ -493,6 +493,9 @@ a {
   display: block;
   padding-top: 100px; }
 
+.form__list.form__list--date {
+  display: block; }
+
 .button {
   padding: 10px;
   font-size: 14px;
@@ -659,7 +662,7 @@ a {
     width: 60%;
     background: #FFFFFF;
     border-radius: 7px;
-    height: 400px; }
+    height: 480px; }
   .modal__header {
     position: relative; }
   .modal__close {

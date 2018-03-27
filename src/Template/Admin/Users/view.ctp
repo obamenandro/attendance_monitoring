@@ -303,12 +303,21 @@
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <div class="form__content">
             <div class="form__data form__data--modal">
+              <div class="form__list form__list--date">
+                <div class="form__label-wrapper">
+                  <label class="form__label">Date:</label>
+                </div>
+                <div class="form__input form__input--fullwidth">
+                  <input type="text" name="" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD">
+                  <span class="form__error">Error</span>
+                </div>
+              </div>
               <div class="form__list">
                 <div class="form__label-wrapper">
                   <label class="form__label">Logged In:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -336,12 +345,13 @@
                     </select>
                     <span class="form__error">Error</span>
                   </div>
-              </div>
+                </div>
 
-            <div class="modal__button">
-              <input type="submit" name="" class="button button--submit" value="Add">
+                <div class="modal__button">
+                  <input type="submit" name="" class="button button--submit" value="Add">
+                </div>
+              </div>
             </div>
-          </div>
         </form>
       </div>
     </div>
@@ -364,6 +374,15 @@
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <div class="form__content">
             <div class="form__data form__data--modal">
+              <div class="form__list form__list--date">
+                <div class="form__label-wrapper">
+                  <label class="form__label">Date:</label>
+                </div>
+                <div class="form__input form__input--fullwidth">
+                  <input type="text" name="" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD">
+                  <span class="form__error">Error</span>
+                </div>
+              </div>
               <div class="form__list">
                 <div class="form__label-wrapper">
                   <label class="form__label">Logged In:</label>
@@ -389,14 +408,14 @@
                   <label class="form__label">Status:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                    <select class="form__inputbox">
-                      <option selected>-- Select --</option>
-                      <option>Undertime</option>
-                      <option>Completed</option>
-                      <option>Halfday</option>
-                    </select>
-                    <span class="form__error">Error</span>
-                  </div>
+                  <select class="form__inputbox">
+                    <option selected>-- Select --</option>
+                    <option>Undertime</option>
+                    <option>Completed</option>
+                    <option>Halfday</option>
+                  </select>
+                  <span class="form__error">Error</span>
+                </div>
               </div>
 
             <div class="modal__button">
@@ -416,11 +435,18 @@
   });
 
   $('.modal__exit').on('click', function() {
-    $('#js-modal-edit,#js-modal-add ').hide();
+    $('#js-modal-edit, #js-modal-add ').hide();
     $('body').css('overflow-y', 'scroll');
   });
 
   $('.button--add-attendance').on('click', function() {
     $('#js-modal-add').show();
+    $('body').css('overflow-y', 'hidden');
   });
+
+  $('.js-datepicker').datepicker({
+    format: 'yyyy/mm/dd'
+  });
+
+  $('.js-timepicker').timepicker()
 </script>
