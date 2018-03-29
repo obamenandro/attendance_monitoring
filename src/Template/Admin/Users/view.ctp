@@ -317,7 +317,7 @@
                   <label class="form__label">Logged In:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox js-timepicker" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -327,7 +327,7 @@
                   <label class="form__label">Logged Out:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -388,7 +388,7 @@
                   <label class="form__label">Logged In:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -398,7 +398,7 @@
                   <label class="form__label">Logged Out:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -448,5 +448,7 @@
     format: 'yyyy/mm/dd'
   });
 
-  $('.js-timepicker').timepicker()
+  $('.js-timepicker').on('focus', function() {
+    $(this).timepicker()
+  })
 </script>

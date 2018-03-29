@@ -98,6 +98,12 @@ a {
   background: #FF0000;
   color: #FFFFFF; }
 
+.ui-timepicker-list {
+  font-size: 14px; }
+
+.ui-timepicker-wrapper {
+  width: 15%; }
+
 /*components*/
 .header {
   position: fixed;
@@ -701,7 +707,8 @@ a {
   width: 100%;
   font-size: 14px;
   vertical-align: middle;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  font-weight: 600; }
 
 .view-info__info {
   display: inline-block;
