@@ -121,7 +121,7 @@
               <a class="button button--add-attendance">Add Attendance</a>
             </div>
           </div>
-          <table id="dataTable" class="display table" cellspacing="0" width="100%">
+          <table id="dataTableEdit" class="display table" cellspacing="0" width="100%">
             <thead>
               <tr class="table__head">
                 <th class="table__head-list">ID</th>
@@ -137,8 +137,8 @@
             <tbody>
               <tr class="table__body">
                 <td class="table__body-list">1001</td>
-                <td class="table__body-list">9:00 AM</td>
-                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list">11:00</td>
+                <td class="table__body-list">15:30</td>
                 <td class="table__body-list"><span class="table__note">Undertime</span></td>
                 <td class="table__body-list">Math Department</td>
                 <td class="table__body-list">Menandro</td>
@@ -148,9 +148,9 @@
                 </td>
               </tr>
               <tr class="table__body">
-                <td class="table__body-list">1001</td>
-                <td class="table__body-list">9:00 AM</td>
-                <td class="table__body-list">4:30 PM</td>
+                <td class="table__body-list">1002</td>
+                <td class="table__body-list">9:00</td>
+                <td class="table__body-list">4:30</td>
                 <td class="table__body-list"><span class="table__note">Undertime</span></td>
                 <td class="table__body-list">Math Department</td>
                 <td class="table__body-list">Menandro</td>
@@ -160,7 +160,7 @@
                 </td>
               </tr>
               <tr class="table__body">
-                <td class="table__body-list">1001</td>
+                <td class="table__body-list">1003</td>
                 <td class="table__body-list">9:00 AM</td>
                 <td class="table__body-list">4:30 PM</td>
                 <td class="table__body-list"><span class="table__note">Undertime</span></td>
@@ -379,7 +379,7 @@
                   <label class="form__label">Date:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD">
+                  <input type="text" name="" class="form__inputbox js-datepicker js-date" placeholder="YYYY-MM-DD">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -388,7 +388,7 @@
                   <label class="form__label">Logged In:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker js-loggedin" data-time-format="H:i" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -398,7 +398,7 @@
                   <label class="form__label">Logged Out:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
+                  <input type="text" name="" class="form__inputbox js-timepicker js-loggedout" data-time-format="H:i" placeholder="hh:mm">
                   <span class="form__error">Error</span>
                 </div>
               </div>
@@ -408,7 +408,7 @@
                   <label class="form__label">Status:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <select class="form__inputbox">
+                  <select class="form__inputbox js-status">
                     <option selected>-- Select --</option>
                     <option>Undertime</option>
                     <option>Completed</option>
@@ -429,7 +429,19 @@
 </div>
 
 <script type="text/javascript">
+
+  
+  var editTable = $('#dataTableEdit').DataTable({
+    "pagingType": "first_last_numbers",
+    'bFilter': false,
+  })
+
   $('.js-table-edit').on('click', function() {
+    var getData = editTable.rows($(this).closest('tr')).data();
+    $('.js-date').val(getData[0][6])
+    $('.js-loggedin').val(getData[0][1])
+    $('.js-loggedout').val(getData[0][2])
+
     $('#js-modal-edit').show();
     $('body').css('overflow-y', 'hidden');
   });
