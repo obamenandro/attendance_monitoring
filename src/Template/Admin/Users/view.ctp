@@ -408,7 +408,7 @@
                   <label class="form__label">Status:</label>
                 </div>
                 <div class="form__input form__input--fullwidth">
-                  <select class="form__inputbox js-status">
+                  <select class="form__inputbox">
                     <option selected>-- Select --</option>
                     <option>Undertime</option>
                     <option>Completed</option>
