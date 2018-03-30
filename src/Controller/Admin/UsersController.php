@@ -426,20 +426,61 @@ class UsersController extends AppController
     }
 
     public function view($id = NULL) {
-        $civilStatus = Configure::read('civil_status');
-        $employee = $this->User->find()
-                    ->contain(['Governments'])
-                    ->where([
-                        'Users.id'      => $id,
-                        'Users.role'    => 2,
-                        'Users.del_flg' => 0
-                    ])
-                    ->first()
-                    ->toArray();
+        $civilStatus    = Configure::read('civil_status');
+        $employee       = $this->User->find()
+                        ->contain(['Governments'])
+                        ->where([
+                            'Users.id'      => $id,
+                            'Users.role'    => 2,
+                            'Users.del_flg' => 0
+                        ])
+                        ->first()
+                        ->toArray();
 
-        $this->set(compact('employee', 'civilStatus'));
+        $attendanceLists = $this->Attendance->find('all')
+                         ->where(['Attendances.user_id' => $id])
+                         ->toArray();
+
+        if ($this->request->is('POST')) {
+            $data            = $this->request->data;
+            $entity          = $this->Attendance->newEntity();
+            $entity          = $this->Attendance->patchEntity($entity, $data);
+            $entity->user_id = $id;
+            $entity->date    = date('Y-m-d');
+            if ($this->Attendance->save($entity)) {
+                $this->Flash->success(__('Attendance has been successfully added.'));
+                return $this->redirect('/admin/users/view/'.$id);
+            } else {
+                $this->Flash->success(__('Attendance has been failed to added.'));
+                return $this->redirect('/admin/users/view/'.$id);
+            }
+        }
+
+
+        $this->set(compact('employee', 'civilStatus', 'attendanceLists'));
+        $this->set('status', Configure::read('status'));
+        $this->set('_serialize',['employee', 'civilStatus', 'attendanceLists']);
     }
 
+    public function attendanceEdit($user_id) {
+        $this->autoRender = false;
+        if ($this->request->is('POST')) {
+            $data                     = $this->request->data;
+            $attendanceEdit           = $this->Attendance->get($data['id']);
+            $attendanceEdit           = $this->Attendance->patchEntity($attendanceEdit, $data);
+            $attendanceEdit->modified = date('Y-m-d H:i:s');
+
+            if ($this->Attendance->save($attendanceEdit)) {
+                $this->Flash->success('Attendance has been successfully updated.');
+                return $this->redirect('/admin/users/view/'.$user_id);
+            } else {
+                $this->Flash->error('Attendance has been failed to updated.');
+                return $this->redirect('/admin/users/view/'.$user_id);
+            }
+        }
+
+        return $this->redirect('/admin/users/');
+    }
     public function add_department() {
 
     }

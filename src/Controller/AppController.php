@@ -82,6 +82,7 @@ class AppController extends Controller
         $this->Government     = TableRegistry::get('Governments');
         $this->Subject        = TableRegistry::get('Subjects');
         $this->UserDepartment = TableRegistry::get('UserDepartments');
+        $this->Attendance     = TableRegistry::get('Attendances');
         // $this->Auth->allow();
     }
 }

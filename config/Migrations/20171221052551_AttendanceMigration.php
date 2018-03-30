@@ -18,6 +18,9 @@ class AttendanceMigration extends AbstractMigration
             ->addColumn('user_id', 'integer', [
                 'length' => 11
             ])
+            ->addColumn('date', 'string', [
+                'length' => 255
+            ])
             ->addColumn('timein', 'string', [
                 'length' => 255
             ])

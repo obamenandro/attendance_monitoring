@@ -253,3 +253,9 @@ Configure::write('role', [
     'admin'    => 1,
     'employee' => 2
 ]);
+
+Configure::write('status', [
+    0 => 'Present',
+    1 => 'Absent',
+    2 => 'Leave'
+]);
