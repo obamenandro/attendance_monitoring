@@ -248,7 +248,7 @@
                 <label class="form__label">Date:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD">
+                <input type="text" name="date" class="form__inputbox js-datepicker js-date" placeholder="YYYY-MM-DD">
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -257,7 +257,7 @@
                 <label class="form__label">Logged In:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="timeout" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
+                <input type="text" name="timein" class="form__inputbox js-timepicker js-loggedin" data-time-format="H:i" placeholder="hh:mm">
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -267,7 +267,7 @@
                 <label class="form__label">Logged Out:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="timein" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm">
+                <input type="text" name="timeout" class="form__inputbox js-timepicker js-loggedout" data-time-format="H:i" placeholder="hh:mm">
                 <span class="form__error">Error</span>
               </div>
             </div>
@@ -312,6 +312,19 @@
   $('.js-table-edit').on('click', function() {
     id = $(this).attr('id');
     $('#js-modal-edit-'+id).show();
+  
+  // var editTable = $('#dataTableEdit').DataTable({
+  //   "pagingType": "first_last_numbers",
+  //   'bFilter': false,
+  // })
+
+  // $('.js-table-edit').on('click', function() {
+  //   var getData = editTable.rows($(this).closest('tr')).data();
+  //   $('.js-date').val(getData[0][6])
+  //   $('.js-loggedin').val(getData[0][1])
+  //   $('.js-loggedout').val(getData[0][2])
+
+  //   $('#js-modal-edit').show();
     $('body').css('overflow-y', 'hidden');
   });
 
