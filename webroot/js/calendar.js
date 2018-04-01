@@ -91,7 +91,10 @@ $( document ).ready( function(){
           $( '.calendar' ).removeClass('js-loading-opacity');
           $('.js-loading').hide();
 
-          $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ currentDate+'"]').addClass('calendar__days-number--current');
+          if( data.currentMonth == true ) {
+            $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ currentDate+'"]').addClass('calendar__days-number--current');
+          }
+          
           var day =  Object.keys(dates).length;
           // IF EMPLOYEE IS ABSENT
           if ( tabId == 1 ) {
@@ -151,8 +154,8 @@ $( document ).ready( function(){
       if ( month > 12 ) {
         year = year + 1;
         month = 1
-    }
       }
+     }
     else {
       month = month - 1;
       if ( month < 1 ) {

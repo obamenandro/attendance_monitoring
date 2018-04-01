@@ -101,14 +101,14 @@ $this->layout = false;
                 </ul>
               </div>
               <div class="calendar__title">
-                <div class="calendar__arrow">
-                  <i class="fa fa-chevron-left js-prev"></i>
+                <div class="calendar__arrow js-prev">
+                  <i class="fa fa-chevron-left"></i>
                   prev
                 </div>
                 <div class="calendar__month-name js-yearMonths"></div>
-                <div class="calendar__arrow calendar__arrow--next">
+                <div class="calendar__arrow calendar__arrow--next js-next">
                   next
-                  <i class="fa fa-chevron-right js-next"></i>
+                  <i class="fa fa-chevron-right"></i>
                 </div>
               </div>
               <div class="calendar__weeks">
