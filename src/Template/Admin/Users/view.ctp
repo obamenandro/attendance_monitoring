@@ -121,7 +121,7 @@
             <a class="button button--add-attendance">Add Attendance</a>
           </div>
         </div>
-        <table id="dataTable" class="display table" cellspacing="0" width="100%">
+        <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
               <th class="table__head-list">ID</th>
@@ -312,19 +312,7 @@
   $('.js-table-edit').on('click', function() {
     id = $(this).attr('id');
     $('#js-modal-edit-'+id).show();
-  
-  // var editTable = $('#dataTableEdit').DataTable({
-  //   "pagingType": "first_last_numbers",
-  //   'bFilter': false,
-  // })
 
-  // $('.js-table-edit').on('click', function() {
-  //   var getData = editTable.rows($(this).closest('tr')).data();
-  //   $('.js-date').val(getData[0][6])
-  //   $('.js-loggedin').val(getData[0][1])
-  //   $('.js-loggedout').val(getData[0][2])
-
-  //   $('#js-modal-edit').show();
     $('body').css('overflow-y', 'hidden');
   });
 

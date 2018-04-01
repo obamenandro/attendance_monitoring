@@ -605,6 +605,11 @@ a {
 .table__note {
   color: #FF0000; }
 
+.table.table--attendance-view .table__head-list,
+.table.table--attendance-view .table__body-list {
+  display: table-cell;
+  padding: inherit; }
+
 .user-panel {
   display: inline-block;
   margin-left: 20%;
