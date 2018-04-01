@@ -18,20 +18,26 @@ $this->layout = false;
   <?= $this->Html->css('style.css') ?>
   <?= $this->Html->script('jquery-3.1.0.min.js') ?>
   <?= $this->Html->script('jquery.dataTables.min.js') ?>
+  <?= $this->Html->script('/css/node_modules/moment/moment.js') ?>
   <?= $this->Html->script('plugins/bootstrap-datepicker/datepicker.js') ?>
   <?= $this->Html->script('plugins/datatables/datatables.min.js') ?>
   <?= $this->Html->script('plugins/timepicker/jquery.timepicker.min.js') ?>
   <?= $this->Html->script('common.js') ?>
+  <?= $this->Html->script('calendar.js') ?>
 </head>
 <body>
 
+  <?= $this->element('user_header') ?>  
   <main class="main-content">
-    <?= $this->element('header') ?>
+    <div class="main-content__bgcolor"></div>
     <div class="main-content__content">
-
-      <?= $this->element('sidebar') ?>
-      <div class="panel">
-        <?= $this->fetch('content') ?>
+      <?= $this->element('user_sidebar') ?>   
+  
+      <div class="user-panel">
+        <div class="user-panel__content">
+          <?= $this->element('user_menu') ?>   
+          <?= $this->fetch('content') ?>
+        </div>
       </div>
     </div>
   </main>
