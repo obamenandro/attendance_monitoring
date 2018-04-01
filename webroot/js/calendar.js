@@ -24,15 +24,16 @@ $( document ).ready( function(){
 
     $.ajax({
         type: 'POST',
-        url:  '/files/calendar_event.json',
+        url:  '/users/attendanceRecord',
         data:  {
             'month':month,
             'year':year,
             'currentDay': currentDate
         },
         success: function( result ) {
-          // var data = result;
-          var data = JSON.parse( result );
+        	console.log(result);
+          var data = result;
+          // var data = JSON.parse( result );
           var startWeek = moment( year + '-' + month +'-'+ 1, "YYYY-MM-DD" ).startOf( 'month' ).week();
           var endWeek = moment( year + '-' + month +'-'+ 1, "YYYY-MM-DD" ).endOf( 'month' ).week();
           var calendar = [];
