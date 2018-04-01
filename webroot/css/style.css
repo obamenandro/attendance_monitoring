@@ -847,7 +847,8 @@ a {
     display: inline-block;
     width: 20%;
     vertical-align: middle;
-    font-size: 20px; }
+    font-size: 20px;
+    cursor: pointer; }
   .calendar__month-name {
     display: inline-block;
     width: 60%;
