@@ -1,0 +1,66 @@
+.form-edit-info {
+  padding: 0 30px 30px;
+
+  &__wrapper {
+    margin: 0 auto;
+    width: 700px;
+    padding: 50px 0 20px;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__list {
+    display: inline-block;
+    margin-right: 5%;
+    width: 45%;
+    padding-bottom: 20px;
+
+    &:nth-child(2) {
+      margin-right: 0;
+    }
+
+    &:nth-child(3) {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    vertical-align: top;
+    padding-bottom: 5px;
+  }
+
+  &__input {
+    display: inline-block;
+    width: 80%;
+    border: 1px solid #C4C5C3;
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  &__textarea {
+    display: inline-block;
+    width: 86%;
+    border: 1px solid #C4C5C3;
+    padding: 8px;
+    border-radius: 5px;
+    height: 200px;
+    resize: none;
+  }
+
+  &__button {
+    margin: 0 14% 0 0;
+    text-align: center;
+  }
+}
+
+.form-edit-info__button {
+  .button--submit {
+    width: 30%;
+  }
+}

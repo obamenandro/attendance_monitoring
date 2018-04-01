@@ -118,4 +118,12 @@ class PagesController extends AppController
     public function user_login() {
         
     }
+
+    public function user_edit_info() {
+        
+    }
+    
+    public function user_leave() {
+        
+    }
 }

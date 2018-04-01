@@ -879,3 +879,48 @@ a {
   background: #049FDA;
   color: #FFFFFF;
   border-radius: 3px; }
+
+.form-edit-info {
+  padding: 0 30px 30px; }
+  .form-edit-info__wrapper {
+    margin: 0 auto;
+    width: 700px;
+    padding: 50px 0 20px; }
+  .form-edit-info__title {
+    font-size: 20px; }
+  .form-edit-info__list {
+    display: inline-block;
+    margin-right: 5%;
+    width: 45%;
+    padding-bottom: 20px; }
+    .form-edit-info__list:nth-child(2) {
+      margin-right: 0; }
+    .form-edit-info__list:nth-child(3) {
+      margin-right: 0;
+      width: 100%; }
+  .form-edit-info__label {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    vertical-align: top;
+    padding-bottom: 5px; }
+  .form-edit-info__input {
+    display: inline-block;
+    width: 80%;
+    border: 1px solid #C4C5C3;
+    padding: 8px;
+    border-radius: 5px; }
+  .form-edit-info__textarea {
+    display: inline-block;
+    width: 86%;
+    border: 1px solid #C4C5C3;
+    padding: 8px;
+    border-radius: 5px;
+    height: 200px;
+    resize: none; }
+  .form-edit-info__button {
+    margin: 0 14% 0 0;
+    text-align: center; }
+
+.form-edit-info__button .button--submit {
+  width: 30%; }
