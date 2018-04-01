@@ -176,7 +176,7 @@
                                 <label class="form__label">Logged In:</label>
                               </div>
                               <div class="form__input form__input--fullwidth">
-                                <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timein'])); ?>">
+                                <input type="text" name="timein" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timein'])); ?>">
                                 <span class="form__error">Error</span>
                               </div>
                             </div>
@@ -186,7 +186,7 @@
                                 <label class="form__label">Logged Out:</label>
                               </div>
                               <div class="form__input form__input--fullwidth">
-                                <input type="text" name="" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timeout'])); ?>">
+                                <input type="text" name="timeout" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timeout'])); ?>">
                                 <span class="form__error">Error</span>
                               </div>
                             </div>
@@ -327,7 +327,7 @@
   });
 
   $('.js-datepicker').datepicker({
-    format: 'yyyy/mm/dd'
+    format: 'yyyy-mm-dd'
   });
 
   $('.js-timepicker').on('focus', function() {

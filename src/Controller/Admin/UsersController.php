@@ -445,7 +445,7 @@ class UsersController extends AppController
             $entity          = $this->Attendance->newEntity();
             $entity          = $this->Attendance->patchEntity($entity, $data);
             $entity->user_id = $id;
-            $entity->date    = date('Y-m-d');
+            $entity->date    = $data['date'];
             if ($this->Attendance->save($entity)) {
                 $this->Flash->success(__('Attendance has been successfully added.'));
                 return $this->redirect('/admin/users/view/'.$id);
@@ -467,6 +467,7 @@ class UsersController extends AppController
             $data                     = $this->request->data;
             $attendanceEdit           = $this->Attendance->get($data['id']);
             $attendanceEdit           = $this->Attendance->patchEntity($attendanceEdit, $data);
+            $attendanceEdit->date     = $data['date'];
             $attendanceEdit->modified = date('Y-m-d H:i:s');
 
             if ($this->Attendance->save($attendanceEdit)) {
