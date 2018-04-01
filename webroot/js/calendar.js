@@ -12,6 +12,8 @@ $( document ).ready( function(){
 
   var month = new Date().getMonth() + 1; // CURRENT MONTH
   var year =  new Date().getFullYear(); // CURRENT YEAR
+  var currentDate = new Date().getDay() + 1;
+  console.log(currentDate);
   var tabId = 0;
   showMonth(month, year, tabId)
   // FUNCTION DISPLAYING DATA FROM JSON
@@ -27,6 +29,7 @@ $( document ).ready( function(){
         data:  {
             'month':month,
             'year':year,
+            'currentDay': currentDate
         },
         success: function( result ) {
           // var data = result;
@@ -88,7 +91,7 @@ $( document ).ready( function(){
           $( '.calendar' ).removeClass('js-loading-opacity');
           $('.js-loading').hide();
 
-          $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ data.currentDate+'"]').addClass('calendar__days-number--current');
+          $('.calendar__days-number[data-index="'+ year +"-"+ month +"-"+ currentDate+'"]').addClass('calendar__days-number--current');
           var day =  Object.keys(dates).length;
           // IF EMPLOYEE IS ABSENT
           if ( tabId == 1 ) {
