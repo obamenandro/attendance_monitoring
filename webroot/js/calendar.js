@@ -12,8 +12,7 @@ $( document ).ready( function(){
 
   var month = new Date().getMonth() + 1; // CURRENT MONTH
   var year =  new Date().getFullYear(); // CURRENT YEAR
-  var currentDate = new Date().getDay() + 1;
-  console.log(currentDate);
+  var currentDate = new Date().getDay() + 1; // CURRENT DATE
   var tabId = 0;
   showMonth(month, year, tabId)
   // FUNCTION DISPLAYING DATA FROM JSON
