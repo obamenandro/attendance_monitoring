@@ -139,38 +139,5 @@ $this->layout = false;
       </div>
     </div>
   </main>
-
-  <div class="modal" style="display: block";>
-    <div class="modal__container">
-      <div class="modal__header">
-        <div class="modal__title">
-          <h3>Login</h3>
-        </div>
-      </div>
-
-      <div class="modal__content">
-        <div class="form">
-          <form>
-            <div class="form__content form__content--block">
-                           
-              <div class="form__list form__list--block">
-                <label class="form__label">Username</label>
-                <input type="text" name="" class="form__inputbox">
-              </div>
-
-              <div class="form__list form__list--block">
-                <label class="form__label">Password</label>
-                <input type="password" name="" class="form__inputbox">
-              </div>
-
-              <div class="modal__button">
-                <input type="submit" name="" class="button button--submit" value="Login">
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>  
-    </div>
-  </div>
 </body>
 </html>
