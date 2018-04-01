@@ -45,32 +45,42 @@ $this->layout = false;
       <aside class="sidebar">
         <div class="sidebar__content">
           <div class="sidebar__image">
-            <img src="/img/upload/laptop-bottom.png" alt="user-image" class="sidebar__user-image">
+            <?php if($user['image'] == NULL): ?>
+              <img src="/img/user/default_avatar.png" alt="user-image" class="sidebar__user-image">
+            <?php else: ?>
+              <img src="<?= $user['image']; ?>" alt="user-image" class="sidebar__user-image">
+            <?php endif; ?>
           </div>
 
           <div class="sidebar__name">
-            <span class="sidebar__user-name">Tan, Denmark Anthony</span>
-            <span class="sidebar__position">Quality Assurance</span>
+            <span class="sidebar__user-name">
+              <?= ucfirst(h($user['firstname'])) ?>
+              <?= (empty($user['middlename'])) ? "" : ucfirst(h($user['middlename'])).", "; ?>
+              <?= ucfirst(h($user['lastname'])) ?>
+            </span>
+            <span class="sidebar__position"><?= h($user['position']) ?></span>
           </div>
 
           <div class="sidebar__information">
             <ul>
               <li class="sidebar__information-list">
                 <label class="sidebar__information-data">Employee ID:</label>
-                <span class="sidebar__information-data">1001</span>
+                <span class="sidebar__information-data"><?= $user['id'] ?></span>
               </li>
-              <li class="sidebar__information-list">
-                <label class="sidebar__information-data">SSS No.:</label>
-                <span class="sidebar__information-data">12342342</span>
-              </li>
-              <li class="sidebar__information-list">
-                <label class="sidebar__information-data">TIN No.:</label>
-                <span class="sidebar__information-data">12321312</span>
-              </li>
+              <?php if(!empty($user['user_departments'])): ?>
               <li class="sidebar__information-list">
                 <label class="sidebar__information-data">Department:</label>
-                <span class="sidebar__information-data">Justice</span>
+                <span class="sidebar__information-data">
+                  <?php
+                    $department = "";
+                    foreach($user['user_departments'] as $value) {
+                      $department.=$value['department']['name'].', ';
+                    }
+                    echo rtrim($department, ', ');
+                  ?>
+                </span>
               </li>
+              <?php endif; ?>
             </ul>
           </div>
         </div>
