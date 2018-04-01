@@ -15,6 +15,7 @@ class UsersController extends AppController
     public function initialize()
     {
         parent::initialize();
+        $this->viewBuilder()->setLayout('User');
         $this->loadComponent('Upload');    ## Load upload component for uploading images
     }
 
