@@ -114,4 +114,8 @@ class PagesController extends AppController
     public function user_home() {
 
     }
+
+    public function user_login() {
+        
+    }
 }
