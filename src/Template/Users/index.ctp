@@ -58,7 +58,7 @@ $this->layout = false;
               <?= (empty($user['middlename'])) ? "" : ucfirst(h($user['middlename'])).", "; ?>
               <?= ucfirst(h($user['lastname'])) ?>
             </span>
-            <span class="sidebar__position"><?= h($user['position']) ?></span>
+            <span class="sidebar__position"><?= !empty($user['position']) ? h($user['position']) : ""; ?></span>
           </div>
 
           <div class="sidebar__information">
