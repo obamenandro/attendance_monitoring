@@ -56,13 +56,14 @@ class UsersController extends AppController
             $id     = $this->Auth->User('id');
             $record = $this->Attendance->find('all')
                     ->where(['Attendances.user_id' => $id])
+                    ->order(['Attendances.date' => 'ASC'])
                     ->toArray();
 
             $attendanceStatus = [];
             foreach($record as $key => $value) {
                 if ($data['year'] == date('Y', strtotime($value['date'])) && 
                     $data['month'] == date('n', strtotime($value['date']))) {
-                    $attendanceStatus[date('d', strtotime($value['date']))] = $value['status'];
+                    $attendanceStatus[date('j', strtotime($value['date']))] = $value['status'];
                 }
             }
             //Get year and month
@@ -76,11 +77,12 @@ class UsersController extends AppController
             $dateDiff         = strtotime($inputMonthYear) - strtotime($currentMonthYear);
             if($dateDiff === 0){
                 $result['currentMonth'] = true;
+                //Get current day
+                $result['currentDate'] = date("d");
             } else {
                 $result['currentMonth'] = false;
+                $result['currentDate']  = false;
             }
-            //Get current day
-            $result['currentDate'] = date("d");
             //Compute for last day
             $lastDay               = date("t",mktime(0, 0, 0, $data['month'], 1, $data['year']));
             //Compute for first and last date
@@ -96,9 +98,6 @@ class UsersController extends AppController
                 $dates[$day] = [];
                 //Check if it is past day
                 $calendarDate = date("m/d/y",mktime(0, 0, 0, $data['month'], $day, $data['year']));
-                if (isset($record[$day])) {
-                    $dates[$day]['status'] = $record[$day]['status'];
-                }
                 if (isset($attendanceStatus[$day])) {
                     $dates[$day]["status"] = $attendanceStatus[$day];
                 }
