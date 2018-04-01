@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -9,9 +10,22 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class UsersController extends AppController
+class UsersController extends AppController 
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('User');
+        $this->loadComponent('Upload');    ## Load upload component for uploading images
+    }
+
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['login']);
+    }
+
     public function login() {
+        $this->layout = false;
         $this->request->session()->destroy();
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();

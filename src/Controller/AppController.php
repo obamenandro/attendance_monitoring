@@ -17,7 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
-
+use Cake\Network\Session\DatabaseSession;
 /**
  * Application Controller
  *
@@ -61,13 +61,13 @@ class AppController extends Controller
             ]
         );
         // check if it is accessing admin page && with UsersAuthentication's role = 1
-        // if ($this->request->action !== 'login'
-        //     && $this->request->prefix == 'admin'
-        //     && $this->Auth->user('role') !== 1) {
-        //     return $this->redirect('/admin/users/login');
-        // } else {
+        if ($this->request->action !== 'login'
+            && $this->request->prefix == 'admin'
+            && $this->Auth->user('role') !== 1) {
+            return $this->redirect('/admin/users/login');
+        } else {
             $this->set('user', $this->Auth->user('firstname'));
-        // }
+        }
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -83,6 +83,21 @@ class AppController extends Controller
         $this->Subject        = TableRegistry::get('Subjects');
         $this->UserDepartment = TableRegistry::get('UserDepartments');
         $this->Attendance     = TableRegistry::get('Attendances');
-        // $this->Auth->allow();
+        $this->User           = TableRegistry::get('Users');
+
+        $session = $this->request->session();
+        if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {
+            $id   = $session->read('Auth.User.id');
+            $user = $this->User->find()
+                  ->contain(['Governments', 'UserDepartments'])
+                  ->where([
+                    'Users.id'   => $id,
+                    'Users.role' => 2
+                  ])
+                  ->first()
+                  ->toArray();
+
+            $this->set('user', $user);
+        }
     }
 }
