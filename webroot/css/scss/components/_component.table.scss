@@ -7,12 +7,13 @@
 
   &__head-list,
   &__body-list {
-    display: inline-block;
+    display: table-cell;
     width: 12.5%;
-    vertical-align: top;
+    vertical-align: middle;
     font-size: $tertiary-fontsize;
     text-align: center;
     color: $white-color;
+    line-height: 1.5em;
   }
 
   &__body {
@@ -49,4 +50,12 @@
     display: table-cell;
     padding: inherit;
   }
+}
+
+.table__note.table__note--leave {
+  color: #049FDA;
+}
+
+.table__note.table__note--present {
+  color: #000000;
 }

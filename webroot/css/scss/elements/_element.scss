@@ -19,7 +19,7 @@ a {
 
 .table__head-list,
 .table__body-list {
-	padding: 15px 0!important;
+	padding: 6px 0 !important;
 }
 
 .dataTables_wrapper {
@@ -74,6 +74,12 @@ a {
   .js-status {
     background: #FF0000;
     color: #FFFFFF;
+  } 
+}
+
+.calendar__days-number.calendar__days-number--present {
+  .js-status {
+    background: #12FF00;
   } 
 }
 

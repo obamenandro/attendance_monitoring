@@ -98,25 +98,6 @@
         </div>
 
         <div class="panel__search">
-          <form action="upload.php" method="post" enctype="multipart/form-data">
-            <div class="panel__search-wrapper">
-              <div class="panel__search-box">
-                <label class="panel__search-label">ID:</label>
-                <input type="text" name="" class="panel__search-input">
-              </div>
-              <div class="panel__search-box">
-                <label class="panel__search-label">Name:</label>
-                <input type="text" name="" class="panel__search-input">
-              </div>
-              <div class="panel__search-box">
-                <label class="panel__search-label">Status:</label>
-                <input type="text" name="" class="panel__search-input">
-              </div>
-              <div class="panel__search-box">
-                <input type="submit" name="" class="panel__search-button" value="search">
-              </div>
-            </div>
-          </form>
           <div class="panel__add-attendance">
             <a class="button button--add-attendance">Add Attendance</a>
           </div>
@@ -139,7 +120,20 @@
                 <td class="table__body-list"><?= date('Y-m-d', strtotime($attendanceList['date'])); ?></td>
                 <td class="table__body-list"><?= date('h:i A', strtotime($attendanceList['timein'])); ?></td>
                 <td class="table__body-list"><?= date('h:i A', strtotime($attendanceList['timeout'])); ?></td>
-                <td class="table__body-list"><span class="table__note"><?= $status[$attendanceList['status']]; ?></span></td>
+                <td class="table__body-list">
+                  <span class="table__note
+                    <?php
+                      if ( $status[$attendanceList['status']] == 'Leave' ) {
+                        echo "table__note--leave"; 
+                      }
+                      else if ( $status[$attendanceList['status']] == 'Present' ) {
+                        echo "table__note--present";
+                      }
+                    ?>
+                  ">
+                  <?= $status[$attendanceList['status']]; ?>
+                  </span>
+                </td>
                 <td class="table__body-list">
                   <a class="table__view js-table-edit" id="<?= $attendanceList['id']; ?>">Edit</a>
                 </td>
@@ -168,7 +162,6 @@
                               </div>
                               <div class="form__input form__input--fullwidth">
                                 <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD" value="<?= date('Y-m-d', strtotime($attendanceList['date'])); ?>">
-                                <span class="form__error">Error</span>
                               </div>
                             </div>
                             <div class="form__list">
@@ -177,7 +170,6 @@
                               </div>
                               <div class="form__input form__input--fullwidth">
                                 <input type="text" name="timein" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timein'])); ?>">
-                                <span class="form__error">Error</span>
                               </div>
                             </div>
 
@@ -187,7 +179,6 @@
                               </div>
                               <div class="form__input form__input--fullwidth">
                                 <input type="text" name="timeout" class="form__inputbox js-timepicker" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timeout'])); ?>">
-                                <span class="form__error">Error</span>
                               </div>
                             </div>
 
@@ -249,7 +240,6 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <input type="text" name="date" class="form__inputbox js-datepicker js-date" placeholder="YYYY-MM-DD">
-                <span class="form__error">Error</span>
               </div>
             </div>
             <div class="form__list">
@@ -258,7 +248,6 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <input type="text" name="timein" class="form__inputbox js-timepicker js-loggedin" data-time-format="H:i" placeholder="hh:mm">
-                <span class="form__error">Error</span>
               </div>
             </div>
 
@@ -268,7 +257,6 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <input type="text" name="timeout" class="form__inputbox js-timepicker js-loggedout" data-time-format="H:i" placeholder="hh:mm">
-                <span class="form__error">Error</span>
               </div>
             </div>
 
@@ -327,10 +315,12 @@
   });
 
   $('.js-datepicker').datepicker({
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    endDate: "today"
   });
 
   $('.js-timepicker').on('focus', function() {
     $(this).timepicker()
   })
+
 </script>

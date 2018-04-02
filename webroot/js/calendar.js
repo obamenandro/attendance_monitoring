@@ -129,6 +129,11 @@ $( document ).ready( function(){
                 var statusTitle = 'On Leave';
                 $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
               }
+              else if ( data.dates[i].status == 0 ) {
+                var status = 'calendar__days-number--present';
+                var statusTitle = 'Present';
+                $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+              }
             } 
           }
         }

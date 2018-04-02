@@ -54,7 +54,7 @@ a {
 
 .table__head-list,
 .table__body-list {
-  padding: 15px 0 !important; }
+  padding: 6px 0 !important; }
 
 .dataTables_wrapper {
   padding: 20px 0 50px; }
@@ -97,6 +97,9 @@ a {
 .calendar__days-number.calendar__days-number--absent .js-status {
   background: #FF0000;
   color: #FFFFFF; }
+
+.calendar__days-number.calendar__days-number--present .js-status {
+  background: #12FF00; }
 
 .ui-timepicker-list {
   font-size: 14px; }
@@ -259,7 +262,6 @@ a {
     background: #FFFFFF;
     border: solid 1px #C2C2C2; }
   .panel__search {
-    padding: 15px 0;
     position: relative; }
   .panel__search-label {
     display: inline-block;
@@ -580,12 +582,13 @@ a {
   font-size: 0; }
 
 .table__head-list, .table__body-list {
-  display: inline-block;
+  display: table-cell;
   width: 12.5%;
-  vertical-align: top;
+  vertical-align: middle;
   font-size: 12px;
   text-align: center;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  line-height: 1.5em; }
 
 .table__body:nth-child(odd) {
   background: #EFFAFF;
@@ -610,6 +613,12 @@ a {
 .table.table--attendance-view .table__body-list {
   display: table-cell;
   padding: inherit; }
+
+.table__note.table__note--leave {
+  color: #049FDA; }
+
+.table__note.table__note--present {
+  color: #000000; }
 
 .user-panel {
   display: inline-block;
@@ -656,6 +665,9 @@ a {
     font-size: 20px;
     padding-bottom: 10px;
     color: #CCCCCC; }
+  .user-panel__title {
+    font-size: 20px;
+    padding: 0 30px 30px; }
 
 .user-panel__menu-link:hover .user-panel__icon {
   color: #049FDA; }

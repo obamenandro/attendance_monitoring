@@ -26,9 +26,9 @@
       <a href="" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
-          <span>Schedule</span>
+          <span>Seminars</span>
           <p class="user-panel__paragraph">
-            you can check your schedule
+            you can add your Seminars attended here
           </p>
         </div>
       </a>
