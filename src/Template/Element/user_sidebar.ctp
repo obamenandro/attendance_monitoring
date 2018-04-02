@@ -23,7 +23,7 @@
             <label class="sidebar__information-data">Employee ID:</label>
             <span class="sidebar__information-data"><?= $user['id'] ?></span>
             </li>
-            <?php if(!empty($user['user_departments'])): ?>
+            <?php if(isset($user['user_departments'])): ?>
             <li class="sidebar__information-list">
             <label class="sidebar__information-data">Department:</label>
             <span class="sidebar__information-data">

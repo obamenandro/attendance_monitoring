@@ -10,7 +10,7 @@ use Cake\Event\Event;
  *
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class UsersController extends AppController 
+class UsersController extends AppController
 {
     public function initialize()
     {
@@ -61,7 +61,7 @@ class UsersController extends AppController
 
             $attendanceStatus = [];
             foreach($record as $key => $value) {
-                if ($data['year'] == date('Y', strtotime($value['date'])) && 
+                if ($data['year'] == date('Y', strtotime($value['date'])) &&
                     $data['month'] == date('n', strtotime($value['date']))) {
                     $attendanceStatus[date('j', strtotime($value['date']))] = $value['status'];
                 }
@@ -105,13 +105,35 @@ class UsersController extends AppController
             $result["dates"] = $dates;
             if($this->request->is('ajax')){
                 $this->autoRender = false;
-                $json = json_encode($result); 
+                $json = json_encode($result);
 
                 $this->response->type('json');
                 $this->response->body($json);
                 return $this->response;
             }
             $this->set('data',$result);
+        }
+    }
+
+    public function changePassword() {
+        $user = $this->User->get($this->Auth->User('id'));
+
+        if ($this->request->is('POST')) {
+            $data = $this->request->data;
+            $user = $this->User->patchEntity($user, [
+                'old_password'     => $data['old_password'],
+                'password'         => $data['new_password'],
+                'new_password'     => $data['new_password'],
+                'confirm_password' => $data['confirm_password']
+            ],
+            ['validate' => 'password']);
+            if ($this->User->save($user)) {
+                $this->Flash->success('Your password has been successfully updated.');
+                return $this->redirect('/users/change_password');
+            } else {
+                $this->Flash->error('Your password has been failed to update.');
+            }
+            $this->set('userChangePassword', $user);
         }
     }
 }

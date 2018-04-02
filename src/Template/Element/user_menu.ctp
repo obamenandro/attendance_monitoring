@@ -34,7 +34,7 @@
       </a>
     </li>
     <li class="user-panel__menu-list">
-      <a href="" class="user-panel__menu-link">
+      <a href="/users/change_password" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-cogs user-panel__icon" aria-hidden="true"></i>
           <span>Change Password</span>
