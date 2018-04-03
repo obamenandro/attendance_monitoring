@@ -26,8 +26,10 @@
         <div class="calendar__days js-populate-date">
           <!-- SHOW THE DATES -->
         </div>
-        <div class="calendar__loading js-loading">
+        <div class="calendar__loading-wrapper js-loading">
+          <div class="calendar__loading">
             <i class="fa fa-spinner fa-spin fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+          </div>
         </div>
     </div>
   </div>

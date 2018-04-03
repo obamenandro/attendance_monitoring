@@ -83,11 +83,21 @@
     border-radius: 3px;
   }
 
+  &__loading-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
   &__loading {
+    position: fixed;
     font-size: 18px;
-    color: #049FDA;
-    position: absolute;
-    top: 40%;
+    color: #FFFFFF;
+    top: 45%;
     left: 50%;
   }
 }
