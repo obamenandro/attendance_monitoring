@@ -1,7 +1,7 @@
 <div class="user-panel__menu">
   <ul>
     <li class="user-panel__menu-list">
-      <a href="" class="user-panel__menu-link">
+      <a href="/users" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
           <span>Attendance Record</span>
@@ -12,7 +12,7 @@
       </a>
     </li>
     <li class="user-panel__menu-list">
-      <a href="" class="user-panel__menu-link">
+      <a href="/UserLeaves/add" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-bed user-panel__icon" aria-hidden="true"></i>
           <span>Leave</span>
