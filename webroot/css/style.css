@@ -440,6 +440,18 @@ a {
   font-size: 16px;
   padding-bottom: 5px; }
 
+.form__input-textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #D3D2D2;
+  resize: none;
+  height: 200px;
+  padding: 5px; }
+
+.form__leave-submit {
+  padding: 30px 0 0;
+  text-align: center; }
+
 .form__input.form__input--fullwidth {
   width: 83%; }
 
@@ -625,6 +637,9 @@ a {
 
 .table__note.table__note--present {
   color: #000000; }
+
+.table__view.table__view--decline {
+  color: #FF0000; }
 
 .user-panel {
   display: inline-block;

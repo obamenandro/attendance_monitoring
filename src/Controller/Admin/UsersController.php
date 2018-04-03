@@ -529,4 +529,8 @@ class UsersController extends AppController
     public function confirmation () {
 
     }
+
+    public function request_leave () {
+
+    }
 }
