@@ -107,6 +107,9 @@ a {
 .ui-timepicker-wrapper {
   width: 15%; }
 
+.js-loggedout-error {
+  display: none; }
+
 /*components*/
 .header {
   position: fixed;
@@ -536,6 +539,9 @@ a {
 .button.button--add-attendance {
   background-color: #1F6DA8;
   color: #FFFFFF; }
+
+.button.button--disabled {
+  opacity: 0.2; }
 
 .login {
   width: 100%;

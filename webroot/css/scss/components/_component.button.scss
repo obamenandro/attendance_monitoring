@@ -37,3 +37,7 @@
   background-color: #1F6DA8;
   color: $white-color;
 }
+
+.button.button--disabled {
+  opacity: 0.2;
+}
