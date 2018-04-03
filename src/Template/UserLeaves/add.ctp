@@ -1,10 +1,6 @@
-<?php 
-  $this->layout = 'user';
-?>
-
 <div class="user-panel__field">
   <div class="form-edit-info">
-    <?= $this->Form->create(); ?>
+    <?= $this->Form->create($userLeave, ['type' => 'POST']); ?>
       <div class="form-edit-info__title">
         <h2>REQUEST LEAVE</h2>
       </div>
@@ -21,6 +17,7 @@
               'div'      => false
             ]);
           ?>
+          <?= $this->Form->error('date_start') ?>
         </div>
 
         <div class="form-edit-info__list">

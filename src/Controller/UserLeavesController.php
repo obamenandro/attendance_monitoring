@@ -47,9 +47,11 @@ class UserLeavesController extends AppController
      */
     public function add()
     {
-        $userLeave = $this->UserLeaves->newEntity();
+        $this->layout = 'user';
+        $userLeave    = $this->UserLeaves->newEntity();
         if ($this->request->is('post')) {
             $userLeave = $this->UserLeaves->patchEntity($userLeave, $this->request->getData());
+            $userLeave->user_id = $this->Auth->User('id');
             if ($this->UserLeaves->save($userLeave)) {
                 $this->Flash->success(__('The user leave has been saved.'));
 
