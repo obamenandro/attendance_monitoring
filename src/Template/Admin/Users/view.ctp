@@ -334,11 +334,11 @@
   
     if ( loggedin >= loggedout ) {
       $('.js-loggedout-error').addClass('form__error').text('logged out must be greater than time in')
-      $('#add, #edit').attr('disabled', true).addClass('button--disabled')
+      $('.button--submit').attr('disabled', true).addClass('button--disabled')
     }
     else {
       $('.js-loggedout-error').removeClass('form__error').text('')
-      $('#add, #edit').attr('disabled', false).removeClass('button--disabled')
+      $('.button--submit').attr('disabled', false).removeClass('button--disabled')
     }
   })
 
@@ -346,7 +346,7 @@
     loggedin = '';
     loggedout = '';
     $('.js-loggedout-error').removeClass('form__error').text('')
-    $('#add').attr('disabled', false).removeClass('button--disabled')
+    $('.button--submit').attr('disabled', false).removeClass('button--disabled')
   })
 
 </script>
