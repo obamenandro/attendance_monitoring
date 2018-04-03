@@ -45,7 +45,7 @@
       </a>
     </li>
     <li class="user-panel__menu-list">
-      <a href="" class="user-panel__menu-link">
+      <a href="/users/editInformation" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>
           <span>Edit Information</span>

@@ -648,14 +648,16 @@ a {
   vertical-align: top;
   border-radius: 5px;
   background: #F0F0F0; }
+  .user-panel__field {
+    margin: 0 auto 30px;
+    max-width: 1020px;
+    background: #FFFFFF; }
   .user-panel__container {
     padding: 70px 10px 10px 3%; }
   .user-panel__content {
-    background: #FFFFFF;
-    border: 1px solid #C2C2C2;
     padding: 50px 0 0; }
   .user-panel__menu {
-    padding: 10px 0 30px; }
+    padding: 10px 0 15px; }
   .user-panel__menu-list {
     display: inline-block;
     width: 20%;
@@ -664,7 +666,8 @@ a {
     text-align: center;
     border-bottom: 1px solid #C4C5C3;
     border-right: 1px solid #C4C5C3;
-    height: 130px; }
+    height: 130px;
+    background: #FFFFFF; }
     .user-panel__menu-list:hover {
       cursor: pointer;
       color: #049FDA;
@@ -933,7 +936,7 @@ a {
   border-radius: 3px; }
 
 .form-edit-info {
-  padding: 0 30px 30px; }
+  padding: 15px 15px 30px; }
   .form-edit-info__wrapper {
     margin: 0 auto;
     width: 700px;

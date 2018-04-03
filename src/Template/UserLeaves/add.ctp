@@ -1,7 +1,7 @@
 <div class="user-panel__field">
   <div class="form-edit-info">
     <?= $this->Form->create($userLeave, ['type' => 'POST']); ?>
-      <div class="form-edit-info__title">
+      <div class="form-edit-info__title view-info__title">
         <h2>REQUEST LEAVE</h2>
       </div>
 

@@ -136,4 +136,8 @@ class UsersController extends AppController
             $this->set('userChangePassword', $user);
         }
     }
+
+    public function editInformation() {
+
+    }
 }

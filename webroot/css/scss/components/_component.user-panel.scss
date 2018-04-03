@@ -6,18 +6,22 @@
   border-radius: 5px;
   background: #F0F0F0;
 
+  &__field {
+    margin: 0 auto 30px;
+    max-width: 1020px;
+    background: #FFFFFF;
+  }
+
   &__container {
     padding: 70px 10px 10px 3%;
   }
 
   &__content {
-    background: $white-color;
-    border: 1px solid #C2C2C2;
     padding: 50px 0 0;
   }
 
   &__menu {
-    padding: 10px 0 30px;
+    padding: 10px 0 15px;
   }
 
   &__menu-list {
@@ -29,6 +33,7 @@
     border-bottom: 1px solid $light-gray;
     border-right: 1px solid $light-gray;
     height: 130px;
+    background: #FFFFFF;
 
     &:hover {
       cursor: pointer;

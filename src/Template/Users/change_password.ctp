@@ -1,10 +1,10 @@
 <div class="user-panel__field">
 
-  <div class="user-panel__menu">
+  <div class="form-edit-info">
     <div class="form">
 
-    <div class="user-panel__title">
-      <h2>Change Password</h2>
+    <div class="user-panel__title view-info__title">
+      <h2>CHANGE PASSWORD</h2>
     </div>
 
       <?= $this->Form->create($userChangePassword, ['type' => 'POST']); ?>

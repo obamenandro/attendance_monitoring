@@ -389,129 +389,127 @@
         <div class="form__title">
           <h3>Educational Background</h3>
         </div>
-          <div class="form__data">
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Educational Attainment:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('educational_attainment', [
-                    'type'     => 'textarea',
-                    'class'    => 'form__inputbox form__inputbox--textarea',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('educational_attainment'); ?></span>
-              </div>
-              </div>
+        <div class="form__data">
+          <div class="form__list">
+            <div class="form__label-wrapper">
+              <label class="form__label">Educational Attainment:</label>
+            </div>
+            <div class="form__input form__input--fullwidth">
+              <?=
+                $this->Form->control('educational_attainment', [
+                  'type'     => 'textarea',
+                  'class'    => 'form__inputbox form__inputbox--textarea',
+                  'label'    => false,
+                  'required' => false
+                ]);
+              ?>
+              <span class="form__error"><?= $this->Form->error('educational_attainment'); ?></span>
+            </div>
             </div>
           </div>
-
-        <div class="form__title">
+          <div class="form__title">
           <h3>Working Experience</h3>
         </div>
-          <div class="form__data">
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Eligibility:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('eligibility', [
-                    'type'     => 'text',
-                    'class'    => 'form__inputbox',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-              </div>
+        <div class="form__data">
+          <div class="form__list">
+            <div class="form__label-wrapper">
+              <label class="form__label">Eligibility:</label>
             </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Job Type:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('jobtype', [
-                    'options'  => $jobtype,
-                    'required' => false,
-                    'div'      => false,
-                    'label'    => false,
-                    'class'    => 'form__inputbox'
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('jobtype'); ?></span>
-              </div>
-            </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Designation:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <?=
-                  $this->Form->control('designation', [
-                    'options'  => $designation,
-                    'required' => false,
-                    'div'      => false,
-                    'label'    => false,
-                    'class'    => 'form__inputbox'
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('designation'); ?></span>
-              </div>
-            </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Work Experience:</label>
-              </div>
+            <div class="form__input form__input--fullwidth">
               <?=
-                  $this->Form->control('work_experience', [
-                    'type'     => 'textarea',
-                    'class'    => 'form__inputbox form__inputbox--textarea',
-                    'label'    => false,
-                    'required' => false
-                  ]);
-                ?>
-                <span class="form__error"><?= $this->Form->error('work_experience'); ?></span>
-            </div>
-            <div class="form__title">
-              <h3>Upload Image</h3>
-            </div>
-
-            <div class="form__data">
-              <div class="form__list form__list--uploadimage">
-                <div class="form__upload-image">
-                  <?php if($employee['image'] == NULL): ?>
-                    <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
-                  <?php else: ?>
-                    <img src="<?= $employee['image']; ?>" alt="form-image" class="form__upload-picture">
-                  <?php endif; ?>
-                </div>
-                <div class="form__list-image">
-                  <?=
-                    $this->Form->control('image', [
-                      'type'  => 'file',
-                      'id'    => 'input2',
-                      'div'   => false,
-                      'label' => false,
-                      'class' => 'image-upload',
-                      'required' => false
-                    ]);
-                  ?>
-                  <span class="form__error"><?= $this->Form->error('image'); ?></span>
-                </div>
-              </div>
-
-              <div class="form__button">
-                <input type="submit" name="" class="button button--submit">
-              </div>
+                $this->Form->control('eligibility', [
+                  'type'     => 'text',
+                  'class'    => 'form__inputbox',
+                  'label'    => false,
+                  'required' => false
+                ]);
+              ?>
             </div>
           </div>
+
+          <div class="form__list">
+            <div class="form__label-wrapper">
+              <label class="form__label">Job Type:</label>
+            </div>
+            <div class="form__input form__input--fullwidth">
+              <?=
+                $this->Form->control('jobtype', [
+                  'options'  => $jobtype,
+                  'required' => false,
+                  'div'      => false,
+                  'label'    => false,
+                  'class'    => 'form__inputbox'
+                ]);
+              ?>
+              <span class="form__error"><?= $this->Form->error('jobtype'); ?></span>
+            </div>
+          </div>
+
+          <div class="form__list">
+            <div class="form__label-wrapper">
+              <label class="form__label">Designation:</label>
+            </div>
+            <div class="form__input form__input--fullwidth">
+              <?=
+                $this->Form->control('designation', [
+                  'options'  => $designation,
+                  'required' => false,
+                  'div'      => false,
+                  'label'    => false,
+                  'class'    => 'form__inputbox'
+                ]);
+              ?>
+              <span class="form__error"><?= $this->Form->error('designation'); ?></span>
+            </div>
+          </div>
+
+          <div class="form__list">
+            <div class="form__label-wrapper">
+              <label class="form__label">Work Experience:</label>
+            </div>
+            <?=
+                $this->Form->control('work_experience', [
+                  'type'     => 'textarea',
+                  'class'    => 'form__inputbox form__inputbox--textarea',
+                  'label'    => false,
+                  'required' => false
+                ]);
+              ?>
+              <span class="form__error"><?= $this->Form->error('work_experience'); ?></span>
+          </div>
+          <div class="form__title">
+            <h3>Upload Image</h3>
+          </div>
+
+          <div class="form__data">
+            <div class="form__list form__list--uploadimage">
+              <div class="form__upload-image">
+                <?php if($employee['image'] == NULL): ?>
+                  <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
+                <?php else: ?>
+                  <img src="<?= $employee['image']; ?>" alt="form-image" class="form__upload-picture">
+                <?php endif; ?>
+              </div>
+              <div class="form__list-image">
+                <?=
+                  $this->Form->control('image', [
+                    'type'  => 'file',
+                    'id'    => 'input2',
+                    'div'   => false,
+                    'label' => false,
+                    'class' => 'image-upload',
+                    'required' => false
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('image'); ?></span>
+              </div>
+            </div>
+
+            <div class="form__button">
+              <input type="submit" name="" class="button button--submit">
+            </div>
+          </div>
+        </div>
         </div>
       </form>
     </div>
