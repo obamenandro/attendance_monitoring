@@ -1,5 +1,11 @@
 .calendar {
   padding: 5px 100px 100px;
+  height: 690px;
+
+  &__container {
+    position: relative;
+    height: 600px;
+  }
 
   &__list-weeks {
     display: inline-block;
@@ -75,6 +81,14 @@
     cursor: pointer;
     border: 1px solid #EEEEEE;
     border-radius: 3px;
+  }
+
+  &__loading {
+    font-size: 18px;
+    color: #049FDA;
+    position: absolute;
+    top: 40%;
+    left: 50%;
   }
 }
 

@@ -16,10 +16,9 @@ $( document ).ready( function(){
   var tabId = 0;
   showMonth(month, year, tabId)
   // FUNCTION DISPLAYING DATA FROM JSON
-  
+
   function showMonth( month, year, tabId ) {
     // MAKE BUTTONS CLICKABLE
-    $( '.calendar' ).addClass('js-loading-opacity');
     $('.js-loading').show();
 
     $.ajax({
@@ -88,13 +87,12 @@ $( document ).ready( function(){
           }
 
           // AVOID CLICKABLED WHEN LOADING
-          $( '.calendar' ).removeClass('js-loading-opacity');
           $('.js-loading').hide();
 
           if( data.currentMonth == true ) {
             $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ currentDate+'"]').addClass('calendar__days-number--current');
           }
-          
+
           var day =  Object.keys(dates).length;
           // IF EMPLOYEE IS ABSENT
           if ( tabId == 1 ) {
@@ -105,7 +103,7 @@ $( document ).ready( function(){
                 var statusTitle = 'Absent';
                 $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
               }
-            } 
+            }
           }  // IF EMPLOYEE IS ON LEAVE
           else if ( tabId == 2 ) {
             for ( var i = 1; i <= day; i++ ) {
@@ -115,7 +113,7 @@ $( document ).ready( function(){
                 var statusTitle = 'On Leave';
                 $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
               }
-            } 
+            }
           }  // SHOW ALL
           else {
             for ( var i = 1; i <= day; i++ ) {
@@ -134,7 +132,7 @@ $( document ).ready( function(){
                 var statusTitle = 'Present';
                 $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
               }
-            } 
+            }
           }
         }
     });
@@ -154,6 +152,7 @@ $( document ).ready( function(){
     month = month;
     year = year;
     tabId = tabId;
+    $('.js-loading').show();
     if ( $(this).hasClass('js-next') ) {
       month = month + 1;
       if ( month > 12 ) {
@@ -168,10 +167,12 @@ $( document ).ready( function(){
         month = 12
       }
     }
+    $('.js-loading').hide();
     showMonth(month, year, tabId)
   });
 
   $('.calendar__tab-list').on('click', function() {
+      $('.js-loading').show();
       tabId = $(this).data('index');
       showMonth( month, year, tabId )
       $('.calendar__tab-list').removeClass('calendar__tab-list--active');
