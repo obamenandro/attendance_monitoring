@@ -11,6 +11,11 @@ use App\Controller\AppController;
  */
 class UserLeavesController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('User');
+    }
 
     /**
      * Index method
@@ -47,7 +52,6 @@ class UserLeavesController extends AppController
      */
     public function add()
     {
-        $this->layout = 'user';
         $userLeave    = $this->UserLeaves->newEntity();
         if ($this->request->is('post')) {
             $userLeave = $this->UserLeaves->patchEntity($userLeave, $this->request->getData());
@@ -55,7 +59,7 @@ class UserLeavesController extends AppController
             if ($this->UserLeaves->save($userLeave)) {
                 $this->Flash->success(__('The user leave has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect('/users');
             }
             $this->Flash->error(__('The user leave could not be saved. Please, try again.'));
         }

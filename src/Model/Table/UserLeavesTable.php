@@ -75,22 +75,8 @@ class UserLeavesTable extends Table
             ->notEmpty('leave_reason');
 
         $validator
-            ->integer('status')
-            ->requirePresence('status', 'create')
-            ->notEmpty('status');
-
-        $validator
             ->date('cancel_reason')
             ->allowEmpty('cancel_reason');
-
-        $validator
-            ->integer('del_flg')
-            ->requirePresence('del_flg', 'create')
-            ->notEmpty('del_flg');
-
-        $validator
-            ->dateTime('deleted_date')
-            ->allowEmpty('deleted_date');
 
         return $validator;
     }
