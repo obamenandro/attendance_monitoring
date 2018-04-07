@@ -140,4 +140,8 @@ class UsersController extends AppController
     public function editInformation() {
 
     }
+
+    public function seminars() {
+        
+    }
 }

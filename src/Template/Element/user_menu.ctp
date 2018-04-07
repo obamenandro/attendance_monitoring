@@ -23,12 +23,12 @@
       </a>
     </li>
     <li class="user-panel__menu-list">
-      <a href="" class="user-panel__menu-link">
+      <a href="/users/seminars" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
-          <span>Seminars</span>
+          <span>Training/Seminars</span>
           <p class="user-panel__paragraph">
-            you can add your Seminars attended here
+            Add your Training/Seminars attended
           </p>
         </div>
       </a>

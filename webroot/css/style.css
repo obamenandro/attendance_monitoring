@@ -528,6 +528,11 @@ a {
 .form__list.form__list--date {
   display: block; }
 
+.form__list.form__list--seminars {
+  display: block;
+  margin: 0 auto;
+  width: 70%; }
+
 .button {
   padding: 10px;
   font-size: 14px;
@@ -689,7 +694,7 @@ a {
   .user-panel__name {
     padding-top: 20px; }
   .user-panel__paragraph {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5em;
     color: #666666;
     padding: 3px 0; }
