@@ -44,8 +44,8 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/editInformation' ? 'user-panel__menu-list--active' : '' ?>">
-      <a href="/users/editInformation" class="user-panel__menu-link">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/edit_information' ? 'user-panel__menu-list--active' : '' ?>">
+      <a href="/users/edit_information" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>
           <span>Edit Information</span>
