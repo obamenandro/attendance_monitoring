@@ -54,8 +54,12 @@ class UserLeavesController extends AppController
     {
         $userLeave    = $this->UserLeaves->newEntity();
         if ($this->request->is('post')) {
-            $userLeave = $this->UserLeaves->patchEntity($userLeave, $this->request->getData());
+            $data               = $this->request->getData();
+            $userLeave          = $this->UserLeaves->patchEntity($userLeave, $data);
             $userLeave->user_id = $this->Auth->User('id');
+            if ($data['date_start'] > $data['date_end']) {
+                $userLeave->error('date_start', 'Date start should be less than Date end.');
+            }
             if ($this->UserLeaves->save($userLeave)) {
                 $this->Flash->success(__('The user leave has been saved.'));
 

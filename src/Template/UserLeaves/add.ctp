@@ -32,6 +32,7 @@
               'div'      => false
             ]);
           ?>
+          <span class="form__error"><?= $this->Form->error('date_end') ?></span>
         </div>
 
         <div class="form-edit-info__list">
@@ -45,6 +46,7 @@
               'div'      => false
             ]);
           ?>
+          <span class="form__error"><?= $this->Form->error('leave_reason') ?></span>
         </div>
 
         <div class="form-edit-info__button">

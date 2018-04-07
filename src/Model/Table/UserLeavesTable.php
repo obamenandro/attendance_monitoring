@@ -61,23 +61,18 @@ class UserLeavesTable extends Table
         $validator
             ->date('date_start')
             ->requirePresence('date_start', 'create')
-            ->notEmpty('date_start');
+            ->notEmpty('date_start', 'Date start is required.');
 
         $validator
             ->date('date_end')
             ->requirePresence('date_end', 'create')
-            ->notEmpty('date_end');
+            ->notEmpty('date_end', 'Date end is required.');
 
         $validator
             ->scalar('leave_reason')
             ->maxLength('leave_reason', 255)
             ->requirePresence('leave_reason', 'create')
-            ->notEmpty('leave_reason');
-
-        $validator
-            ->date('cancel_reason')
-            ->allowEmpty('cancel_reason');
-
+            ->notEmpty('leave_reason', 'Leave reason is required.');
         return $validator;
     }
 
