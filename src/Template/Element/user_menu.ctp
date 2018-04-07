@@ -6,7 +6,7 @@
           <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
           <span>Attendance Record</span>
           <p class="user-panel__paragraph">
-            you can check your daily time record
+            you can check your daily record
           </p>
         </div>
       </a>

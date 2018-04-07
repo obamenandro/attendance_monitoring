@@ -61,6 +61,7 @@
 
 <script>
   $('.js-datepicker-from, .js-datepicker-to').datepicker({
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    startDate: "today"
   })
 </script>
