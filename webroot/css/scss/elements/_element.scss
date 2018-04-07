@@ -68,9 +68,15 @@ a {
   padding: 5px;
   font-size: 12px;
   border-radius: 5px;
+  box-shadow: 1px 1px 4px #C0BEBE
+}
+.calendar__days-number.calendar__days-number--leave {
+  background: rgba(18, 255, 0, 0.2);
 }
 
 .calendar__days-number.calendar__days-number--absent {
+  background: rgba(255, 139, 0, 0.2);
+
   .js-status {
     background: #FF8B00;
     color: #FFFFFF;
@@ -78,6 +84,8 @@ a {
 }
 
 .calendar__days-number.calendar__days-number--present {
+  background: rgba(191, 242, 255, 0.2);
+
   .js-status {
     background: #BFF2FF;
   }
