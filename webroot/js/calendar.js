@@ -22,120 +22,130 @@ $( document ).ready( function(){
     $('.js-loading').show();
 
     $.ajax({
-        type: 'POST',
-        url:  '/users/attendanceRecord',
-        data:  {
-            'month':month,
-            'year':year,
-            'currentDay': currentDate
-        },
-        success: function( result ) {
-          var data = result;
-          // var data = JSON.parse( result );
-          console.log(data);
-          var startWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).startOf( 'month' ).week();
-          var endWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).endOf( 'month' ).week();
-          var calendar = [];
-          var dates = data.dates
+      type: 'POST',
+      url:  '/users/attendanceRecord',
+      data:  {
+          'month':month,
+          'year':year,
+          'currentDay': currentDate
+      },
+      success: function( result ) {
+        var data = result;
+        var startWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).startOf( 'month' ).week();
+        var endWeek = moment( data.year + '-' + data.month +'-'+ 1, "YYYY-MM-DD" ).endOf( 'month' ).week();
+        var calendar = [];
+        var dates = data.dates
 
-          // GET MONTH AND YEAR
-          monthName.forEach( function ( k,v ) {
-            $( '.js-yearMonths' ).text( data.year + " " + k[data.month] );
-          });
+        // GET MONTH AND YEAR
+        monthName.forEach( function ( k,v ) {
+          $( '.js-yearMonths' ).text( data.year + " " + k[data.month] );
+        });
 
-          // GET 7 DAYS IN 1 MONTH
-          if ( endWeek != 1 ) {
-            for ( var week = startWeek; week < endWeek + 1; week++ ) {
-              getWeek ( week, calendar, data );
+        // GET 7 DAYS IN 1 MONTH
+        if ( endWeek != 1 ) {
+          for ( var week = startWeek; week < endWeek + 1; week++ ) {
+            getWeek ( week, calendar, data );
+          }
+        }
+        else if ( startWeek > 48) {
+          for ( var week = startWeek; week < startWeek + 5 ; week++ ) {
+            getWeek ( week, calendar, data );
+          }
+        }
+        else {
+          for ( var week = startWeek; week < startWeek + 6 ; week++ ) {
+            getWeek ( week, calendar, data );
+          }
+        }
+
+        //POPULATE LIST OF DATES
+        var showDate ="";
+        var countWeek;
+        calendar.forEach( function( key, index, value ){
+          countWeek = Object.keys(value).length;
+          showDate = showDate + '<ul class="js-'+ index +'">'
+          for ( var a = 0; a <= 6; a++ ) {
+            showDate = showDate + '<li class="calendar__days-list date-' + a + '" ><div class="calendar__days-number" data-index="' + data.year + '-' + data.month + '-' + parseInt( moment(value[index].days[a]._d).format('DD') ) +'"><span>'+ parseInt( moment(value[index].days[a]._d).format('DD') ) +'</span></div></li>'
+          }
+          showDate = showDate + '</ul>'
+        });
+
+        $( '.js-populate-date' ).html(showDate);
+
+        // REMOVE DATE FROM PREVIOUS MONTH AND NEXT MONTH
+        var emptyDate = moment(data.year + '-' + data.month +'-'+ '01','YYYY-MM-DD').format('d');
+        var lastEmptyDate = moment(data.year + '-' + data.month +'-'+ '01', 'YYYY-MM-DD').endOf('month').format('d');
+
+        for ( var hide = 0; hide <= emptyDate - 1; hide++ ) {
+          $('.js-populate-date ul:first-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
+        }
+
+        for ( var hide = parseInt( lastEmptyDate ) + 1; hide <= 7 ; hide++ ) {
+          $('.js-populate-date ul:last-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
+        }
+
+        // AVOID CLICKABLED WHEN LOADING
+        $('.js-loading').hide();
+
+        if( data.currentMonth == true ) {
+          $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ currentDate+'"]').addClass('calendar__days-number--current');
+        }
+
+        var day =  Object.keys(dates).length;
+        // IF EMPLOYEE IS ABSENT
+        if ( tabId == 1 ) {
+          for ( var i = 1; i <= day; i++ ) {
+            $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').removeClass('calendar__days-number--leave').html('<span>'+ i +'<span>');
+            if ( data.dates[i].status == 1 ) {
+              var status = 'calendar__days-number--absent';
+              var statusTitle = 'Absent';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
           }
-          else if ( startWeek > 48) {
-            for ( var week = startWeek; week < startWeek + 5 ; week++ ) {
-              getWeek ( week, calendar, data );
+        }  // IF EMPLOYEE IS ON LEAVE
+        else if ( tabId == 2 ) {
+          for ( var i = 1; i <= day; i++ ) {
+            $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').removeClass('calendar__days-number--absent').html('<span>'+ i +'<span>');
+            if ( data.dates[i].status == 2 ) {
+              var status = 'calendar__days-number--leave';
+              var statusTitle = 'On Leave';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
           }
-          else {
-            for ( var week = startWeek; week < startWeek + 6 ; week++ ) {
-              getWeek ( week, calendar, data );
+        }  // SHOW ALL
+        else {
+          for ( var i = 1; i <= day; i++ ) {
+            if ( data.dates[i].status == 1 ) {
+              var status = 'calendar__days-number--absent';
+              var statusTitle = 'Absent';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
-          }
-
-          //POPULATE LIST OF DATES
-          var showDate ="";
-          var countWeek;
-          calendar.forEach( function( key, index, value ){
-            countWeek = Object.keys(value).length;
-            showDate = showDate + '<ul class="js-'+ index +'">'
-            for ( var a = 0; a <= 6; a++ ) {
-              showDate = showDate + '<li class="calendar__days-list date-' + a + '" ><div class="calendar__days-number" data-index="' + data.year + '-' + data.month + '-' + parseInt( moment(value[index].days[a]._d).format('DD') ) +'"><span>'+ parseInt( moment(value[index].days[a]._d).format('DD') ) +'</span></div></li>'
+            else if ( data.dates[i].status == 2 ) {
+              var status = 'calendar__days-number--leave';
+              var statusTitle = 'On Leave';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
-            showDate = showDate + '</ul>'
-          });
-
-          $( '.js-populate-date' ).html(showDate);
-
-          // REMOVE DATE FROM PREVIOUS MONTH AND NEXT MONTH
-          var emptyDate = moment(data.year + '-' + data.month +'-'+ '01','YYYY-MM-DD').format('d');
-          var lastEmptyDate = moment(data.year + '-' + data.month +'-'+ '01', 'YYYY-MM-DD').endOf('month').format('d');
-
-          for ( var hide = 0; hide <= emptyDate - 1; hide++ ) {
-            $('.js-populate-date ul:first-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
-          }
-
-          for ( var hide = parseInt( lastEmptyDate ) + 1; hide <= 7 ; hide++ ) {
-            $('.js-populate-date ul:last-child .date-' + hide ).find('div').addClass('js-no-date').removeAttr('data-index');
-          }
-
-          // AVOID CLICKABLED WHEN LOADING
-          $('.js-loading').hide();
-
-          if( data.currentMonth == true ) {
-            $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ currentDate+'"]').addClass('calendar__days-number--current');
-          }
-
-          var day =  Object.keys(dates).length;
-          // IF EMPLOYEE IS ABSENT
-          if ( tabId == 1 ) {
-            for ( var i = 1; i <= day; i++ ) {
-              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').removeClass('calendar__days-number--leave').html('<span>'+ i +'<span>');
-              if ( data.dates[i].status == 1 ) {
-                var status = 'calendar__days-number--absent';
-                var statusTitle = 'Absent';
-                $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-              }
-            }
-          }  // IF EMPLOYEE IS ON LEAVE
-          else if ( tabId == 2 ) {
-            for ( var i = 1; i <= day; i++ ) {
-              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').removeClass('calendar__days-number--absent').html('<span>'+ i +'<span>');
-              if ( data.dates[i].status == 2 ) {
-                var status = 'calendar__days-number--leave';
-                var statusTitle = 'On Leave';
-                $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-              }
-            }
-          }  // SHOW ALL
-          else {
-            for ( var i = 1; i <= day; i++ ) {
-              if ( data.dates[i].status == 1 ) {
-                var status = 'calendar__days-number--absent';
-                var statusTitle = 'Absent';
-                $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-              }
-              else if ( data.dates[i].status == 2 ) {
-                var status = 'calendar__days-number--leave';
-                var statusTitle = 'On Leave';
-                $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-              }
-              else if ( data.dates[i].status == 0 ) {
-                var status = 'calendar__days-number--present';
-                var statusTitle = 'Present';
-                $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
-              }
+            else if ( data.dates[i].status == 0 ) {
+              var status = 'calendar__days-number--present';
+              var statusTitle = 'Present';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
           }
         }
+      }
     });
+
+    $.ajax({
+      type: 'POST',
+      url:  '/files/holiday.json',
+      success: function( result ) {
+        var data = JSON.parse( result );
+        data.holidays.forEach(function( val, key ) {
+          var statusTitle = data.holidays[key].holidayName;
+          $('.calendar__days-number[data-index="'+ data.holidays[key].date +'"]').addClass('calendar__days-number--holiday').append('<span class="js-status">'+ statusTitle +'<span>').attr('title',statusTitle);
+        })
+      }
+    })
   }
 
   // GET 7 DAYS IN 1 MONTH

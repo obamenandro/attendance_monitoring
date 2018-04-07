@@ -95,11 +95,20 @@ a {
   border-radius: 5px; }
 
 .calendar__days-number.calendar__days-number--absent .js-status {
-  background: #FF0000;
+  background: #FF8B00;
   color: #FFFFFF; }
 
 .calendar__days-number.calendar__days-number--present .js-status {
   background: #12FF00; }
+
+.calendar__days-number.calendar__days-number--holiday {
+  background: rgba(250, 192, 192, 0.4); }
+  .calendar__days-number.calendar__days-number--holiday .js-status {
+    background: #FF0000;
+    color: #FFFFFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
 
 .ui-timepicker-list {
   font-size: 14px; }
