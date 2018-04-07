@@ -88,7 +88,7 @@ a {
   position: absolute;
   bottom: 10px;
   left: 5%;
-  background: #BFF2FF;
+  background: #12FF00;
   text-align: center;
   padding: 5px;
   font-size: 12px;
@@ -99,7 +99,7 @@ a {
   color: #FFFFFF; }
 
 .calendar__days-number.calendar__days-number--present .js-status {
-  background: #12FF00; }
+  background: #BFF2FF; }
 
 .calendar__days-number.calendar__days-number--holiday {
   background: rgba(250, 192, 192, 0.4); }
@@ -308,6 +308,10 @@ a {
   text-align: center; }
   .panel__search.panel__search--list-view .panel__search-box:first-child {
     width: 60%; }
+
+.panel__content.panel__content--users {
+  border: none;
+  box-shadow: 0px 1px 10px #A7B6BC; }
 
 .form__content {
   padding: 15px; }
@@ -528,6 +532,11 @@ a {
 .form__list.form__list--date {
   display: block; }
 
+.form__list.form__list--seminars {
+  display: block;
+  margin: 0 auto;
+  width: 70%; }
+
 .button {
   padding: 10px;
   font-size: 14px;
@@ -689,7 +698,7 @@ a {
   .user-panel__name {
     padding-top: 20px; }
   .user-panel__paragraph {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5em;
     color: #666666;
     padding: 3px 0; }
@@ -704,6 +713,13 @@ a {
 
 .user-panel__menu-link:hover .user-panel__icon {
   color: #049FDA; }
+
+.user-panel__menu-list.user-panel__menu-list--active {
+  cursor: pointer;
+  color: #049FDA;
+  background-color: rgba(4, 159, 218, 0.1); }
+  .user-panel__menu-list.user-panel__menu-list--active .user-panel__icon {
+    color: #049FDA; }
 
 .modal {
   display: none;
@@ -860,7 +876,8 @@ a {
 
 .calendar {
   padding: 5px 100px 100px;
-  height: 690px; }
+  height: 690px;
+  box-shadow: 0px 1px 10px #A7B6BC; }
   .calendar__container {
     position: relative;
     height: 600px; }
@@ -945,7 +962,8 @@ a {
   border-radius: 3px; }
 
 .form-edit-info {
-  padding: 15px 15px 30px; }
+  padding: 15px 15px 30px;
+  box-shadow: 0px 1px 10px #A7B6BC; }
   .form-edit-info__wrapper {
     margin: 0 auto;
     width: 700px;

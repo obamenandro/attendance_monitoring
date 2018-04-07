@@ -56,7 +56,7 @@
   }
 
   &__paragraph {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5em;
     color: #666666;
     padding: 3px 0;
@@ -76,6 +76,16 @@
 }
 
 .user-panel__menu-link:hover {
+  .user-panel__icon {
+    color: $secondary-color;
+  }
+}
+
+.user-panel__menu-list.user-panel__menu-list--active {
+  cursor: pointer;
+  color: #049FDA;
+  background-color: rgba(4, 159, 218, 0.1);
+
   .user-panel__icon {
     color: $secondary-color;
   }
