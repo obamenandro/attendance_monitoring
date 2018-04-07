@@ -14,6 +14,7 @@
           <thead>
             <tr class="table__head">
               <th class="table__head-list">ID</th>
+              <th class="table__head-list">Name</th>
               <th class="table__head-list">Date Filed</th>
               <th class="table__head-list">Leave Start</th>
               <th class="table__head-list">Leave End</th>
@@ -23,6 +24,7 @@
           <tbody>
             <tr class="table__body">
               <td class="table__body-list">1001</td>
+              <td class="table__body-list">Menandro Oba</td>
               <td class="table__body-list">2018-04-03</td>
               <td class="table__body-list">2018-04-20</td>
               <td class="table__body-list">2018-04-20</td>
@@ -33,6 +35,7 @@
             </tr>
             <tr class="table__body">
               <td class="table__body-list">1001</td>
+              <td class="table__body-list">Menandro Oba</td>
               <td class="table__body-list">2018-04-03</td>
               <td class="table__body-list">2018-04-20</td>
               <td class="table__body-list">2018-04-20</td>
@@ -43,6 +46,7 @@
             </tr>
             <tr class="table__body">
               <td class="table__body-list">1001</td>
+              <td class="table__body-list">Menandro Oba</td>
               <td class="table__body-list">2018-04-03</td>
               <td class="table__body-list">2018-04-20</td>
               <td class="table__body-list">2018-04-20</td>
