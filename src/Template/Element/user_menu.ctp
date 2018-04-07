@@ -1,6 +1,6 @@
 <div class="user-panel__menu">
   <ul>
-    <li class="user-panel__menu-list">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/users" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
@@ -11,7 +11,7 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/UserLeaves/add' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/UserLeaves/add" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-bed user-panel__icon" aria-hidden="true"></i>
@@ -22,7 +22,7 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/seminars' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/users/seminars" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
@@ -33,7 +33,7 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/change_password' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/users/change_password" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-cogs user-panel__icon" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/editInformation' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/users/editInformation" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>

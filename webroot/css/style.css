@@ -710,6 +710,13 @@ a {
 .user-panel__menu-link:hover .user-panel__icon {
   color: #049FDA; }
 
+.user-panel__menu-list.user-panel__menu-list--active {
+  cursor: pointer;
+  color: #049FDA;
+  background-color: rgba(4, 159, 218, 0.1); }
+  .user-panel__menu-list.user-panel__menu-list--active .user-panel__icon {
+    color: #049FDA; }
+
 .modal {
   display: none;
   width: 100%;

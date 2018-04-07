@@ -80,3 +80,13 @@
     color: $secondary-color;
   }
 }
+
+.user-panel__menu-list.user-panel__menu-list--active {
+  cursor: pointer;
+  color: #049FDA;
+  background-color: rgba(4, 159, 218, 0.1);
+
+  .user-panel__icon {
+    color: $secondary-color;
+  }
+}
