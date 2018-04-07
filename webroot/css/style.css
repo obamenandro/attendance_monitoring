@@ -309,6 +309,10 @@ a {
   .panel__search.panel__search--list-view .panel__search-box:first-child {
     width: 60%; }
 
+.panel__content.panel__content--users {
+  border: none;
+  box-shadow: 0px 1px 10px #A7B6BC; }
+
 .form__content {
   padding: 15px; }
 
@@ -872,7 +876,8 @@ a {
 
 .calendar {
   padding: 5px 100px 100px;
-  height: 690px; }
+  height: 690px;
+  box-shadow: 0px 1px 10px #A7B6BC; }
   .calendar__container {
     position: relative;
     height: 600px; }
@@ -957,7 +962,8 @@ a {
   border-radius: 3px; }
 
 .form-edit-info {
-  padding: 15px 15px 30px; }
+  padding: 15px 15px 30px;
+  box-shadow: 0px 1px 10px #A7B6BC; }
   .form-edit-info__wrapper {
     margin: 0 auto;
     width: 700px;

@@ -1,5 +1,5 @@
 <div class="user-panel__field">
-  <div class="panel__content">
+  <div class="panel__content panel__content--users">
     <div class="view-info">
       <div class="view-info__content">
         <div class="view-info__title">
