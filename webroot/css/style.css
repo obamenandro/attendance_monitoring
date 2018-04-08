@@ -313,7 +313,11 @@ a {
     z-index: 2; }
 
 .panel__search.panel__search--list-view {
-  text-align: center; }
+  text-align: right;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 85%; }
   .panel__search.panel__search--list-view .panel__search-box:first-child {
     width: 60%; }
 
@@ -436,7 +440,7 @@ a {
 .form__remove {
   font-size: 18px;
   position: absolute;
-  top: 10%;
+  top: 25%;
   right: -30px;
   color: #FF0000;
   cursor: pointer; }
@@ -472,6 +476,19 @@ a {
 .form__leave-submit {
   padding: 30px 0 0;
   text-align: center; }
+
+.form__table-wrapper {
+  position: relative; }
+
+.form__input-wrapper {
+  position: relative; }
+
+.form__icon {
+  font-size: 18px;
+  color: #B5B1B1;
+  position: absolute;
+  top: 7px;
+  right: 10px; }
 
 .form__input.form__input--fullwidth {
   width: 83%; }
@@ -607,6 +624,8 @@ a {
     padding: 5px; }
   .login__label {
     font-size: 14px; }
+  .login__input-wrap {
+    position: relative; }
   .login__input {
     padding: 14px 10px;
     font-size: 14px;
@@ -620,6 +639,12 @@ a {
     padding: 20px 0 50px; }
   .login__flash {
     padding: 0 110px; }
+  .login__icon {
+    font-size: 20px;
+    color: #B1AEAE;
+    position: absolute;
+    top: 30%;
+    right: 10px; }
 
 .table__head {
   background-color: #049FDA;
@@ -1011,6 +1036,14 @@ a {
   .form-edit-info__button {
     margin: 0 14% 0 0;
     text-align: center; }
+  .form-edit-info__input-wrapper {
+    position: relative; }
+  .form-edit-info__icon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    font-size: 18px;
+    color: #B5B1B1; }
 
 .form-edit-info__button .button--submit {
   width: 30%; }

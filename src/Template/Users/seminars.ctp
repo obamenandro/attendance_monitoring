@@ -21,8 +21,11 @@
 
             <div class="form__list form__list--seminars">
                 <label class="form__label">Date</label>
-                <input type="text" class="form__inputbox js-datepicker">
-                <span class="form__error">error</span>
+                <div class="form__input-wrapper">
+                  <input type="text" class="form__inputbox js-datepicker" placeholder="yyyy-mm-dd">
+                  <i class="fa fa-calendar form__icon"></i>
+                  <span class="form__error">error</span>
+                </div>
             </div>
 
           <div class="modal__button">
