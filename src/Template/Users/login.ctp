@@ -43,7 +43,7 @@
                   'label'       => false
                 ]);
               ?>
-              <i class="fa fa-envelope login__icon"></i>
+              <i class="fa fa-envelope-o login__icon"></i>
             </div>
           </li>
 

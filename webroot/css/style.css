@@ -649,7 +649,7 @@ a {
     padding: 0 110px; }
   .login__icon {
     font-size: 20px;
-    color: #B1AEAE;
+    color: #8A8585;
     position: absolute;
     top: 30%;
     right: 10px; }
@@ -1081,10 +1081,12 @@ a {
 .missing-controller__title {
   display: block;
   padding-bottom: 20px;
-  font-size: 40px; }
+  font-size: 40px;
+  color: #737070; }
 
 .missing-controller__paragraph {
-  font-size: 16px; }
+  font-size: 16px;
+  color: #737070; }
 
 .missing-controller__icon {
   display: block;
