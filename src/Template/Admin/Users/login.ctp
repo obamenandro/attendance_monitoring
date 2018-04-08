@@ -23,7 +23,7 @@
       </div>
 
       <div class="login__title">
-        <h2 class="login__title-text">LOGIN</h2>
+        <h2 class="login__title-text">ADMIN LOGIN</h2>
       </div>
       <div class="login__flash">
         <?= $this->Flash->render() ?>
