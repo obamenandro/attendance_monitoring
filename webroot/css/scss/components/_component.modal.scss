@@ -1,12 +1,11 @@
 .modal {
-  display: none;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
   position: fixed;
-  top: 0;
+  top: -100%;
   left: 0;
   z-index: 34;
   height: 100%;
+  transition: 0.5s;
 
   &__container {
     margin: 30px auto 0;

@@ -135,7 +135,7 @@
                   </span>
                 </td>
                 <td class="table__body-list">
-                  <a class="table__view js-table-edit" id="<?= $attendanceList['id']; ?>">Edit</a>
+                  <a class="table__view js-table-edit table__view--edit" id="<?= $attendanceList['id']; ?>">Edit</a>
                 </td>
               </tr>
               <!-- MODAL FOR EDIT -->
@@ -218,6 +218,8 @@
   </div>
 </div>
 
+<div class="backdrop"></div>
+
 <div class="modal" id="js-modal-add">
   <div class="modal__container">
     <div class="modal__header">
@@ -298,20 +300,25 @@
   var id = "";
 
   $('.js-table-edit').on('click', function() {
+    $('.backdrop').show();
     id = $(this).attr('id');
-    $('#js-modal-edit-'+id).show();
-
-    $('body').css('overflow-y', 'hidden');
+    $('#js-modal-edit-'+id).css({
+      top: 0
+    });
   });
 
   $('.modal__exit').on('click', function() {
-    $('#js-modal-edit-'+id+', #js-modal-add ').hide();
-    $('body').css('overflow-y', 'scroll');
+    $('.backdrop').hide();
+    $('#js-modal-edit-'+id+', #js-modal-add ').css({
+      top: '-100%'
+    });
   });
 
   $('.button--add-attendance').on('click', function() {
-    $('#js-modal-add').show();
-    $('body').css('overflow-y', 'hidden');
+    $('.backdrop').show();
+    $('#js-modal-add').css({
+      top: 0
+    });
   });
 
   $('.js-datepicker').datepicker({

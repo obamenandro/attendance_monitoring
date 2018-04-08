@@ -34,6 +34,7 @@
     border-right: 1px solid $light-gray;
     height: 130px;
     background: #FFFFFF;
+    transition: 0.2s;
 
     &:hover {
       cursor: pointer;

@@ -3,7 +3,7 @@
   width: 100%;
   left: 0;
   top: 0;
-  background: $background-color;
+  background: #049FDA;
   z-index: 10;
 
   &__content {
@@ -24,7 +24,7 @@
     width: 50%;
     vertical-align: middle;
     font-size: 20px;
-    color: $primary-color;
+    color: #FFFFFF;
   }
 
   &__control {
@@ -40,14 +40,15 @@
 
   &__control-link {
     margin-right: 20px;
-    color: $primary-color;
+    color: #FFFFFF;
     font-size: $default-fontsize;
     text-decoration: none;
     padding-bottom: 2px;
+    transition: 0.2s;
 
     &:hover {
-      color: $secondary-color;
-      border-bottom: 1px solid $secondary-color;
+      color: #FFFFFF;
+      border-bottom: 1px solid #FFFFFF;
     }
 
     &:last-child {

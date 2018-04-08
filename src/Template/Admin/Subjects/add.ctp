@@ -36,7 +36,7 @@
 </div>
 <script type="text/javascript">
   $('.button--add').on('click', function() {
-    $('.form__info').append('<div class="form__list form__list--center"><div class="form__input"><input type="text" name="data[][name]" class="form__inputbox"><i class="form__remove">x</i></div></div>');
+    $('.form__info').append('<div class="form__list form__list--center"><div class="form__input"><input type="text" name="data[][name]" class="form__inputbox"><i class="fa fa-trash form__remove"></i></div></div>');
   });
 
   $('html').delegate('.form__remove','click', function() {

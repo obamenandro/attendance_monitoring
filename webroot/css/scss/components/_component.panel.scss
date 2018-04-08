@@ -81,7 +81,11 @@
 }
 
 .panel__search.panel__search--list-view {
-  text-align: center;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 85%;
 
   .panel__search-box {
     &:first-child {

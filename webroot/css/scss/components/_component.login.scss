@@ -39,6 +39,10 @@
     font-size: $secondary-fontsize;
   }
 
+  &__input-wrap {
+    position: relative;
+  }
+
   &__input {
     padding: 14px 10px;
     font-size: $secondary-fontsize;
@@ -58,6 +62,14 @@
 
   &__flash {
     padding: 0 110px;
+  }
+
+  &__icon {
+    font-size: 20px;
+    color: #8A8585;
+    position: absolute;
+    top: 30%;
+    right: 10px;
   }
 }
 

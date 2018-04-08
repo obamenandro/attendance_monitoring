@@ -58,7 +58,7 @@
                   <td class="table__body-list"><?= $user['created']->i18nFormat('YYY-MM-dd') ?></td>
                   <td class="table__body-list">
                     <a href="/admin/users/view/<?= $user['id'] ?>" class="table__view">View</a>
-                    <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view">Edit</a>
+                    <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view table__view--edit">Edit</a>
                   </td>
                 </tr>
               <?php endforeach; ?>

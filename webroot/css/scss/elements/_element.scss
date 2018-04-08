@@ -70,6 +70,7 @@ a {
   border-radius: 5px;
   box-shadow: 1px 1px 4px #C0BEBE
 }
+
 .calendar__days-number.calendar__days-number--leave {
   background: rgba(18, 255, 0, 0.2);
 }
@@ -113,4 +114,15 @@ a {
 
 .js-loggedout-error {
   display: none;
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 12;
 }

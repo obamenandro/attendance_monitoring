@@ -43,6 +43,7 @@
                   'label'       => false
                 ]);
               ?>
+              <i class="fa fa-envelope-o login__icon"></i>
             </div>
           </li>
 
@@ -60,6 +61,7 @@
                   'label'       => false
                 ]); 
               ?>
+              <i class="fa fa-lock login__icon"></i>
             </div>
           </li>
 

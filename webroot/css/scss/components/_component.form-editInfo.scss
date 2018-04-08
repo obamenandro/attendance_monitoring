@@ -58,6 +58,18 @@
     margin: 0 14% 0 0;
     text-align: center;
   }
+  
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    font-size: 18px;
+    color: #B5B1B1;
+  }
 }
 
 .form-edit-info__button {
