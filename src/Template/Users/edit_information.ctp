@@ -72,6 +72,7 @@
                 ?>
                 <span class="form__error"><?= $this->Form->error('birthdate');?></span>
               </div>
+            </div>
           </div>
 
           <div class="form__list">
@@ -127,6 +128,7 @@
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('email'); ?></span>
+              </div>
             </div>
           </div>
 
@@ -145,6 +147,7 @@
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('place_of_birth'); ?></span>
+              </div>
             </div>
           </div>>
 
@@ -183,6 +186,7 @@
                   ]);
                 ?>
               </div>
+            </div>
           </div>
 
           <div class="form__title">
