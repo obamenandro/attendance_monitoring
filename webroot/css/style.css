@@ -1068,3 +1068,26 @@ a {
 
 .form-edit-info__button .button--submit {
   width: 30%; }
+
+.missing-controller__wrapper {
+  margin: 10% auto;
+  max-width: 700px;
+  padding: 90px 50px;
+  text-align: center;
+  box-shadow: 0px 1px 10px #CCC3C3;
+  background: #FFFFFF;
+  border-radius: 10px; }
+
+.missing-controller__title {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 40px; }
+
+.missing-controller__paragraph {
+  font-size: 16px; }
+
+.missing-controller__icon {
+  display: block;
+  font-size: 60px;
+  padding-bottom: 20px;
+  color: #CCCCCC; }

@@ -1,0 +1,29 @@
+.missing-controller {
+
+  &__wrapper {
+    margin: 10% auto;
+    max-width: 700px;
+    padding: 90px 50px;
+    text-align: center;
+    box-shadow: 0px 1px 10px #CCC3C3;
+    background: #FFFFFF;
+    border-radius: 10px;
+  }
+
+  &__title {
+    display: block;
+    padding-bottom: 20px;
+    font-size: 40px;
+  }
+
+  &__paragraph {
+    font-size: 16px;
+  }
+  
+  &__icon {
+    display: block;
+    font-size: 60px;
+    padding-bottom: 20px;
+    color: #CCCCCC;
+  }
+}
