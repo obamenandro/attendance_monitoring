@@ -2,7 +2,7 @@
   display: inline-block;
   width: 20%;
   vertical-align: top;
-  background: $secondary-color;
+  background: #4CB1D7;
   position: fixed;
   left: 0;
   top: 60px;
@@ -12,11 +12,12 @@
   &__item {
     display: inline-block;
     width: 100%;
-    background: $secondary-color;
+    background: #4CB1D7;
     font-size: $secondary-fontsize;
     padding: 18px 20px;
     cursor: pointer;
     color: $white-color;
+    transition: 0.4s;
 
     &:hover {
       background: #F0F0F0;
@@ -104,9 +105,4 @@
 .sidebar__icon.sidebar__icon--sub {
   margin: 0;
   font-size: medium;
-}
-
-.sidebar__item.sidebar__item--active {
-  background: #F0F0F0;
-  color: #049FDA;
 }

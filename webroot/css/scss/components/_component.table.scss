@@ -33,16 +33,24 @@
   }
 
   &__view {
+    display: inline-block;
     margin-left: 10px;
-    color: $secondary-color;
+    color: #FFFFFF;
     cursor: pointer;
+    transition: 0.4s;
+    background: #FFA500;
+    padding: 4px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      opacity: 0.3;
+    }
   }
 
   &__note {
     color: #FF0000;
   }
 }
-
 
 .table.table--attendance-view {
   .table__head-list,
@@ -53,13 +61,21 @@
 }
 
 .table__note.table__note--leave {
-  color: #049FDA;
+  color: #12FF00;
 }
 
 .table__note.table__note--present {
-  color: #000000;
+  color: #049FDA;
 }
 
 .table__view.table__view--decline {
-  color: #FF0000;
+  background: #FF0000;
+}
+
+.table__view.table__view--edit {
+  background: #049FDA;
+}
+
+.table__view.table__view--delete {
+  background: #FF0000;
 }

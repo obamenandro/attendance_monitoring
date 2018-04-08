@@ -34,7 +34,7 @@
                 <td class="table__body-list"><?= $value['id'] ?></td>
                 <td class="table__body-list"><?= $value['name'] ?></td>
                 <td class="table__body-list">
-                  <a href="javascript:void(0);" class="table__view" onclick="deleteDepartment(<?= $value['id'] ?>)">Delete</a>
+                  <a href="javascript:void(0);" class="table__view table__view--delete" onclick="deleteDepartment(<?= $value['id'] ?>)">Delete</a>
                 </td>
               </tr>
               <?php endforeach; ?>

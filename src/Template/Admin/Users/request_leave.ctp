@@ -94,12 +94,20 @@
   </div>
 </div>
 
+<div class="backdrop"></div>
+
 <script>
   $('.table__view--decline').click(function() {
-    $('#js-modal-disapproved').show();
-  })
+    $('.backdrop').show();
+    $('#js-modal-disapproved').css({
+        top: 0
+    });
+  });
 
   $('.modal__close').click(function() {
-    $('#js-modal-disapproved').hide();
+    $('.backdrop').hide();
+    $('#js-modal-disapproved').css({
+        top: '-100%'
+    })
   })
 </script>

@@ -31,32 +31,12 @@
             <tr class="table__body">
               <td class="table__body-list"><?= $subject->id ?></td>
               <td class="table__body-list"><?= $subject->name ?></td>
-              <td class="table__body-list"><a href="javascript:void(0);" onclick="deleteSubject(<?= $subject->id ?>)" class="table__view">Delete</a></td>
+              <td class="table__body-list"><a href="javascript:void(0);" onclick="deleteSubject(<?= $subject->id ?>)" class="table__view table__view--delete">Delete</a></td>
             </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
       </div>
-    </div>
-    
-    <div class="pagination">
-      <ul>
-        <li class="pagination__list">
-          <a href="" class="pagination__link"><<</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">1</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">2</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">3</a>
-        </li>
-        <li class="pagination__list">
-          <a href="" class="pagination__link">>></a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
