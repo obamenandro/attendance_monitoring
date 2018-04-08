@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Core\Configure;
 
 /**
  * Users Controller
@@ -138,7 +139,47 @@ class UsersController extends AppController
     }
 
     public function editInformation() {
+        $id          = $this->Auth->User('id');
+        $userEdit    = $this->User->get($id);
+        $civilStatus = Configure::read('civil_status');
 
+        //get all employee
+        $employee = $this->User->find('all')
+                    ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
+                    ->where(['Users.id' => $id, 'Users.role' => 2])
+                    ->first();
+
+        if ($this->request->is('POST')) {
+            $data               = $this->request->data;
+            $userEdit           = $this->User->patchEntity($userEdit, $data);
+            $userEdit->modified = date('Y-m-d H:i:s');
+
+            if ($this->request->data['image']['size'] == 0) {
+                $userEdit->image = $employee['image'];
+            }
+
+            if ($this->User->save($userEdit)) {
+
+                if ($this->request->data['image']['size'] != 0) {
+                    $this->Upload->upload($this->request->data['image']);
+                    if($this->Upload->uploaded) {
+                        $imageName = md5(time());
+                        $this->Upload->file_new_name_body = $imageName;
+                        $this->Upload->process('uploads/employee/'.$id.'/');
+                        $profileImage = $this->Upload->file_dst_name;
+
+                        $addImage = $this->User->get($id);
+                        $addImage->image = '/uploads/employee/'.$id.'/'.$profileImage;
+                        $this->User->save($addImage);
+                    }
+                }
+
+                $this->Flash->success('Your account has been successfully updated.');
+                return $this->redirect('/users/edit_information');
+            }
+        }
+
+        $this->set(compact('userEdit', 'employee', 'civilStatus'));
     }
 
     public function seminars() {
