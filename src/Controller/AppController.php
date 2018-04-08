@@ -84,6 +84,7 @@ class AppController extends Controller
         $this->UserDepartment = TableRegistry::get('UserDepartments');
         $this->Attendance     = TableRegistry::get('Attendances');
         $this->User           = TableRegistry::get('Users');
+        $this->UserLeaves     = TableRegistry::get('UserLeaves');
 
         $session = $this->request->session();
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {

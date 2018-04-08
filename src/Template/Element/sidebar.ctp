@@ -79,7 +79,7 @@
         </a>
         <ul class="sidebar__sub-list">
           <li class="sidebar__item-list">
-            <a href="/admin/users/request_leave" class="sidebar__item">
+            <a href="/admin/user_leaves" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">List Requested</span>
             </a>

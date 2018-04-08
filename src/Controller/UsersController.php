@@ -159,7 +159,6 @@ class UsersController extends AppController
             }
 
             if ($this->User->save($userEdit)) {
-
                 if ($this->request->data['image']['size'] != 0) {
                     $this->Upload->upload($this->request->data['image']);
                     if($this->Upload->uploaded) {
@@ -176,6 +175,8 @@ class UsersController extends AppController
 
                 $this->Flash->success('Your account has been successfully updated.');
                 return $this->redirect('/users/edit_information');
+            } else {
+                $this->Flash->error('Your account has been failed to update');
             }
         }
 

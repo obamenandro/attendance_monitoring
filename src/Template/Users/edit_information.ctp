@@ -5,7 +5,13 @@
         <div class="view-info__title">
           <h3>Employee Information</h3>
         </div>
-          <?= $this->Form->create($userEdit); ?>
+          <?= $this->Flash->render(); ?>
+          <?= 
+            $this->Form->create($userEdit, [
+              'type'    => 'POST',
+              'enctype' => 'multipart/form-data',
+            ]); 
+          ?>
           <div class="form__info">
             <div class="form__list">
               <div class="form__label-wrapper">
@@ -50,7 +56,16 @@
                 <label class="form__label">Middle Name:</label>
               </div>
               <div class="form__input">
-                <div class="input text"><input type="text" name="middlename" class="form__inputbox" maxlength="255" id="middlename" value="calangian"></div>                  <span class="form__error"></span>
+                <div class="input text">
+                  <?=
+                    $this->Form->control('middlename', [
+                      'type'     => 'text',
+                      'class'    => 'form__inputbox',
+                      'label'    => false,
+                      'required' => false
+                    ]);
+                  ?>
+                  <span class="form__error"><?= $this->Form->error('middlename');?></span>
               </div>
             </div>
           </div>
@@ -275,3 +290,23 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $("#form__date").datepicker({
+    format: 'yyyy-mm-dd',
+    endDate: '+0d'
+  });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.form__upload-picture').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(".image-upload").change(function(){
+      readURL(this);
+  });
+</script>

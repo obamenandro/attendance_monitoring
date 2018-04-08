@@ -22,39 +22,19 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($request_leaves as $leave): ?>
             <tr class="table__body">
-              <td class="table__body-list">1001</td>
-              <td class="table__body-list">Menandro Oba</td>
-              <td class="table__body-list">2018-04-03</td>
-              <td class="table__body-list">2018-04-20</td>
-              <td class="table__body-list">2018-04-20</td>
+              <td class="table__body-list"><?= $leave['id'] ?></td>
+              <td class="table__body-list"><?= ucfirst($leave['user']['firstname'])." ".ucfirst($leave['user']['lastname']) ?></td>
+              <td class="table__body-list"><?= $leave['created']->i18nFormat('YYY-MM-dd'); ?></td>
+              <td class="table__body-list"><?= $leave['date_start']->i18nFormat('YYY-MM-dd') ?></td>
+              <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list">
-                <a class="table__view">Approve</a>
+                <a href="/user_leaves/approve/<?= $leave['id'] ?>" class="table__view">Approve</a>
                 <a class="table__view table__view--decline">Decline</a>
               </td>
             </tr>
-            <tr class="table__body">
-              <td class="table__body-list">1001</td>
-              <td class="table__body-list">Menandro Oba</td>
-              <td class="table__body-list">2018-04-03</td>
-              <td class="table__body-list">2018-04-20</td>
-              <td class="table__body-list">2018-04-20</td>
-              <td class="table__body-list">
-                <a class="table__view">Approve</a>
-                <a class="table__view table__view--decline">Decline</a>
-              </td>
-            </tr>
-            <tr class="table__body">
-              <td class="table__body-list">1001</td>
-              <td class="table__body-list">Menandro Oba</td>
-              <td class="table__body-list">2018-04-03</td>
-              <td class="table__body-list">2018-04-20</td>
-              <td class="table__body-list">2018-04-20</td>
-              <td class="table__body-list">
-                <a class="table__view">Approve</a>
-                <a class="table__view table__view--decline">Decline</a>
-              </td>
-            </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
