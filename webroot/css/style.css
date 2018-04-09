@@ -1028,7 +1028,8 @@ a {
     display: inline-block;
     margin-right: 5%;
     width: 45%;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    vertical-align: top; }
     .form-edit-info__list:nth-child(2) {
       margin-right: 0; }
     .form-edit-info__list:nth-child(3) {
