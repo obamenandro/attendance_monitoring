@@ -58,7 +58,7 @@ class UserLeavesController extends AppController
 
     public function leaveDecline() {
         if ($this->request->is('POST')) {
-            
+
         }
     }
 }

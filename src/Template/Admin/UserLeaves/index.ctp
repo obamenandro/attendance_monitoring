@@ -31,9 +31,41 @@
               <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list">
                 <a href="/user_leaves/approve/<?= $leave['id'] ?>" class="table__view">Approve</a>
-                <a class="table__view table__view--decline">Decline</a>
+                <a class="table__view table__view--decline" id="$leave['id']">Decline</a>
               </td>
             </tr>
+            <div class="modal" id="js-modal-disapproved-<?= $leave['id']; ?>">
+              <div class="modal__container">
+                <div class="modal__header">
+                  <div class="modal__close">
+                    <span class="modal__exit">x</span>
+                  </div>
+                  <div class="modal__title">
+                    <h3>Disapproved Leave Request</h3>
+                  </div>
+                </div>
+
+                <div class="modal__content">
+                  <div class="form">
+                    <form>
+                      <div class="form__content">
+                        <div class="form__data form__data--modal">
+                          <div class="form__label-wrapper">
+                            <label class="form__label">Please State the Reason:</label>
+                          </div>
+                          <textarea class="form__input-textarea"></textarea>
+
+                          <div class="form__leave-submit">
+                            <input type="submit" value="submit" class="button button--submit">
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="backdrop" id="backdrop-<?= $leave['id']; ?>"></div>
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -42,44 +74,13 @@
   </div>
 </div>
 
-<div class="modal" id="js-modal-disapproved">
-  <div class="modal__container">
-    <div class="modal__header">
-      <div class="modal__close">
-        <span class="modal__exit">x</span>
-      </div>
-      <div class="modal__title">
-        <h3>Disapproved Leave Request</h3>
-      </div>
-    </div>
-
-    <div class="modal__content">
-      <div class="form">
-        <form>
-          <div class="form__content">
-            <div class="form__data form__data--modal">
-              <div class="form__label-wrapper">
-                <label class="form__label">Please State the Reason:</label>
-              </div>
-              <textarea class="form__input-textarea"></textarea>
-
-              <div class="form__leave-submit">
-                <input type="submit" value="submit" class="button button--submit">
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="backdrop"></div>
-
 <script>
+  var id = "";
   $('.table__view--decline').click(function() {
+    id = $(this).attr('id');
+
     $('.backdrop').show();
-    $('#js-modal-disapproved').css({
+    $('#js-modal-disapproved-'+id).css({
         top: 0
     });
   });
