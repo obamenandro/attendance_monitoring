@@ -31,7 +31,7 @@
               <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list">
                 <a href="/user_leaves/approve/<?= $leave['id'] ?>" class="table__view">Approve</a>
-                <a class="table__view table__view--decline" id="$leave['id']">Decline</a>
+                <a class="table__view table__view--decline" id="<?= $leave['id']; ?>">Decline</a>
               </td>
             </tr>
             <div class="modal" id="js-modal-disapproved-<?= $leave['id']; ?>">
@@ -87,7 +87,7 @@
 
   $('.modal__close').click(function() {
     $('.backdrop').hide();
-    $('#js-modal-disapproved').css({
+    $('#js-modal-disapproved-'+id).css({
         top: '-100%'
     })
   })
