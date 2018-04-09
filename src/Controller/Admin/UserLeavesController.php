@@ -44,7 +44,7 @@ class UserLeavesController extends AppController
                        ->toArray();
         if ($leave_request) {
             $leave_request           = $this->UserLeave->get($leave_id);
-            $leave_request->status   = Configure::read('leave_status.Approve');
+            $leave_request->status   = Configure::read('leave_status.Accept');
             $leave_request->modified = date('Y-m-d H:i:s');
 
             if ($this->UserLeave->save($leave_request)) {
@@ -57,8 +57,19 @@ class UserLeavesController extends AppController
     }
 
     public function leaveDecline() {
+        $this->autoRender = false;
         if ($this->request->is('POST')) {
+            $data = $this->request->data;
 
+            $leave_accept           = $this->UserLeave->get($data['id']);
+            $leave_accept           = $this->UserLeave->patchEntity($leave_accept, $data);
+            $leave_accept->modified = date('Y-m-d H:i:s');
+
+            if ($this->UserLeave->save($leave_accept)) {
+                $this->Flash->success('Leave request has been successfully declined.');
+                return $this->redirect('/admin/user_leaves');
+            }
         }
+        return $this->redirect('/admin/user_leaves');
     }
 }

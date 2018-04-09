@@ -292,7 +292,7 @@ class UsersController extends AppController
                     if($this->Upload->uploaded) {
                         $imageName = md5(time());
                         $this->Upload->file_new_name_body = $imageName;
-                        $this->Upload->process('uploads/employee/'.$id.'/');
+                        $this->Upload->process('webroot/uploads/employee/'.$id.'/');
                         $profileImage = $this->Upload->file_dst_name;
 
                         $addImage = $this->User->get($id);

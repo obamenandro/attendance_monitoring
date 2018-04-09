@@ -33,7 +33,7 @@ class UserLeaves extends AbstractMigration
                 'default' => 0,
                 'null'    => false
             ])
-            ->addColumn('cancel_reason', 'date', [
+            ->addColumn('cancel_reason', 'string', [
                 'length' => 255, 
                 'null'   => true
             ])

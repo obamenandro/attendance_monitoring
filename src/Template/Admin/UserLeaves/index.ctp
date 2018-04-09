@@ -1,7 +1,6 @@
 <div class="panel__title">
   <h3>Leave Requested</h3>
 </div>
-
 <div class="panel__container">
   <div class="panel__content">
     <div class="form">
@@ -10,6 +9,7 @@
             <h3>List Of Leave Requested</h3>
           </div>
 
+          <?= $this->Flash->render(); ?>
           <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
@@ -30,7 +30,7 @@
               <td class="table__body-list"><?= $leave['date_start']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list">
-                <a href="/user_leaves/approve/<?= $leave['id'] ?>" class="table__view">Approve</a>
+                <a href="/admin/UserLeaves/leaveApprove/<?= $leave['id'] ?>" class="table__view">Approve</a>
                 <a class="table__view table__view--decline" id="<?= $leave['id']; ?>">Decline</a>
               </td>
             </tr>
@@ -47,20 +47,45 @@
 
                 <div class="modal__content">
                   <div class="form">
-                    <form>
+                    <?= 
+                      $this->Form->create('', [
+                      'type' => 'POST',
+                      'url'  => '/admin/UserLeaves/leaveDecline'
+                      ]); 
+                    ?>
                       <div class="form__content">
                         <div class="form__data form__data--modal">
                           <div class="form__label-wrapper">
                             <label class="form__label">Please State the Reason:</label>
                           </div>
-                          <textarea class="form__input-textarea"></textarea>
+                          <?= 
+                            $this->Form->input('cancel_reason', [
+                              'type'     => 'textarea',
+                              'class'    => "form__input-textarea",
+                              'div'      => false,
+                              'required' => false
+                            ]);
+                          ?>
+                          <?= 
+                            $this->Form->input('status', [
+                              'type'  => 'hidden',
+                              'value' => 2
+                            ]);
+                          ?>
+                          <?= 
+                            $this->Form->input('id', [
+                              'type'  => 'hidden',
+                              'value' => $leave['id']
+                            ]);
+                          ?>
+                          <!-- <textarea class="form__input-textarea"></textarea> -->
 
                           <div class="form__leave-submit">
                             <input type="submit" value="submit" class="button button--submit">
                           </div>
                         </div>
                       </div>
-                    </form>
+                    <?= $this->Form->end(); ?>
                   </div>
                 </div>
               </div>
