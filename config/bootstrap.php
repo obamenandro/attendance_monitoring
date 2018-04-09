@@ -259,3 +259,9 @@ Configure::write('status', [
     1 => 'Absent',
     2 => 'Leave'
 ]);
+
+Configure::write('leave_status', [
+    'Pending' => 0,
+    'Accept'  => 1,
+    'Decline' => 2
+]);
