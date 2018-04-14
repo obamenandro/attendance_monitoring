@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__content">
     <div class="header__company-name">
-      <h1>NAMEI Polytechnic Institute</h1>
+      <h1>Welcome to NAMEI Polytechnic Institute HRIS!</h1>
     </div>
     <div class="header__control">
       <a href="javascript:void(0);" class="header__control-link">

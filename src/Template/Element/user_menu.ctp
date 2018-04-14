@@ -6,7 +6,7 @@
           <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
           <span>Attendance Record</span>
           <p class="user-panel__paragraph">
-            you can check your daily record
+            (Monitor your attendance record in this section)
           </p>
         </div>
       </a>
@@ -15,9 +15,9 @@
       <a href="/UserLeaves/add" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-bed user-panel__icon" aria-hidden="true"></i>
-          <span>Leave</span>
+          <span>Leave Application</span>
           <p class="user-panel__paragraph">
-            you can check your used and remaining leave
+            (Apply and check your remaining leave)
           </p>
         </div>
       </a>
@@ -26,14 +26,25 @@
       <a href="/users/seminars" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
-          <span>Training/Seminars</span>
+          <span>Trainings and Seminars</span>
           <p class="user-panel__paragraph">
-            Add your Training/Seminars attended
+            (Add your trainings and seminars attended in this section)
           </p>
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/change_password' ? 'user-panel__menu-list--active' : '' ?>">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/checklist' ? 'user-panel__menu-list--active' : '' ?>">
+      <a href="/users/checklist" class="user-panel__menu-link">
+        <div class="user-panel__menu-text">
+          <i class="fa fa-check-square-o user-panel__icon" aria-hidden="true"></i>
+          <span>Requirements Checklist</span>
+          <p class="user-panel__paragraph">
+            (Checklist of requirements to be pass to the HR Department)
+          </p>
+        </div>
+      </a>
+    </li>
+    <!-- <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/change_password' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/users/change_password" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-cogs user-panel__icon" aria-hidden="true"></i>
@@ -43,14 +54,14 @@
           </p>
         </div>
       </a>
-    </li>
+    </li> -->
     <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/edit_information' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/users/edit_information" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-users user-panel__icon" aria-hidden="true"></i>
-          <span>Edit Information</span>
+          <span>Profile</span>
           <p class="user-panel__paragraph">
-            you can check your personal information on this section
+            (Edit your personal profile in this section)
           </p>
         </div>
       </a>
