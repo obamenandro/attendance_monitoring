@@ -18,7 +18,7 @@ class SubjectsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('Admin');
+        $this->viewBuilder()->setLayout('admin');
         $this->Subject = TableRegistry::get('Subjects');
     }
     /**
