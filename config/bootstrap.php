@@ -240,9 +240,10 @@ Configure::write('designation', [
  */
 Email::configTransport('gmail', [
     'className' => 'Smtp',
-    'host'      => 'ssl://smtp.gmail.com',
+    'host'      => 'tls://smtp.gmail.com',
     'port'      => 465,
     'timeout'   => 30,
+    'tls'       => false,
     'username'  => 'nameihris@gmail.com',
     'password'  => 'id0ntknow'
 ]);
