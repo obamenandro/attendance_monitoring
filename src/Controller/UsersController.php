@@ -16,7 +16,7 @@ class UsersController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('User');
+        $this->viewBuilder()->setLayout('user');
         $this->loadComponent('Upload');    ## Load upload component for uploading images
     }
 
@@ -184,6 +184,6 @@ class UsersController extends AppController
     }
 
     public function seminars() {
-        
+
     }
 }
