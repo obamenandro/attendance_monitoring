@@ -521,6 +521,17 @@ class UsersController extends AppController
         }
     }
 
+    public function email_test() {
+        $email = new Email('default');
+        $send_mail = $email->transport('gmail')
+           ->to("obamenandro@gmail.com")
+           ->from('nameihris@gmail.com')
+           ->emailFormat('html')
+           ->subject(__('Namei Polytechnic Institute'))
+           ->send();
+        echo "SUCCESSS!";
+        die();
+    }
 
     public function user_change_password() {
 
