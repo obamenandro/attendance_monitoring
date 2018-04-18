@@ -17,7 +17,7 @@ class DepartmentsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('Admin');
+        $this->viewBuilder()->setLayout('admin');
         $this->Department = TableRegistry::get('Departments');
     }
 

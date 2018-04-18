@@ -20,6 +20,8 @@
     <div class="login__content">
       <div class="login__logo">
         <img src="/img/logo/logo.png" alt="logo" class="login__image">
+        <span class="login__logo-text">NAMEI Polytechnic Institute</span>
+        <span class="login__logo-text">HRIS</span>
       </div>
 
       <div class="login__title">
