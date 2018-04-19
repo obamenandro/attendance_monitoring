@@ -1,4 +1,5 @@
 .form {
+  padding: 15px 55px 45px;
 
   &__content {
     padding: 15px;
@@ -28,7 +29,7 @@
   &__inputbox {
     width: 100%;
     border: 1px solid $light-gray;
-    padding: 8px;
+    padding: 7px;
     border-radius: 5px;
   }
 
@@ -152,7 +153,7 @@
 
   &__upload-image {
     display: inline-block;
-    width: 15%;
+    width: 20%;
     vertical-align: middle;
   }
 
@@ -164,7 +165,7 @@
 
   &__label {
     display: block;
-    font-size: $default-fontsize;
+    font-size: 12px;
     padding-bottom: 5px;
   }
 
@@ -196,6 +197,17 @@
     position: absolute;
     top: 7px;
     right: 10px;
+  }
+
+  &__user-title {
+    font-size: 15px;
+    padding-bottom: 5px;
+    font-weight: 600;
+  }
+
+  &__list-addform { 
+    text-align: center;
+    padding: 20px 20px 0;
   }
 }
 
@@ -294,4 +306,31 @@
   display: block;
   margin: 0 auto;
   width: 70%;
+}
+
+.form__list.form__list--user-title {
+  display: block;
+  width: 96%;
+
+  .form__label-wrapper {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+  }
+  
+  .form__input {
+    width: 80%;
+  }
+}
+
+.form__list.form__list--user-range {
+  .form__label-wrapper {
+    display: inline-block;
+    width: 38%;
+    vertical-align: middle;
+  }
+  
+  .form__input {
+    width: 54%;
+  }
 }

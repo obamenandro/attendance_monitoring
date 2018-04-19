@@ -5,7 +5,7 @@
 <div class="panel__container">
   <?= $this->Flash->render() ?>     
   <div class="panel__content">
-    <div class="form">
+    <div>
       <div class="form__content">
         <div class="form__table-wrapper">
           <div class="panel__search panel__search--list-view">

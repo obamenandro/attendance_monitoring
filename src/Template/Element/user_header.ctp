@@ -4,10 +4,10 @@
       <h1>Welcome to NAMEI Polytechnic Institute HRIS!</h1>
     </div>
     <div class="header__control">
-      <a href="/admin/users/logout" class="header__control-link">
+      <a href="/users/change_password" class="header__control-link">
         <span>Change Password</span>
       </a>
-      <a href="" class="header__control-link">
+      <a href="/admin/users/logout" class="header__control-link">
         <span>Logout</span>
       </a>
     </div>

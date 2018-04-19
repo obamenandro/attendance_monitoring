@@ -5,7 +5,7 @@
 <div class="panel__container">
   <?= $this->Flash->render(); ?>
   <div class="panel__content">
-    <div class="form">
+    <div>
       <form action="upload.php" method="post" enctype="multipart/form-data">
         <div class="form__content">
           <div class="panel__search">

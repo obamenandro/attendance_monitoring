@@ -3,7 +3,7 @@
 </div>
 <div class="panel__container">
   <div class="panel__content">
-    <div class="form">
+    <div>
       <div class="form__content">
           <div class="form__title">
             <h3>List Of Leave Requested</h3>
