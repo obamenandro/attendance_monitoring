@@ -13,7 +13,21 @@
   &__label {
     display: inline-block;
     margin-left: 20px;
-    vertical-align: middle;
+    width: 90%;
+    vertical-align: top;
     font-size: 14px;
+    line-height: 1.5em;
+  }
+
+  &__for-technical {
+    padding: 15px 0 0;
+  }
+
+  &__for-technical-title {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600;
   }
 }

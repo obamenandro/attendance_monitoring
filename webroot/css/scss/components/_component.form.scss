@@ -212,7 +212,7 @@
 }
 
 .form__input.form__input--fullwidth {
-  width: 83%;
+  width: 90%;
 }
 
 .form__list.form__list--enumerate {
@@ -323,6 +323,10 @@
   }
 }
 
+.form__list.form__list--user-title:first-child {
+  padding-top: 15px;
+}
+
 .form__list.form__list--user-range {
   .form__label-wrapper {
     display: inline-block;
@@ -333,4 +337,8 @@
   .form__input {
     width: 54%;
   }
+}
+
+.form__label.form__label--secondcolumn {
+  text-align: center;
 }

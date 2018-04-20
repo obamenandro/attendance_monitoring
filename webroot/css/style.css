@@ -479,7 +479,7 @@ a {
     padding: 20px 20px 0; }
 
 .form__input.form__input--fullwidth {
-  width: 83%; }
+  width: 90%; }
 
 .form__list.form__list--enumerate {
   width: 100%; }
@@ -560,6 +560,9 @@ a {
   .form__list.form__list--user-title .form__input {
     width: 80%; }
 
+.form__list--user-title:first-child {
+  padding-top: 15px; }
+
 .form__list.form__list--user-range .form__label-wrapper {
   display: inline-block;
   width: 38%;
@@ -567,6 +570,9 @@ a {
 
 .form__list.form__list--user-range .form__input {
   width: 54%; }
+
+.form__label.form__label--secondcolumn {
+  text-align: center; }
 
 .button {
   padding: 10px;
@@ -1090,6 +1096,24 @@ a {
     right: 10px;
     font-size: 18px;
     color: #B5B1B1; }
+  .form-edit-info__leave-list {
+    text-align: center; }
+  .form-edit-info__leave-item {
+    display: inline-block;
+    margin-right: 2%;
+    width: 16%;
+    font-size: 14px;
+    border: 1px solid #049FDA;
+    padding: 12px;
+    border-radius: 8px;
+    color: #A2A1A1; }
+    .form-edit-info__leave-item:last-child {
+      margin-right: 0; }
+  .form-edit-info__leave-number {
+    display: block;
+    font-size: 20px;
+    padding-bottom: 10px;
+    color: #818386; }
 
 .form-edit-info__button .button--submit {
   width: 30%; }
@@ -1132,5 +1156,15 @@ a {
   .checklist__label {
     display: inline-block;
     margin-left: 20px;
-    vertical-align: middle;
-    font-size: 14px; }
+    width: 90%;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.5em; }
+  .checklist__for-technical {
+    padding: 15px 0 0; }
+  .checklist__for-technical-title {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600; }

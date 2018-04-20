@@ -71,6 +71,32 @@
     font-size: 18px;
     color: #B5B1B1;
   }
+
+  &__leave-list {
+    text-align: center;
+  }
+
+  &__leave-item {
+    display: inline-block;
+    margin-right: 2%;
+    width: 16%;
+    font-size: 14px;
+    border: 1px solid #049FDA;
+    padding: 12px;
+    border-radius: 8px;
+    color: #A2A1A1;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__leave-number {
+    display: block;
+    font-size: 20px;
+    padding-bottom: 10px;
+    color: #818386;
+  }
 }
 
 .form-edit-info__button {
