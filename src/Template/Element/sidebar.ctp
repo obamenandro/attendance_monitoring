@@ -11,14 +11,14 @@
       <li class="sidebar__list">
         <a class="sidebar__item sidebar__item--js">
           <i class="fa fa-users sidebar__icon" aria-hidden="true"></i>
-          <span class="sidebar__link-text">Employee's</span>
+          <span class="sidebar__link-text">Employee</span>
           <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
         </a>
         <ul class="sidebar__sub-list">
           <li class="sidebar__item-list">
             <a href="/admin/users/add" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
-              <span class="sidebar__text">Employee Registration</span>
+              <span class="sidebar__text">Add Employee</span>
             </a>
           </li>
           <li class="sidebar__item-list">
@@ -27,9 +27,15 @@
               <span class="sidebar__text">Employee List</span>
             </a>
           </li>
+          <li class="sidebar__item-list">
+            <a href="#" class="sidebar__item">
+              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+              <span class="sidebar__text">Generate Reports</span>
+            </a>
+          </li>
         </ul>
       </li>
-      <li class="sidebar__list">
+      <!-- <li class="sidebar__list">
         <a class="sidebar__item sidebar__item--js">
           <i class="fa fa-book sidebar__icon" aria-hidden="true"></i>
           <span>Subjects</span>
@@ -49,28 +55,7 @@
             </a>
           </li>
         </ul>
-      </li>
-      <li class="sidebar__list">
-        <a class="sidebar__item sidebar__item--js">
-          <i class="fa fa-building sidebar__icon" aria-hidden="true"></i>
-          <span>Departments</span>
-          <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
-        </a>
-        <ul class="sidebar__sub-list">
-          <li class="sidebar__item-list">
-            <a href="/admin/departments/add" class="sidebar__item">
-              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
-              <span class="sidebar__text">Department Registration</span>
-            </a>
-          </li>
-          <li class="sidebar__item-list">
-            <a href="/admin/departments" class="sidebar__item">
-              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
-              <span class="sidebar__text">Department List</span>
-            </a>
-          </li>
-        </ul>
-      </li>
+      </li> -->
       <li class="sidebar__list">
         <a class="sidebar__item sidebar__item--js">
           <i class="fa fa-bed sidebar__icon" aria-hidden="true"></i>

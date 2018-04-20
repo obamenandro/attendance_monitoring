@@ -2,13 +2,13 @@
   <div class="panel__content panel__content--users">
     <div class="view-info">
       <div class="view-info__content">
+        <?= $this->Flash->render(); ?>
         <div class="view-info__title">
           <h3>PROFILE</h3>
         </div>
         <div class="user-panel__note-form-wrapper">
           <span class="user-panel__note-form">Personal Data</span>
         </div>
-        <?= $this->Flash->render(); ?>
         <?= 
           $this->Form->create($userEdit, [
             'type'    => 'POST',

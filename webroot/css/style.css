@@ -341,7 +341,7 @@ a {
     padding: 15px 0 10px;
     font-size: 18px;
     color: #2D3134;
-    border-bottom: 1px dotted #666666; }
+    border-bottom: 2px solid #666666; }
   .form__label-wrapper {
     display: inline-block;
     width: 100%;
@@ -358,7 +358,7 @@ a {
     padding: 7px;
     border-radius: 5px; }
   .form__data {
-    padding: 25px 15px; }
+    padding: 25px 30px; }
   .form__info {
     display: inline-block;
     width: 100%;
@@ -530,7 +530,7 @@ a {
     text-align: left; }
 
 .form__inputbox.form__inputbox--textarea {
-  height: 50px;
+  height: 33px;
   resize: none;
   width: 100%; }
 
@@ -560,7 +560,7 @@ a {
   .form__list.form__list--user-title .form__input {
     width: 80%; }
 
-.form__list--user-title:first-child {
+.form__list.form__list--user-title:first-child {
   padding-top: 15px; }
 
 .form__list.form__list--user-range .form__label-wrapper {

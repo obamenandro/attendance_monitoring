@@ -9,7 +9,7 @@
     padding: 15px 0 10px;
     font-size: $form-title;
     color: $primary-color;
-    border-bottom: 1px dotted $tertiary-color;
+    border-bottom: 2px solid $tertiary-color;
   }
 
   &__label-wrapper {
@@ -34,7 +34,7 @@
   }
 
   &__data {
-    padding: 25px 15px;
+    padding: 25px 30px;
   }
 
   &__info {
@@ -283,7 +283,7 @@
 }
 
 .form__inputbox.form__inputbox--textarea {
-  height: 50px;
+  height: 33px;
   resize: none;
   width: 100%;
 }
