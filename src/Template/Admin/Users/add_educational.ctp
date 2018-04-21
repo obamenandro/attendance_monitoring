@@ -360,7 +360,7 @@
         </div>
       </div>
       <div class="form__button">
-        <a href="/admin/users/upload_picture" class="button button--submit">NEXT</a>
+        <a href="/admin/users/add_checklist" class="button button--submit">NEXT</a>
       </div>
     <?= $this->Form->end(); ?>
   </div>

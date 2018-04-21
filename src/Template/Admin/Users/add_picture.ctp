@@ -33,6 +33,12 @@
               </a>
             </li>
             <li class="form__breadcrumb-item">
+              <a href="/admin/users/add_checklist" class="form__breadcrumb-link">
+                <span>Checklist</span>
+                <i class="fa fa-chevron-right form__breadcrumb-icon"></i>
+              </a>
+            </li>
+            <li class="form__breadcrumb-item">
               <a href="/admin/users/upload_picture" class="form__breadcrumb-link">
                 <span>Upload Picture</span>
               </a>

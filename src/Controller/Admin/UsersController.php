@@ -553,7 +553,11 @@ class UsersController extends AppController
         
     }
 
-    public function upload_picture () {
+    public function add_picture () {
+        
+    }
+
+    public function add_checklist() {
         
     }
 }

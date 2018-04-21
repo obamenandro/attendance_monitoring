@@ -186,8 +186,4 @@ class UsersController extends AppController
     public function seminars() {
 
     }
-
-    public function checklist() {
-        
-    }
 }
