@@ -1,5 +1,5 @@
 <div class="panel__title">
-  <h3>EDUCATIONAL ATTAINMENT</h3>
+  <h3>CHECKLIST</h3>
 </div>
 
 <div class="panel__container">
