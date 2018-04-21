@@ -477,6 +477,19 @@ a {
   .form__list-addform {
     text-align: center;
     padding: 20px 20px 0; }
+  .form__breadcrumb {
+    padding: 20px; }
+  .form__breadcrumb-item {
+    display: inline-block; }
+  .form__breadcrumb-icon {
+    font-size: 11px;
+    padding: 7px; }
+  .form__breadcrumb-link {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #808080; }
+    .form__breadcrumb-link:hover {
+      color: #049FDA; }
 
 .form__input.form__input--fullwidth {
   width: 90%; }
@@ -587,6 +600,7 @@ a {
     opacity: 1; }
 
 .button.button--submit {
+  display: inline-block;
   width: 25%;
   background-color: #049FDA;
   color: #FFFFFF; }

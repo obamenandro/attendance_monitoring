@@ -544,4 +544,16 @@ class UsersController extends AppController
     public function request_leave () {
 
     }
+
+    public function add_personal () {
+        
+    }
+
+    public function add_educational () {
+        
+    }
+
+    public function upload_picture () {
+        
+    }
 }

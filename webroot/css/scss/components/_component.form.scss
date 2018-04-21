@@ -209,6 +209,29 @@
     text-align: center;
     padding: 20px 20px 0;
   }
+
+  &__breadcrumb {
+    padding: 20px;
+  }
+
+  &__breadcrumb-item {
+    display: inline-block;
+  }
+
+  &__breadcrumb-icon {
+    font-size: 11px;
+    padding: 7px;
+  }  
+
+  &__breadcrumb-link {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #808080;
+
+    &:hover {
+      color: #049FDA;
+    }
+  }
 }
 
 .form__input.form__input--fullwidth {
