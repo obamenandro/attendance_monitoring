@@ -560,4 +560,20 @@ class UsersController extends AppController
     public function add_checklist() {
         
     }
+
+    public function edit_personal () {
+        
+    }
+
+    public function edit_educational () {
+        
+    }
+
+    public function edit_picture () {
+        
+    }
+
+    public function edit_checklist() {
+        
+    }
 }
