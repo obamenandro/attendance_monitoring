@@ -6,9 +6,14 @@
         <div class="view-info__title">
           <h3>PROFILE</h3>
         </div>
-        <div class="user-panel__note-form-wrapper">
-          <span class="user-panel__note-form">Personal Data</span>
-        </div>
+
+        <ul class="form__breadcrumb">
+          <li class="form__breadcrumb-item">
+            <a class="form__breadcrumb-link">
+              <span>Personal Data</span>
+            </a>
+          </li>
+        </ul>
         <?= 
           $this->Form->create($userEdit, [
             'type'    => 'POST',
@@ -295,7 +300,7 @@
         </div>
 
         <div class="form__button">
-          <a href="/admin/users/edit_educational" class="button button--submit">NEXT</a>
+          <a href="/users/edit_educational" class="button button--submit">NEXT</a>
         </div>
         
         <?= $this->Form->end(); ?>

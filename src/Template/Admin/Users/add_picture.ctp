@@ -65,6 +65,7 @@
             </div>
           </div>
           <div class="form__button">
+            <a href="/admin/users/add_checklist" class="button button--back">Back</a>
             <input type="submit" class="button button--submit">
           </div>
         </div>

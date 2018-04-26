@@ -66,6 +66,9 @@
               <i class="fa fa-lock login__icon"></i>
             </div>
           </li>
+          <li class="login__forgot-password">
+            <a class="login__forgot-text">Forgot Password?</a>
+          </li>
 
           <li class="login__button">
             <div class="login__label-wrap">
@@ -77,9 +80,58 @@
             </div>
           </li>
         </ul>
+
+        <div class="modal" id="js-forgot">
+          <div class="modal__container modal__container--forgot-password">
+            <div class="modal__header">
+              <div class="modal__close">
+                <span class="modal__exit">x</span>
+              </div>
+              <div class="modal__title">
+                <h3>Forgot Password</h3>
+              </div>
+            </div>
+
+            <div class="modal__content">
+              <div class="form">
+               <form>
+                  <div class="form__content">
+                    <div class="form__data form__data--modal">
+                      <div class="form__label-wrapper">
+                        <label class="form__label">Please Type Email Address:</label>
+                      </div>
+                      <input type="email" class="form__inputbox">
+                      
+                      <div class="form__leave-submit">
+                        <input type="submit" value="submit" class="button button--submit">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="backdrop" id="backdrop"></div>
       <?= $this->Form->end(); ?>
     </div>
   </main>
+
+  <script>
+    $('.login__forgot-text').click(function() {
+      $('.backdrop').show();
+      $('#js-forgot').css({
+          top: 0
+      });
+    });
+
+    $('.modal__close').click(function() {
+      $('.backdrop').hide();
+      $('#js-forgot').css({
+          top: '-100%'
+      })
+    })
+  </script>
 
 </body>
 </html>

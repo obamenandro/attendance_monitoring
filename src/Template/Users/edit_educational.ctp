@@ -7,9 +7,19 @@
           <h3>PROFILE</h3>
         </div>
 
-        <div class="user-panel__note-form-wrapper">
-          <span class="user-panel__note-form">Educational Attainment</span>
-        </div>
+        <ul class="form__breadcrumb">
+          <li class="form__breadcrumb-item">
+            <a href="/users/edit_information" class="form__breadcrumb-link">
+              <span>Personal Data</span>
+              <i class="fa fa-chevron-right form__breadcrumb-icon"></i>
+            </a>
+          </li>
+          <li class="form__breadcrumb-item">
+            <a  class="form__breadcrumb-link">
+              <span>Educational Attainment</span>
+            </a>
+          </li>
+        </ul>
 
         <div class="form">
           <div class="form__user-title">
@@ -339,7 +349,8 @@
         </div>
 
         <div class="form__button">
-          <a href="/admin/users/edit_picture" class="button button--submit">NEXT</a>
+          <a href="/users/edit_information" class="button button--back">Back</a>
+          <a href="/users/edit_picture" class="button button--submit">NEXT</a>
         </div>
       </div>
     </div>

@@ -120,9 +120,10 @@
             </div>
           </div>    
         </div>
-      <div class="form__button">
-        <a href="/admin/users/add_picture" class="button button--submit">NEXT</a>
-      </div>
+        <div class="form__button">
+          <a href="/admin/users/add_checklist" class="button button--back">Back</a>
+          <a href="/admin/users/add_picture" class="button button--submit">NEXT</a>
+        </div>
     <?= $this->Form->end(); ?>
   </div>
 </div>

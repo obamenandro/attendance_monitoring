@@ -12,6 +12,26 @@
           <span class="user-panel__note-form">Image Upload</span>
         </div>
 
+        <ul class="form__breadcrumb">
+          <li class="form__breadcrumb-item">
+            <a href="/users/edit_information" class="form__breadcrumb-link">
+              <span>Personal Data</span>
+              <i class="fa fa-chevron-right form__breadcrumb-icon"></i>
+            </a>
+          </li>
+          <li class="form__breadcrumb-item">
+            <a href="/users/edit_educational" class="form__breadcrumb-link">
+              <span>Educational Attainment</span>
+              <i class="fa fa-chevron-right form__breadcrumb-icon"></i>
+            </a>
+          </li>
+          <li class="form__breadcrumb-item">
+            <a class="form__breadcrumb-link">
+              <span>Image Upload</span>
+            </a>
+          </li>
+        </ul>
+
         <div class="form">
           <div class="form__data">
             <div class="form__list form__list--uploadimage">
@@ -36,9 +56,10 @@
                   <span class="form__error"><?= $this->Form->error('image'); ?></span>
                 </div>
               </div>
-            <div class="form__button">
-              <input type="submit" class="button button--submit">
-            </div>
+              <div class="form__button">
+                <a href="/users/edit_educational" class="button button--back">Back</a>
+                <input type="submit" class="button button--submit">
+              </div>
           </div>
         </div>
       </div>
