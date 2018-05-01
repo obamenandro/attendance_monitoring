@@ -183,6 +183,10 @@ class UsersController extends AppController
         $this->set(compact('userEdit', 'employee', 'civilStatus'));
     }
 
+    public function logout() {
+        return $this->redirect($this->Auth->logout());
+    }
+
     public function seminars() {
         
     }
