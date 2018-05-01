@@ -521,6 +521,17 @@ class UsersController extends AppController
         }
     }
 
+    public function email_test() {
+        $email = new Email('default');
+        $send_mail = $email->transport('gmail')
+           ->to("obamenandro@gmail.com")
+           ->from('nameihris@gmail.com')
+           ->emailFormat('html')
+           ->subject(__('Namei Polytechnic Institute'))
+           ->send();
+        echo "SUCCESSS!";
+        die();
+    }
 
     public function user_change_password() {
 
@@ -532,5 +543,37 @@ class UsersController extends AppController
 
     public function request_leave () {
 
+    }
+
+    public function add_personal () {
+        
+    }
+
+    public function add_educational () {
+        
+    }
+
+    public function add_picture () {
+        
+    }
+
+    public function add_checklist() {
+        
+    }
+
+    public function edit_personal () {
+        
+    }
+
+    public function edit_educational () {
+        
+    }
+
+    public function edit_picture () {
+        
+    }
+
+    public function edit_checklist() {
+        
     }
 }

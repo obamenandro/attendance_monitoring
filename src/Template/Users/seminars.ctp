@@ -3,7 +3,7 @@
     <div class="view-info">
       <div class="view-info__content">
         <div class="view-info__title">
-          <h3>Trainings and Seminars</h3>
+          <h3>TRAININGS AND SEMINARS</h3>
         </div>
 
         <div class="form__content">

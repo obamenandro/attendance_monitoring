@@ -1,4 +1,5 @@
 .form {
+  padding: 15px 55px 45px;
 
   &__content {
     padding: 15px;
@@ -8,7 +9,7 @@
     padding: 15px 0 10px;
     font-size: $form-title;
     color: $primary-color;
-    border-bottom: 1px dotted $tertiary-color;
+    border-bottom: 2px solid $tertiary-color;
   }
 
   &__label-wrapper {
@@ -28,12 +29,12 @@
   &__inputbox {
     width: 100%;
     border: 1px solid $light-gray;
-    padding: 8px;
+    padding: 7px;
     border-radius: 5px;
   }
 
   &__data {
-    padding: 25px 15px;
+    padding: 25px 30px;
   }
 
   &__info {
@@ -152,7 +153,7 @@
 
   &__upload-image {
     display: inline-block;
-    width: 15%;
+    width: 20%;
     vertical-align: middle;
   }
 
@@ -164,7 +165,7 @@
 
   &__label {
     display: block;
-    font-size: $default-fontsize;
+    font-size: 12px;
     padding-bottom: 5px;
   }
 
@@ -197,10 +198,44 @@
     top: 7px;
     right: 10px;
   }
+
+  &__user-title {
+    font-size: 15px;
+    padding-bottom: 5px;
+    font-weight: 600;
+  }
+
+  &__list-addform { 
+    text-align: center;
+    padding: 20px 20px 0;
+  }
+
+  &__breadcrumb {
+    padding: 20px;
+  }
+
+  &__breadcrumb-item {
+    display: inline-block;
+  }
+
+  &__breadcrumb-icon {
+    font-size: 11px;
+    padding: 7px;
+  }  
+
+  &__breadcrumb-link {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #808080;
+
+    &:hover {
+      color: #049FDA;
+    }
+  }
 }
 
 .form__input.form__input--fullwidth {
-  width: 83%;
+  width: 90%;
 }
 
 .form__list.form__list--enumerate {
@@ -271,7 +306,7 @@
 }
 
 .form__inputbox.form__inputbox--textarea {
-  height: 50px;
+  height: 33px;
   resize: none;
   width: 100%;
 }
@@ -294,4 +329,39 @@
   display: block;
   margin: 0 auto;
   width: 70%;
+}
+
+.form__list.form__list--user-title {
+  display: block;
+  width: 96%;
+
+  .form__label-wrapper {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+  }
+  
+  .form__input {
+    width: 80%;
+  }
+}
+
+.form__list.form__list--user-title:first-child {
+  padding-top: 15px;
+}
+
+.form__list.form__list--user-range {
+  .form__label-wrapper {
+    display: inline-block;
+    width: 38%;
+    vertical-align: middle;
+  }
+  
+  .form__input {
+    width: 54%;
+  }
+}
+
+.form__label.form__label--secondcolumn {
+  text-align: center;
 }

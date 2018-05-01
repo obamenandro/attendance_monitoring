@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <div class="form">
+    <div>
       <div class="form__content">
         <div class="form__title">
           <h3>Employee Attendance</h3>
@@ -151,7 +151,7 @@
                   </div>
 
                   <div class="modal__content">
-                    <div class="form">
+                    <div>
                       <form action="/admin/users/attendanceEdit/<?= $attendanceList['user_id']; ?>" method="POST">
                         <input type="hidden" name="id" value="<?= $attendanceList['id']; ?>">
                         <div class="form__content">

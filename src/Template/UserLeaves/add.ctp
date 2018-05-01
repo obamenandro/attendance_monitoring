@@ -3,10 +3,36 @@
     <?= $this->Flash->render(); ?>
     <?= $this->Form->create($userLeave, ['type' => 'POST']); ?>
       <div class="form-edit-info__title view-info__title">
-        <h2>REQUEST LEAVE</h2>
+        <h2>LEAVE APPLICATION</h2>
       </div>
 
+      <ul class="form-edit-info__leave-list">
+        <li class="form-edit-info__leave-item">
+          <span class="form-edit-info__leave-number">2</span>
+          <span>Used Leave</span>
+        </li>
+        <li class="form-edit-info__leave-item">
+          <span class="form-edit-info__leave-number">3</span>
+          <span>Remaining Leave</span>
+        </li>
+        <li class="form-edit-info__leave-item">
+         <span class="form-edit-info__leave-number">5</span>
+          <span>Leave Total</span>
+        </li>
+      </ul>
+
       <div class="form-edit-info__wrapper">
+        <div class="form-edit-info__list form-edit-info__list--leavetype">
+          <label class="form-edit-info__label"> Leave Type </label>
+          <div class="form-edit-info__input-wrapper">
+            <select class="form-edit-info__input">
+              <option>--select</option>
+              <option>Incentive Leave</option>
+              <option>Unpaid Leave</option>
+            </select>
+          </div>
+        </div>
+      
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Leave Start </label>
           <div class="form-edit-info__input-wrapper">

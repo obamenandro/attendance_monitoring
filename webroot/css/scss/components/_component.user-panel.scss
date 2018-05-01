@@ -28,11 +28,9 @@
     display: inline-block;
     width: 20%;
     vertical-align: top;
-    padding: 20px 10px;
     text-align: center;
     border-bottom: 1px solid $light-gray;
     border-right: 1px solid $light-gray;
-    height: 130px;
     background: #FFFFFF;
     transition: 0.2s;
 
@@ -46,10 +44,12 @@
   &__menu-link {
     display: block;
     color: $primary-color;
+    padding: 30px 10px;
+    height: 105px;
   }
 
   &__menu-text {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   &__name {
@@ -73,6 +73,29 @@
   &__title {
     font-size: 20px;
     padding: 0 30px 30px;
+  }
+
+  &__form {
+    padding: 0 25px;
+  }
+
+  &__note-content {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: #2D3134;
+    line-height: 1.5em;
+  }
+
+  &__note-form {
+    font-size: 14px;
+    font-style: italic;
+    color: #2D3134;
+    font-weight: 600;
+  }
+
+  &__note-form-wrapper {
+    padding: 0 20px;
   }
 }
 

@@ -1,0 +1,33 @@
+.checklist {
+  padding: 20px 100px 50px;
+
+  &__list {
+    padding: 10px 0;
+  }
+
+  &__input {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-left: 20px;
+    width: 90%;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+
+  &__for-technical {
+    padding: 15px 0 0;
+  }
+
+  &__for-technical-title {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600;
+  }
+}

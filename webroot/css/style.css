@@ -274,7 +274,7 @@ a {
     .panel__search-box:last-child {
       width: 10%; }
   .panel__container {
-    padding: 70px 10px 10px 3%; }
+    padding: 70px 10px 25px 3%; }
   .panel__title {
     font-size: 20px;
     padding: 20px 20px 20px 3%;
@@ -333,174 +333,166 @@ a {
   border: none;
   box-shadow: 0px 1px 10px #A7B6BC; }
 
-.form__content {
-  padding: 15px; }
-
-.form__title {
-  padding: 15px 0 10px;
-  font-size: 18px;
-  color: #2D3134;
-  border-bottom: 1px dotted #666666; }
-
-.form__label-wrapper {
-  display: inline-block;
-  width: 100%;
-  font-size: 14px;
-  padding: 8px 0;
-  vertical-align: top; }
-
-.form__input {
-  display: inline-block;
-  width: 75%;
-  vertical-align: top; }
-
-.form__inputbox {
-  width: 100%;
-  border: 1px solid #C4C5C3;
-  padding: 8px;
-  border-radius: 5px; }
-
-.form__data {
-  padding: 25px 15px; }
-
-.form__info {
-  display: inline-block;
-  width: 100%;
-  vertical-align: top; }
-
-.form__uploadimage {
-  position: relative; }
-
-.form__hidden-upload {
-  visibility: hidden; }
-
-.form__uploadinput {
-  position: absolute;
-  left: 50px;
-  top: 50px;
-  background: #FFFFFF;
-  border: 1px solid #C4C5C3;
-  width: 55%;
-  padding: 5px; }
-
-.form__upload {
-  display: inline-block;
-  width: 30%;
-  vertical-align: top;
-  padding-left: 20px; }
-
-.form__image {
-  width: 100%;
-  object-fit: cover;
-  height: 130px; }
-
-.form__list {
-  display: inline-block;
-  width: 50%;
-  padding-bottom: 5px;
-  vertical-align: top; }
-
-.form__error {
-  display: block;
-  color: #FF0000;
-  font-size: 12px;
-  padding: 5px 0; }
-
-.form__inputdate {
-  border: 1px solid #C4C5C3;
-  padding: 8px;
-  border-radius: 5px;
-  width: 70%; }
-
-.form__button {
-  padding-top: 50px;
-  text-align: center; }
-
-.form__input-label {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 12px; }
-
-.form__input-checkbox {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px; }
-
-.form__checkbox {
-  display: inline-block;
-  width: 33%;
-  padding: 10px 0;
-  vertical-align: middle; }
-
-.form__textarea {
-  width: 100%;
-  border: 1px solid #C4C5C3;
-  padding: 8px;
-  border-radius: 5px;
-  height: 100px;
-  resize: none; }
-
-.form__add-input {
-  display: block;
-  margin: 20px auto 0;
-  width: 52%;
-  text-align: right; }
-
-.form__remove {
-  font-size: 18px;
-  position: absolute;
-  top: 25%;
-  right: -30px;
-  color: #FF0000;
-  cursor: pointer; }
-
-.form__upload-picture {
-  object-fit: cover;
-  width: 150px;
-  height: 150px; }
-
-.form__upload-image {
-  display: inline-block;
-  width: 15%;
-  vertical-align: middle; }
-
-.form__list-image {
-  display: inline-block;
-  width: 35%;
-  vertical-align: middle; }
-
-.form__label {
-  display: block;
-  font-size: 16px;
-  padding-bottom: 5px; }
-
-.form__input-textarea {
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #D3D2D2;
-  resize: none;
-  height: 200px;
-  padding: 5px; }
-
-.form__leave-submit {
-  padding: 30px 0 0;
-  text-align: center; }
-
-.form__table-wrapper {
-  position: relative; }
-
-.form__input-wrapper {
-  position: relative; }
-
-.form__icon {
-  font-size: 18px;
-  color: #B5B1B1;
-  position: absolute;
-  top: 7px;
-  right: 10px; }
+.form {
+  padding: 15px 55px 45px; }
+  .form__content {
+    padding: 15px; }
+  .form__title {
+    padding: 15px 0 10px;
+    font-size: 18px;
+    color: #2D3134;
+    border-bottom: 2px solid #666666; }
+  .form__label-wrapper {
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 0;
+    vertical-align: top; }
+  .form__input {
+    display: inline-block;
+    width: 75%;
+    vertical-align: top; }
+  .form__inputbox {
+    width: 100%;
+    border: 1px solid #C4C5C3;
+    padding: 7px;
+    border-radius: 5px; }
+  .form__data {
+    padding: 25px 30px; }
+  .form__info {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top; }
+  .form__uploadimage {
+    position: relative; }
+  .form__hidden-upload {
+    visibility: hidden; }
+  .form__uploadinput {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    background: #FFFFFF;
+    border: 1px solid #C4C5C3;
+    width: 55%;
+    padding: 5px; }
+  .form__upload {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    padding-left: 20px; }
+  .form__image {
+    width: 100%;
+    object-fit: cover;
+    height: 130px; }
+  .form__list {
+    display: inline-block;
+    width: 50%;
+    padding-bottom: 5px;
+    vertical-align: top; }
+  .form__error {
+    display: block;
+    color: #FF0000;
+    font-size: 12px;
+    padding: 5px 0; }
+  .form__inputdate {
+    border: 1px solid #C4C5C3;
+    padding: 8px;
+    border-radius: 5px;
+    width: 70%; }
+  .form__button {
+    padding-top: 50px;
+    text-align: center; }
+  .form__input-label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px; }
+  .form__input-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; }
+  .form__checkbox {
+    display: inline-block;
+    width: 33%;
+    padding: 10px 0;
+    vertical-align: middle; }
+  .form__textarea {
+    width: 100%;
+    border: 1px solid #C4C5C3;
+    padding: 8px;
+    border-radius: 5px;
+    height: 100px;
+    resize: none; }
+  .form__add-input {
+    display: block;
+    margin: 20px auto 0;
+    width: 52%;
+    text-align: right; }
+  .form__remove {
+    font-size: 18px;
+    position: absolute;
+    top: 25%;
+    right: -30px;
+    color: #FF0000;
+    cursor: pointer; }
+  .form__upload-picture {
+    object-fit: cover;
+    width: 150px;
+    height: 150px; }
+  .form__upload-image {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle; }
+  .form__list-image {
+    display: inline-block;
+    width: 35%;
+    vertical-align: middle; }
+  .form__label {
+    display: block;
+    font-size: 12px;
+    padding-bottom: 5px; }
+  .form__input-textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #D3D2D2;
+    resize: none;
+    height: 200px;
+    padding: 5px; }
+  .form__leave-submit {
+    padding: 30px 0 0;
+    text-align: center; }
+  .form__table-wrapper {
+    position: relative; }
+  .form__input-wrapper {
+    position: relative; }
+  .form__icon {
+    font-size: 18px;
+    color: #B5B1B1;
+    position: absolute;
+    top: 7px;
+    right: 10px; }
+  .form__user-title {
+    font-size: 15px;
+    padding-bottom: 5px;
+    font-weight: 600; }
+  .form__list-addform {
+    text-align: center;
+    padding: 20px 20px 0; }
+  .form__breadcrumb {
+    padding: 20px; }
+  .form__breadcrumb-item {
+    display: inline-block; }
+  .form__breadcrumb-icon {
+    font-size: 11px;
+    padding: 7px; }
+  .form__breadcrumb-link {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #808080; }
+    .form__breadcrumb-link:hover {
+      color: #049FDA; }
 
 .form__input.form__input--fullwidth {
-  width: 83%; }
+  width: 90%; }
 
 .form__list.form__list--enumerate {
   width: 100%; }
@@ -551,7 +543,7 @@ a {
     text-align: left; }
 
 .form__inputbox.form__inputbox--textarea {
-  height: 50px;
+  height: 33px;
   resize: none;
   width: 100%; }
 
@@ -571,6 +563,30 @@ a {
   margin: 0 auto;
   width: 70%; }
 
+.form__list.form__list--user-title {
+  display: block;
+  width: 96%; }
+  .form__list.form__list--user-title .form__label-wrapper {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle; }
+  .form__list.form__list--user-title .form__input {
+    width: 80%; }
+
+.form__list.form__list--user-title:first-child {
+  padding-top: 15px; }
+
+.form__list.form__list--user-range .form__label-wrapper {
+  display: inline-block;
+  width: 38%;
+  vertical-align: middle; }
+
+.form__list.form__list--user-range .form__input {
+  width: 54%; }
+
+.form__label.form__label--secondcolumn {
+  text-align: center; }
+
 .button {
   padding: 10px;
   font-size: 14px;
@@ -584,6 +600,7 @@ a {
     opacity: 1; }
 
 .button.button--submit {
+  display: inline-block;
   width: 25%;
   background-color: #049FDA;
   color: #FFFFFF; }
@@ -607,6 +624,17 @@ a {
 .button.button--disabled {
   opacity: 0.2; }
 
+.button.button--addform {
+  padding: 5px 40px;
+  background: #335CF9;
+  color: #FFFFFF; }
+
+.button.button--back {
+  display: inline-block;
+  margin-right: 30px;
+  width: 25%;
+  background: #F1F1F1; }
+
 .login {
   width: 100%;
   height: 100%;
@@ -623,13 +651,13 @@ a {
     padding: 20px; }
   .login__title {
     font-size: 20px;
-    padding: 0 110px 20px;
+    padding: 0 110px 5px;
     text-align: left; }
   .login__form {
     padding: 0 100px;
     text-align: left; }
   .login__list {
-    padding: 10px; }
+    padding: 10px 10px 0; }
   .login__label-wrap {
     padding: 5px; }
   .login__label {
@@ -659,6 +687,13 @@ a {
     display: block;
     font-size: 14px;
     padding-top: 8px; }
+  .login__forgot-password {
+    text-align: right;
+    padding: 15px 10px 0; }
+  .login__forgot-text {
+    font-size: 14px;
+    cursor: pointer;
+    color: #5A75CC; }
 
 .table__head {
   background-color: #049FDA;
@@ -740,11 +775,9 @@ a {
     display: inline-block;
     width: 20%;
     vertical-align: top;
-    padding: 20px 10px;
     text-align: center;
     border-bottom: 1px solid #C4C5C3;
     border-right: 1px solid #C4C5C3;
-    height: 130px;
     background: #FFFFFF;
     transition: 0.2s; }
     .user-panel__menu-list:hover {
@@ -753,9 +786,11 @@ a {
       background-color: rgba(4, 159, 218, 0.1); }
   .user-panel__menu-link {
     display: block;
-    color: #2D3134; }
+    color: #2D3134;
+    padding: 30px 10px;
+    height: 105px; }
   .user-panel__menu-text {
-    font-size: 16px; }
+    font-size: 14px; }
   .user-panel__name {
     padding-top: 20px; }
   .user-panel__paragraph {
@@ -771,6 +806,21 @@ a {
   .user-panel__title {
     font-size: 20px;
     padding: 0 30px 30px; }
+  .user-panel__form {
+    padding: 0 25px; }
+  .user-panel__note-content {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: #2D3134;
+    line-height: 1.5em; }
+  .user-panel__note-form {
+    font-size: 14px;
+    font-style: italic;
+    color: #2D3134;
+    font-weight: 600; }
+  .user-panel__note-form-wrapper {
+    padding: 0 20px; }
 
 .user-panel__menu-link:hover .user-panel__icon {
   color: #049FDA; }
@@ -813,6 +863,10 @@ a {
     padding-top: 20px;
     text-align: center; }
 
+.modal__container.modal__container--forgot-password {
+  width: 44%;
+  height: 320px; }
+
 .view-info__content {
   padding: 15px;
   position: relative; }
@@ -822,7 +876,8 @@ a {
   padding: 15px 0 10px;
   font-size: 18px;
   color: #2D3134;
-  border-bottom: 1px dotted #666666; }
+  border-bottom: 2px solid #666666;
+  font-weight: 700; }
 
 .view-info__data {
   display: inline-block;
@@ -1036,9 +1091,9 @@ a {
     width: 45%;
     padding-bottom: 20px;
     vertical-align: top; }
-    .form-edit-info__list:nth-child(2) {
-      margin-right: 0; }
     .form-edit-info__list:nth-child(3) {
+      margin-right: 0; }
+    .form-edit-info__list:nth-child(4) {
       margin-right: 0;
       width: 100%; }
   .form-edit-info__label {
@@ -1072,9 +1127,30 @@ a {
     right: 10px;
     font-size: 18px;
     color: #B5B1B1; }
+  .form-edit-info__leave-list {
+    text-align: center; }
+  .form-edit-info__leave-item {
+    display: inline-block;
+    margin-right: 2%;
+    width: 16%;
+    font-size: 14px;
+    border: 1px solid #049FDA;
+    padding: 12px;
+    border-radius: 8px;
+    color: #A2A1A1; }
+    .form-edit-info__leave-item:last-child {
+      margin-right: 0; }
+  .form-edit-info__leave-number {
+    display: block;
+    font-size: 20px;
+    padding-bottom: 10px;
+    color: #818386; }
 
 .form-edit-info__button .button--submit {
   width: 30%; }
+
+.form-edit-info__list.form-edit-info__list--leavetype {
+  display: block; }
 
 .missing-controller__wrapper {
   margin: 10% auto;
@@ -1100,3 +1176,26 @@ a {
   font-size: 60px;
   padding-bottom: 20px;
   color: #CCCCCC; }
+
+.checklist {
+  padding: 20px 100px 50px; }
+  .checklist__list {
+    padding: 10px 0; }
+  .checklist__input {
+    display: inline-block;
+    vertical-align: middle; }
+  .checklist__label {
+    display: inline-block;
+    margin-left: 20px;
+    width: 90%;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.5em; }
+  .checklist__for-technical {
+    padding: 15px 0 0; }
+  .checklist__for-technical-title {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600; }
