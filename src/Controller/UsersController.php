@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Core\Configure;
+use Cake\Mailer\Email;
 
 /**
  * Users Controller
@@ -22,7 +23,7 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        $this->Auth->allow(['login']);
+        $this->Auth->allow(['login','forgotPassword','emailActivation','newPassword']);
     }
 
     public function login() {
@@ -185,6 +186,97 @@ class UsersController extends AppController
 
     public function logout() {
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function emailActivation($activation_key) {
+        $code = $this->EmailActivation->find('all')
+               ->where([
+                    'EmailActivations.activation_key' => $activation_key,
+                    'EmailActivations.status'         => 0,
+                    'EmailActivations.deleted'        => 0
+                ])
+               ->first();
+
+        if ($code) {
+            $update_status               = $this->EmailActivation->get($code->id);
+            $update_status->status       = 1;
+            $update_status->deleted      = 1;
+            $update_status->deleted_date = date('Y-m-d H:i:s');
+            if ($this->EmailActivation->save($update_status)) {
+                return $this->redirect('/users/new_password/'.$activation_key);
+            }
+        } else {
+            $this->Flash->error(__('Invalid activation key.'));
+            return $this->redirect('/users/login');
+        }
+    }
+
+    public function forgotPassword() {
+        $data = $this->request->getData();
+        $user = $this->User->find('all')
+                ->where(['Users.email' => $data['email'], 'Users.del_flg' => 0])
+                ->first();
+
+        if ($user) {
+            $activation_code = sha1(time());
+            $activation_data = [
+                'user_id'        => $user->id,
+                'activation_key' => $activation_code,
+                'status'         => 0
+            ];
+            $email  = new Email('default');
+            $entity = $this->EmailActivation->newEntity();
+            $entity = $this->EmailActivation->patchEntity($entity, $activation_data);
+            if ($this->EmailActivation->save($entity)) {
+                $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].'/users/email_activation/'.$activation_code;
+                $send_mail = $email->transport('gmail')
+                   ->to($data['email'])
+                   ->from('nameihris@gmail.com')
+                   ->emailFormat('html')
+                   ->template('forgot_password_mail')
+                   ->viewVars([
+                        'url'  => $url
+                    ])
+                   ->subject(__('Namei Polytechnic Institute'))
+                   ->send();
+            }
+            $this->Flash->success('Email activation has been send to your email.');
+            return $this->redirect('/users/login');
+        } else {
+            $this->Flash->error(__('Invalid email address.'));
+            return $this->redirect('/users/login');
+        }
+    }
+
+    public function newPassword($key) {
+        $activation = $this->EmailActivation->find('all')
+               ->where([
+                    'EmailActivations.activation_key' => $key,
+                    'EmailActivations.status'         => 1,
+                    'EmailActivations.deleted'        => 1
+                ])
+               ->first();
+        if ($activation) {
+            $user = $this->User->get($activation->user_id);
+            if ($this->request->is('POST')) {
+                $data = $this->request->getData();
+                $user = $this->User->patchEntity($user, [
+                    'password'         => $data['new_password'],
+                    'new_password'     => $data['new_password'],
+                    'confirm_password' => $data['confirm_password']
+                ],
+                ['validate' => 'NewPassword']);
+                if ($this->User->save($user)) {
+                    $this->Flash->success('Your password has been successfully updated.');
+                    return $this->redirect('/users/change_password');
+                } else {
+                    $this->Flash->error('Your password has been failed to update.');
+                }
+                $this->set('userNewPassword', $user);
+            }
+        } else {
+            return $this->redirect('/users/login');
+        }
     }
 
     public function seminars() {

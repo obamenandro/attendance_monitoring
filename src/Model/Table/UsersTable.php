@@ -178,4 +178,26 @@ class UsersTable extends Table
 
         return $validator;
     }
+
+    public function validationNewPassword(Validator $validator) {
+        $validator
+            ->add('new_password', [
+                'match' => [
+                    'rule' => ['compareWith', 'confirm_password'],
+                    'message' => 'The passwords does not match.'
+                ]
+            ])
+            ->notEmpty('new_password', 'New password is required.');
+
+        $validator
+            ->add('confirm_password', [
+                'match' => [
+                    'rule' => ['compareWith', 'new_password'],
+                    'message' => 'The passwords does not match.'
+                ]
+            ])
+            ->notEmpty('confirm_password', 'Confirm password is required.');
+
+        return $validator;
+    }
 }
