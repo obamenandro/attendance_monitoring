@@ -1,7 +1,6 @@
 <div class="user-panel__field">
 
   <div class="form-edit-info">
-    <div class="form">
 
     <div class="user-panel__title view-info__title">
       <h2>NEW PASSWORD</h2>
@@ -47,6 +46,5 @@
         </div>
       <?= $this->Form->end(); ?>
     </div>
-
   </div>
 </div>

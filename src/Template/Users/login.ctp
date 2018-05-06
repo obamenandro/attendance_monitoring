@@ -121,6 +121,7 @@
     </div>
   </div>
 </div>
+<div class="backdrop" id="backdrop"></div>
   <script>
     $('.login__forgot-text').click(function() {
       $('.backdrop').show();
