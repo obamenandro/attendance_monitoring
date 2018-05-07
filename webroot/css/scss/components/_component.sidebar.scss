@@ -9,6 +9,11 @@
   height: 100%;
   z-index: 2;
 
+  &__menu {
+    height: 91vh;
+    overflow-y: auto;
+  }
+
   &__item {
     display: inline-block;
     width: 100%;
@@ -98,11 +103,22 @@
 
 .sidebar__item-list {
   .sidebar__item {
-    padding-left: 56px;
+    padding-left: 40px;
   }
+}
+
+
+.sidebar__item.sidebar__item--generate-reports {
+  padding-left: 56px;
 }
 
 .sidebar__icon.sidebar__icon--sub {
   margin: 0;
   font-size: medium;
+}
+
+.sidebar__text.sidebar__text--reports {
+  display: inline-block;
+  width: 89%;
+  vertical-align: top;
 }

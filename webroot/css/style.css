@@ -196,6 +196,9 @@ a {
   top: 60px;
   height: 100%;
   z-index: 2; }
+  .sidebar__menu {
+    height: 91vh;
+    overflow-y: auto; }
   .sidebar__item {
     display: inline-block;
     width: 100%;
@@ -253,11 +256,19 @@ a {
     vertical-align: middle; }
 
 .sidebar__item-list .sidebar__item {
+  padding-left: 40px; }
+
+.sidebar__item.sidebar__item--generate-reports {
   padding-left: 56px; }
 
 .sidebar__icon.sidebar__icon--sub {
   margin: 0;
   font-size: medium; }
+
+.sidebar__text.sidebar__text--reports {
+  display: inline-block;
+  width: 89%;
+  vertical-align: top; }
 
 .panel {
   display: inline-block;

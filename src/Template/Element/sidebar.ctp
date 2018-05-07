@@ -28,10 +28,60 @@
             </a>
           </li>
           <li class="sidebar__item-list">
-            <a href="#" class="sidebar__item">
+            <a href="#" class="sidebar__item sidebar__item--js">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">Generate Reports</span>
             </a>
+            <ul class="sidebar__sub-list">
+              <li class="sidebar__item-list">
+                <a href="/admin/users/add" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">Master 201 File</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="/admin/users" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">Faculty Profile</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="#" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">Employment Record</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="#" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">Training/Seminar</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="#" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">Faculty Profile on Licenses</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="#" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">Faculty Profile 6.09, 3.12  and 6.10 Trainings (based on the checklist)</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="#" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">List of Employees</span>
+                </a>
+              </li>
+              <li class="sidebar__item-list">
+                <a href="#" class="sidebar__item sidebar__item--generate-reports">
+                  <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+                  <span class="sidebar__text sidebar__text--reports">List of Resigned Employees</span>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </li>
