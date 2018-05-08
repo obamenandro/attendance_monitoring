@@ -78,6 +78,12 @@
     bottom: -50px;
     z-index: 2;
   }
+
+  &__print-button {
+    display: block;
+    text-align: right;
+    padding: 20px 0 10px;
+  }
 }
 
 .panel__search.panel__search--list-view {

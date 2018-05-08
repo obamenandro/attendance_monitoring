@@ -137,6 +137,21 @@ a {
   background: rgba(0, 0, 0, 0.5);
   z-index: 12; }
 
+.dt-buttons {
+  text-align: right;
+  padding: 10px 0 20px; }
+
+.h1-title-report {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 40px 0;
+  line-height: 1.5em; }
+
+@page {
+  margin: 5mm;
+  size: auto; }
+
 /*components*/
 .header {
   position: fixed;
@@ -330,6 +345,10 @@ a {
     right: 0;
     bottom: -50px;
     z-index: 2; }
+  .panel__print-button {
+    display: block;
+    text-align: right;
+    padding: 20px 0 10px; }
 
 .panel__search.panel__search--list-view {
   text-align: right;
@@ -631,6 +650,14 @@ a {
 .button.button--add-attendance {
   background-color: #1F6DA8;
   color: #FFFFFF; }
+
+.button.button--report {
+  margin-right: 15px;
+  background-color: #05B932;
+  color: #FFFFFF; }
+  .button.button--report:last-child {
+    margin-right: 0;
+    background-color: #1F6DA8; }
 
 .button.button--disabled {
   opacity: 0.2; }

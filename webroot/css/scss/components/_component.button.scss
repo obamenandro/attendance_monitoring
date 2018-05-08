@@ -39,6 +39,17 @@
   color: $white-color;
 }
 
+.button.button--report { 
+  margin-right: 15px;
+  background-color: #05B932;
+  color: $white-color;
+
+  &:last-child {
+    margin-right: 0;
+    background-color: #1F6DA8;
+  }
+}
+
 .button.button--disabled {
   opacity: 0.2;
 }

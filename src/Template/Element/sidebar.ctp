@@ -34,7 +34,7 @@
             </a>
             <ul class="sidebar__sub-list">
               <li class="sidebar__item-list">
-                <a href="/admin/users/add" class="sidebar__item sidebar__item--generate-reports">
+                <a href="/admin/users/master_201" class="sidebar__item sidebar__item--generate-reports">
                   <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
                   <span class="sidebar__text sidebar__text--reports">Master 201 File</span>
                 </a>

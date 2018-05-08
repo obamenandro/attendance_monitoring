@@ -580,4 +580,8 @@ class UsersController extends AppController
     public function new_password() {
         
     }
+
+    public function master_201() {
+        
+    }
 }

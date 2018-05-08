@@ -22,6 +22,7 @@ $this->layout = false;
   <?= $this->Html->script('plugins/datatables/datatables.min.js') ?>
   <?= $this->Html->script('plugins/timepicker/jquery.timepicker.min.js') ?>
   <?= $this->Html->script('common.js') ?>
+
 </head>
 <body>
 
