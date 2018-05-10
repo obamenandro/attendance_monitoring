@@ -584,4 +584,8 @@ class UsersController extends AppController
     public function master_201() {
         
     }
+
+    public function faculty_profile() {
+        
+    }
 }

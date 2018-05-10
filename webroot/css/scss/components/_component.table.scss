@@ -79,3 +79,9 @@
 .table__view.table__view--delete {
   background: #FF0000;
 }
+
+.table.table--report {
+  th {
+    border: 1px solid #E8E8E8;
+  }
+}
