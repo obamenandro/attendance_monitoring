@@ -2,9 +2,10 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-
 
 <div class="panel__title">
   <h3>MASTER 201 FILE</h3>
@@ -56,29 +57,6 @@
 </div>
 
 <script>
-  // $('#dataTable').DataTable({
-  //   "paging":   false,
-  //   "ordering": false,
-  //   "info":     false,
-  //   "searching": false,
-  //   "dom": 'Bfrtip',
-  //   "buttons": [
-  //     {
-  //         extend: 'print',
-  //         text: 'ButtonLabelHere',
-  //         title: 'MASTER 201 FILE',
-  //         customize: function ( win ) {
-  //             $(win.document.body)
-  //                 .css( 'font-size', '20px' );
-
-  //             $(win.document.body).find( 'table' )
-  //                 .addClass( 'compact' )
-  //                 .css( 'font-size', 'inherit' );
-  //         }
-  //     }
-  // ]
-  // });
-
   $(document).ready(function() {
     $('#dataTable').DataTable( {
       dom: 'Bfrtip',
@@ -91,8 +69,15 @@
         {
           extend: 'excelHtml5',
           text: 'Save as Excel',
+          messageTop:'College Department',
           className: 'button button--report',
-          title: 'Master 201 File' + '<br style="mso-data-placement:same-cell;" />' + 'College Department',
+          title: 'Master 201 File',
+        },
+        {
+          extend: 'pdf',
+          text: 'Save as PDF',
+          className: 'button button--report',
+          title: 'Master 201 File' + '\n' + 'College Department',
         },
         {
           extend: 'print',

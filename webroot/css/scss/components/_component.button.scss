@@ -39,10 +39,14 @@
   color: $white-color;
 }
 
-.button.button--report { 
+.button.button--report {
   margin-right: 15px;
   background-color: #05B932;
   color: $white-color;
+
+  &:nth-child(2) {
+    background-color: #FF8300;
+  }
 
   &:last-child {
     margin-right: 0;

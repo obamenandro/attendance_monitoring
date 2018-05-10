@@ -655,6 +655,8 @@ a {
   margin-right: 15px;
   background-color: #05B932;
   color: #FFFFFF; }
+  .button.button--report:nth-child(2) {
+    background-color: #FF8300; }
   .button.button--report:last-child {
     margin-right: 0;
     background-color: #1F6DA8; }
