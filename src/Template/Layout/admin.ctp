@@ -31,7 +31,6 @@ $this->layout = false;
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
-
 </head>
 <body>
 
@@ -39,7 +38,7 @@ $this->layout = false;
     <?= $this->element('header') ?>
     <div class="main-content__content">
 
-      <?= $this->element('sidebar') ?>
+      <?= $this->element('sidebar') ?>      
       <div class="panel">
         <?= $this->fetch('content') ?>
       </div>

@@ -588,4 +588,28 @@ class UsersController extends AppController
     public function faculty_profile() {
         
     }
+
+    public function employment_record() {
+        
+    }
+
+    public function training_log() {
+        
+    }
+
+    public function faculty_profile_license() {
+        
+    }
+
+    public function faculty_profile_training() {
+        
+    }
+
+    public function list_employee() {
+        
+    }
+
+    public function resigned_employee() {
+        
+    }
 }

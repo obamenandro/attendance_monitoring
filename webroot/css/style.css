@@ -774,6 +774,9 @@ a {
 .table__note {
   color: #FF0000; }
 
+.table__body-span {
+  display: block; }
+
 .table.table--attendance-view .table__head-list,
 .table.table--attendance-view .table__body-list {
   display: table-cell;
