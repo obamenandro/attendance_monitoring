@@ -98,24 +98,24 @@
 
     <div class="modal__content">
       <div class="form">
-       <?= 
-        $this->Form->create('', [
-          'id' => 'form_forgot_password',
-          'url' => '/users/forgot_password'
-        ]); 
-      ?>
-          <div class="form__content">
-            <div class="form__data form__data--modal">
-              <div class="form__label-wrapper">
-                <label class="form__label">Please Type Email Address:</label>
-              </div>
-              <input type="text" name="email" class="form__inputbox">
-              
-              <div class="form__leave-submit">
-                <input type="submit" value="submit" id="forgot_password" class="button button--submit">
-              </div>
+        <?= 
+          $this->Form->create('', [
+            'id' => 'form_forgot_password',
+            'url' => '/users/forgot_password'
+          ]); 
+        ?>
+        <div class="form__content">
+          <div class="form__data form__data--modal">
+            <div class="form__label-wrapper">
+              <label class="form__label">Please Type Email Address:</label>
+            </div>
+            <input type="text" name="email" class="form__inputbox">
+            
+            <div class="form__leave-submit">
+              <input type="submit" value="submit" id="forgot_password" class="button button--submit">
             </div>
           </div>
+        </div>
         <?= $this->Form->end(); ?>
       </div>
     </div>

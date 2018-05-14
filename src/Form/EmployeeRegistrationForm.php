@@ -25,8 +25,6 @@ class EmployeeRegistrationForm extends Form
             ->addField('civil_status', 'integer')
             ->addField('number_of_children', 'integer')
             ->addField('governme_id', 'integer')
-            ->addField('educational_attainment', 'string')
-            ->addField('eligibility', 'string')
             ->addField('sss_number', 'integer')
             ->addField('gsis_number', 'integer')
             ->addField('tin_number', 'integer')
@@ -48,20 +46,19 @@ class EmployeeRegistrationForm extends Form
                          ->notEmpty('citizenship', __('Citizenship is required.'))
                          ->notEmpty('civil_status', __('Civil status is required.'))
                          ->notEmpty('place_of_birth', __('Place of birth is required.'))
-                         ->notEmpty('position', __('Position is required.'))
-                         ->notEmpty('educational_attainment', __('Educational Attainment     is required.'))
+                         ->notEmpty('gender', __('Gender is required.'))
                          ->allowEmpty('tin_number')
                          ->allowEmpty('philhealth_number')
                          ->allowEmpty('pagibig_number')
                          ->allowEmpty('sss_number')
                          ->allowEmpty('gsis_number')
-                         ->allowEmpty('image')
-                         ->add('image', [
-                            'validExtension' => [
-                                'rule' => ['extension',['jpeg', 'png', 'jpg']],
-                                'message' => __('These files extension are allowed: .png, .jpg, .jpeg')
-                            ]
-                         ])
+                         // ->allowEmpty('image')
+                         // ->add('image', [
+                         //    'validExtension' => [
+                         //        'rule' => ['extension',['jpeg', 'png', 'jpg']],
+                         //        'message' => __('These files extension are allowed: .png, .jpg, .jpeg')
+                         //    ]
+                         // ])
                          ->add('email', [
                             'uniqueEmailRule' => [
                                 'rule'    => [$this, 'isUnique'],

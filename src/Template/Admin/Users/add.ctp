@@ -6,12 +6,7 @@
   <?= $this->Flash->render(); ?>
   <div class="panel__content">
     <div>
-      <?=
-        $this->Form->create($addForm, [
-          'enctype' => 'multipart/form-data',
-          'type'    => 'POST'
-        ]);
-      ?>
+      <?= $this->Form->create($add_form, ['type' => 'POST']); ?>
         <div class="form__content">
           <ul class="form__breadcrumb">
             <li class="form__breadcrumb-item">
@@ -33,6 +28,8 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
+                    'value'    => !empty($session_data['jobtype']) ? $session_data['jobtype'] : '',
+                    'empty'    => 'Select Status',
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
@@ -51,6 +48,8 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
+                    'value'    => !empty($session_data['designation']) ? $session_data['designation'] : '',
+                    'empty'    => 'Select Designation',
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
@@ -63,7 +62,17 @@
                 <label class="form__label">Date Hired</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" class="form__inputbox form--date-js">
+                <?= 
+                  $this->Form->control('date_hired', [
+                    'type'     => 'text',
+                    'class'    => 'form__inputbox form--date-js',
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'value'    => !empty($session_data['date_hired']) ? $session_data['date_hired'] : '',
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('date_hired'); ?></span>
               </div>
             </div>
             
@@ -72,16 +81,18 @@
                 <label class="form__label">Deparment:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <select class="form__inputbox">
-                  <option>--select</option>
-                  <option>GenEd</option>
-                  <option>BSMT</option>
-                  <option>BSMarE</option>
-                  <option>BSNA</option>
-                  <option>Admin</option>
-                  <option>Staff</option>
-                  <option>Maintenance Personnel</option>
-                </select>
+                <?=
+                  $this->Form->control('department', [
+                    'options'  => $departments,
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'value'    => !empty($session_data['department']) ? $session_data['department'] : '',
+                    'empty'    => 'Select Deparment',
+                    'class'    => 'form__inputbox'
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('department'); ?></span>
               </div>
             </div>
 
@@ -95,6 +106,7 @@
                     'type'     => 'textarea',
                     'class'    => 'form__inputbox form__inputbox--textarea',
                     'label'    => false,
+                    'value'    => !empty($session_data['position']) ? $session_data['position'] : '',
                     'required' => false
                   ]);
                 ?>
@@ -107,7 +119,16 @@
                 <label class="form__label">Subject:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <textarea class="form__inputbox form__inputbox--textarea"></textarea>
+                <?=
+                  $this->Form->control('subject', [
+                    'type'     => 'textarea',
+                    'class'    => 'form__inputbox form__inputbox--textarea',
+                    'label'    => false,
+                    'value'    => !empty($session_data['subject']) ? $session_data['subject'] : '',
+                    'required' => false
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('subject'); ?></span>
               </div>
             </div>
 
@@ -116,12 +137,22 @@
                 <label class="form__label">Leave:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="number" class="form__inputbox">
+                <?=
+                  $this->Form->control('leave', [
+                    'type'     => 'number',
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'value'    => !empty($session_data['leave']) ? $session_data['leave'] : '',
+                    'class'    => 'form__inputbox'
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('leave'); ?></span>
               </div>
             </div>
           </div>
           <div class="form__button">
-            <a href="/admin/users/add_personal" class="button button--submit">NEXT</a>
+            <input type="submit" class="button button--submit" value="NEXT">
           </div>
         </div>
       <?= $this->Form->end(); ?>
