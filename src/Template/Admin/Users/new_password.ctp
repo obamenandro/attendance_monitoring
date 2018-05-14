@@ -4,7 +4,7 @@
 
 <div class="panel__container">
   <div class="panel__content">
-    <form>
+    <?= $this->Form->create($userNewPassword, ['type' => 'POST']); ?>
       <div class="form__content">
         <div class="form__data">
           <div class="form__info">
@@ -13,7 +13,15 @@
                 <label class="form__label">New Password:</label>
               </div>
               <div class="form__input">
-                <input type="password" class="form__inputbox">
+                <?=
+                  $this->Form->input('new_password', [
+                    'type'     => 'password',
+                    'class'    => 'form__inputbox',
+                    'required' => false,
+                    'label'    => false
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('new_password');?></span>
               </div>
             </div>
             <div class="form__list form__list--center">
@@ -21,7 +29,15 @@
                 <label class="form__label">Confirm New Password:</label>
               </div>
               <div class="form__input">
-                <input type="password" class="form__inputbox">
+                <?=
+                  $this->Form->input('confirm_password', [
+                    'type'     => 'password',
+                    'class'    => 'form__inputbox',
+                    'required' => false,
+                    'label'    => false
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('confirm_password');?></span>
               </div>
             </div>
           </div>
@@ -30,7 +46,7 @@
           </div>
         </div>
       </div>
-    </form>
+    <?= $this->Form->end(); ?>
   </div>
 </div>
 

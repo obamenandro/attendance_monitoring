@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class Subjects extends AbstractMigration
+class UserAttainments extends AbstractMigration
 {
     /**
      * Change Method.
@@ -10,16 +10,32 @@ class Subjects extends AbstractMigration
      * http://docs.phinx.org/en/latest/migrations.html#the-change-method
      * @return void
      */
-    public function up()
+    public function change()
     {
-        $subjectsTable = $this->table('subjects');
-        $subjectsTable
-            ->addColumn('name', 'string', ['length' => 255])
-            ->addColumn('del_flg', 'integer', [
+        $table = $this->table('user_attainments');
+        $table
+            ->addColumn('user_id', 'integer', [
+                'null'   => false,
+                'length' => 11
+            ])
+            ->addColumn('degree', 'integer', [
                 'length'  => 11,
                 'default' => 0
             ])
-            ->addColumn('deleted_date', 'string', [
+            ->addColumn('school_name', 'string', [
+                'length' => 255,
+                'null'   => true
+            ])
+            ->addColumn('units', 'integer', [
+                'default' => 0,
+                'length'  => 11,
+                'null'    => true
+            ])
+            ->addColumn('course', 'string', [
+                'length' => 255,
+                'null'   => true
+            ])
+            ->addColumn('year_graduated', 'string', [
                 'length' => 255,
                 'null'   => true
             ])
@@ -35,9 +51,5 @@ class Subjects extends AbstractMigration
             ])
 
             ->create();
-    }
-    public function down()
-    {
-        $this->dropTable('subjects');
     }
 }

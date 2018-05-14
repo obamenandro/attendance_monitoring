@@ -214,7 +214,11 @@ class UsersController extends AppController
     public function forgotPassword() {
         $data = $this->request->getData();
         $user = $this->User->find('all')
-                ->where(['Users.email' => $data['email'], 'Users.del_flg' => 0])
+                ->where([
+                    'Users.email'   => $data['email'], 
+                    'Users.del_flg' => 0,
+                    'role'          => 1
+                ])
                 ->first();
 
         if ($user) {

@@ -265,3 +265,18 @@ Configure::write('leave_status', [
     'Accept'  => 1,
     'Decline' => 2
 ]);
+
+Configure::write('departments', [
+    1 => 'GenEd',
+    2 => 'BSMT',
+    3 => 'BSMarE',
+    4 => 'BSNA',
+    5 => 'Admin',
+    6 => 'Staff',
+    7 => 'Maintenance Personnel'
+]);
+
+Configure::write('gender', [
+    1 => 'Male',
+    2 => 'Female'
+]);
