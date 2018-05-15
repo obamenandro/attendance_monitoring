@@ -41,6 +41,7 @@
 
   &__search {
     position: relative;
+    padding: 20px 0 40px;
   }
 
   &__search-label {
@@ -75,7 +76,7 @@
   &__add-attendance {
     position: absolute;
     right: 0;
-    bottom: -50px;
+    bottom: 17px;
     z-index: 2;
   }
 

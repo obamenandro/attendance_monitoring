@@ -316,7 +316,8 @@ a {
     background: #FFFFFF;
     border: solid 1px #C2C2C2; }
   .panel__search {
-    position: relative; }
+    position: relative;
+    padding: 20px 0 40px; }
   .panel__search-label {
     display: inline-block;
     margin-right: 5%;
@@ -343,7 +344,7 @@ a {
   .panel__add-attendance {
     position: absolute;
     right: 0;
-    bottom: -50px;
+    bottom: 17px;
     z-index: 2; }
   .panel__print-button {
     display: block;
