@@ -2,12 +2,50 @@
   <h3>Employee Detail</h3>
 </div>
 
-
 <div class="panel__container">
   <?= $this->Flash->render(); ?>
   <div class="panel__content">
     <div class="view-info">
       <div class="view-info__content">
+        <div class="view-info__title">
+          <h3>Employee Status</h3>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Employee Status: </label>
+          <span class="view-info__info"> • Full Time</span>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Designation: </label>
+          <span class="view-info__info"> • Teaching</span>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Date Hired: </label>
+          <span class="view-info__info"> • 2018-02-02</span>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Department: </label>
+          <span class="view-info__info"> • GenEd</span>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Position: </label>
+          <span class="view-info__info"> • Teacher</span>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Subject: </label>
+          <span class="view-info__info"> • Math</span>
+        </div>
+
+        <div class="view-info__data">
+          <label class="view-info__label"> Leave: </label>
+          <span class="view-info__info"> • 5</span>
+        </div>
+      
         <div class="view-info__title">
           <h3>Employee Information</h3>
         </div>
@@ -22,42 +60,42 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Full Name: </label>
-          <span class="view-info__info"> - <?= h(ucfirst($employee['firstname']))." ".h(ucfirst($employee['middlename']))." ".h(ucfirst($employee['lastname'])); ?></span>
+          <span class="view-info__info"> • <?= h(ucfirst($employee['firstname']))." ".h(ucfirst($employee['middlename']))." ".h(ucfirst($employee['lastname'])); ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Birthday: </label>
-          <span class="view-info__info"> - <?= $employee['birthdate']; ?></span>
+          <span class="view-info__info"> • <?= $employee['birthdate']; ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Address: </label>
-          <span class="view-info__info"> - <?= h($employee['address']); ?></span>
+          <span class="view-info__info"> • <?= h($employee['address']); ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Contact Number: </label>
-          <span class="view-info__info"> - <?= h($employee['contact']); ?></span>
+          <span class="view-info__info"> • <?= h($employee['contact']); ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Email Address: </label>
-          <span class="view-info__info"> - <?= h($employee['email']); ?></span>
+          <span class="view-info__info"> • <?= h($employee['email']); ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Place of Birth: </label>
-          <span class="view-info__info"> - <?= h($employee['place_of_birth']); ?></span>
+          <span class="view-info__info"> • <?= h($employee['place_of_birth']); ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Citizenship: </label>
-          <span class="view-info__info"> - <?= h($employee['place_of_birth']); ?></span>
+          <span class="view-info__info"> • <?= h($employee['place_of_birth']); ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Civil Status: </label>
-          <span class="view-info__info"> - <?= $civilStatus[$employee['civil_status']]; ?></span>
+          <span class="view-info__info"> • <?= $civilStatus[$employee['civil_status']]; ?></span>
         </div>
 
         <div class="view-info__title">
@@ -66,27 +104,27 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> SSS Number: </label>
-          <span class="view-info__info"> - <?= $employee['governments'][0]['sss_number'] ?></span>
+          <span class="view-info__info"> • <?= $employee['governments'][0]['sss_number'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> GSIS Number: </label>
-          <span class="view-info__info"> - <?= $employee['governments'][0]['gsis_number'] ?></span>
+          <span class="view-info__info"> • <?= $employee['governments'][0]['gsis_number'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> TIN Number: </label>
-          <span class="view-info__info"> - <?= $employee['governments'][0]['tin_number'] ?></span>
+          <span class="view-info__info"> • <?= $employee['governments'][0]['tin_number'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Philhealth Number: </label>
-          <span class="view-info__info"> - <?= $employee['governments'][0]['philhealth_number'] ?></span>
+          <span class="view-info__info"> • <?= $employee['governments'][0]['philhealth_number'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Pagibig Number: </label>
-          <span class="view-info__info"> - <?= $employee['governments'][0]['pagibig_number'] ?></span>
+          <span class="view-info__info"> • <?= $employee['governments'][0]['pagibig_number'] ?></span>
         </div>
       </div>
     </div>

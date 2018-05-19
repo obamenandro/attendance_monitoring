@@ -8,10 +8,11 @@
   &__title {
     margin-bottom: 20px;
     padding: 15px 0 10px;
-    font-size: 18px;
+    font-size: 14px;
     color: #2D3134;
-    border-bottom: 2px solid #666666;
+    border-bottom: 2px solid #CAC9C9;
     font-weight: 700;
+    font-style: italic;
   }
 
   &__data {
@@ -23,7 +24,7 @@
   &__label {
     display: inline-block;
     width: 100%;
-    font-size: 14px;
+    font-size: 12px;
     vertical-align: middle;
     padding-bottom: 10px;
     font-weight: 600;

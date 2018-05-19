@@ -54,6 +54,14 @@
   &__body-span {
     display: block;
   }
+
+  &__body-approved {
+    color: #049FDA;
+  }
+
+  &__body-disapproved {
+    color: #FF0000
+  }
 }
 
 .table.table--attendance-view {
