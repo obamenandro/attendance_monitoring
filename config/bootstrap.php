@@ -280,3 +280,17 @@ Configure::write('gender', [
     1 => 'Male',
     2 => 'Female'
 ]);
+
+Configure::write('checklists', [
+    1 => 'Recent ID Pictures',
+    2 => 'TOR',
+    3 => 'Diploma',
+    4 => 'Certificate form Past Employers',
+    5 => 'Result of Government Exam Passed',
+    6 => 'License',
+    7 => 'Seminars, Trainings, and Attended Certificates',
+    8 => 'Government Issued IDs',
+    9 => '6.09 (Training Course for Instructors)',
+    10 => '3.12 (Assessment, Examination and Certification for Seafarers)',
+    11 => '6.10 (Training Program for Instructor and Assessor Conducting Simulator-Based Training and Assessment)'
+]);

@@ -101,26 +101,26 @@ class UsersController extends AppController
     }
 
     public function index() {
-        $users = $this->User->find('all')
-                ->contain([
-                    'UserDepartments' => [
-                        'Departments' => [
-                            'fields' => ['name'],
-                            'conditions' => [
-                                'Departments.del_flg' => 0
-                            ]
-                        ]
-                    ]
-                ])
-                ->where([
-                    'Users.del_flg' => 0,
-                    'Users.role'    => Configure::read('role.employee')
-                ])
-                ->toArray()
-                ;
-        $this->set('civil_status',Configure::read('civil_status'));
-        $this->set('designation', Configure::read('designation'));
-        $this->set(compact('users'));
+        // $users = $this->User->find('all')
+        //         ->contain([
+        //             'UserDepartments' => [
+        //                 'Departments' => [
+        //                     'fields' => ['name'],
+        //                     'conditions' => [
+        //                         'Departments.del_flg' => 0
+        //                     ]
+        //                 ]
+        //             ]
+        //         ])
+        //         ->where([
+        //             'Users.del_flg' => 0,
+        //             'Users.role'    => Configure::read('role.employee')
+        //         ])
+        //         ->toArray()
+        //         ;
+        // $this->set('civil_status',Configure::read('civil_status'));
+        // $this->set('designation', Configure::read('designation'));
+        // $this->set(compact('users'));
     }
 
     // public function add() {
@@ -255,15 +255,15 @@ class UsersController extends AppController
         $add_form = new AdminAddEmployeeForm();
         $session  = $this->request->session();
 
-        if ($session->check('User')) {
-            $session_data = $session->read('User');
+        if ($session->check('Data.User')) {
+            $session_data = $session->read('Data.User');
             $this->set(compact('session_data'));
         }
 
         if ($this->request->is('POST')) {
             $data = $this->request->getData();
             if ($add_form->execute($data)) {
-                $this->request->session()->write('User', $data);
+                $this->request->session()->write('Data.User', $data);
                 return $this->redirect('/admin/users/add_personal');
             }
 
@@ -289,8 +289,8 @@ class UsersController extends AppController
         $add_personal = new EmployeeRegistrationForm;
         $session      = $this->request->session();
 
-        if ($session->check('User')) {
-            $session_data = $session->read('User');
+        if ($session->check('Data.User')) {
+            $session_data = $session->read('Data.User');
             $this->set(compact('session_data'));
         }
 
@@ -300,7 +300,7 @@ class UsersController extends AppController
                 if (isset($session_data)) {
                     $data = array_merge($data, $session_data);
                 }
-                $session->write('User', $data);
+                $session->write('Data.User', $data);
                 return $this->redirect('/admin/users/add_educational');
             }
         }
@@ -313,6 +313,53 @@ class UsersController extends AppController
             'gender', 
             'add_personal'
         ));
+    }
+    /**
+     * add educational third part
+     */
+    public function add_educational () {
+        $session = $this->request->session();
+        if ($session->check('Data')) {
+            $session_data = $session->read('Data');
+            $session->delete('Data.Doctorate');
+            $session->delete('Data.Master');
+            $session->delete('Data.Secondary');
+            $session->delete('Data.Elementary');
+            $session->delete('Data.Elegibility');
+            $session->delete('Data.Work_experience');
+            $session->delete('Data.College');
+        }
+
+        if ($this->request->is('POST')) {
+            $data = $this->request->getData();
+            if (isset($session_data)) {
+                $data = array_merge($data, $session_data);
+            }
+            $session->write('Data', $data);
+            return $this->redirect('/admin/users/add_checklist');
+        }
+    }
+    /**
+     * add checklist fourth part
+     */
+    public function add_checklist() {
+        $session = $this->request->session();
+        if ($session->check('Data')) {
+            $session_data = $session->read('Data');
+        }
+        if ($this->request->is('POST')) {
+            $data = $this->request->getData();
+            if (isset($session_data)) {
+                $data = array_merge($data, $session_data);
+            }
+            pr($data);
+            die();
+            $session->write('Data', $data);
+            return $this->redirect('/admin/users/add_picture');
+        }
+
+        $checklists = Configure::read('checklists');
+        $this->set(compact('checklists'));
     }
 
     public function edit($id = NULL) {
@@ -722,15 +769,7 @@ class UsersController extends AppController
 
     }
 
-    public function add_educational () {
-        
-    }
-
     public function add_picture () {
-        
-    }
-
-    public function add_checklist() {
         
     }
 

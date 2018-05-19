@@ -28,7 +28,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['jobtype']) ? $session_data['jobtype'] : '',
+                    'value'    => !empty($session_data['jobtype']) ? $session_data['jobtype'] : !empty($this->request->data['jobtype']) ? $this->request->data['jobtype'] : '',
                     'empty'    => 'Select Status',
                     'class'    => 'form__inputbox'
                   ]);
@@ -48,7 +48,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['designation']) ? $session_data['designation'] : '',
+                    'value'    => !empty($session_data['designation']) ? $session_data['designation'] : !empty($this->request->data['designation']) ? $this->request->data['designation'] : '',
                     'empty'    => 'Select Designation',
                     'class'    => 'form__inputbox'
                   ]);
@@ -69,7 +69,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['date_hired']) ? $session_data['date_hired'] : '',
+                    'value'    => !empty($session_data['date_hired']) ? $session_data['date_hired'] : !empty($this->request->data['date_hired']) ? $this->request->data['date_hired'] : '',
                   ]);
                 ?>
                 <span class="form__error"><?= $this->Form->error('date_hired'); ?></span>
@@ -87,7 +87,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['department']) ? $session_data['department'] : '',
+                    'value'    => !empty($session_data['department']) ? $session_data['department'] : !empty($this->request->data['department']) ? $this->request->data['department'] : '',
                     'empty'    => 'Select Deparment',
                     'class'    => 'form__inputbox'
                   ]);
@@ -106,7 +106,7 @@
                     'type'     => 'textarea',
                     'class'    => 'form__inputbox form__inputbox--textarea',
                     'label'    => false,
-                    'value'    => !empty($session_data['position']) ? $session_data['position'] : '',
+                    'value'    => !empty($session_data['position']) ? $session_data['position'] : !empty($this->request->data['position']) ? $this->request->data['position'] : '',
                     'required' => false
                   ]);
                 ?>
@@ -124,7 +124,7 @@
                     'type'     => 'textarea',
                     'class'    => 'form__inputbox form__inputbox--textarea',
                     'label'    => false,
-                    'value'    => !empty($session_data['subject']) ? $session_data['subject'] : '',
+                    'value'    => !empty($session_data['subject']) ? $session_data['subject'] : !empty($this->request->data['subject']) ? $this->request->data['subject'] : '',
                     'required' => false
                   ]);
                 ?>
@@ -143,7 +143,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['leave']) ? $session_data['leave'] : '',
+                    'value'    => !empty($session_data['leave']) ? $session_data['leave'] : !empty($this->request->data['leave']) ? $this->request->data['leave'] : '',
                     'class'    => 'form__inputbox'
                   ]);
                 ?>

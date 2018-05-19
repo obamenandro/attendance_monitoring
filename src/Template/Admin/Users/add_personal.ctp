@@ -34,7 +34,7 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'value'    => !empty($session_data['lastname']) ? $session_data['lastname'] : $this->request->data['lastname'] ,
+                    'value'    => !empty($session_data['lastname']) ? $session_data['lastname'] : !empty($this->request->data['lastname']) ? $this->request->data['lastname'] : '',
                     'required' => false
                     ]);
                 ?>
@@ -52,7 +52,7 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'value'    => !empty($session_data['firstname']) ? $session_data['firstname'] : $this->request->data['firstname'] ,
+                    'value'    => !empty($session_data['firstname']) ? $session_data['firstname'] : !empty($this->request->data['firstname']) ? $this->request->data['firstname'] : '',
                     'required' => false
                     ]);
                 ?>
@@ -70,7 +70,7 @@
                     'type'     => 'text',
                     'class'    => 'form__inputbox',
                     'label'    => false,
-                    'value'    => !empty($session_data['middlename']) ? $session_data['middlename'] : $this->request->data['middlename'] ,
+                    'value'    => !empty($session_data['middlename']) ? $session_data['middlename'] : !empty($this->request->data['middlename']) ? $this->request->data['middlename'] : '',
                     'required' => false
                     ]);
                 ?>
@@ -89,7 +89,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['address']) ? $session_data['address'] : $this->request->data['address'] ,
+                  'value'    => !empty($session_data['address']) ? $session_data['address'] : !empty($this->request->data['address']) ? $this->request->data['address'] : '',
                   'required' => false
               ]);
               ?>
@@ -107,7 +107,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['email']) ? $session_data['email'] : $this->request->data['email'] ,
+                  'value'    => !empty($session_data['email']) ? $session_data['email'] : !empty($this->request->data['email']) ? $this->request->data['email'] : '',
                   'required' => false
               ]);
               ?>
@@ -125,7 +125,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['contact']) ? $session_data['contact'] : $this->request->data['contact'] ,
+                  'value'    => !empty($session_data['contact']) ? $session_data['contact'] : !empty($this->request->data['contact']) ? $this->request->data['contact'] : '',
                   'required' => false
               ]);
               ?>
@@ -144,7 +144,7 @@
                   'class'    => 'form__inputbox',
                   'id'       => 'form__date',
                   'label'    => false,
-                  'value'    => !empty($session_data['birthdate']) ? $session_data['birthdate'] : $this->request->data['birthdate'] ,
+                  'value'    => !empty($session_data['birthdate']) ? $session_data['birthdate'] : !empty($this->request->data['birthdate']) ? $this->request->data['birthdate'] : '',
                   'required' => false
               ]);
               ?>
@@ -162,7 +162,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['place_of_birth']) ? $session_data['place_of_birth'] : $this->request->data['place_of_birth'] ,
+                  'value'    => !empty($session_data['place_of_birth']) ? $session_data['place_of_birth'] : !empty($this->request->data['place_of_birth']) ? $this->request->data['place_of_birth'] : '',
                   'required' => false
               ]);
               ?>
@@ -180,7 +180,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['citizenship']) ? $session_data['citizenship'] : $this->request->data['citizenship'] ,
+                  'value'    => !empty($session_data['citizenship']) ? $session_data['citizenship'] : !empty($this->request->data['citizenship']) ? $this->request->data['citizenship'] : '',
                   'required' => false
               ]);
               ?>
@@ -200,7 +200,7 @@
                       'required' => false,
                       'div'      => false,
                       'label'    => false,
-                      'value'    => !empty($session_data['gender']) ? $session_data['gender'] : $this->request->data['gender'] ,
+                      'value'    => !empty($session_data['gender']) ? $session_data['gender'] : !empty($this->request->data['gender']) ? $this->request->data['gender'] : '',
                       'empty'    => 'Select Gender',
                       'class'    => 'form__inputbox'
                   ]);
@@ -221,7 +221,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['civil_status']) ? $session_data['civil_status'] : $this->request->data['civil_status'] ,
+                    'value'    => !empty($session_data['civil_status']) ? $session_data['civil_status'] : !empty($this->request->data['civil_status']) ? $this->request->data['civil_status'] : '',
                     'empty'    => 'Select Status',
                     'class'    => 'form__inputbox'
                 ]);
@@ -242,7 +242,7 @@
                       'required' => false,
                       'div'      => false,
                       'label'    => false,
-                      'value'    => !empty($session_data['name_of_spouse']) ? $session_data['name_of_spouse'] : $this->request->data['name_of_spouse'] ,
+                      'value'    => !empty($session_data['name_of_spouse']) ? $session_data['name_of_spouse'] : !empty($this->request->data['name_of_spouse']) ? $this->request->data['name_of_spouse'] : '',
                       'class'    => 'form__inputbox'
                   ]);
                 ?>
@@ -262,7 +262,7 @@
                       'required' => false,
                       'div'      => false,
                       'label'    => false,
-                      'value'    => !empty($session_data['number_of_children']) ? $session_data['number_of_children'] : $this->request->data['number_of_children'] ,
+                      'value'    => !empty($session_data['number_of_children']) ? $session_data['number_of_children'] : !empty($this->request->data['number_of_children']) ? $this->request->data['number_of_children'] : '',
                       'class'    => 'form__inputbox'
                   ]);
                 ?> 
@@ -280,7 +280,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['sss_number']) ? $session_data['sss_number'] : $this->request->data['sss_number'] ,
+                  'value'    => !empty($session_data['sss_number']) ? $session_data['sss_number'] : !empty($this->request->data['sss_number']) ? $this->request->data['sss_number'] : '',
                   'required' => false
               ]);
               ?>
@@ -298,7 +298,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['tin_number']) ? $session_data['tin_number'] : $this->request->data['tin_number'] ,
+                  'value'    => !empty($session_data['tin_number']) ? $session_data['tin_number'] : !empty($this->request->data['tin_number']) ? $this->request->data['tin_number'] : '',
                   'required' => false
               ]);
               ?>
@@ -316,7 +316,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['philhealth_number']) ? $session_data['philhealth_number'] : $this->request->data['philhealth_number'] ,
+                  'value'    => !empty($session_data['philhealth_number']) ? $session_data['philhealth_number'] : !empty($this->request->data['philhealth_number']) ? $this->request->data['philhealth_number'] : '',
                   'required' => false
               ]);
               ?>
@@ -334,7 +334,7 @@
                   'type'     => 'text',
                   'class'    => 'form__inputbox',
                   'label'    => false,
-                  'value'    => !empty($session_data['pagibig_number']) ? $session_data['pagibig_number'] : $this->request->data['pagibig_number'] ,
+                  'value'    => !empty($session_data['pagibig_number']) ? $session_data['pagibig_number'] : !empty($this->request->data['pagibig_number']) ? $this->request->data['pagibig_number'] : '',
                   'required' => false
               ]);
               ?>

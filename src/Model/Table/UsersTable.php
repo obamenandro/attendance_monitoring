@@ -51,20 +51,20 @@ class UsersTable extends Table
         $this->hasMany('Attendances', [
             'foreignKey' => 'user_id'
         ]);
-        $this->hasMany('UserDepartments', [
-            'foreignKey'       => 'user_id',
-            'joinType'         => 'INNER',
-            'dependent'        => true,
-            'cascadeCallbacks' => true,
-            'conditions'       => ['UserDepartments.del_flg' => 0]
-        ]);
-        $this->hasMany('UserSubjects', [
-            'foreignKey'       => 'user_id',
-            'joinType'         => 'INNER',
-            'dependent'        => true,
-            'cascadeCallbacks' => true,
-            'conditions'       => ['UserSubjects.del_flg' => 0]
-        ]);
+        // $this->hasMany('UserDepartments', [
+        //     'foreignKey'       => 'user_id',
+        //     'joinType'         => 'INNER',
+        //     'dependent'        => true,
+        //     'cascadeCallbacks' => true,
+        //     'conditions'       => ['UserDepartments.del_flg' => 0]
+        // ]);
+        // $this->hasMany('UserSubjects', [
+        //     'foreignKey'       => 'user_id',
+        //     'joinType'         => 'INNER',
+        //     'dependent'        => true,
+        //     'cascadeCallbacks' => true,
+        //     'conditions'       => ['UserSubjects.del_flg' => 0]
+        // ]);
     }
 
     /**
