@@ -78,14 +78,18 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        $this->Department      = TableRegistry::get('Departments');
-        $this->Government      = TableRegistry::get('Governments');
-        $this->Subject         = TableRegistry::get('Subjects');
-        $this->UserDepartment  = TableRegistry::get('UserDepartments');
-        $this->Attendance      = TableRegistry::get('Attendances');
-        $this->User            = TableRegistry::get('Users');
-        $this->UserLeave       = TableRegistry::get('UserLeaves');
-        $this->EmailActivation = TableRegistry::get('EmailActivations');
+        $this->Department       = TableRegistry::get('Departments');
+        $this->Government       = TableRegistry::get('Governments');
+        //$this->Subject        = TableRegistry::get('Subjects');
+        //$this->UserDepartment = TableRegistry::get('UserDepartments');
+        $this->Attendance       = TableRegistry::get('Attendances');
+        $this->User             = TableRegistry::get('Users');
+        $this->UserLeave        = TableRegistry::get('UserLeaves');
+        $this->EmailActivation  = TableRegistry::get('EmailActivations');
+        $this->UserAttainment   = TableRegistry::get('UserAttainments');
+        $this->UserEligibility  = TableRegistry::get('UserEligibilities');
+        $this->UserChecklist    = TableRegistry::get('UserChecklists');
+        $this->WorkExperience   = TableRegistry::get('WorkExperience');
 
         $session = $this->request->session();
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {

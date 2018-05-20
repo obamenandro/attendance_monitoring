@@ -45,9 +45,9 @@ class UserChecklistsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Requirements', [
-            'foreignKey' => 'requirement_id'
-        ]);
+        // $this->belongsTo('Requirements', [
+        //     'foreignKey' => 'requirement_id'
+        // ]);
     }
 
     /**
@@ -75,7 +75,7 @@ class UserChecklistsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
-        $rules->add($rules->existsIn(['requirement_id'], 'Requirements'));
+        // $rules->add($rules->existsIn(['requirement_id'], 'Requirements'));
 
         return $rules;
     }

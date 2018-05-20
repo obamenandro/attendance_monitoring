@@ -138,12 +138,12 @@
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
-                  $this->Form->control('leave', [
+                  $this->Form->control('total_leave', [
                     'type'     => 'number',
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'value'    => !empty($session_data['leave']) ? $session_data['leave'] : !empty($this->request->data['leave']) ? $this->request->data['leave'] : '',
+                    'value'    => !empty($session_data['total_leave']) ? $session_data['total_leave'] : !empty($this->request->data['total_leave']) ? $this->request->data['total_leave'] : '',
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
