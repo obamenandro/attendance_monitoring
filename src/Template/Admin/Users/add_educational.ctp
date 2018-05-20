@@ -499,7 +499,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox js-datepicker-from'
                   ]);
                 ?>  
               </div>
@@ -517,7 +517,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox js-datepicker-to'
                   ]);
                 ?> 
               </div>
@@ -580,4 +580,17 @@
     $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append'))
     })
 
+    $('html').delegate('.js-datepicker-from, .js-datepicker-to', 'click', function() {
+      
+
+      if ($(this).hasClass('js-datepicker-from') == true ) {
+        $(this).datepicker({
+          endDate: "today"
+        }); 
+      } else {
+        $(this).datepicker({
+          startDate: "today"
+        }); 
+      }
+    })
 </script>
