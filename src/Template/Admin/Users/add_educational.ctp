@@ -48,7 +48,6 @@
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
-                <!-- <input type="text" class="form__inputbox">  -->
               </div>
             </div>
           </div>
@@ -105,11 +104,11 @@
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
-                <!-- <input type="text" class="form__inputbox"> -->
               </div>
             </div>
           </div>
         </div>
+        <span class="form__error">Please fill up all Doctorate Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -193,6 +192,7 @@
             </div>
           </div>
         </div>
+        <span class="form__error">Please fill up all Masteral Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -215,7 +215,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
               </div>
@@ -233,7 +233,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
                 <!-- <input type="text" class="form__inputbox">  -->
@@ -252,7 +252,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
                 <!-- <input type="text" class="form__inputbox">  -->
@@ -271,13 +271,14 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
               </div>
             </div>
           </div>
         </div>
+        <span class="form__error form__error-required">Please fill up all Masteral Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -300,7 +301,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
               </div>
@@ -318,7 +319,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?> 
               </div>
@@ -336,13 +337,14 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
               </div>
             </div>
           </div>
         </div>
+        <span class="form__error form__error-required">Please fill up all Secondary Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -365,7 +367,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
               </div>
@@ -383,7 +385,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?> 
               </div>
@@ -401,13 +403,14 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>
               </div>
             </div>
           </div>
         </div>
+        <span class="form__error form__error-required">Please fill up all Elementary Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -430,7 +433,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?> 
               </div>
@@ -448,7 +451,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?> 
               </div>
@@ -466,13 +469,14 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?> 
               </div>
             </div>
           </div>
         </div>
+        <span class="form__error form__error-required">Please fill up all Eligibility Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -495,7 +499,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox js-datepicker-from'
+                    'class'    => 'form__inputbox js-datepicker-from required'
                   ]);
                 ?>  
               </div>
@@ -513,7 +517,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox js-datepicker-to'
+                    'class'    => 'form__inputbox js-datepicker-to required'
                   ]);
                 ?> 
               </div>
@@ -531,7 +535,7 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?>  
               </div>
@@ -549,13 +553,14 @@
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox'
+                    'class'    => 'form__inputbox required'
                   ]);
                 ?> 
               </div>
             </div>
           </div>
         </div>
+        <span class="form__error form__error-required">Please fill up all Working Experience Details</span>
         <div class="form__list-addform">
           <a class="button button--addform">Add</a>
         </div>
@@ -563,22 +568,35 @@
       <div class="form__button">
         <a href="/admin/users/add_personal" class="button button--back">Back</a>
         <input type="submit" class="button button--submit" value="NEXT">
-        <!-- <a href="/admin/users/add_checklist" class="button button--submit">NEXT</a> -->
       </div>
     <?= $this->Form->end(); ?>
   </div>
 </div>
 </div>
 
+<style>
+.form__error {
+  display: none;
+}
+</style>
+
 <script type="text/javascript">
-    $('.button--addform').on('click', function() {
-    var a = $(this).parent().parent().find('.js-wrapper-append').html();
-    $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append'))
+    $('.button--addform').on('click', function( e ) {
+      var empty = $(this).parent().parent().find('input').filter(function() {
+        return this.value === "";
+      })
+
+      if ( empty.length ) {
+          e.preventDefault();
+          $(this).parent().parent().find('.form__error').show();
+      } else {
+        var a = $(this).parent().parent().find('.js-wrapper-append').html();
+        $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append')) 
+        $(this).parent().parent().find('.js-wrapper-append .form__error').hide();
+      }
     })
 
     $('html').delegate('.js-datepicker-from, .js-datepicker-to', 'click', function() {
-      
-
       if ($(this).hasClass('js-datepicker-from') == true ) {
         $(this).datepicker({
           endDate: "today"
@@ -588,5 +606,16 @@
           startDate: "today"
         }); 
       }
+    })
+
+    $('.button--submit').click(function( e ) {
+      $('.required').each(function(i , el) {
+        var data = $(el).val();
+        var len = data.length;
+					if ( len < 1 ) {
+						$('.form__error-required').show();
+            e.preventDefault();
+					}
+      })
     })
 </script>
