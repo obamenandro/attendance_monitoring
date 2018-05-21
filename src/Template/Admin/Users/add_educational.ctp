@@ -6,11 +6,7 @@
 <?= $this->Flash->render(); ?>
 <div class="panel__content">
   <div>
-    <?=
-      $this->Form->create('', [
-        'type'    => 'POST'
-      ]);
-    ?>
+    <?= $this->Form->create('', ['type' => 'POST']); ?>
       <div class="form__content">
         <ul class="form__breadcrumb">
           <li class="form__breadcrumb-item">

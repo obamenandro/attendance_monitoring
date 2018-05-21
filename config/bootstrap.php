@@ -294,3 +294,11 @@ Configure::write('checklists', [
     10 => '3.12 (Assessment, Examination and Certification for Seafarers)',
     11 => '6.10 (Training Program for Instructor and Assessor Conducting Simulator-Based Training and Assessment)'
 ]);
+
+Configure::write('degree', [
+    'Doctorate'  => 1,
+    'Master'     => 2,
+    'College'    => 3,
+    'Secondary'  => 4,
+    'Elementary' => 5
+]);

@@ -13,7 +13,7 @@ class AddUserLeave extends AbstractMigration
     public function change()
     {
         $table = $this->table('users');
-        $table->addColumn('leave', 'integer', [
+        $table->addColumn('total_leave', 'integer', [
             'default' => 0,
             'length'  => 11,
             'null'    => true,
