@@ -45,17 +45,13 @@
                   <td class="table__body-list"><?= $user['id'] ?></td>
                   <td class="table__body-list"><?= $user['firstname']." ".$user['lastname'] ?></td>
                   <td class="table__body-list"><?= $user['position'] ?></td>
-                  <td class="table__body-list">
-                    <?php
-                      $department = "";
-                      foreach($user['user_departments'] as $value) {
-                        $department.=$value['department']['name'].', ';
-                      }
-                      echo rtrim($department, ', ');
-                    ?></td>
-                  <td class="table__body-list"><?= $civil_status[$user['civil_status']] ?></td>
-                  <td class="table__body-list"><?= $designation[$user['designation']] ?></td>
-                  <td class="table__body-list"><?= $user['created']->i18nFormat('YYY-MM-dd') ?></td>
+                  <td class="table__body-list"><?= isset($departments[$user['department']]) ? 
+                  $departments[$user['department']] : 'N/A' ?></td>
+                  <td class="table__body-list"><?= isset($civil_status[$user['civil_status']]) ? 
+                  $civil_status[$user['civil_status']] : 'N/A' ?></td>
+                  <td class="table__body-list"><?= isset($designation[$user['designation']]) ? 
+                  $designation[$user['designation']] : 'N/A' ?></td>
+                  <td class="table__body-list"><?= !empty($user['date_hired']) ? $user['date_hired'] : 'N/A' ?></td>
                   <td class="table__body-list">
                     <a href="/admin/users/view/<?= $user['id'] ?>" class="table__view">View</a>
                     <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view table__view--edit">Edit</a>

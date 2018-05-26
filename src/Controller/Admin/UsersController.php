@@ -101,26 +101,16 @@ class UsersController extends AppController
     }
 
     public function index() {
-        // $users = $this->User->find('all')
-        //         ->contain([
-        //             'UserDepartments' => [
-        //                 'Departments' => [
-        //                     'fields' => ['name'],
-        //                     'conditions' => [
-        //                         'Departments.del_flg' => 0
-        //                     ]
-        //                 ]
-        //             ]
-        //         ])
-        //         ->where([
-        //             'Users.del_flg' => 0,
-        //             'Users.role'    => Configure::read('role.employee')
-        //         ])
-        //         ->toArray()
-        //         ;
-        // $this->set('civil_status',Configure::read('civil_status'));
-        // $this->set('designation', Configure::read('designation'));
-        // $this->set(compact('users'));
+        $users = $this->User->find('all')
+            ->where([
+                'del_flg'    => 0,
+                'Users.role' => Configure::read('role.employee')
+            ])
+            ->toArray();
+        $this->set('civil_status',Configure::read('civil_status'));
+        $this->set('designation', Configure::read('designation'));
+        $this->set('departments', Configure::read('departments'));
+        $this->set(compact('users'));
     }
 
     // public function add() {
@@ -468,9 +458,84 @@ class UsersController extends AppController
                             $this->UserAttainment->save($entity);
                         }
                     }
+                    //for Master
+                    if ($session->check('Data.Master')) {
+                        $master      = $session->read('Data.Master');
+                        $master_data = [];
+                        for ($i=0;$i<count($master['school_name']);$i++) {
+                            $master_data[] = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $master['school_name'][$i],
+                                'course'         => $master['course'][$i],
+                                'units'          => $master['units'][$i],
+                                'year_graduated' => $master['year_graduated'][$i],
+                                'degree'         => Configure::read('degree.Master')
+                            ];
+                        }
+                        $user_attainment_master_entity = $this->UserAttainment->newEntities($master_data);
+                        foreach ($user_attainment_master_entity as $entity) {
+                            $this->UserAttainment->save($entity);
+                        }
+                    }
+                    //for College
+                    if ($session->check('Data.College')) {
+                        $college      = $session->read('Data.College');
+                        $college_data = [];
+                        for ($i=0;$i<count($college['school_name']);$i++) {
+                            $college_data[] = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $college['school_name'][$i],
+                                'course'         => $college['course'][$i],
+                                'level_attained' => $college['level_attained'][$i],
+                                'year_graduated' => $college['year_graduated'][$i],
+                                'degree'         => Configure::read('degree.College')
+                            ];
+                        }
+                        $user_attainment_college_entity = $this->UserAttainment->newEntities($college_data);
+                        foreach ($user_attainment_college_entity as $entity) {
+                            $this->UserAttainment->save($entity);
+                        }
+                    }
+                    //for Secondary
+                    if ($session->check('Data.Secondary')) {
+                        $secondary      = $session->read('Data.Secondary');
+                        $secondary_data = [];
+                        for ($i=0;$i<count($secondary['school_name']);$i++) {
+                            $secondary_data[] = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $secondary['school_name'][$i],
+                                'level_attained' => $secondary['level_attained'][$i],
+                                'year_graduated' => $secondary['year_graduated'][$i],
+                                'degree'         => Configure::read('degree.Secondary')
+                            ];
+                        }
+                        $user_attainment_secondary_entity = $this->UserAttainment->newEntities($secondary_data);
+                        foreach ($user_attainment_secondary_entity as $entity) {
+                            $this->UserAttainment->save($entity);
+                        }
+                    }
+                    //for Elementary
+                    if ($session->check('Data.Elementary')) {
+                        $elementary      = $session->read('Data.Elementary');
+                        $elementary_data = [];
+                        for ($i=0;$i<count($elementary['school_name']);$i++) {
+                            $elementary_data[] = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $elementary['school_name'][$i],
+                                'level_attained' => $elementary['level_attained'][$i],
+                                'year_graduated' => $elementary['year_graduated'][$i],
+                                'degree'         => Configure::read('degree.Elementary')
+                            ];
+                        }
+                        $user_attainment_elementary_entity = $this->UserAttainment->newEntities($elementary_data);
+                        foreach ($user_attainment_elementary_entity as $entity) {
+                            $this->UserAttainment->save($entity);
+                        }
+                    }
                 }
             }
             $this->Flash->success(__('Your employee has been successfully added.'));
+            $session->delete('Data');
             return $this->redirect('/admin/users');
         }
     //         $data = $this->request->getData();
@@ -767,12 +832,10 @@ class UsersController extends AppController
     }
 
     public function view($id = NULL) {
-        $civilStatus    = Configure::read('civil_status');
-        $employee       = $this->User->find()
-                        ->contain(['Governments'])
+        $employee = $this->User->find()
                         ->where([
                             'Users.id'      => $id,
-                            'Users.role'    => 2,
+                            'Users.role'    => Configure::read('role.employee'),
                             'Users.del_flg' => 0
                         ])
                         ->first()
@@ -797,8 +860,11 @@ class UsersController extends AppController
             }
         }
 
-
-        $this->set(compact('employee', 'civilStatus', 'attendanceLists'));
+        $this->set('civil_status', Configure::read('civil_status'));
+        $this->set('jobtype', Configure::read('job_type'));
+        $this->set('designation', Configure::read('designation'));
+        $this->set('department', Configure::read('departments'));
+        $this->set(compact('employee', 'attendanceLists'));
         $this->set('status', Configure::read('status'));
         $this->set('_serialize',['employee', 'civilStatus', 'attendanceLists']);
     }
