@@ -13,37 +13,37 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Employee Status: </label>
-          <span class="view-info__info"> • Full Time</span>
+          <span class="view-info__info"> • <?= $jobtype[$employee['jobtype']] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Designation: </label>
-          <span class="view-info__info"> • Teaching</span>
+          <span class="view-info__info"> • <?= $designation[$employee['designation']] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Date Hired: </label>
-          <span class="view-info__info"> • 2018-02-02</span>
+          <span class="view-info__info"> • <?= $employee['date_hired'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Department: </label>
-          <span class="view-info__info"> • GenEd</span>
+          <span class="view-info__info"> • <?= isset($department[$employee['department']]) ? $department[$employee['department']] : 'N/A' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Position: </label>
-          <span class="view-info__info"> • Teacher</span>
+          <span class="view-info__info"> • <?= $employee['position'] ?> </span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Subject: </label>
-          <span class="view-info__info"> • Math</span>
+          <span class="view-info__info"> • <?= $employee['subject'] ?> </span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Leave: </label>
-          <span class="view-info__info"> • 5</span>
+          <span class="view-info__info"> • <?= $employee['total_leave'] ?></span>
         </div>
       
         <div class="view-info__title">
@@ -95,7 +95,7 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Civil Status: </label>
-          <span class="view-info__info"> • <?= $civilStatus[$employee['civil_status']]; ?></span>
+          <span class="view-info__info"> • <?= $civil_status[$employee['civil_status']]; ?></span>
         </div>
 
         <div class="view-info__title">
@@ -104,27 +104,27 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> SSS Number: </label>
-          <span class="view-info__info"> • <?= $employee['governments'][0]['sss_number'] ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['sss_number']) ? $employee['sss_number'] : 'N/A' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> GSIS Number: </label>
-          <span class="view-info__info"> • <?= $employee['governments'][0]['gsis_number'] ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['gsis_number']) ? $employee['gsis_number'] : 'N/A' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> TIN Number: </label>
-          <span class="view-info__info"> • <?= $employee['governments'][0]['tin_number'] ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['tin_number']) ? $employee['tin_number'] : 'N/A' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Philhealth Number: </label>
-          <span class="view-info__info"> • <?= $employee['governments'][0]['philhealth_number'] ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['philhealth_number']) ? $employee['philhealth_number'] : 'N/A' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Pagibig Number: </label>
-          <span class="view-info__info"> • <?= $employee['governments'][0]['pagibig_number'] ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['pagibig_number']) ? $employee['pagibig_number'] : 'N/A' ?></span>
         </div>
       </div>
     </div>
