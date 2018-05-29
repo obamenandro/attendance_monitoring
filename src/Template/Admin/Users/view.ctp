@@ -28,7 +28,7 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Department: </label>
-          <span class="view-info__info"> • <?= isset($department[$employee['department']]) ? $department[$employee['department']] : 'N/A' ?></span>
+          <span class="view-info__info"> • <?= isset($department[$employee['department']]) ? $department[$employee['department']] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
 
         <div class="view-info__data">
@@ -104,27 +104,27 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> SSS Number: </label>
-          <span class="view-info__info"> • <?= !empty($employee['sss_number']) ? $employee['sss_number'] : 'N/A' ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['sss_number']) ? $employee['sss_number'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> GSIS Number: </label>
-          <span class="view-info__info"> • <?= !empty($employee['gsis_number']) ? $employee['gsis_number'] : 'N/A' ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['gsis_number']) ? $employee['gsis_number'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> TIN Number: </label>
-          <span class="view-info__info"> • <?= !empty($employee['tin_number']) ? $employee['tin_number'] : 'N/A' ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['tin_number']) ? $employee['tin_number'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Philhealth Number: </label>
-          <span class="view-info__info"> • <?= !empty($employee['philhealth_number']) ? $employee['philhealth_number'] : 'N/A' ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['philhealth_number']) ? $employee['philhealth_number'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Pagibig Number: </label>
-          <span class="view-info__info"> • <?= !empty($employee['pagibig_number']) ? $employee['pagibig_number'] : 'N/A' ?></span>
+          <span class="view-info__info"> • <?= !empty($employee['pagibig_number']) ? $employee['pagibig_number'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
       </div>
     </div>

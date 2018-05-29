@@ -152,6 +152,9 @@ a {
   margin: 5mm;
   size: auto; }
 
+.not-applicable {
+  color: #FF0000; }
+
 /*components*/
 .header {
   position: fixed;
@@ -363,6 +366,16 @@ a {
 .panel__content.panel__content--users {
   border: none;
   box-shadow: 0px 1px 10px #A7B6BC; }
+
+.panel__search.panel__search--report {
+  padding: 20px 0 0;
+  position: absolute;
+  top: 27px;
+  width: 95%; }
+  .panel__search.panel__search--report .panel__search-box {
+    width: 25%; }
+    .panel__search.panel__search--report .panel__search-box:last-child {
+      width: 10%; }
 
 .form {
   padding: 15px 55px 45px; }
@@ -616,6 +629,9 @@ a {
 
 .form__label.form__label--secondcolumn {
   text-align: center; }
+
+.form__content.form__content--report {
+  position: relative; }
 
 .button {
   padding: 10px;
