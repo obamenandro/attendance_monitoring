@@ -18,38 +18,16 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($users as $user): ?>
             <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">Name of Exam</td>
-              <td class="table__body-list">128392321</td>
-              <td class="table__body-list">02-20-2019</td>
+              <td class="table__body-list"><?= $user['id'] ?></td>
+              <td class="table__body-list"><?= ucfirst($user['user']['lastname']).", ".ucfirst($user['user']['firstname']) ?></td>
+              <td class="table__body-list"><?= isset($department[$user['user']['department']]) ? $department[$user['user']['department']] : 'N/A' ?></td>
+              <td class="table__body-list"><?= $user['exam_name'] ?></td>
+              <td class="table__body-list"><?= $user['license_no'] ?></td>
+              <td class="table__body-list"><?= date('d-m-Y', strtotime($user['vali_until'])) ?></td>
             </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">Name of Exam</td>
-              <td class="table__body-list">128392321</td>
-              <td class="table__body-list">02-20-2019</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">Name of Exam</td>
-              <td class="table__body-list">128392321</td>
-              <td class="table__body-list">02-20-2019</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">Name of Exam</td>
-              <td class="table__body-list">128392321</td>
-              <td class="table__body-list">02-20-2019</td>
-            </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>

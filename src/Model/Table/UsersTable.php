@@ -51,6 +51,15 @@ class UsersTable extends Table
         $this->hasMany('Attendances', [
             'foreignKey' => 'user_id'
         ]);
+        $this->hasMany('UserAttainments', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('UserChecklists', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('UserEligibilities', [
+            'foreignKey' => 'user_id'
+        ]);
         // $this->hasMany('UserDepartments', [
         //     'foreignKey'       => 'user_id',
         //     'joinType'         => 'INNER',

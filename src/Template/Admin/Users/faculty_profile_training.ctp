@@ -18,38 +18,16 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($users as $key => $user): ?>
             <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">true</td>
-              <td class="table__body-list">false</td>
-              <td class="table__body-list">true</td>
+              <td class="table__body-list"><?= $user['id'] ?></td>
+              <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
+              <td class="table__body-list"><?= isset($department[$user['department']]) ? $department[$user['department']] : 'N/A' ?></td>
+              <td class="table__body-list"><?= !empty($user['user_checklists'][0]['requirement_id']) ? 'true' : 'false'  ?></td>
+              <td class="table__body-list"><?= !empty($user['user_checklists'][1]['requirement_id']) ? 'true' : 'false'  ?></td>
+              <td class="table__body-list"><?= !empty($user['user_checklists'][2]['requirement_id']) ? 'true' : 'false'  ?></td>
             </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">true</td>
-              <td class="table__body-list">false</td>
-              <td class="table__body-list">true</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">true</td>
-              <td class="table__body-list">false</td>
-              <td class="table__body-list">true</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-              <td class="table__body-list">true</td>
-              <td class="table__body-list">false</td>
-              <td class="table__body-list">true</td>
-            </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>

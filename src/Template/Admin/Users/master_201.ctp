@@ -16,31 +16,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="table__body-list">Admin</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">President</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">Admin</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">President</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">Admin</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">President</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">Admin</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">President</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">Admin</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">President</td>
-            </tr>
+            <?php foreach($users as $user): ?>
+              <tr>
+                <td class="table__body-list"><?= isset($department[$user['department']]) ? $department[$user['department']] : 'N/A' ?></td>
+                <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
+                <td class="table__body-list"><?= $user['position'] ?></td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>

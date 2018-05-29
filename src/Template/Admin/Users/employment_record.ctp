@@ -20,58 +20,21 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($users as $key => $value): ?>
             <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
+              <td class="table__body-list"><?= $value['id'] ?></td>
+              <td class="table__body-list"><?= ucfirst($value['lastname']).", ".ucfirst($value['firstname']) ?></td>
               <td class="table__body-list">
-                <span class="table__body-span">MA Management</span>
-                <span class="table__body-span">BS Marine Transportation</span>
+                <span class="table__body-span"><?= isset($value['user_attainments'][0]['course']) ? $value['user_attainments'][0]['course'] : 'N/A' ?></span>
+                <!-- <span class="table__body-span">BS Marine Transportation</span> -->
               </td>
-              <td class="table__body-list">Department Head/ Instructor</td>
-              <td class="table__body-list">6/12/2018</td>
-              <td class="table__body-list">FT</td>
-              <td class="table__body-list">8/8/1986</td>
-              <td class="table__body-list">09785415689</td>
+              <td class="table__body-list"><?= isset($designation[$value['designation']]) ? $designation[$value['designation']] : 'N/A' ?></td>
+              <td class="table__body-list"><?= !empty($value['date_hired']) ? date('m/d/Y', strtotime($value['date_hired'])) : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($jobtype[$value['jobtype']]) ? $jobtype[$value['jobtype']] : 'N/A' ?></td>
+              <td class="table__body-list"><?= !empty($value['birthdate']) ? date('m/d/Y', strtotime($value['birthdate'])) : 'N/A' ?></td>
+              <td class="table__body-list"><?= $value['contact'] ?></td>
             </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">
-                <span class="table__body-span">MA Management</span>
-                <span class="table__body-span">BS Marine Transportation</span>
-              </td>
-              <td class="table__body-list">Department Head/ Instructor</td>
-              <td class="table__body-list">6/12/2018</td>
-              <td class="table__body-list">FT</td>
-              <td class="table__body-list">8/8/1986</td>
-              <td class="table__body-list">09785415689</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">
-                <span class="table__body-span">MA Management</span>
-                <span class="table__body-span">BS Marine Transportation</span>
-              </td>
-              <td class="table__body-list">Department Head/ Instructor</td>
-              <td class="table__body-list">6/12/2018</td>
-              <td class="table__body-list">FT</td>
-              <td class="table__body-list">8/8/1986</td>
-              <td class="table__body-list">09785415689</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">
-                <span class="table__body-span">MA Management</span>
-                <span class="table__body-span">BS Marine Transportation</span>
-              </td>
-              <td class="table__body-list">Department Head/ Instructor</td>
-              <td class="table__body-list">6/12/2018</td>
-              <td class="table__body-list">FT</td>
-              <td class="table__body-list">8/8/1986</td>
-              <td class="table__body-list">09785415689</td>
-            </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>

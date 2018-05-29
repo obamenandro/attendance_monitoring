@@ -48,7 +48,6 @@ class UsersController extends AppController
     }
 
     public function index() {
-
     }
 
     public function attendanceRecord() {
@@ -217,7 +216,7 @@ class UsersController extends AppController
                 ->where([
                     'Users.email'   => $data['email'], 
                     'Users.del_flg' => 0,
-                    'role'          => 1
+                    'role'          => Configure::read('role.employee')
                 ])
                 ->first();
 

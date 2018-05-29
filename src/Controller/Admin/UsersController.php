@@ -1070,15 +1070,51 @@ class UsersController extends AppController
     }
 
     public function master_201() {
-        
+        $users = $this->User->find('all')
+            ->where([
+                'Users.del_flg'    => 0,
+                'Users.role' => Configure::read('role.employee')
+            ])
+            ->toArray();
+
+        $this->set('department', Configure::read('departments'));
+        $this->set(compact('users'));
     }
 
     public function faculty_profile() {
-        
+        $users = $this->User->find('all')
+            ->contain('UserAttainments', function($res) {
+                return $res
+                ->where(['UserAttainments.degree IN' => ['1','2','3']])
+                ->order(['UserAttainments.degree' => 'DESC']);
+            })
+            ->where([
+                'Users.del_flg'    => 0,
+                'Users.role' => Configure::read('role.employee')
+            ])
+            ->toArray();
+        $this->set('department', Configure::read('departments'));
+        $this->set('jobtype', Configure::read('job_type'));
+        $this->set('degree', Configure::read('degree'));
+        $this->set(compact('users'));
     }
 
     public function employment_record() {
-        
+        $users = $this->User->find('all')
+            ->contain('UserAttainments', function($res) {
+                return $res
+                ->order(['UserAttainments.degree' => 'ASC']);
+            })
+            ->where([
+                'Users.del_flg'    => 0,
+                'Users.role' => Configure::read('role.employee')
+            ])
+            ->toArray();
+        $this->set('department', Configure::read('departments'));
+        $this->set('jobtype', Configure::read('job_type'));
+        $this->set('designation', Configure::read('designation'));
+        $this->set('degree', Configure::read('degree'));
+        $this->set(compact('users'));
     }
 
     public function training_log() {
@@ -1086,18 +1122,52 @@ class UsersController extends AppController
     }
 
     public function faculty_profile_license() {
-        
+        $users = $this->UserEligibility->find('all')
+            ->contain('Users', function($res) {
+                return $res
+                ->where([
+                    'Users.del_flg' => 0,
+                    'Users.role'    => Configure::read('role.employee')
+                ]);
+            })
+            ->toArray();
+        $this->set('department', Configure::read('departments'));
+        $this->set(compact('users'));
     }
 
     public function faculty_profile_training() {
-        
+        $users = $this->User->find('all')
+            ->contain('UserChecklists', function($res) {
+                return $res
+                ->where(['UserChecklists.requirement_id IN' => ['9','10','11']]);
+            })
+            ->where([
+                'Users.del_flg'    => 0,
+                'Users.role' => Configure::read('role.employee')
+            ])
+            ->toArray();
+        $this->set('department', Configure::read('departments'));
+        $this->set(compact('users'));
     }
 
     public function list_employee() {
-        
+        $users = $this->User->find('all')
+            ->where([
+                'Users.del_flg'    => 0,
+                'Users.role' => Configure::read('role.employee')
+            ])
+            ->toArray();
+        $this->set(compact('users'));
     }
 
     public function resigned_employee() {
-        
+        $users = $this->User->find('all')
+            ->where([
+                'Users.del_flg' => 0,
+                'Users.jobtype' => 3,   
+                'Users.role'    => Configure::read('role.employee')
+            ])
+            ->toArray();
+        $this->set(compact('users'));
     }
 }

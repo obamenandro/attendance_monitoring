@@ -15,26 +15,13 @@
           </tr>
         </thead>
         <tbody>
+          <?php foreach($users as $user): ?>
           <tr>
-            <td class="table__body-list">Dela Cruz, Juan</td>
-            <td class="table__body-list">MA Management</td>
-            <td class="table__body-list">02-20-2018</td>
+            <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
+            <td class="table__body-list"><?= $user['position'] ?></td>
+            <td class="table__body-list"><?= !empty($user['date_hired']) ? date('m-d-Y', strtotime($user['date_hired'])) : 'N/A' ?></td>
           </tr>
-          <tr>
-            <td class="table__body-list">Dela Cruz, Juan</td>
-            <td class="table__body-list">MA Management</td>
-            <td class="table__body-list">02-20-2018</td>
-          </tr>
-          <tr>
-            <td class="table__body-list">Dela Cruz, Juan</td>
-            <td class="table__body-list">MA Management</td>
-            <td class="table__body-list">02-20-2018</td>
-          </tr>
-          <tr>
-            <td class="table__body-list">Dela Cruz, Juan</td>
-            <td class="table__body-list">MA Management</td>
-            <td class="table__body-list">02-20-2018</td>
-          </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>

@@ -95,12 +95,6 @@ class AppController extends Controller
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {
             $id   = $session->read('Auth.User.id');
             $user = $this->User->find()
-                  ->contain([
-                    'Governments',
-                    'UserDepartments' => [
-                        'Departments'
-                    ]
-                  ])
                   ->where([
                     'Users.id'   => $id,
                     'Users.role' => 2

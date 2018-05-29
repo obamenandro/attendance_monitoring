@@ -22,51 +22,24 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($users as $user): ?>
             <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">BS Marine Transportation NAMEI Polytechnic Institute</td>
-              <td class="table__body-list">MA Business Management FEATI</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list">NAV 1, NAV 2, SEAM 4</td>
-              <td class="table__body-list">PT</td>
+              <td class="table__body-list"><?= isset($department[$user['department']]) ? 
+              $department[$user['department']] : 'N/A' ?></td>
+              <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
+              <?php if(!empty($user['user_attainments'])): ?>
+              <td class="table__body-list"><?= isset($user['user_attainments'][0]['degree']) && $user['user_attainments'][0]['degree'] == 3 ? $user['user_attainments'][0]['course'] : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($user['user_attainments'][1]['degree']) && $user['user_attainments'][1]['degree'] == 2 ? $user['user_attainments'][1]['course'] : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($user['user_attainments'][2]['degree']) && $user['user_attainments'][2]['degree'] == 1 ? $user['user_attainments'][2]['course'] : 'N/A' ?></td>
+              <?php else: ?>
+                <td class="table__body-list">N/A</td>
+                <td class="table__body-list">N/A</td>
+                <td class="table__body-list">N/A</td>
+               <?php endif; ?>
+              <td class="table__body-list"><?= !empty($user['subject']) ? $user['subject'] : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($jobtype[$user['jobtype']]) ? $jobtype[$user['jobtype']] : 'N/A' ?></td>
             </tr>
-            <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">BS Marine Transportation NAMEI Polytechnic Institute</td>
-              <td class="table__body-list">MA Business Management FEATI</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list">NAV 1, NAV 2, SEAM 4</td>
-              <td class="table__body-list">PT</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">BS Marine Transportation NAMEI Polytechnic Institute</td>
-              <td class="table__body-list">MA Business Management FEATI</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list">NAV 1, NAV 2, SEAM 4</td>
-              <td class="table__body-list">PT</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">BS Marine Transportation NAMEI Polytechnic Institute</td>
-              <td class="table__body-list">MA Business Management FEATI</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list">NAV 1, NAV 2, SEAM 4</td>
-              <td class="table__body-list">PT</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">BS Marine Transportation NAMEI Polytechnic Institute</td>
-              <td class="table__body-list">MA Business Management FEATI</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list">NAV 1, NAV 2, SEAM 4</td>
-              <td class="table__body-list">PT</td>
-            </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
