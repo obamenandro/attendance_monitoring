@@ -73,7 +73,7 @@ class UserLeavesController extends AppController
         return $this->redirect('/admin/user_leaves');
     }
 
-    public function view_leave() {
+    public function viewLeave() {
 
     }
 }
