@@ -26,7 +26,7 @@
             </div>
           </div>
 
-          <table id="dataTable" class="display table">
+          <table id="dataTable" class="display table" style="width: 100%">
             <thead>
               <tr class="table__head">
                 <th class="table__head-list">ID</th>
@@ -46,12 +46,12 @@
                   <td class="table__body-list"><?= $user['firstname']." ".$user['lastname'] ?></td>
                   <td class="table__body-list"><?= $user['position'] ?></td>
                   <td class="table__body-list"><?= isset($departments[$user['department']]) ? 
-                  $departments[$user['department']] : 'N/A' ?></td>
+                  $departments[$user['department']] : '<span class="not-applicable">N/A</span>' ?></td>
                   <td class="table__body-list"><?= isset($civil_status[$user['civil_status']]) ? 
-                  $civil_status[$user['civil_status']] : 'N/A' ?></td>
+                  $civil_status[$user['civil_status']] : '<span class="not-applicable">N/A</span>' ?></td>
                   <td class="table__body-list"><?= isset($designation[$user['designation']]) ? 
-                  $designation[$user['designation']] : 'N/A' ?></td>
-                  <td class="table__body-list"><?= !empty($user['date_hired']) ? $user['date_hired'] : 'N/A' ?></td>
+                  $designation[$user['designation']] : '<span class="not-applicable">N/A</span>' ?></td>
+                  <td class="table__body-list"><?= !empty($user['date_hired']) ? $user['date_hired'] : '<span class="not-applicable">N/A</span>' ?></td>
                   <td class="table__body-list">
                     <a href="/admin/users/view/<?= $user['id'] ?>" class="table__view">View</a>
                     <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view table__view--edit">Edit</a>

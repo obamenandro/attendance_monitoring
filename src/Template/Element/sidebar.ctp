@@ -39,7 +39,13 @@
           <li class="sidebar__item-list">
             <a href="/admin/user_leaves" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
-              <span class="sidebar__text">List Requested</span>
+              <span class="sidebar__text">Leave Requested</span>
+            </a>
+          </li>
+          <li class="sidebar__item-list">
+            <a href="/admin/view_leave" class="sidebar__item">
+              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+              <span class="sidebar__text">List of Leave Filed</span>
             </a>
           </li>
         </ul>

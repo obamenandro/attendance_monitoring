@@ -75,6 +75,12 @@
   </div>
 </div>
 
+<div class="calendar__loading-wrapper js-loading" style="display: none">
+  <div class="calendar__loading">
+    <i class="fa fa-spinner fa-spin fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+  </div>
+</div>
+
 <script type="text/javascript">
 
   function readURL(input) {
@@ -90,6 +96,10 @@
   $(".image-upload").change(function(){
       readURL(this);
   });
+
+  $('.button--submit').on('click', function() {
+    $('.js-loading').show();
+  })
 
 
 </script>
