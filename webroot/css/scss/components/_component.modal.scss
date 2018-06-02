@@ -38,9 +38,22 @@
     padding-top: 20px;
     text-align: center;
   }
+
+  &__content-text {
+    font-size: 16px;
+    padding: 30px 50px 80px;
+  }
 }
 
 .modal__container.modal__container--forgot-password {
   width: 44%;
   height: 320px;
+}
+
+.modal__container.modal__container--confirm {
+  height: 250px;
+
+  .modal__button {
+    border-top: 1px solid #CCCCCC;
+  }
 }
