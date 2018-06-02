@@ -9,12 +9,12 @@
         </a>
       </li>
       <li class="sidebar__list">
-        <a class="sidebar__item sidebar__item--js">
+        <a class="sidebar__item sidebar__item--js <?= $this->request->controller == 'Users' ? 'sidebar__js' : '' ?>">
           <i class="fa fa-users sidebar__icon" aria-hidden="true"></i>
           <span class="sidebar__link-text">Employee</span>
-          <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
+          <i class="fa fa-chevron-right sidebar__icon-right <?= $this->request->controller == 'Users' ? 'fa-chevron-down' : '' ?> " aria-hidden="true"></i>
         </a>
-        <ul class="sidebar__sub-list">
+        <ul class="sidebar__sub-list" style="<?= $this->request->controller == 'Users' ? 'display: block' : '' ?>">
           <li class="sidebar__item-list">
             <a href="/admin/users/add" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
@@ -30,12 +30,12 @@
         </ul>
       </li>
       <li class="sidebar__list">
-        <a class="sidebar__item sidebar__item--js">
+        <a class="sidebar__item sidebar__item--js <?= $this->request->controller == 'UserLeaves' ? 'sidebar__js' : '' ?>">
           <i class="fa fa-bed sidebar__icon" aria-hidden="true"></i>
           <span>Leave</span>
-          <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
+          <i class="fa fa-chevron-right sidebar__icon-right <?= $this->request->controller == 'UserLeaves' ? 'fa-chevron-down' : '' ?> " aria-hidden="true"></i>
         </a>
-        <ul class="sidebar__sub-list">
+        <ul class="sidebar__sub-list" style="<?= $this->request->controller == 'UserLeaves' ? 'display: block' : '' ?>">
           <li class="sidebar__item-list">
             <a href="/admin/user_leaves" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>

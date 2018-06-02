@@ -97,10 +97,16 @@ class UsersController extends AppController
     }
 
     public function logout() {
+        if ($this->request->session()->check('Flash') && empty($this->request->session()->read('Flash'))) {
+            $this->request->session()->delete('Flash');
+        }
         return $this->redirect($this->Auth->logout());
     }
 
     public function index() {
+        if ($this->request->session()->check('Flash') && empty($this->request->session()->read('Flash'))) {
+            $this->request->session()->delete('Flash');
+        }
         $users = $this->User->find('all')
             ->where([
                 'del_flg'    => 0,
