@@ -68,9 +68,22 @@
           text: 'Save as PDF',
           className: 'button button--report',
           title: 'Faculty Profile',
+          orientation: 'landscape',
+          pageSize: 'LEGAL',
           customize: function (doc) {
+            var rowCount = document.getElementById("dataTable").rows.length;
             doc.content[1].table.widths = 
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+
+            for (i = 1; i < rowCount; i++) {
+              doc.content[1].table.body[i][0].alignment = 'center';
+              doc.content[1].table.body[i][1].alignment = 'center';
+              doc.content[1].table.body[i][2].alignment = 'center';
+              doc.content[1].table.body[i][3].alignment = 'center';
+              doc.content[1].table.body[i][4].alignment = 'center';
+              doc.content[1].table.body[i][5].alignment = 'center';
+              doc.content[1].table.body[i][6].alignment = 'center';
+            }
           }
         },
         {
