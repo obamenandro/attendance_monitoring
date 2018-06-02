@@ -73,7 +73,15 @@ class UserLeavesController extends AppController
         return $this->redirect('/admin/user_leaves');
     }
 
-    public function viewLeave() {
+    public function view_leave() {
+        $records = $this->UserLeave->find('all')
+            ->contain('Users', function ($r) {
+                return $r
+                ->where(['role' => Configure::read('role.employee')]);
+            })
+            ->where(['UserLeaves.del_flg' => 0, 'UserLeaves.status !=' => 0])
+            ->toArray();
 
+        $this->set(compact('records'));
     }
 }
