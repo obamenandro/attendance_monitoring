@@ -30,7 +30,8 @@
               <td class="table__body-list"><?= $leave['date_start']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list">
-                <a href="/admin/UserLeaves/leaveApprove/<?= $leave['id'] ?>" class="table__view">Approve</a>
+                <!-- <a href="/admin/UserLeaves/leaveApprove/<?= $leave['id'] ?>" class="table__view">Approve</a> -->
+                <a class="table__view js-button-approve">Approve</a>
                 <a class="table__view table__view--decline" id="<?= $leave['id']; ?>">Decline</a>
               </td>
             </tr>
@@ -99,6 +100,29 @@
   </div>
 </div>
 
+<div class="modal" id="js-modal-confirm" style="display: inline-block;">
+  <div class="modal__container modal__container--confirm">
+    <div class="modal__header">
+      <div class="modal__close">
+        <span class="modal__exit">x</span>
+      </div>
+      <div class="modal__title">
+        <h3>Confirmation</h3>
+      </div>
+    </div>
+
+    <div class="modal__content">
+      <div class="modal__content-text">
+       <span>Are you sure you want to approved?</span>
+      </div>
+      <div class="modal__button">
+        <a class="button button--back">Close</a>
+        <a href="/admin/UserLeaves/leaveApprove/<?= $leave['id'] ?>" class="button button--submit">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   var id = "";
   $('.table__view--decline').click(function() {
@@ -110,8 +134,18 @@
     });
   });
 
+  $('.js-button-approve').click(function() {
+    $('.backdrop').show();
+    $('#js-modal-confirm').css({
+        top: 0
+    });
+  })
+
   $('.modal__close').click(function() {
     $('.backdrop').hide();
+    $('#js-modal-confirm').css({
+      top: '-100%'
+    })
     $('#js-modal-disapproved-'+id).css({
         top: '-100%'
     })

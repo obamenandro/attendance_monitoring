@@ -43,7 +43,7 @@
             </a>
           </li>
           <li class="sidebar__item-list">
-            <a href="/admin/view_leave" class="sidebar__item">
+            <a href="/admin/users_leaves/view_leave" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text">List of Leave Filed</span>
             </a>
