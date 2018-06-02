@@ -68,7 +68,7 @@
           extend: 'print',
           text: 'Print Report',
           className: 'button button--report',
-          title: 'Master 201 File' + '</br>' + 'College Department',
+          title: 'Master 201 File College Department',
           customize: function ( win ) {
               $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
               $(win.document.body).find('table').css('text-align','center' );

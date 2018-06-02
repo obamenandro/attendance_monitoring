@@ -148,10 +148,6 @@ a {
   padding: 40px 0;
   line-height: 1.5em; }
 
-@page {
-  margin: 5mm;
-  size: auto; }
-
 .not-applicable {
   color: #FF0000; }
 
