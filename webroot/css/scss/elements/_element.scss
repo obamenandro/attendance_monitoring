@@ -148,3 +148,16 @@ a {
 span.sidebar__information-data {
   font-weight: 700;
 }
+
+.panel__chart {
+  width: 455px;
+  margin: 0 auto;
+  height: 500px;
+  padding: 40px 0;
+
+  canvas {
+    display: block;
+    height: 100% !important;
+    width: 100% !important;
+  }
+}

@@ -1008,4 +1008,8 @@ class UsersController extends AppController
             ->toArray();
         $this->set(compact('users'));
     }
+
+    public function home() {
+
+    }
 }
