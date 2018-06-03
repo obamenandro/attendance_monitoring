@@ -151,6 +151,9 @@ a {
 .not-applicable {
   color: #FF0000; }
 
+span.sidebar__information-data {
+  font-weight: 700; }
+
 /*components*/
 .header {
   position: fixed;
@@ -237,7 +240,7 @@ a {
     padding: 20px 0; }
   .sidebar__name {
     display: block;
-    padding: 20px 0 50px;
+    padding: 20px 0 30px;
     border-bottom: 1px dotted #FFFFFF; }
   .sidebar__icon {
     display: inline-block;
@@ -746,6 +749,18 @@ a {
     font-size: 14px;
     cursor: pointer;
     color: #5A75CC; }
+
+.login__forgot-password.login__forgot-password--user .login__as-admin-text {
+  font-size: 14px;
+  cursor: pointer;
+  color: #5A75CC;
+  float: right; }
+
+.login__forgot-password.login__forgot-password--user .login__as-admin-text {
+  font-size: 14px;
+  cursor: pointer;
+  color: #5A75CC;
+  float: left; }
 
 .table__head {
   background-color: #049FDA;
