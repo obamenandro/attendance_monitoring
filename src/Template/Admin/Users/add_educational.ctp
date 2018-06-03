@@ -662,8 +662,10 @@
         var data = $(el).val();
         var len = data.length;
         if ( len < 1 ) {
-          $('.form__error-required').css('display','inline-block');
+          $(el).parent().parent().next().css('display','inline-block');
           e.preventDefault();
+        } else {
+          $(el).parent().parent().next().css('display','none');
         }
       })
     })

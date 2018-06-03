@@ -66,7 +66,8 @@
               <i class="fa fa-lock login__icon"></i>
             </div>
           </li>
-          <li class="login__forgot-password">
+          <li class="login__forgot-password login__forgot-password--user">
+            <a href="/users/login" class="login__as-admin-text">Login as User?</a>
             <a class="login__forgot-text">Forgot Password?</a>
           </li>
 
