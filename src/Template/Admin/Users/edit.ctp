@@ -7,7 +7,7 @@
   <div class="panel__content">
     <div>
       <?=
-        $this->Form->create($addForm, [
+        $this->Form->create($userEdit, [
           'enctype' => 'multipart/form-data',
           'type'    => 'POST'
         ]);
@@ -63,7 +63,16 @@
                 <label class="form__label">Date Hired</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" class="form__inputbox form--date-js">
+                <?=
+                  $this->Form->control('date_hired', [
+                    'type'     => 'text',
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'readonly' => true,
+                    'class'    => 'form__inputbox form--date-js'
+                  ]);
+                ?>
               </div>
             </div>
             
@@ -72,16 +81,16 @@
                 <label class="form__label">Deparment:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <select class="form__inputbox">
-                  <option>--select</option>
-                  <option>GenEd</option>
-                  <option>BSMT</option>
-                  <option>BSMarE</option>
-                  <option>BSNA</option>
-                  <option>Admin</option>
-                  <option>Staff</option>
-                  <option>Maintenance Personnel</option>
-                </select>
+                <?=
+                  $this->Form->control('department', [
+                    'options'  => $departments,
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'empty'    => 'Select Deparment',
+                    'class'    => 'form__inputbox'
+                  ]);
+                ?>
               </div>
             </div>
 
@@ -107,7 +116,15 @@
                 <label class="form__label">Subject:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <textarea class="form__inputbox form__inputbox--textarea"></textarea>
+                <?=
+                  $this->Form->control('subject', [
+                    'type'     => 'textarea',
+                    'class'    => 'form__inputbox form__inputbox--textarea',
+                    'label'    => false,
+                    'required' => false
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('subject'); ?></span>
               </div>
             </div>
 
@@ -116,12 +133,21 @@
                 <label class="form__label">Leave:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="number" class="form__inputbox">
+                <?=
+                  $this->Form->control('total_leave', [
+                    'type'     => 'number',
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'class'    => 'form__inputbox'
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('leave'); ?></span>
               </div>
             </div>
           </div>
           <div class="form__button">
-            <a href="/admin/users/edit_personal" class="button button--submit">NEXT</a>
+            <input type="submit" class="button button--submit" value="NEXT">
           </div>
         </div>
       <?= $this->Form->end(); ?>

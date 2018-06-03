@@ -7,10 +7,7 @@
   <div class="panel__content">
     <div>
       <?=
-        $this->Form->create($addForm, [
-          'enctype' => 'multipart/form-data',
-          'type'    => 'POST'
-        ]);
+        $this->Form->create($userEdit);
       ?>
       <div class="form__content">
         <ul class="form__breadcrumb">
@@ -307,8 +304,9 @@
             </div>
           </div>
           <div class="form__button">
-            <a href="/admin/users/edit" class="button button--back">Back</a>
-            <a href="/admin/users/edit_educational" class="button button--submit">NEXT</a>
+            <a href="/admin/users/edit/<?= $id ?>" class="button button--back">Back</a>
+            <!-- <a href="/admin/users/edit_educational" class="button button--submit">NEXT</a> -->
+            <input type="submit" class="button button--submit" value="NEXT">
           </div>
         </div>            
       <?= $this->Form->end(); ?>

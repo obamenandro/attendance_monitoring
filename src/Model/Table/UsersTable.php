@@ -60,20 +60,9 @@ class UsersTable extends Table
         $this->hasMany('UserEligibilities', [
             'foreignKey' => 'user_id'
         ]);
-        // $this->hasMany('UserDepartments', [
-        //     'foreignKey'       => 'user_id',
-        //     'joinType'         => 'INNER',
-        //     'dependent'        => true,
-        //     'cascadeCallbacks' => true,
-        //     'conditions'       => ['UserDepartments.del_flg' => 0]
-        // ]);
-        // $this->hasMany('UserSubjects', [
-        //     'foreignKey'       => 'user_id',
-        //     'joinType'         => 'INNER',
-        //     'dependent'        => true,
-        //     'cascadeCallbacks' => true,
-        //     'conditions'       => ['UserSubjects.del_flg' => 0]
-        // ]);
+        $this->hasMany('Seminars', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
@@ -207,6 +196,31 @@ class UsersTable extends Table
             ])
             ->notEmpty('confirm_password', 'Confirm password is required.');
 
+        return $validator;
+    }
+
+    public function validationEditUser(Validator $validator) {
+        $validator
+            ->scalar('jobtype')
+            ->notEmpty('jobtype', __('Jobtype is required.'));
+        $validator
+            ->scalar('designation')
+            ->notEmpty('designation', __('Designation is required.'));
+        $validator
+            ->scalar('date_hired')
+            ->notEmpty('date_hired', __('Date Hired is required.'));
+        $validator
+            ->scalar('department')
+            ->notEmpty('department', __('Department is required.'));
+        $validator
+            ->scalar('position')
+            ->notEmpty('position', __('Position is required.'));
+        $validator
+            ->scalar('subject')
+            ->notEmpty('subject', __('Subject is required.'));
+        $validator
+            ->scalar('leave')
+            ->notEmpty('leave', __('Leave is required.'));
         return $validator;
     }
 }

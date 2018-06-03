@@ -15,26 +15,13 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($users as $user): ?>
             <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
+              <td class="table__body-list"><?= $user['id'] ?></td>
+              <td class="table__body-list"><?= $user['conducted_by'] ?></td>
+              <td class="table__body-list"><?= $user['date'] ?></td>
             </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-            </tr>
-            <tr>
-              <td class="table__body-list">1</td>
-              <td class="table__body-list">Dela Cruz, Juan</td>
-              <td class="table__body-list">MA Management</td>
-            </tr>
+            <?php endforeach ?>
           </tbody>
         </table>
       </div>
