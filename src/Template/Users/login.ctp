@@ -67,7 +67,8 @@
             </div>
           </li>
 
-          <li class="login__forgot-password">
+          <li class="login__forgot-password login__forgot-password--user">
+            <a href="/admin/users/login" class="login__as-admin-text">Login as Admin?</a>
             <a class="login__forgot-text">Forgot Password?</a>
           </li>
 

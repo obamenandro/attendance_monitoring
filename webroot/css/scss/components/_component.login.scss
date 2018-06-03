@@ -91,3 +91,17 @@
   }
 }
 
+.login__forgot-password.login__forgot-password--user {
+  .login__as-admin-text {
+    font-size: 14px;
+    cursor: pointer;
+    color: #5A75CC;
+    float: right;
+  }
+  .login__as-admin-text {
+    font-size: 14px;
+    cursor: pointer;
+    color: #5A75CC;
+    float: left;
+  }
+}
