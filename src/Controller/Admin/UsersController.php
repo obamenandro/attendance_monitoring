@@ -60,6 +60,9 @@ class UsersController extends AppController
         $this->layout = false;
 
         if ($this->request->session()->check('Flash')) {
+            if (empty($session->read('Flash'))) {
+                $session->delete('Flash');   
+            }
             $session = $this->request->session();
             if ($session->read('Flash.success')) {
                 $this->Flash->success(__($session->read('Flash.success')));
@@ -428,7 +431,7 @@ class UsersController extends AppController
             $data       = $this->request->getData();
             $data['id'] = $id;
             $userEdit   = $this->User->patchEntity($userEdit, $data,['validate' => 'EditUser']);
-            if (empty($userEdit->errors())) {
+            if ($userEdit->errors() == NULL) {
                 $this->request->session()->write('Data.User', $data);
                 return $this->redirect('/admin/users/edit_personal');
             }
