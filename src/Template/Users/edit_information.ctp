@@ -263,7 +263,16 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input text">
-                <input type="number" class="form__inputbox" value="11111111111" readonly> 
+                <?= 
+                  $this->Form->control('sss_number', [
+                    'type'     => 'number',
+                    'div'      => false,
+                    'label'    => false,
+                    'required' => false,
+                    'class'    => 'form__inputbox',
+                    'readonly' => true
+                  ]);
+                ?> 
               </div>
             </div>
           </div>
@@ -273,7 +282,16 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input text">
-                <input type="number" class="form__inputbox" value="11111111111" readonly> 
+                <?= 
+                  $this->Form->control('tin_number', [
+                    'type'     => 'number',
+                    'div'      => false,
+                    'label'    => false,
+                    'required' => false,
+                    'class'    => 'form__inputbox',
+                    'readonly' => true
+                  ]);
+                ?>
               </div>
             </div>
           </div>
@@ -283,7 +301,16 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input text">
-                <input type="number" class="form__inputbox" value="11111111111" readonly> 
+                <?= 
+                  $this->Form->control('philhealth_number', [
+                    'type'     => 'number',
+                    'div'      => false,
+                    'label'    => false,
+                    'required' => false,
+                    'class'    => 'form__inputbox',
+                    'readonly' => true
+                  ]);
+                ?>
               </div>
             </div>
           </div>
@@ -293,14 +320,23 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input text">
-                <input type="number" class="form__inputbox" value="11111111111" readonly> 
+                <?= 
+                  $this->Form->control('pagibig_number', [
+                    'type'     => 'number',
+                    'div'      => false,
+                    'label'    => false,
+                    'required' => false,
+                    'class'    => 'form__inputbox',
+                    'readonly' => true
+                  ]);
+                ?>
               </div>
             </div>
           </div>
         </div>
 
         <div class="form__button">
-          <a href="/users/edit_educational" class="button button--submit">NEXT</a>
+          <input type="submit" class="button button--submit" value="NEXT">
         </div>
         
         <?= $this->Form->end(); ?>

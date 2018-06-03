@@ -18,6 +18,7 @@ use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Network\Session\DatabaseSession;
+use Cake\Core\Configure;
 /**
  * Application Controller
  *
@@ -78,31 +79,30 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        $this->Department       = TableRegistry::get('Departments');
-        $this->Government       = TableRegistry::get('Governments');
-        //$this->Subject        = TableRegistry::get('Subjects');
-        //$this->UserDepartment = TableRegistry::get('UserDepartments');
-        $this->Attendance       = TableRegistry::get('Attendances');
-        $this->User             = TableRegistry::get('Users');
-        $this->UserLeave        = TableRegistry::get('UserLeaves');
-        $this->EmailActivation  = TableRegistry::get('EmailActivations');
-        $this->UserAttainment   = TableRegistry::get('UserAttainments');
-        $this->UserEligibility  = TableRegistry::get('UserEligibilities');
-        $this->UserChecklist    = TableRegistry::get('UserChecklists');
-        $this->WorkExperience   = TableRegistry::get('WorkExperience');
+        $this->Department      = TableRegistry::get('Departments');
+        $this->Government      = TableRegistry::get('Governments');
+        $this->Attendance      = TableRegistry::get('Attendances');
+        $this->User            = TableRegistry::get('Users');
+        $this->UserLeave       = TableRegistry::get('UserLeaves');
+        $this->EmailActivation = TableRegistry::get('EmailActivations');
+        $this->UserAttainment  = TableRegistry::get('UserAttainments');
+        $this->UserEligibility = TableRegistry::get('UserEligibilities');
+        $this->UserChecklist   = TableRegistry::get('UserChecklists');
+        $this->WorkExperience  = TableRegistry::get('WorkExperience');
+        $this->Seminar         = TableRegistry::get('Seminars');
 
         $session = $this->request->session();
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {
             $id   = $session->read('Auth.User.id');
             $user = $this->User->find()
-                  ->where([
+                ->where([
                     'Users.id'   => $id,
                     'Users.role' => 2
-                  ])
-                  ->first()
-                  ->toArray();
-
+                ])
+                ->first()
+                ->toArray();
             $this->set('user', $user);
+            $this->set('department', Configure::read('departments'));
         }
     }
 }

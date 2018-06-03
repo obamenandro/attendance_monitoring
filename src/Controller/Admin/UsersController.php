@@ -30,18 +30,7 @@ class UsersController extends AppController
         $this->Auth->allow(['add', 'login', 'register', 'forgot_password', 'email_activation']);
         $this->User = TableRegistry::get('Users');
         $this->Auth->allow(['register']);
-        $this->Auth->allow(['add']);
-        $this->Auth->allow(['edit']);
         $this->Auth->allow(['login']);
-        $this->Auth->allow(['employee']);
-        $this->Auth->allow(['add_attendance']);
-        $this->Auth->allow(['view_info']);
-        $this->Auth->allow(['add_department']);
-        $this->Auth->allow(['add_subject']);
-        $this->Auth->allow(['list_department']);
-        $this->Auth->allow(['list_subject']);
-        $this->Auth->allow(['success']);
-        $this->Auth->allow(['user_home']);
     }
 
     public function register()
@@ -119,130 +108,6 @@ class UsersController extends AppController
         $this->set(compact('users'));
     }
 
-    // public function add() {
-    //     $addForm          = new EmployeeRegistrationForm();
-    //     $civilStatus      = Configure::read('civil_status');
-    //     $designation      = Configure::read('designation');
-    //     $jobtype          = Configure::read('job_type');
-    //     $this->Department = TableRegistry::get('Departments');
-    //     $this->Government = TableRegistry::get('Governments');
-    //     $this->Subject    = TableRegistry::get('Subjects');
-
-    //     $departments = $this->Department->find('all')
-    //         ->where(['del_flg' => 0]);
-
-    //     $subjects = $this->Subject->find('all')
-    //         ->where(['del_flg' => 0]);
-
-    //     if ($this->request->is('post')) {
-    //         $data = $this->request->getData();
-    //         if ($addForm->execute($data)) {
-    //             $data['password'] = substr(md5(microtime()), rand(0, 26), 10);
-    //             $email = new Email('default');
-    //             $userData = [
-    //                 'firstname'              => $data['firstname'],
-    //                 'middlename'             => $data['middlename'],
-    //                 'lastname'               => $data['lastname'],
-    //                 'birthdate'              => $data['birthdate'],
-    //                 'address'                => $data['address'],
-    //                 'contact'                => $data['contact'],
-    //                 'email'                  => $data['email'],
-    //                 'place_of_birth'         => $data['place_of_birth'],
-    //                 'citizenship'            => $data['citizenship'],
-    //                 'civil_status'           => $data['civil_status'],
-    //                 'position'               => $data['position'],
-    //                 'jobtype'                => $data['jobtype'],
-    //                 'designation'            => $data['designation'],
-    //                 'role'                   => Configure::read('role.employee'),
-    //                 'password'               => $data['password']
-    //             ];
-    //             $entity = $this->User->newEntity();
-    //             $entity = $this->User->patchEntity($entity, $userData);
-    //             if ($user = $this->User->save($entity)) {
-    //                 $userId    = $user->id;
-    //                 $send_mail = $email->transport('gmail')
-    //                    ->to($userData['email'])
-    //                    ->from('nameihris@gmail.com')
-    //                    ->emailFormat('html')
-    //                    ->template('temporary_password_mail')
-    //                    ->viewVars([
-    //                         'user_name' => $userData['firstname'],
-    //                         'password'  => $userData['password']
-    //                     ])
-    //                    ->subject(__('Namei Polytechnic Institute'))
-    //                    ->send();
-    //                 $this->Upload->upload($data['image']);
-    //                 if($this->Upload->uploaded) {
-    //                     $imageName = md5(time());
-    //                     $this->Upload->file_new_name_body = $imageName;
-    //                     $this->Upload->process('uploads/employee/'.$userId.'/');
-    //                     $profileImage = $this->Upload->file_dst_name;
-
-    //                     $addImage = $this->User->get($userId);
-    //                     $addImage->image = '/uploads/employee/'.$userId.'/'.$profileImage;
-    //                     $this->User->save($addImage);
-    //                 }
-    //                 if (!empty($data['sss_number'])        ||
-    //                     !empty($data['gsis_number'])       ||
-    //                     !empty($data['philhealth_number']) ||
-    //                     !empty($data['pagibig_number'])    ||
-    //                     !empty($data['tin_number']))
-    //                 {
-    //                     $governmentData = [
-    //                         'user_id'           => $userId,
-    //                         'sss_number'        => $data['sss_number'],
-    //                         'gsis_number'       => $data['gsis_number'],
-    //                         'philhealth_number' => $data['philhealth_number'],
-    //                         'pagibig_number'    => $data['pagibig_number'],
-    //                         'tin_number'        => $data['tin_number']
-    //                     ];
-    //                     $government = $this->Government->newEntity();
-    //                     $government = $this->Government->patchEntity($government, $governmentData);
-    //                     $this->Government->save($government);
-    //                 }
-
-
-    //                 if (!empty($data['department_id'])) {
-    //                     $this->UserDepartment = TableRegistry::get('UserDepartments');
-    //                     $userDepartment       = [];
-
-    //                     foreach ($data['department_id'] as $department) {
-    //                         $userDepartment[] = [
-    //                             'department_id' => $department,
-    //                             'user_id'       => $userId
-    //                         ];
-    //                     }
-
-    //                     $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
-    //                     foreach ($userDepartmentEntity as $entity) {
-    //                         $this->UserDepartment->save($entity);
-    //                     }
-    //                 }
-
-    //                 if (!empty($data['subject_id'])) {
-    //                     $this->UserSubject = TableRegistry::get('UserSubjects');
-    //                     $userSubject       = [];
-    //                     foreach ($data['subject_id'] as $subject) {
-    //                         $userSubject[] = [
-    //                             'subject_id' => $subject,
-    //                             'user_id'    => $userId
-    //                         ];
-    //                     }
-    //                     $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
-    //                     foreach ($userSubjectEntity as $entity) {
-    //                         $this->UserSubject->save($entity);
-    //                     }
-    //                 }
-    //                 $this->Flash->success(__('Your employee has been successfully added.'));
-    //                 return $this->redirect('/admin/users/');
-
-    //             }
-    //         } else {
-    //             $this->Flash->error(__("There's an error occur saving has been failed."));
-    //         }
-    //     }
-    //     $this->set(compact('addForm', 'civilStatus', 'departments', 'jobtype', 'designation', 'subjects'));
-    // }
     /**
      * adding employee first part
      */
@@ -544,111 +409,6 @@ class UsersController extends AppController
             $session->delete('Data');
             return $this->redirect('/admin/users');
         }
-    //         $data = $this->request->getData();
-    //         if ($addForm->execute($data)) {
-    //             $data['password'] = substr(md5(microtime()), rand(0, 26), 10);
-    //             $email = new Email('default');
-                // $userData = [
-                //     'firstname'              => $data['firstname'],
-                //     'middlename'             => $data['middlename'],
-                //     'lastname'               => $data['lastname'],
-                //     'birthdate'              => $data['birthdate'],
-                //     'address'                => $data['address'],
-                //     'contact'                => $data['contact'],
-                //     'email'                  => $data['email'],
-                //     'place_of_birth'         => $data['place_of_birth'],
-                //     'citizenship'            => $data['citizenship'],
-                //     'civil_status'           => $data['civil_status'],
-                //     'position'               => $data['position'],
-                //     'jobtype'                => $data['jobtype'],
-                //     'designation'            => $data['designation'],
-                //     'role'                   => Configure::read('role.employee'),
-                //     'password'               => $data['password']
-                // ];
-    //             $entity = $this->User->newEntity();
-    //             $entity = $this->User->patchEntity($entity, $userData);
-    //             if ($user = $this->User->save($entity)) {
-    //                 $userId    = $user->id;
-    //                 $send_mail = $email->transport('gmail')
-    //                    ->to($userData['email'])
-    //                    ->from('nameihris@gmail.com')
-    //                    ->emailFormat('html')
-    //                    ->template('temporary_password_mail')
-    //                    ->viewVars([
-    //                         'user_name' => $userData['firstname'],
-    //                         'password'  => $userData['password']
-    //                     ])
-    //                    ->subject(__('Namei Polytechnic Institute'))
-    //                    ->send();
-    //                 $this->Upload->upload($data['image']);
-    //                 if($this->Upload->uploaded) {
-    //                     $imageName = md5(time());
-    //                     $this->Upload->file_new_name_body = $imageName;
-    //                     $this->Upload->process('uploads/employee/'.$userId.'/');
-    //                     $profileImage = $this->Upload->file_dst_name;
-
-    //                     $addImage = $this->User->get($userId);
-    //                     $addImage->image = '/uploads/employee/'.$userId.'/'.$profileImage;
-    //                     $this->User->save($addImage);
-    //                 }
-    //                 if (!empty($data['sss_number'])        ||
-    //                     !empty($data['gsis_number'])       ||
-    //                     !empty($data['philhealth_number']) ||
-    //                     !empty($data['pagibig_number'])    ||
-    //                     !empty($data['tin_number']))
-    //                 {
-    //                     $governmentData = [
-    //                         'user_id'           => $userId,
-    //                         'sss_number'        => $data['sss_number'],
-    //                         'gsis_number'       => $data['gsis_number'],
-    //                         'philhealth_number' => $data['philhealth_number'],
-    //                         'pagibig_number'    => $data['pagibig_number'],
-    //                         'tin_number'        => $data['tin_number']
-    //                     ];
-    //                     $government = $this->Government->newEntity();
-    //                     $government = $this->Government->patchEntity($government, $governmentData);
-    //                     $this->Government->save($government);
-    //                 }
-
-
-    //                 if (!empty($data['department_id'])) {
-    //                     $this->UserDepartment = TableRegistry::get('UserDepartments');
-    //                     $userDepartment       = [];
-
-    //                     foreach ($data['department_id'] as $department) {
-    //                         $userDepartment[] = [
-    //                             'department_id' => $department,
-    //                             'user_id'       => $userId
-    //                         ];
-    //                     }
-
-    //                     $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
-    //                     foreach ($userDepartmentEntity as $entity) {
-    //                         $this->UserDepartment->save($entity);
-    //                     }
-    //                 }
-
-    //                 if (!empty($data['subject_id'])) {
-    //                     $this->UserSubject = TableRegistry::get('UserSubjects');
-    //                     $userSubject       = [];
-    //                     foreach ($data['subject_id'] as $subject) {
-    //                         $userSubject[] = [
-    //                             'subject_id' => $subject,
-    //                             'user_id'    => $userId
-    //                         ];
-    //                     }
-    //                     $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
-    //                     foreach ($userSubjectEntity as $entity) {
-    //                         $this->UserSubject->save($entity);
-    //                     }
-    //                 }
-    //                 $this->Flash->success(__('Your employee has been successfully added.'));
-    //                 return $this->redirect('/admin/users/');
-
-    //             }
-    //         } else {
-    //             $this->Flash->error(__("There's an error occur saving has been failed."));
-    //         }
     }
 
     public function edit($id = NULL) {
@@ -839,20 +599,29 @@ class UsersController extends AppController
 
     public function view($id = NULL) {
         $employee = $this->User->find()
-                        ->where([
-                            'Users.id'      => $id,
-                            'Users.role'    => Configure::read('role.employee'),
-                            'Users.del_flg' => 0
-                        ])
-                        ->first()
-                        ->toArray();
-
+            ->where([
+                'Users.id'      => $id,
+                'Users.role'    => Configure::read('role.employee'),
+                'Users.del_flg' => 0
+            ])
+            ->first()
+            ->toArray();
         $attendanceLists = $this->Attendance->find('all')
-                         ->where(['Attendances.user_id' => $id])
-                         ->toArray();
+             ->where(['Attendances.user_id' => $id])
+             ->toArray();
 
         if ($this->request->is('POST')) {
             $data            = $this->request->data;
+            $check_date = $this->Attendance->find('all')
+                ->where([
+                    'Attendances.user_id' => $id,
+                    'Attendances.date'     => $data['date']
+                ])
+                ->toArray();
+            if (!empty($check_date)) {
+                $this->Flash->error(__('Date is already exists'));
+                return $this->redirect('/admin/users/view/'.$id);
+            }
             $entity          = $this->Attendance->newEntity();
             $entity          = $this->Attendance->patchEntity($entity, $data);
             $entity->user_id = $id;
@@ -861,7 +630,7 @@ class UsersController extends AppController
                 $this->Flash->success(__('Attendance has been successfully added.'));
                 return $this->redirect('/admin/users/view/'.$id);
             } else {
-                $this->Flash->success(__('Attendance has been failed to added.'));
+                $this->Flash->error(__('Attendance has been failed to added.'));
                 return $this->redirect('/admin/users/view/'.$id);
             }
         }

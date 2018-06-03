@@ -20,7 +20,7 @@
             </a>
           </li>
         </ul>
-
+        <?= $this->Form->create(); ?>
         <div class="form">
           <div class="form__user-title">
             <span>DOCTORATE</span>
@@ -32,7 +32,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Doctorate.school_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox',
+                      'value'    => isset($educational[1]) && !empty($educational[1]['school_name']) 
+                                ? $educational[1]['school_name'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -42,7 +52,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Doctorate.course', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox',
+                      'value'    => isset($educational[1]) && !empty($educational[1]['course']) 
+                                ? $educational[1]['course'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -52,7 +72,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Doctorate.units', [
+                      'type'     => 'number',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox',
+                      'value'    => isset($educational[1]) && !empty($educational[1]['units']) 
+                                ? $educational[1]['units'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -62,13 +92,20 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('Doctorate.year_graduated', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox form__year-graduated',
+                      'value'    => isset($educational[1]) && !empty($educational[1]['year_graduated']) 
+                                ? $educational[1]['year_graduated'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
           </div>
         </div>
 
@@ -83,7 +120,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Master.school_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox',
+                      'value'    => isset($educational[2]) && !empty($educational[2]['school_name']) 
+                                ? $educational[2]['school_name'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -93,7 +140,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Master.course', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox',
+                      'value'    => isset($educational[2]) && !empty($educational[2]['course']) 
+                                ? $educational[2]['course'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -103,7 +160,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Master.units', [
+                      'type'     => 'number',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox',
+                      'value'    => isset($educational[2]) && !empty($educational[2]['units']) 
+                                ? $educational[2]['units'] : ''
+                    ]);
+                  ?> 
                 </div>
               </div>
             </div>
@@ -113,13 +180,20 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('Master.year_graduated', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox form__year-graduated',
+                      'value'    => isset($educational[2]) && !empty($educational[2]['year_graduated']) 
+                                ? $educational[2]['year_graduated'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
           </div>
         </div>
 
@@ -134,7 +208,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('College.school_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($educational[3]) && !empty($educational[3]['school_name']) 
+                                ? $educational[3]['school_name'] : ''
+                    ]);
+                  ?> 
                 </div>
               </div>
             </div>
@@ -144,7 +228,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('College.course', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($educational[3]) && !empty($educational[3]['course']) 
+                                ? $educational[3]['course'] : ''
+                    ]);
+                  ?> 
                 </div>
               </div>
             </div>
@@ -154,7 +248,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('College.year_graduated', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required form__year-graduated',
+                      'value'    => isset($educational[3]) && !empty($educational[3]['year_graduated']) 
+                                ? $educational[3]['year_graduated'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -164,13 +268,20 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('College.level_attained', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($educational[3]) && !empty($educational[3]['level_attained']) 
+                                ? $educational[3]['level_attained'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
           </div>
         </div>
 
@@ -185,7 +296,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Secondary.school_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($educational[4]) && !empty($educational[4]['school_name']) 
+                                ? $educational[4]['school_name'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -195,7 +316,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Secondary.year_graduated', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required form__year-graduated',
+                      'value'    => isset($educational[4]) && !empty($educational[4]['year_graduated']) 
+                                ? $educational[4]['year_graduated'] : ''
+                    ]);
+                  ?>  
                 </div>
               </div>
             </div>
@@ -205,13 +336,20 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('Secondary.level_attained', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($educational[4]) && !empty($educational[4]['level_attained']) 
+                                ? $educational[4]['level_attained'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
           </div>
         </div>
 
@@ -226,7 +364,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Elementary.school_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($educational[5]) && !empty($educational[5]['school_name']) 
+                                ? $educational[5]['school_name'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -236,7 +384,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Elementary.year_graduated', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required form__year-graduated',
+                      'value'    => isset($educational[5]) && !empty($educational[5]['year_graduated']) 
+                                ? $educational[5]['year_graduated'] : ''
+                    ]);
+                  ?> 
                 </div>
               </div>
             </div>
@@ -246,13 +404,20 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('Elementary.level_attained', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required form__year-graduated',
+                      'value'    => isset($educational[5]) && !empty($educational[5]['level_attained']) 
+                                ? $educational[5]['level_attained'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
           </div>
         </div>
 
@@ -267,7 +432,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Elegibility.exam_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($eligibility[0]) && !empty($eligibility[0]['exam_name']) 
+                                ? $eligibility[0]['exam_name'] : ''
+                    ]);
+                  ?>
                 </div>
               </div>
             </div>
@@ -277,7 +452,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Elegibility.license_no', [
+                      'type'     => 'number',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($eligibility[0]) && !empty($eligibility[0]['license_no']) 
+                                ? $eligibility[0]['license_no'] : ''
+                    ]);
+                  ?>  
                 </div>
               </div>
             </div>
@@ -287,13 +472,20 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('Elegibility.valid_until', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required js-datepicker-to',
+                      'value'    => isset($eligibility[0]) && !empty($eligibility[0]['valid_until']) 
+                                ? $eligibility[0]['valid_until'] : ''
+                    ]);
+                  ?> 
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
           </div>
         </div>
 
@@ -308,7 +500,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                 <?=
+                    $this->Form->control('Work_experience.start_work', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox js-datepicker-from required',
+                      'value'    => isset($work_experience[0]) && !empty($work_experience[0]['start_work']) 
+                                ? $work_experience[0]['start_work'] : ''
+                    ]);
+                  ?>  
                 </div>
               </div>
             </div>
@@ -318,7 +520,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox">
+                  <?=
+                    $this->Form->control('Work_experience.end_work', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox js-datepicker-from required',
+                      'value'    => isset($work_experience[0]) && !empty($work_experience[0]['end_work']) 
+                                ? $work_experience[0]['end_work'] : ''
+                    ]);
+                  ?>  
                 </div>
               </div>
             </div>
@@ -328,7 +540,17 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Work_experience.position', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox js-datepicker-to required',
+                      'value'    => isset($work_experience[0]) && !empty($work_experience[0]['position']) 
+                                ? $work_experience[0]['position'] : ''
+                    ]);
+                  ?> 
                 </div>
               </div>
             </div>
@@ -338,20 +560,29 @@
               </div>
               <div class="form__input">
                 <div class="input text">
-                  <input type="text" class="form__inputbox"> 
+                  <?=
+                    $this->Form->control('Work_experience.company_name', [
+                      'type'     => 'text',
+                      'div'      => false, 
+                      'error'    => false,
+                      'required' => false,
+                      'class'    => 'form__inputbox required',
+                      'value'    => isset($work_experience[0]) && !empty($work_experience[0]['company_name']) 
+                                ? $work_experience[0]['company_name'] : ''
+                    ]);
+                  ?>   
                 </div>
               </div>
             </div>
           </div>
-          <div class="form__list-addform">
-            <a class="button button--addform">Add</a>
-          </div>
         </div>
-
+  
         <div class="form__button">
           <a href="/users/edit_information" class="button button--back">Back</a>
-          <a href="/users/edit_picture" class="button button--submit">NEXT</a>
+          <!-- <a href="/users/edit_picture" class="button button--submit">NEXT</a> -->
+          <input type="submit" class="button button--submit" value="NEXT">
         </div>
+        <?= $this->Form->end(); ?>
       </div>
     </div>
   </div>

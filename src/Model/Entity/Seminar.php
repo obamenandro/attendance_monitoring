@@ -4,19 +4,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * WorkExperience Entity
+ * Seminar Entity
  *
  * @property int $id
+ * @property string $attended
  * @property int $user_id
- * @property string $start_work
- * @property string $end_work
- * @property string $position
+ * @property string $conducted_by
+ * @property string $date
+ * @property int $del_flg
+ * @property string $deleted_date
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
- *
- * @property \App\Model\Entity\User $user
  */
-class WorkExperience extends Entity
+class Seminar extends Entity
 {
 
     /**
@@ -29,13 +29,13 @@ class WorkExperience extends Entity
      * @var array
      */
     protected $_accessible = [
-        'user_id'      => true,
-        'start_work'   => true,
-        'end_work'     => true,
-        'position'     => true,
-        'company_name' => true,
-        'created'      => true,
-        'modified'     => true,
-        'user'         => true
+        'attended' => true,
+        'user_id' => true,
+        'conducted_by' => true,
+        'date' => true,
+        'del_flg' => true,
+        'deleted_date' => true,
+        'created' => true,
+        'modified' => true
     ];
 }

@@ -8,8 +8,8 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users/seminars' ? 'user-panel__menu-list--active' : '' ?>">
-      <a href="/users/seminars" class="user-panel__menu-link">
+    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/seminars' ? 'user-panel__menu-list--active' : '' ?>">
+      <a href="/seminars" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
           <i class="fa fa-pencil-square-o user-panel__icon" aria-hidden="true"></i>
           <span>Trainings and Seminars</span>

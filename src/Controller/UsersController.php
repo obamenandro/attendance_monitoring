@@ -143,44 +143,193 @@ class UsersController extends AppController
         $userEdit    = $this->User->get($id);
         $civilStatus = Configure::read('civil_status');
 
-        //get all employee
-        $employee = $this->User->find('all')
-                    ->contain(['UserDepartments', 'UserSubjects', 'Governments'])
-                    ->where(['Users.id' => $id, 'Users.role' => 2])
-                    ->first();
-
         if ($this->request->is('POST')) {
-            $data               = $this->request->data;
-            $userEdit           = $this->User->patchEntity($userEdit, $data);
-            $userEdit->modified = date('Y-m-d H:i:s');
-
-            if ($this->request->data['image']['size'] == 0) {
-                $userEdit->image = $employee['image'];
-            }
-
-            if ($this->User->save($userEdit)) {
-                if ($this->request->data['image']['size'] != 0) {
-                    $this->Upload->upload($this->request->data['image']);
-                    if($this->Upload->uploaded) {
-                        $imageName = md5(time());
-                        $this->Upload->file_new_name_body = $imageName;
-                        $this->Upload->process('webroot/uploads/employee/'.$id.'/');
-                        $profileImage = $this->Upload->file_dst_name;
-
-                        $addImage = $this->User->get($id);
-                        $addImage->image = '/uploads/employee/'.$id.'/'.$profileImage;
-                        $this->User->save($addImage);
-                    }
-                }
-
-                $this->Flash->success('Your account has been successfully updated.');
-                return $this->redirect('/users/edit_information');
-            } else {
-                $this->Flash->error('Your account has been failed to update');
+            $data     = $this->request->getData();
+            $userEdit = $this->User->patchEntity($userEdit, $data);
+            if (empty($userEdit->errors())) {
+                $this->request->session()->write('Data.User', $data);
+                return $this->redirect('/users/edit_educational');
             }
         }
+        $this->set(compact('userEdit', 'civilStatus'));
+    }
 
-        $this->set(compact('userEdit', 'employee', 'civilStatus'));
+    public function editEducational() {
+        $id = $this->request->session()->read('Auth.User.id');
+        //data for user education attainment
+        $educational = $this->UserAttainment->find('all')
+            ->where(['user_id' => $id]) 
+            ->toArray();
+        //data for user eligibilities
+        $eligibility = $this->UserEligibility->find('all')
+            ->where(['user_id' => $id]) 
+            ->toArray();
+        //data for user work experience
+        $work_experience = $this->WorkExperience->find('all')
+            ->where(['user_id' => $id]) 
+            ->toArray();
+        $educational_new = [];
+        foreach ($educational as $key => $value) {
+            $educational_new[$value['degree']] = $value;
+        }
+        $session = $this->request->session();
+        if ($session->check('Data')) {
+            $session_data = $session->read('Data');
+            $session->delete('Data.Doctorate');
+            $session->delete('Data.Master');
+            $session->delete('Data.Secondary');
+            $session->delete('Data.Elementary');
+            $session->delete('Data.Elegibility');
+            $session->delete('Data.Work_experience');
+            $session->delete('Data.College');
+        }
+        if ($this->request->is('POST')) {
+            $data = $this->request->getData();
+            if (isset($session_data)) {
+                $data = array_merge($data, $session_data);
+            }
+            $session->write('Data', $data);
+            return $this->redirect('/users/edit_picture');
+        }
+
+        $this->set(compact('work_experience', 'eligibility'));
+        $this->set('educational', $educational_new);
+    }
+
+    public function editPicture() {
+        $session = $this->request->session();
+        if ($session->check('Data')) {
+            $session_data = $session->read('Data');
+        }
+        if ($this->request->is('post')) {
+            $data      = $this->request->getData();
+            $user_id   = $this->request->session()->read('Auth.User.id');
+            $user      = $this->User->get($user_id);
+            $user_data = $session_data['User'];
+            $user      = $this->User->patchEntity($user, $user_data);
+            if ($user = $this->User->save($user)) {
+                $this->Upload->upload($data['image']);
+                if($this->Upload->uploaded) {
+                    $image_name = md5(time());
+                    $this->Upload->file_new_name_body = $image_name;
+                    $this->Upload->process('uploads/employee/'.$user_id.'/');
+                    $profile_image    = $this->Upload->file_dst_name;
+                    $add_image        = $this->User->get($user_id);
+                    $add_image->image = '/uploads/employee/'.$user_id.'/'.$profile_image;
+                    $this->User->save($add_image);
+                }
+                $this->UserAttainment->deleteAll(['user_id' => $user_id]);
+                $this->UserEligibility->deleteAll(['user_id' => $user_id]);
+                $this->WorkExperience->deleteAll(['user_id' => $user_id]);
+                //for work experience
+                if ($session->check('Data.Work_experience')) {
+                    $work_experience_data = $session->read('Data.Work_experience');
+                    $work_experience      = [
+                        'user_id'      => $user_id,
+                        'start_work'   => $work_experience_data['start_work'],
+                        'end_work'     => $work_experience_data['end_work'],
+                        'position'     => $work_experience_data['position'],
+                        'company_name' => $work_experience_data['company_name']
+                    ];
+                    $work_experience_entity = $this->WorkExperience->newEntity();
+                    $work_experience_entity = $this->WorkExperience->patchEntity($work_experience_entity, $work_experience);
+                    $this->WorkExperience->save($work_experience_entity);
+                }
+                //for eligibility
+                if ($session->check('Data.Elegibility')) {
+                    $user_eligibilities      = $session->read('Data.Elegibility');
+                    $user_eligibilities_data = [
+                        'user_id'     => $user_id,
+                        'exam_name'   => $user_eligibilities['exam_name'],
+                        'license_no'  => $user_eligibilities['license_no'],
+                        'valid_until' => $user_eligibilities['valid_until']
+                    ];
+                    $user_eligibility_entity = $this->UserEligibility->newEntity();
+                    $user_eligibility_entity = $this->UserEligibility->patchEntity($user_eligibility_entity, $user_eligibilities_data);
+                    $this->UserEligibility->save($user_eligibility_entity);
+                }
+                //for Doctorate
+                if ($session->check('Data.Doctorate')) {
+                    $doctorate      = $session->read('Data.Doctorate');
+                    $doctorate_data = [
+                        'user_id'        => $user_id,
+                        'school_name'    => $doctorate['school_name'],
+                        'course'         => $doctorate['course'],
+                        'units'          => $doctorate['units'],
+                        'year_graduated' => $doctorate['year_graduated'],
+                        'degree'         => Configure::read('degree.Doctorate')
+                    ];
+                    $user_attainment_doctorate_entity = $this->UserAttainment->newEntity();
+                    $user_attainment_doctorate_entity = $this->UserAttainment->patchEntity($user_attainment_doctorate_entity, $doctorate_data);
+                    $this->UserAttainment->save($user_attainment_doctorate_entity);
+                }
+                //for Master
+                if ($session->check('Data.Master')) {
+                    $master      = $session->read('Data.Master');
+                    $master_data = [
+                        'user_id'        => $user_id,
+                        'school_name'    => $master['school_name'],
+                        'course'         => $master['course'],
+                        'units'          => $master['units'],
+                        'year_graduated' => $master['year_graduated'],
+                        'degree'         => Configure::read('degree.Master')
+                    ];
+                    $user_attainment_master_entity = $this->UserAttainment->newEntity();
+                    $user_attainment_master_entity = $this->UserAttainment->patchEntity($user_attainment_master_entity, $master_data);
+                    $this->UserAttainment->save($user_attainment_master_entity);
+                }
+                //for College
+                if ($session->check('Data.College')) {
+                    $college      = $session->read('Data.College');
+                    $college_data = [
+                        'user_id'        => $user_id,
+                        'school_name'    => $college['school_name'],
+                        'course'         => $college['course'],
+                        'level_attained' => $college['level_attained'],
+                        'year_graduated' => $college['year_graduated'],
+                        'degree'         => Configure::read('degree.College')
+                    ];
+                    $user_attainment_college_entity = $this->UserAttainment->newEntity();
+                    $user_attainment_college_entity = $this->UserAttainment->patchEntity($user_attainment_college_entity, $college_data);
+                    $this->UserAttainment->save($user_attainment_college_entity);
+                }
+                //for Secondary
+                if ($session->check('Data.Secondary')) {
+                    $secondary      = $session->read('Data.Secondary');
+                    $secondary_data = [
+                        'user_id'        => $user_id,
+                        'school_name'    => $secondary['school_name'],
+                        'level_attained' => $secondary['level_attained'],
+                        'year_graduated' => $secondary['year_graduated'],
+                        'degree'         => Configure::read('degree.Secondary')
+                    ];
+                    $user_attainment_secondary_entity = $this->UserAttainment->newEntity();
+                    $user_attainment_secondary_entity = $this->UserAttainment->patchEntity($user_attainment_secondary_entity, $secondary_data);
+                    $this->UserAttainment->save($user_attainment_secondary_entity);
+                }
+                //for Elementary
+                if ($session->check('Data.Elementary')) {
+                    $elementary      = $session->read('Data.Elementary');
+                    $elementary_data = [
+                        'user_id'        => $user_id,
+                        'school_name'    => $elementary['school_name'],
+                        'level_attained' => $elementary['level_attained'],
+                        'year_graduated' => $elementary['year_graduated'],
+                        'degree'         => Configure::read('degree.Elementary')
+                    ];
+                    $user_attainment_elementary_entity = $this->UserAttainment->newEntity();
+                    $user_attainment_elementary_entity = $this->UserAttainment->patchEntity($user_attainment_elementary_entity, $elementary_data);
+                    $this->UserAttainment->save($user_attainment_elementary_entity);
+                }
+                $this->Flash->success(__('Your employee has been successfully updated.'));
+                $session->delete('Data');
+                return $this->redirect('/users/edit_information');
+            } else {
+                $this->Flash->error(__('Your employee has been failed to updated.'));
+                // $session->delete('Data');
+                return $this->redirect('/users/edit_information');
+            }
+        }
     }
 
     public function logout() {
@@ -282,15 +431,7 @@ class UsersController extends AppController
         }
     }
 
-    public function seminars() {
+    public function checklist() {
 
-    }
-
-    public function editEducational() {
-        
-    }
-
-    public function editPicture() {
-        
     }
 }

@@ -199,7 +199,7 @@
                                 <label class="form__label">Date:</label>
                               </div>
                               <div class="form__input form__input--fullwidth">
-                                <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD" value="<?= date('Y-m-d', strtotime($attendanceList['date'])); ?>">
+                                <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD" value="<?= date('Y-m-d', strtotime($attendanceList['date'])); ?>" readonly>
                               </div>
                             </div>
                             <div class="form__list">
@@ -279,7 +279,7 @@
                 <label class="form__label">Date:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" name="date" class="form__inputbox js-datepicker js-date" placeholder="YYYY-MM-DD">
+                <input type="text" name="date" class="form__inputbox js-datepicker js-date" placeholder="YYYY-MM-DD" readonly>
               </div>
             </div>
             <div class="form__list">

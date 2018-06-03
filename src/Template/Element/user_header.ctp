@@ -7,7 +7,7 @@
       <a href="/users/change_password" class="header__control-link">
         <span>Change Password</span>
       </a>
-      <a href="/admin/users/logout" class="header__control-link">
+      <a href="/users/logout" class="header__control-link">
         <span>Logout</span>
       </a>
     </div>

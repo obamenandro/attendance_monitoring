@@ -20,23 +20,33 @@
         <div class="sidebar__information">
         <ul>
             <li class="sidebar__information-list">
-            <label class="sidebar__information-data">Employee ID:</label>
-            <span class="sidebar__information-data"><?= $user['id'] ?></span>
+                <label class="sidebar__information-data">Employee ID:</label>
+                <span class="sidebar__information-data"><?= $user['id'] ?></span>
             </li>
-            <?php if(isset($user['user_departments'])): ?>
             <li class="sidebar__information-list">
-            <label class="sidebar__information-data">Department:</label>
-            <span class="sidebar__information-data">
-                <?php
-                $department = "";
-                foreach($user['user_departments'] as $value) {
-                    $department.=$value['department']['name'].', ';
-                }
-                echo rtrim($department, ', ');
-                ?>
-            </span>
+                <label class="sidebar__information-data">Department:</label>
+                <span class="sidebar__information-data"><?= isset($department[$user['department']]) ? $department[$user['department']] : 'N/A' ?></span>
             </li>
-            <?php endif; ?>
+            <li class="sidebar__information-list">
+                <label class="sidebar__information-data">SSS:</label>
+                <span class="sidebar__information-data"><?= !empty($user['sss_number']) ? $user['sss_number'] : 'N/A' ?></span>
+            </li>
+            <li class="sidebar__information-list">
+                <label class="sidebar__information-data">GSIS:</label>
+                <span class="sidebar__information-data"><?= !empty($user['gsis_number']) ? $user['gsis_number'] : 'N/A' ?></span>
+            </li>
+            <li class="sidebar__information-list">
+                <label class="sidebar__information-data">TIN:</label>
+                <span class="sidebar__information-data"><?= !empty($user['tin_number']) ? $user['tin_number'] : 'N/A' ?></span>
+            </li>
+            <li class="sidebar__information-list">
+                <label class="sidebar__information-data">PHILHEALTH:</label>
+                <span class="sidebar__information-data"><?= !empty($user['philhealth_number']) ? $user['philhealth_number'] : 'N/A' ?></span>
+            </li>
+            <li class="sidebar__information-list">
+                <label class="sidebar__information-data">PAGIBIG:</label>
+                <span class="sidebar__information-data"><?= !empty($user['pagibig_number']) ? $user['pagibig_number'] : 'N/A' ?></span>
+            </li>
         </ul>
         </div>
     </div>

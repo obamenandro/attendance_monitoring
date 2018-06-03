@@ -147,7 +147,7 @@
             </div>
             <div class="form__input">
               <div class="input text">
-                <<?=
+                <?=
                   $this->Form->control('Master.course.', [
                     'type'     => 'text',
                     'div'      => false, 
