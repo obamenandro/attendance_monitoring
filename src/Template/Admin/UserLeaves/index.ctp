@@ -141,7 +141,7 @@
     });
   })
 
-  $('.modal__close').click(function() {
+  $('.modal__close, .button--back').click(function() {
     $('.backdrop').hide();
     $('#js-modal-confirm').css({
       top: '-100%'
