@@ -22,7 +22,7 @@
         type: 'pie',
         data: {
             datasets: [{
-                data: [10, 20, 30],
+                data: [<?= $technical1 ?>, <?= $technical2 ?>, <?= $technical3 ?>],
                 backgroundColor: [
                     window.chartColors.green,
                     window.chartColors.red,

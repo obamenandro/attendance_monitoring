@@ -1010,6 +1010,18 @@ class UsersController extends AppController
     }
 
     public function home() {
-
+        //3.12
+        $technical1 = $this->Seminar->find('all')
+            ->where(['Seminars.attended' => '3.12']);
+        //6.09
+        $technical2 = $this->Seminar->find('all')
+            ->where(['Seminars.attended' => '6.09']);
+        //6.10
+        $technical3 =$this->Seminar->find('all')
+            ->where(['Seminars.attended' => '6.10']);
+        $total = $technical1->count() + $technical2->count() + $technical3->count();
+        $this->set('technical1', round($technical1->count()/$total*100));
+        $this->set('technical2', round($technical2->count()/$total*100));
+        $this->set('technical3', round($technical3->count()/$total*100));
     }
 }
