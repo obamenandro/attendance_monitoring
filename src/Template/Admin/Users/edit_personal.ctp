@@ -188,11 +188,16 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input select">
-                <select class="form__inputbox">
-                  <option>select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                <select>
+                <?=
+                  $this->Form->control('gender', [
+                      'options'  => $gender,
+                      'required' => false,
+                      'div'      => false,
+                      'label'    => false,
+                      'class'    => 'form__inputbox'
+                  ]);
+                ?>
+                <span class="form__error"><?= $this->Form->error('gender'); ?></span>
               </div>
             </div>
           </div>
@@ -220,7 +225,15 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input text">
-                <input type="text" class="form__inputbox"> 
+                <?=
+                  $this->Form->control('name_of_spouse', [
+                      'type'     => 'text',
+                      'required' => false,
+                      'div'      => false,
+                      'label'    => false,
+                      'class'    => 'form__inputbox'
+                  ]);
+                ?>
               </div>
             </div>
           </div>
@@ -231,7 +244,15 @@
             </div>
             <div class="form__input form__input--fullwidth">
               <div class="input text">
-                <input type="number" class="form__inputbox"> 
+                <?=
+                  $this->Form->control('number_of_children', [
+                      'type'     => 'number',
+                      'required' => false,
+                      'div'      => false,
+                      'label'    => false,
+                      'class'    => 'form__inputbox'
+                  ]);
+                ?> 
               </div>
             </div>
           </div>
@@ -305,7 +326,6 @@
           </div>
           <div class="form__button">
             <a href="/admin/users/edit/<?= $id ?>" class="button button--back">Back</a>
-            <!-- <a href="/admin/users/edit_educational" class="button button--submit">NEXT</a> -->
             <input type="submit" class="button button--submit" value="NEXT">
           </div>
         </div>            

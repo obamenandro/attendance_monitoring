@@ -110,6 +110,7 @@
                       'div'      => false, 
                       'error'    => false,
                       'required' => false,
+                      'readonly' => true,
                       'class'    => 'form__inputbox form__year-graduated',
                       'value'    => isset($educational[1]) && !empty($educational[1]['year_graduated']) 
                                 ? $educational[1]['year_graduated'] : ''
@@ -203,6 +204,7 @@
                   'div'      => false, 
                   'error'    => false,
                   'required' => false,
+                  'readonly' => true,
                   'class'    => 'form__inputbox form__year-graduated',
                   'value'    => isset($educational[2]) && !empty($educational[2]['year_graduated']) 
                             ? $educational[2]['year_graduated'] : ''
@@ -274,6 +276,7 @@
                   'div'      => false, 
                   'error'    => false,
                   'required' => false,
+                  'readonly' => true,
                   'class'    => 'form__inputbox required form__year-graduated',
                   'value'    => isset($educational[3]) && !empty($educational[3]['year_graduated']) 
                             ? $educational[3]['year_graduated'] : ''
@@ -345,6 +348,7 @@
                   'div'      => false, 
                   'error'    => false,
                   'required' => false,
+                  'readonly' => true,
                   'class'    => 'form__inputbox required form__year-graduated',
                   'value'    => isset($educational[4]) && !empty($educational[4]['year_graduated']) 
                             ? $educational[4]['year_graduated'] : ''
@@ -416,6 +420,7 @@
                   'div'      => false, 
                   'error'    => false,
                   'required' => false,
+                  'readonly' => true,
                   'class'    => 'form__inputbox required form__year-graduated',
                   'value'    => isset($educational[5]) && !empty($educational[5]['year_graduated']) 
                             ? $educational[5]['year_graduated'] : ''
@@ -437,7 +442,7 @@
                   'div'      => false, 
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required form__year-graduated',
+                  'class'    => 'form__inputbox required',
                   'value'    => isset($educational[5]) && !empty($educational[5]['level_attained']) 
                             ? $educational[5]['level_attained'] : ''
                 ]);
@@ -538,8 +543,9 @@
                   'error'    => false,
                   'required' => false,
                   'class'    => 'form__inputbox js-datepicker-from required',
+                  'readonly' => true,
                   'value'    => isset($work_experience[0]) && !empty($work_experience[0]['start_work']) 
-                            ? $work_experience[0]['start_work'] : ''
+                            ? date('m/d/Y', strtotime($work_experience[0]['start_work'])) : ''
                 ]);
               ?>  
             </div>
@@ -559,8 +565,9 @@
                   'error'    => false,
                   'required' => false,
                   'class'    => 'form__inputbox js-datepicker-from required',
+                  'readonly' => true,
                   'value'    => isset($work_experience[0]) && !empty($work_experience[0]['end_work']) 
-                            ? $work_experience[0]['end_work'] : ''
+                            ? date('m/d/Y', strtotime($work_experience[0]['end_work'])) : ''
                 ]);
               ?> 
             </div>
@@ -574,7 +581,7 @@
           <div class="form__input">
             <div class="input text">
               <?=
-                $this->Form->control('Work_experience.position.', [
+                $this->Form->control('Work_experience.position', [
                   'type'     => 'text',
                   'div'      => false, 
                   'error'    => false,
@@ -595,7 +602,7 @@
           <div class="form__input">
             <div class="input text">
               <?=
-                $this->Form->control('Work_experience.company_name.', [
+                $this->Form->control('Work_experience.company_name', [
                   'type'     => 'text',
                   'div'      => false, 
                   'error'    => false,
