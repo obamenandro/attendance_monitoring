@@ -669,6 +669,7 @@ padding: 7px 0 5px;
       var a = $(this).parent().prev().html();
       $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append')) 
       $(this).parent().parent().find('.js-wrapper-append .form__error').hide();
+      $(this).unbind( e );
     }
   })
 
@@ -687,10 +688,12 @@ padding: 7px 0 5px;
           e.preventDefault();
         } else {
           $(el).parent().parent().next().css('display','none');
+          $(this).unbind( e );
         }
       })
     } else {
       $('.js-wrapper-doctorate').find('.form__error').hide();
+      $(this).unbind( e );
     }
 
     var empty1 = $('.js-wrapper-masters').find('input').filter(function() {
@@ -707,10 +710,12 @@ padding: 7px 0 5px;
           e.preventDefault();
         } else {
           $(el).parent().parent().next().css('display','none');
+          $(this).unbind( e );
         }
       })
     } else {
       $('.js-wrapper-masters').find('.form__error').hide(); 
+      $(this).unbind( e );
     }
     
     $('.required').each(function(i , el) {
@@ -721,6 +726,7 @@ padding: 7px 0 5px;
         e.preventDefault();
       } else {
         $(el).parent().parent().next().css('display','none');
+        $(this).unbind( e );
       }
     })
   })
