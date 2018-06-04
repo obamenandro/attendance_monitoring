@@ -7,7 +7,7 @@
   <div class="panel__content">
     <div>
       <?=
-        $this->Form->create($userEdit);
+        $this->Form->create($userEdit, ['type' => 'POST']);
       ?>
       <div class="form__content">
         <ul class="form__breadcrumb">

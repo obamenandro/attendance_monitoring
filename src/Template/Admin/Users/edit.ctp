@@ -91,6 +91,7 @@
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
+                <span class="form__error"><?= $this->Form->error('department'); ?></span>
               </div>
             </div>
 

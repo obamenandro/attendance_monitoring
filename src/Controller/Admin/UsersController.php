@@ -58,7 +58,7 @@ class UsersController extends AppController
 
     public function login() {
         $this->layout = false;
-
+        $session = $this->request->session();
         if ($this->request->session()->check('Flash')) {
             if (empty($session->read('Flash'))) {
                 $session->delete('Flash');   
@@ -553,8 +553,8 @@ class UsersController extends AppController
             $data = $this->request->getData();
 
             $userEdit = $this->User->patchEntity($userEdit, $data);
-
-            if(empty($userEdit)) {
+        
+            if(empty($userEdit->errors())) {
                 if (isset($session_data)) {
                     $data = array_merge($data, $session_data);
                 }
