@@ -326,7 +326,7 @@ class UsersController extends AppController
                 return $this->redirect('/users/edit_information');
             } else {
                 $this->Flash->error(__('Your employee has been failed to updated.'));
-                // $session->delete('Data');
+                $session->delete('Data');
                 return $this->redirect('/users/edit_information');
             }
         }
@@ -432,6 +432,13 @@ class UsersController extends AppController
     }
 
     public function checklist() {
-
+        $user_checklist = $this->UserChecklist->find('list', [
+            'keyField'   => 'requirement_id',
+            'valueField' => 'requirement_id'
+            ])
+            ->where(['user_id' => $this->request->session()->read('Auth.User.id')])
+            ->toArray();
+        $this->set(compact('user_checklist'));
+        $this->set('checklists' , Configure::read('checklists'));
     }
 }

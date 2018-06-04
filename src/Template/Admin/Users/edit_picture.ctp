@@ -49,7 +49,11 @@
         <div class="form__data">
           <div class="form__list form__list--uploadimage">
             <div class="form__upload-image">
-              <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
+              <?php if($image['image'] == NULL): ?>
+                  <img src="/img/user/default_avatar.png" alt="form-image" class="form__upload-picture">
+              <?php else: ?>
+                  <img src="<?= $image['image']; ?>" alt="form-image" class="form__upload-picture">
+              <?php endif; ?>
             </div>
             <div class="form__list-image">
               <?=

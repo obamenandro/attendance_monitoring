@@ -41,7 +41,7 @@
               <div class="form__input">
                 <div class="input text">
                   <?=
-                    $this->Form->control('Doctorate.school_name.', [
+                    $this->Form->control('Doctorate.school_name', [
                       'type'     => 'text',
                       'div'      => false, 
                       'error'    => false,
@@ -60,7 +60,7 @@
               <div class="form__input">
                 <div class="input text">
                   <?=
-                    $this->Form->control('Doctorate.course.', [
+                    $this->Form->control('Doctorate.course', [
                       'type'     => 'text',
                       'div'      => false, 
                       'error'    => false,
@@ -79,7 +79,7 @@
               <div class="form__input">
                 <div class="input text">
                   <?=
-                    $this->Form->control('Doctorate.units.', [
+                    $this->Form->control('Doctorate.units', [
                       'type'     => 'number',
                       'div'      => false, 
                       'error'    => false,
@@ -98,11 +98,12 @@
               <div class="form__input">
                 <div class="input text">
                   <?=
-                    $this->Form->control('Doctorate.year_graduated.', [
+                    $this->Form->control('Doctorate.year_graduated', [
                       'type'     => 'text',
                       'div'      => false, 
                       'error'    => false,
                       'required' => false,
+                      'readonly' => true,
                       'class'    => 'form__inputbox form__year-graduated'
                     ]);
                   ?>
@@ -129,7 +130,7 @@
             <div class="form__input">
               <div class="input text">
                <?=
-                  $this->Form->control('Master.school_name.', [
+                  $this->Form->control('Master.school_name', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -148,7 +149,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Master.course.', [
+                  $this->Form->control('Master.course', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -167,7 +168,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Master.units.', [
+                  $this->Form->control('Master.units', [
                     'type'     => 'number',
                     'div'      => false, 
                     'error'    => false,
@@ -186,11 +187,12 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Master.year_graduated.', [
+                  $this->Form->control('Master.year_graduated', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
+                    'readonly' => true,
                     'class'    => 'form__inputbox form__year-graduated'
                   ]);
                 ?>
@@ -198,9 +200,6 @@
               <span class="form__error">Please fill up year graduated</span>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform">Add</a>
         </div>
       </div>
 
@@ -216,7 +215,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('College.school_name.', [
+                  $this->Form->control('College.school_name', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -235,7 +234,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('College.course.', [
+                  $this->Form->control('College.course', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -254,11 +253,12 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('College.year_graduated.', [
+                  $this->Form->control('College.year_graduated', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
+                    'readonly' => true,
                     'class'    => 'form__inputbox required form__year-graduated'
                   ]);
                 ?>
@@ -273,7 +273,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('College.level_attained.', [
+                  $this->Form->control('College.level_attained', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -285,9 +285,6 @@
               <span class="form__error form__error-required">Please fill up highest year level attained</span>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform">Add</a>
         </div>
       </div>
 
@@ -303,7 +300,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Secondary.school_name.', [
+                  $this->Form->control('Secondary.school_name', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -322,11 +319,12 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Secondary.year_graduated.', [
+                  $this->Form->control('Secondary.year_graduated', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
+                    'readonly' => true,
                     'class'    => 'form__inputbox required form__year-graduated'
                   ]);
                 ?> 
@@ -341,7 +339,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Secondary.level_attained.', [
+                  $this->Form->control('Secondary.level_attained', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -353,9 +351,6 @@
               <span class="form__error form__error-required">Please fill up highest year level attained</span>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform">Add</a>
         </div>
       </div>
 
@@ -371,7 +366,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Elementary.school_name.', [
+                  $this->Form->control('Elementary.school_name', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -390,11 +385,12 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Elementary.year_graduated.', [
+                  $this->Form->control('Elementary.year_graduated', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
+                    'readonly' => true,
                     'class'    => 'form__inputbox required form__year-graduated'
                   ]);
                 ?> 
@@ -409,7 +405,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Elementary.level_attained.', [
+                  $this->Form->control('Elementary.level_attained', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -421,9 +417,6 @@
               <span class="form__error form__error-required">Please fill up highest year level attained</span>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform">Add</a>
         </div>
       </div>
 
@@ -439,7 +432,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Elegibility.exam_name.', [
+                  $this->Form->control('Elegibility.exam_name', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -458,7 +451,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Elegibility.license_no.', [
+                  $this->Form->control('Elegibility.license_no', [
                     'type'     => 'number',
                     'div'      => false, 
                     'error'    => false,
@@ -477,7 +470,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Elegibility.valid_until.', [
+                  $this->Form->control('Elegibility.valid_until', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -489,9 +482,6 @@
               <span class="form__error form__error-required">Please fill up validity</span>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform">Add</a>
         </div>
       </div>
 
@@ -507,11 +497,12 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Work_experience.start_work.', [
+                  $this->Form->control('Work_experience.start_work', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
+                    'readonly' => true,
                     'class'    => 'form__inputbox js-datepicker-from required'
                   ]);
                 ?>  
@@ -526,11 +517,12 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Work_experience.end_work.', [
+                  $this->Form->control('Work_experience.end_work', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
                     'required' => false,
+                    'readonly' => true,
                     'class'    => 'form__inputbox js-datepicker-to required'
                   ]);
                 ?> 
@@ -545,7 +537,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Work_experience.position.', [
+                  $this->Form->control('Work_experience.position', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -564,7 +556,7 @@
             <div class="form__input">
               <div class="input text">
                 <?=
-                  $this->Form->control('Work_experience.company_name.', [
+                  $this->Form->control('Work_experience.company_name', [
                     'type'     => 'text',
                     'div'      => false, 
                     'error'    => false,
@@ -576,9 +568,6 @@
               <span class="form__error form__error-required">Please fill up company name</span>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform">Add</a>
         </div>
       </div>
       <div class="form__button">

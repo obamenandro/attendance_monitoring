@@ -45,84 +45,34 @@
           </div>
           <div class="checklist">
             <ul>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input" checked>
-                  <label class="checklist__label">Recent ID Pictures</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input" checked>
-                  <label class="checklist__label">TOR</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input">
-                  <label class="checklist__label">Diploma</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input">
-                  <label class="checklist__label">Certificate form Past Employers</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input">
-                  <label class="checklist__label">Result of Government Exam Passed</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input">
-                  <label class="checklist__label">License</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input">
-                  <label class="checklist__label">Seminars, Trainings, and Attended Certificates</label>
-                </div>
-              </li>
-              <li class="checklist__list">
-                <div class="checklist__box">
-                  <input type="checkbox" class="checklist__input">
-                  <label class="checklist__label">Government Issued IDs</label>
-                </div>
-              </li>
+              <?php for($i=1;$i<=8;$i++): ?>
+                <li class="checklist__list">
+                  <div class="checklist__box">
+                    <input type="checkbox" name="Requirement[requirement_id][]" class="checklist__input" value="<?= $i; ?>" <?= isset($user[$i]) ? 'checked' : '' ?> >
+                    <label class="checklist__label"><?= $checklists[$i]; ?></label>
+                  </div>
+                </li>
+              <?php endfor; ?>
             </ul>
             
             <div class="checklist__for-technical">
               <span class="checklist__for-technical-title">For Technical Instructors Only:</span>
               <ul>
-                <li class="checklist__list">
-                  <div class="checklist__box">
-                    <input type="checkbox" class="checklist__input">
-                    <label class="checklist__label">6.09 (Training Course for Instructors)</label>
-                  </div>
-                </li>
-                <li class="checklist__list">
-                  <div class="checklist__box">
-                    <input type="checkbox" class="checklist__input">
-                    <label class="checklist__label">3.12 (Assessment, Examination and Certification for Seafarers)</label>
-                  </div>
-                </li>
-                <li class="checklist__list">
-                  <div class="checklist__box">
-                    <input type="checkbox" class="checklist__input">
-                    <label class="checklist__label">6.10 (Training Program for Instructor and Assessor Conducting Simulator-Based Training and Assessment)</label>
-                  </div>
-                </li>
+                <?php for($i=9;$i<=11;$i++): ?>
+                  <li class="checklist__list">
+                    <div class="checklist__box">
+                      <input type="checkbox" name="Requirement[requirement_id][]" class="checklist__input" value="<?= $i; ?>" <?= isset($user[$i]) ? 'checked' : '' ?> >
+                      <label class="checklist__label"><?= $checklists[$i]; ?></label>
+                    </div>
+                  </li>
+                <?php endfor; ?>
               </ul>
             </div>
           </div>    
         </div>
       <div class="form__button">
         <a href="/admin/users/edit_educational" class="button button--back">Back</a>
-        <a href="/admin/users/edit_picture" class="button button--submit">NEXT</a>
+        <input type="submit" class="button button--submit" value="NEXT">
       </div>
     <?= $this->Form->end(); ?>
   </div>

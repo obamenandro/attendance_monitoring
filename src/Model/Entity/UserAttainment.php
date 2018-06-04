@@ -31,14 +31,15 @@ class UserAttainment extends Entity
      * @var array
      */
     protected $_accessible = [
-        'user_id' => true,
-        'degree' => true,
-        'school_name' => true,
-        'units' => true,
-        'course' => true,
+        'user_id'        => true,
+        'degree'         => true,
+        'school_name'    => true,
+        'units'          => true,
+        'course'         => true,
         'year_graduated' => true,
-        'created' => true,
-        'modified' => true,
-        'user' => true
+        'level_attained' => true,
+        'created'        => true,
+        'modified'       => true,
+        'user'           => true
     ];
 }
