@@ -43,7 +43,7 @@
                   <?=
                     $this->Form->control('Doctorate.school_name', [
                       'type'     => 'text',
-                      'div'      => false, 
+                      'div'      => false,
                       'error'    => false,
                       'required' => false,
                       'class'    => 'form__inputbox'
@@ -62,7 +62,7 @@
                   <?=
                     $this->Form->control('Doctorate.course', [
                       'type'     => 'text',
-                      'div'      => false, 
+                      'div'      => false,
                       'error'    => false,
                       'required' => false,
                       'class'    => 'form__inputbox'
@@ -81,7 +81,7 @@
                   <?=
                     $this->Form->control('Doctorate.units', [
                       'type'     => 'number',
-                      'div'      => false, 
+                      'div'      => false,
                       'error'    => false,
                       'required' => false,
                       'class'    => 'form__inputbox'
@@ -100,7 +100,7 @@
                   <?=
                     $this->Form->control('Doctorate.year_graduated', [
                       'type'     => 'text',
-                      'div'      => false, 
+                      'div'      => false,
                       'error'    => false,
                       'required' => false,
                       'readonly' => true,
@@ -132,7 +132,7 @@
                <?=
                   $this->Form->control('Master.school_name', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox'
@@ -151,7 +151,7 @@
                 <?=
                   $this->Form->control('Master.course', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox'
@@ -170,12 +170,12 @@
                 <?=
                   $this->Form->control('Master.units', [
                     'type'     => 'number',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error">Please fill up units earned</span>
             </div>
@@ -189,7 +189,7 @@
                 <?=
                   $this->Form->control('Master.year_graduated', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
@@ -217,7 +217,7 @@
                 <?=
                   $this->Form->control('College.school_name', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
@@ -236,7 +236,7 @@
                 <?=
                   $this->Form->control('College.course', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
@@ -255,7 +255,7 @@
                 <?=
                   $this->Form->control('College.year_graduated', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
@@ -275,7 +275,7 @@
                 <?=
                   $this->Form->control('College.level_attained', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
@@ -302,7 +302,7 @@
                 <?=
                   $this->Form->control('Secondary.school_name', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
@@ -321,13 +321,13 @@
                 <?=
                   $this->Form->control('Secondary.year_graduated', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
                     'class'    => 'form__inputbox required form__year-graduated'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up year graduated</span>
             </div>
@@ -341,7 +341,7 @@
                 <?=
                   $this->Form->control('Secondary.level_attained', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
@@ -368,7 +368,7 @@
                 <?=
                   $this->Form->control('Elementary.school_name', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
@@ -387,13 +387,13 @@
                 <?=
                   $this->Form->control('Elementary.year_graduated', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
                     'class'    => 'form__inputbox required form__year-graduated'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up year graduated</span>
             </div>
@@ -407,7 +407,7 @@
                 <?=
                   $this->Form->control('Elementary.level_attained', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required form__year-graduated'
@@ -434,12 +434,12 @@
                 <?=
                   $this->Form->control('Elegibility.exam_name', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up name of exam</span>
             </div>
@@ -453,12 +453,12 @@
                 <?=
                   $this->Form->control('Elegibility.license_no', [
                     'type'     => 'number',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up license no.</span>
             </div>
@@ -472,12 +472,12 @@
                 <?=
                   $this->Form->control('Elegibility.valid_until', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required js-datepicker-to'
+                    'class'    => 'form__inputbox required js-datepicker-elegibility'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up validity</span>
             </div>
@@ -499,13 +499,13 @@
                 <?=
                   $this->Form->control('Work_experience.start_work', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
                     'class'    => 'form__inputbox js-datepicker-from required'
                   ]);
-                ?>  
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up year from</span>
             </div>
@@ -519,13 +519,13 @@
                 <?=
                   $this->Form->control('Work_experience.end_work', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
                     'class'    => 'form__inputbox js-datepicker-to required'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up date</span>
             </div>
@@ -539,12 +539,12 @@
                 <?=
                   $this->Form->control('Work_experience.position', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
                   ]);
-                ?>  
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up position</span>
             </div>
@@ -558,12 +558,12 @@
                 <?=
                   $this->Form->control('Work_experience.company_name', [
                     'type'     => 'text',
-                    'div'      => false, 
+                    'div'      => false,
                     'error'    => false,
                     'required' => false,
                     'class'    => 'form__inputbox required'
                   ]);
-                ?> 
+                ?>
               </div>
               <span class="form__error form__error-required">Please fill up company name</span>
             </div>
@@ -571,7 +571,7 @@
         </div>
       </div>
       <div class="form__button">
-        <a href="/admin/users/add_personal" class="button button--back">Back</a>
+        <a class="button button--back">Back</a>
         <input type="submit" class="button button--submit" value="NEXT">
       </div>
     <?= $this->Form->end(); ?>
@@ -587,27 +587,26 @@
 </style>
 
 <script type="text/javascript">
+    $('.button--back').click(function() {
+        window.history.back()
+    })
 
-    $('html').delegate('.form__year-graduated','click',function() {
-      $(this).datepicker({
+
+    $('.form__year-graduated').datepicker({
         format: 'yyyy',
         minViewMode: "years",
         viewMode: "years",
         endDate: "today"
-      })
-    })
+    }).attr('readonly','readonly');
 
-    $('html').delegate('.js-datepicker-from, .js-datepicker-to', 'click', function() {
-      if ($(this).hasClass('js-datepicker-from') == true ) {
-        $(this).datepicker({
-          endDate: "today"
-        }); 
-      } else {
-        $(this).datepicker({
-          startDate: "today"
-        }); 
-      }
-    })
+
+    $('.js-datepicker-from, .js-datepicker-to').datepicker({
+        endDate: "today",
+    }).attr('readonly','readonly');
+
+    $('.js-datepicker-elegibility').datepicker({
+        startDate: "today"
+    }).attr('readonly','readonly');
 
     $('.button--addform').on('click', function( e ) {
       var empty = $(this).parent().parent().find('input').filter(function() {
@@ -619,35 +618,20 @@
           $(this).parent().parent().find('.form__error').css('display','inline-block');
       } else {
         var a = $(this).parent().prev().html();
-        $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append')) 
+        $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append'))
         $(this).parent().parent().find('.js-wrapper-append .form__error').hide();
       }
     })
 
     $('.button--submit').click(function( e ) {
-      var empty = $('.js-wrapper-doctorate').find('input').filter(function() {
-        return this.value === "" && this.value === "0";
-      });
 
-      if ( empty.length) {
-        e.preventDefault();
-        $('.js-wrapper-doctorate').find('.form__error').show();   
-      } else {
-        $('.js-wrapper-doctorate').find('.form__error').hide();
-      }
+        var empty = $('.js-wrapper-doctorate').find('input').filter(function() {
+      return this.value !== "";
+    });
 
-      var empty1 = $('.js-wrapper-masters').find('input').filter(function() {
-        return this.value !== "";
-      });
-
-      if ( empty1.length > 0) {
-          e.preventDefault();
-          $('.js-wrapper-masters').find('.form__error').show();
-      } else {
-        $('.js-wrapper-masters').find('.form__error').hide(); 
-      }
-      
-      $('.required').each(function(i , el) {
+    if ( empty.length > 0 ) {
+      e.preventDefault();
+      $('.js-wrapper-doctorate .form__inputbox').each(function(i , el) {
         var data = $(el).val();
         var len = data.length;
         if ( len < 1 ) {
@@ -655,6 +639,45 @@
           e.preventDefault();
         } else {
           $(el).parent().parent().next().css('display','none');
+
+        }
+      })
+    } else {
+      $('.js-wrapper-doctorate').find('.form__error').hide();
+
+    }
+
+    var empty1 = $('.js-wrapper-masters').find('input').filter(function() {
+      return this.value !== "";
+    });
+
+    if ( empty1.length > 0) {
+        e.preventDefault();
+        $('.js-wrapper-masters .form__inputbox').each(function(i , el) {
+        var data = $(el).val();
+        var len = data.length;
+        if ( len < 1 ) {
+          $(el).parent().parent().next().css('display','inline-block');
+          e.preventDefault();
+        } else {
+          $(el).parent().parent().next().css('display','none');
+
+        }
+      })
+    } else {
+      $('.js-wrapper-masters').find('.form__error').hide();
+
+    }
+
+      $('.required').each(function(i , el) {
+        var data = $(el).val();
+        var len = data.length;
+        e.preventDefault();
+        if ( len < 1 ) {
+          $(el).parent().parent().next().css('display','inline-block');
+        } else {
+          $(el).parent().parent().next().css('display','none');
+          $(this).unbind( e );
         }
       })
     })

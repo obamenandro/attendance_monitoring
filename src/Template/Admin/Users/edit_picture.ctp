@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="form__button">
-            <a href="/admin/users/edit_checklist" class="button button--back">Back</a>
+            <a class="button button--back">Back</a>
             <input type="submit" class="button button--submit">
           </div>
         </div>
@@ -86,6 +86,9 @@
 </div>
 
 <script type="text/javascript">
+    $('.button--back').click(function() {
+        window.history.back()
+    })
 
   function readURL(input) {
     if (input.files && input.files[0]) {
