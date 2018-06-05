@@ -61,7 +61,7 @@ class UsersController extends AppController
         // $session = $this->request->session();
         // if ($this->request->session()->check('Flash')) {
         //     if (empty($session->read('Flash'))) {
-        //         $session->delete('Flash');   
+        //         $session->delete('Flash');
         //     }
         //     $session = $this->request->session();
         //     if ($session->read('Flash.success')) {
@@ -173,8 +173,8 @@ class UsersController extends AppController
         $gender       = Configure::read('gender');
 
         $this->set(compact(
-            'civil_status', 
-            'gender', 
+            'civil_status',
+            'gender',
             'add_personal'
         ));
     }
@@ -528,7 +528,7 @@ class UsersController extends AppController
             $data = $this->request->getData();
 
             $userEdit = $this->User->patchEntity($userEdit, $data);
-        
+
             if(empty($userEdit->errors())) {
                 if (isset($session_data)) {
                     $data = array_merge($data, $session_data);
@@ -550,15 +550,15 @@ class UsersController extends AppController
 
         //data for user education attainment
         $educational = $this->UserAttainment->find('all')
-            ->where(['user_id' => $session_data['id']]) 
+            ->where(['user_id' => $session_data['id']])
             ->toArray();
         //data for user eligibilities
         $eligibility = $this->UserEligibility->find('all')
-            ->where(['user_id' => $session_data['id']]) 
+            ->where(['user_id' => $session_data['id']])
             ->toArray();
         //data for user work experience
         $work_experience = $this->WorkExperience->find('all')
-            ->where(['user_id' => $session_data['id']]) 
+            ->where(['user_id' => $session_data['id']])
             ->toArray();
         $educational_new = [];
         foreach ($educational as $key => $value) {
@@ -621,7 +621,7 @@ class UsersController extends AppController
 
         $this->set(compact('user'));
         $this->set('checklists' , Configure::read('checklists'));
-        
+
     }
 
     public function edit_picture () {
@@ -775,11 +775,11 @@ class UsersController extends AppController
                 $session->delete('Data');
                 return $this->redirect('/admin/users');
             }
-        }   
+        }
         $image = $this->User->find('all')
             ->where(['id' => $session_data['User']['id']])
             ->first()
-            ->toArray(); 
+            ->toArray();
         $this->set(compact('image'));
     }
 
@@ -945,7 +945,7 @@ class UsersController extends AppController
         $data = $this->request->getData();
         $user = $this->User->find('all')
                 ->where([
-                    'Users.email'   => $data['email'], 
+                    'Users.email'   => $data['email'],
                     'Users.del_flg' => 0,
                     'role'          => 1
                 ])
@@ -1141,7 +1141,7 @@ class UsersController extends AppController
         $users = $this->User->find('all')
             ->where([
                 'Users.del_flg' => 0,
-                'Users.jobtype' => 3,   
+                'Users.jobtype' => 3,
                 'Users.role'    => Configure::read('role.employee')
             ])
             ->toArray();
@@ -1159,8 +1159,8 @@ class UsersController extends AppController
         $technical3 =$this->Seminar->find('all')
             ->where(['Seminars.attended' => '6.10']);
         $total = $technical1->count() + $technical2->count() + $technical3->count();
-        $this->set('technical1', round($technical1->count()/$total*100));
-        $this->set('technical2', round($technical2->count()/$total*100));
-        $this->set('technical3', round($technical3->count()/$total*100));
+        $this->set('technical1', $total != 0 ? round($technical1->count()/$total*100) : 0);
+        $this->set('technical2', $total != 0 ? round($technical2->count()/$total*100) : 0);
+        $this->set('technical3', $total != 0 ? round($technical3->count()/$total*100) : 0);
     }
 }
