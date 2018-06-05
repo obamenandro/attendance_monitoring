@@ -45,7 +45,7 @@
           <label class="view-info__label"> Leave: </label>
           <span class="view-info__info"> • <?= $employee['total_leave'] ?></span>
         </div>
-      
+
         <div class="view-info__title">
           <h3>Employee Information</h3>
         </div>
@@ -162,7 +162,7 @@
                   <span class="table__note
                     <?php
                       if ( $status[$attendanceList['status']] == 'Leave' ) {
-                        echo "table__note--leave"; 
+                        echo "table__note--leave";
                       }
                       else if ( $status[$attendanceList['status']] == 'Present' ) {
                         echo "table__note--present";
@@ -202,6 +202,25 @@
                                 <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD" value="<?= date('Y-m-d', strtotime($attendanceList['date'])); ?>" readonly>
                               </div>
                             </div>
+
+                            <div class="form__list" style="display: block;">
+                              <div class="form__label-wrapper">
+                                <label class="form__label">Status:</label>
+                              </div>
+                              <div class="form__input form__input--fullwidth">
+                                <?=
+                                  $this->Form->input('status', [
+                                    'options'  => $status,
+                                    'required' => false,
+                                    'div'      => false,
+                                    'label'    => false,
+                                    'class'    => 'form__inputbox form__inputbox--select',
+                                    'value'    => $attendanceList['status']
+                                  ]);
+                                ?>
+                              </div>
+                            </div>
+
                             <div class="form__list">
                               <div class="form__label-wrapper">
                                 <label class="form__label">Logged In:</label>
@@ -218,24 +237,6 @@
                               <div class="form__input form__input--fullwidth">
                                 <input type="text" name="timeout" class="form__inputbox js-timepicker-edit js-loggedout" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timeout'])); ?>">
                                 <span class="js-loggedout-error">Error</span>
-                              </div>
-                            </div>
-
-                            <div class="form__list">
-                              <div class="form__label-wrapper">
-                                <label class="form__label">Status:</label>
-                              </div>
-                              <div class="form__input form__input--fullwidth">
-                                <?= 
-                                  $this->Form->input('status', [
-                                    'options'  => $status,
-                                    'required' => false,
-                                    'div'      => false,
-                                    'label'    => false,
-                                    'class'    => 'form__inputbox',
-                                    'value'    => $attendanceList['status']
-                                  ]);
-                                ?>
                               </div>
                             </div>
 
@@ -282,6 +283,24 @@
                 <input type="text" name="date" class="form__inputbox js-datepicker js-date" placeholder="YYYY-MM-DD" readonly>
               </div>
             </div>
+
+            <div class="form__list" style="display: block">
+              <div class="form__label-wrapper">
+                <label class="form__label">Status:</label>
+              </div>
+              <div class="form__input form__input--fullwidth">
+                <?=
+                  $this->Form->input('status', [
+                    'options'  => $status,
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'class'    => 'form__inputbox form__inputbox--select'
+                  ]);
+                ?>
+              </div>
+            </div>
+
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Logged In:</label>
@@ -301,39 +320,28 @@
               </div>
             </div>
 
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Status:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                  <?= 
-                    $this->Form->input('status', [
-                      'options'  => $status,
-                      'required' => false,
-                      'div'      => false,
-                      'label'    => false,
-                      'class'    => 'form__inputbox'
-                    ]);
-                  ?>
-                </div>
-              </div>
-
-              <div class="modal__button">
-                <?= 
-                  $this->Form->input("Add", [
-                  'type'  => 'submit',
-                  'class' => 'button button--submit'
-                  ]); 
-                ?>
-              </div>
+            <div class="modal__button">
+              <?=
+                $this->Form->input("Add", [
+                'type'  => 'submit',
+                'class' => 'button button--submit'
+                ]);
+              ?>
             </div>
           </div>
-          <?= $this->Form->end(); ?>
+        </div>
+        <?= $this->Form->end(); ?>
       </div>
     </div>
   </div>
 </div>
 
+<style type="text/css">
+  .form__inputbox--select-readonly {
+    background: #e3e0e0;
+    color: #939191;
+  }
+</style>
 <script type="text/javascript">
   var id = "";
 
@@ -343,7 +351,16 @@
     $('#js-modal-edit-'+id).css({
       top: 0
     });
-  });
+
+    if ( $('#js-modal-edit-'+id).find('.form__inputbox--select').val() > 0) {
+      $('#js-modal-edit-'+id).find('.js-timepicker-edit').prop('readonly','readonly');
+      $('#js-modal-edit-'+id).find('.js-timepicker-edit').val('00:00')
+      $('#js-modal-edit-'+id).find('.js-timepicker-edit').addClass('form__inputbox--select-readonly');
+    } else {
+      $('#js-modal-edit-'+id).find('.js-timepicker-edit').prop('readonly',false);
+      $('#js-modal-edit-'+id).find('.js-timepicker-edit').removeClass('form__inputbox--select-readonly');
+    }
+   });
 
   $('.modal__exit').on('click', function() {
     $('.backdrop').hide();
@@ -359,6 +376,18 @@
     });
   });
 
+  $('.form__inputbox--select').change(function() {
+    if ( $(this).val() > 0 ) {
+      $('.js-timepicker-add, .js-timepicker-edit').prop('readonly','readonly');
+      $('.js-timepicker-add, .js-timepicker-edit').val('00:00')
+      $('.js-timepicker-add, .js-timepicker-edit').addClass('form__inputbox--select-readonly');
+    } else {
+      $('.js-timepicker-add, .js-timepicker-edit').prop('readonly',false);
+      $('.js-timepicker-add, .js-timepicker-edit').val('');
+      $('.js-timepicker-add, .js-timepicker-edit').removeClass('form__inputbox--select-readonly');
+    }
+  })
+
   $('.js-datepicker').datepicker({
     format: 'yyyy-mm-dd',
     endDate: "today"
@@ -366,17 +395,17 @@
   $('.js-timepicker-add, .js-timepicker-edit').timepicker();
   var loggedin = '';
   var loggedout = ''
-  
+
   $('.js-timepicker-add, .js-timepicker-edit ').on('change', function() {
 
     if ( $(this).hasClass('js-timepicker-add') )  {
-      loggedin = $('.js-timepicker-add.js-loggedin').val(); 
+      loggedin = $('.js-timepicker-add.js-loggedin').val();
       loggedout = $('.js-timepicker-add.js-loggedout').val();
     } else {
-      loggedin = $('.js-timepicker-edit.js-loggedin').val(); 
+      loggedin = $('.js-timepicker-edit.js-loggedin').val();
       loggedout = $('.js-timepicker-edit.js-loggedout').val();
     }
-  
+
     if ( loggedin >= loggedout ) {
       $('.js-loggedout-error').addClass('form__error').text('logged out must be greater than time in')
       $('.button--submit').attr('disabled', true).addClass('button--disabled')
