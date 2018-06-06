@@ -37,7 +37,7 @@
             </a>
           </li>
         </ul>
-        
+
         <div class="form">
           <div class="user-panel__note">
             <p class="user-panel__note-content">Please check the requirements that already pass to HR Department:</p>
@@ -53,7 +53,7 @@
                 </li>
               <?php endfor; ?>
             </ul>
-            
+
             <div class="checklist__for-technical">
               <span class="checklist__for-technical-title">For Technical Instructors Only:</span>
               <ul>
@@ -67,13 +67,18 @@
                 <?php endfor; ?>
               </ul>
             </div>
-          </div>    
+          </div>
         </div>
         <div class="form__button">
-          <a href="/admin/users/add_checklist" class="button button--back">Back</a>
+          <a class="button button--back">Back</a>
           <input type="submit" class="button button--submit" value="NEXT">
         </div>
     <?= $this->Form->end(); ?>
   </div>
 </div>
 </div>
+<script type="text/javascript">
+    $('.button--back').click(function() {
+        window.history.back()
+    })
+</script>

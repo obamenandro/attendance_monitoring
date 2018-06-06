@@ -4,7 +4,7 @@
       <h1>Welcome to NAMEI Polytechnic Institute HRIS!</h1>
     </div>
     <div class="header__control">
-      <a href="javascript:void(0);" class="header__control-link">
+      <a href="/admin/users/home" class="header__control-link">
         <span>Hi! <?= ucfirst($user); ?></span>
       </a>
       <a href="/admin/users/logout" class="header__control-link">

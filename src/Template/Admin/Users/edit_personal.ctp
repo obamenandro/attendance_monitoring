@@ -181,7 +181,7 @@
               <span class="form__error"><?= $this->Form->error('citizenship'); ?></span>
             </div>
           </div>
-          
+
           <div class="form__list">
             <div class="form__label-wrapper">
               <label class="form__label">Gender:</label>
@@ -201,7 +201,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form__list">
             <div class="form__label-wrapper">
               <label class="form__label">Civil Status:</label>
@@ -250,9 +250,10 @@
                       'required' => false,
                       'div'      => false,
                       'label'    => false,
-                      'class'    => 'form__inputbox'
+                      'class'    => 'form__inputbox',
+                      'min'      => 0
                   ]);
-                ?> 
+                ?>
               </div>
             </div>
           </div>
@@ -328,7 +329,7 @@
             <a href="/admin/users/edit/<?= $id ?>" class="button button--back">Back</a>
             <input type="submit" class="button button--submit" value="NEXT">
           </div>
-        </div>            
+        </div>
       <?= $this->Form->end(); ?>
     </div>
   </div>

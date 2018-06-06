@@ -187,7 +187,7 @@
               <span class="form__error"><?= $this->Form->error('citizenship'); ?></span>
             </div>
           </div>
-          
+
           <div class="form__list">
             <div class="form__label-wrapper">
               <label class="form__label">Gender:</label>
@@ -209,7 +209,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form__list">
             <div class="form__label-wrapper">
               <label class="form__label">Civil Status:</label>
@@ -263,9 +263,10 @@
                       'div'      => false,
                       'label'    => false,
                       'value'    => !empty($session_data['number_of_children']) ? $session_data['number_of_children'] : !empty($this->request->data['number_of_children']) ? $this->request->data['number_of_children'] : '',
-                      'class'    => 'form__inputbox'
+                      'class'    => 'form__inputbox',
+                      'min' => 0
                   ]);
-                ?> 
+                ?>
               </div>
             </div>
           </div>
@@ -342,10 +343,10 @@
             </div>
           </div>
           <div class="form__button">
-            <a href="/admin/users/add" class="button button--back">Back</a>
+            <a class="button button--back">Back</a>
             <input type="submit" class="button button--submit" value="NEXT">
           </div>
-        </div>            
+        </div>
       <?= $this->Form->end(); ?>
     </div>
   </div>
@@ -356,4 +357,8 @@
     format: 'yyyy-mm-dd',
     endDate: '+0d'
   });
+
+   $('.button--back').click(function() {
+        window.history.back()
+    })
 </script>
