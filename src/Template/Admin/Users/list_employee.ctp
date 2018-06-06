@@ -52,7 +52,7 @@
           title: 'List Of Employee',
           customize: function (doc) {
             var rowCount = document.getElementById("dataTable").rows.length;
-            doc.content[1].table.widths = 
+            doc.content[1].table.widths =
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
 
             for (i = 1; i < rowCount; i++) {

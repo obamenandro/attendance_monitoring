@@ -70,3 +70,10 @@
   width: 25%;
   background: #F1F1F1;
 }
+
+.button.button--delete {
+  display: inline-block;
+  width: 25%;
+  background-color: #FF0000;
+  color: $white-color;
+}

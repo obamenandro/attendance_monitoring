@@ -1,5 +1,5 @@
 <div class="panel__title">
-  <h3>EDUCATIONAL ATTAINMENT</h3>
+  <h3>EDUCATIONAL ATTAINMENT AND LATEST WORK EXPERIENCE</h3>
 </div>
 
 <div class="panel__container">
@@ -23,7 +23,7 @@
           </li>
           <li class="form__breadcrumb-item">
             <a href="/admin/users/add_educational" class="form__breadcrumb-link">
-              <span>Educational Attainment</span>
+              <span>Educational Attainment and Latest Work Experience</span>
             </a>
           </li>
         </ul>
@@ -430,7 +430,7 @@
               <div class="input text">
                 <?=
                   $this->Form->control('Elegibility.license_no', [
-                    'type'     => 'number',
+                    'type'     => 'text',
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
@@ -463,7 +463,7 @@
 
       <div class="form">
         <div class="form__user-title">
-          <span>Work Experience</span>
+          <span>Latest Work Experience</span>
         </div>
         <div class="js-wrapper-append">
           <div class="form__list form__list--user-range">

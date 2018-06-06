@@ -34,13 +34,14 @@
 
   &__view {
     display: inline-block;
-    margin-left: 10px;
+    width: 30%;
     color: #FFFFFF;
     cursor: pointer;
     transition: 0.4s;
     background: #FFA500;
-    padding: 4px 10px;
+    padding: 4px 5px;
     border-radius: 5px;
+    font-size: 10px;
 
     &:hover {
       opacity: 0.3;
@@ -96,4 +97,12 @@
   th {
     border: 1px solid #E8E8E8;
   }
+}
+
+
+.table.table--list-employee {
+    .table__head-list,
+    .table__body-list {
+        width: 100px;
+    }
 }

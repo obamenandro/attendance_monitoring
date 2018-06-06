@@ -700,6 +700,12 @@ span.sidebar__information-data {
   width: 25%;
   background: #F1F1F1; }
 
+.button.button--delete {
+  display: inline-block;
+  width: 25%;
+  background-color: #FF0000;
+  color: #FFFFFF; }
+
 .login {
   width: 100%;
   height: 100%;
@@ -798,13 +804,14 @@ span.sidebar__information-data {
 
 .table__view {
   display: inline-block;
-  margin-left: 10px;
+  width: 30%;
   color: #FFFFFF;
   cursor: pointer;
   transition: 0.4s;
   background: #FFA500;
-  padding: 4px 10px;
-  border-radius: 5px; }
+  padding: 4px 5px;
+  border-radius: 5px;
+  font-size: 10px; }
   .table__view:hover {
     opacity: 0.3; }
 
@@ -842,6 +849,10 @@ span.sidebar__information-data {
 
 .table.table--report th {
   border: 1px solid #E8E8E8; }
+
+.table.table--list-employee .table__head-list,
+.table.table--list-employee .table__body-list {
+  width: 100px; }
 
 .user-panel {
   display: inline-block;
