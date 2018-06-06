@@ -52,7 +52,7 @@
                   <td class="table__body-list">
                     <a href="/admin/users/view/<?= $user['id'] ?>" class="table__view">View</a>
                     <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view table__view--edit">Edit</a>
-                    <a class="table__view table__view--delete">Delete</a>
+                    <a class="table__view table__view--delete delete" data-id="<?= $user['id'] ?>">Delete</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -81,7 +81,7 @@
       </div>
       <div class="modal__button">
         <a class="button button--back">Close</a>
-        <a class="button button--delete">Delete</a>
+        <a class="button button--delete user-delete">Delete</a>
       </div>
     </div>
   </div>
@@ -105,4 +105,13 @@
         top: '-100%'
     })
   })
+
+  var user_id = "";
+  $('.delete').on('click', function() {
+    user_id = $(this).data('id');
+  });
+
+  $('.user-delete').on('click', function() {
+    window.location.href = '/admin/users/delete/'+user_id;
+  });
 </script>

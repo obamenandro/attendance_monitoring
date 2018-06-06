@@ -2,11 +2,10 @@
 
   <div class="form-edit-info">
     <div class="form">
-
     <div class="user-panel__title view-info__title">
       <h2>CHANGE PASSWORD</h2>
     </div>
-
+      <?= $this->Flash->render(); ?>
       <?= $this->Form->create($userChangePassword, ['type' => 'POST']); ?>
         <div class="form__content">
           <div class="form__list form__list--block">
@@ -92,17 +91,17 @@
 
 
 <script>
-  $('.button--submit').click(function() {
-    $('.backdrop').show();
-    $('#js-modal-success').css({
-        top: 0
-    });
-  })
+  // $('.button--submit').click(function() {
+  //   $('.backdrop').show();
+  //   $('#js-modal-success').css({
+  //       top: 0
+  //   });
+  // })
 
-  $('.modal__close').click(function() {
-    $('.backdrop').hide();
-    $('#js-modal-success').css({
-      top: '-100%'
-    })
-  })
+  // $('.modal__close').click(function() {
+  //   $('.backdrop').hide();
+  //   $('#js-modal-success').css({
+  //     top: '-100%'
+  //   })
+  // })
 </script>

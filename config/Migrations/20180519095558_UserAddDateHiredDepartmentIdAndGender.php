@@ -22,6 +22,8 @@ class UserAddDateHiredDepartmentIdAndGender extends AbstractMigration
                 'default' => NULL
             ])
             ->addColumn('gender', 'integer', [
+                'default' => null,
+                'null' => true,
                 'length' => 11
             ])
             ->update();

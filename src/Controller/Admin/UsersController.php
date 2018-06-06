@@ -144,6 +144,22 @@ class UsersController extends AppController
             'jobtype',
             'add_form'
         ));
+    }   
+
+    public function delete($id) {
+        $this->autoRender = false;
+        if (!$id)  return $this->redirect('/admin/users');
+        if (!$this->User->exists(['id' => $id])) return $this->redirect('/admin/users');
+
+        $user = $this->User->get($id);
+        $user = $this->User->patchEntity($user, ['del_flg' => 1],['validate' => false]);
+        if ($this->User->save($user)) {
+            $this->Flash->success(__('Your employee has been successfully deleted.'));
+            return $this->redirect('/admin/users');
+        } else {
+            $this->Flash->error(__('Your employee has been failed to deleted.'));
+            return $this->redirect('/admin/users');
+        }
     }
 
     /**
@@ -272,111 +288,126 @@ class UsersController extends AppController
                                 'user_id'        => $user_id
                             ];
                         }
-
-                        $user_checklist_entity = $this->UserChecklist->newEntities($requirement_id);
-                        foreach ($user_checklist_entity as $entity) {
-                            $this->UserChecklist->save($entity);
+                        if (!empty($requirement_id)) {
+                            $user_checklist_entity = $this->UserChecklist->newEntities($requirement_id);
+                            foreach ($user_checklist_entity as $entity) {
+                                $this->UserChecklist->save($entity);
+                            }
                         }
                     }
                     //for work experience
                     if ($session->check('Data.Work_experience')) {
                         $work_experience_data = $session->read('Data.Work_experience');
-                        $work_experience      = [
-                            'user_id'      => $user_id,
-                            'start_work'   => $work_experience_data['start_work'],
-                            'end_work'     => $work_experience_data['end_work'],
-                            'position'     => $work_experience_data['position'],
-                            'company_name' => $work_experience_data['company_name']
-                        ];
-                        $work_experience_entity = $this->WorkExperience->newEntity();
-                        $work_experience_entity = $this->WorkExperience->patchEntity($work_experience_entity, $work_experience);
-                        $this->WorkExperience->save($work_experience_entity);
+                        if (!empty($work_experience_data['company_name'])) {
+                            $work_experience      = [
+                                'user_id'      => $user_id,
+                                'start_work'   => $work_experience_data['start_work'],
+                                'end_work'     => $work_experience_data['end_work'],
+                                'position'     => $work_experience_data['position'],
+                                'company_name' => $work_experience_data['company_name']
+                            ];
+                            $work_experience_entity = $this->WorkExperience->newEntity();
+                            $work_experience_entity = $this->WorkExperience->patchEntity($work_experience_entity, $work_experience);
+                            $this->WorkExperience->save($work_experience_entity);
+                        }
                     }
                     //for eligibility
                     if ($session->check('Data.Elegibility')) {
                         $user_eligibilities      = $session->read('Data.Elegibility');
-                        $user_eligibilities_data = [
-                            'user_id'     => $user_id,
-                            'exam_name'   => $user_eligibilities['exam_name'],
-                            'license_no'  => $user_eligibilities['license_no'],
-                            'valid_until' => $user_eligibilities['valid_until']
-                        ];
-                        $user_eligibility_entity = $this->UserEligibility->newEntity();
-                        $user_eligibility_entity = $this->UserEligibility->patchEntity($user_eligibility_entity, $user_eligibilities_data);
-                        $this->UserEligibility->save($user_eligibility_entity);
+                        if (!empty($user_eligibilities['exam_name'])) {
+                            $user_eligibilities_data = [
+                                'user_id'     => $user_id,
+                                'exam_name'   => $user_eligibilities['exam_name'],
+                                'license_no'  => $user_eligibilities['license_no'],
+                                'valid_until' => $user_eligibilities['valid_until']
+                            ];
+                            $user_eligibility_entity = $this->UserEligibility->newEntity();
+                            $user_eligibility_entity = $this->UserEligibility->patchEntity($user_eligibility_entity, $user_eligibilities_data);
+                            $this->UserEligibility->save($user_eligibility_entity);
+                        }
                     }
                     //for Doctorate
                     if ($session->check('Data.Doctorate')) {
                         $doctorate      = $session->read('Data.Doctorate');
-                        $doctorate_data = [
-                            'user_id'        => $user_id,
-                            'school_name'    => $doctorate['school_name'],
-                            'course'         => $doctorate['course'],
-                            'units'          => $doctorate['units'],
-                            'year_graduated' => $doctorate['year_graduated'],
-                            'degree'         => Configure::read('degree.Doctorate')
-                        ];
-                        $user_attainment_doctorate_entity = $this->UserAttainment->newEntity();
-                        $user_attainment_doctorate_entity = $this->UserAttainment->patchEntity($user_attainment_doctorate_entity, $doctorate_data);
-                        $this->UserAttainment->save($user_attainment_doctorate_entity);
+                        if (!empty($doctorate['school_name'])) {
+                            $doctorate_data = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $doctorate['school_name'],
+                                'course'         => $doctorate['course'],
+                                'units'          => $doctorate['units'],
+                                'year_graduated' => $doctorate['year_graduated'],
+                                'degree'         => Configure::read('degree.Doctorate')
+                            ];
+                            $user_attainment_doctorate_entity = $this->UserAttainment->newEntity();
+                            $user_attainment_doctorate_entity = $this->UserAttainment->patchEntity($user_attainment_doctorate_entity, $doctorate_data);
+                            $this->UserAttainment->save($user_attainment_doctorate_entity);
+                        }
                     }
                     //for Master
                     if ($session->check('Data.Master')) {
                         $master      = $session->read('Data.Master');
-                        $master_data = [
-                            'user_id'        => $user_id,
-                            'school_name'    => $master['school_name'],
-                            'course'         => $master['course'],
-                            'units'          => $master['units'],
-                            'year_graduated' => $master['year_graduated'],
-                            'degree'         => Configure::read('degree.Master')
-                        ];
-                        $user_attainment_master_entity = $this->UserAttainment->newEntity();
-                        $user_attainment_master_entity = $this->UserAttainment->patchEntity($user_attainment_master_entity, $master_data);
-                        $this->UserAttainment->save($user_attainment_master_entity);
+                        if (!empty($master['school_name'])) {
+                            $master_data = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $master['school_name'],
+                                'course'         => $master['course'],
+                                'units'          => $master['units'],
+                                'year_graduated' => $master['year_graduated'],
+                                'degree'         => Configure::read('degree.Master')
+                            ];
+                            $user_attainment_master_entity = $this->UserAttainment->newEntity();
+                            $user_attainment_master_entity = $this->UserAttainment->patchEntity($user_attainment_master_entity, $master_data);
+                            $this->UserAttainment->save($user_attainment_master_entity);
+                        }
                     }
                     //for College
                     if ($session->check('Data.College')) {
                         $college      = $session->read('Data.College');
-                        $college_data = [
-                            'user_id'        => $user_id,
-                            'school_name'    => $college['school_name'],
-                            'course'         => $college['course'],
-                            'level_attained' => $college['level_attained'],
-                            'year_graduated' => $college['year_graduated'],
-                            'degree'         => Configure::read('degree.College')
-                        ];
-                        $user_attainment_college_entity = $this->UserAttainment->newEntity();
-                        $user_attainment_college_entity = $this->UserAttainment->patchEntity($user_attainment_college_entity, $college_data);
-                        $this->UserAttainment->save($user_attainment_college_entity);
+                        if (!empty($college['school_name'])) {
+                            $college_data = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $college['school_name'],
+                                'course'         => $college['course'],
+                                'level_attained' => $college['level_attained'],
+                                'year_graduated' => $college['year_graduated'],
+                                'degree'         => Configure::read('degree.College')
+                            ];
+                            $user_attainment_college_entity = $this->UserAttainment->newEntity();
+                            $user_attainment_college_entity = $this->UserAttainment->patchEntity($user_attainment_college_entity, $college_data);
+                            $this->UserAttainment->save($user_attainment_college_entity);
+                        }
                     }
                     //for Secondary
                     if ($session->check('Data.Secondary')) {
                         $secondary      = $session->read('Data.Secondary');
-                        $secondary_data = [
-                            'user_id'        => $user_id,
-                            'school_name'    => $secondary['school_name'],
-                            'level_attained' => $secondary['level_attained'],
-                            'year_graduated' => $secondary['year_graduated'],
-                            'degree'         => Configure::read('degree.Secondary')
-                        ];
-                        $user_attainment_secondary_entity = $this->UserAttainment->newEntity();
-                        $user_attainment_secondary_entity = $this->UserAttainment->patchEntity($user_attainment_secondary_entity, $secondary_data);
-                        $this->UserAttainment->save($user_attainment_secondary_entity);
+                        if (!empty($secondary['school_name'])) {
+                            $secondary_data = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $secondary['school_name'],
+                                'level_attained' => $secondary['level_attained'],
+                                'year_graduated' => $secondary['year_graduated'],
+                                'degree'         => Configure::read('degree.Secondary')
+                            ];
+                            $user_attainment_secondary_entity = $this->UserAttainment->newEntity();
+                            $user_attainment_secondary_entity = $this->UserAttainment->patchEntity($user_attainment_secondary_entity, $secondary_data);
+                            $this->UserAttainment->save($user_attainment_secondary_entity);
+                        }
                     }
                     //for Elementary
                     if ($session->check('Data.Elementary')) {
                         $elementary      = $session->read('Data.Elementary');
-                        $elementary_data = [
-                            'user_id'        => $user_id,
-                            'school_name'    => $elementary['school_name'],
-                            'level_attained' => $elementary['level_attained'],
-                            'year_graduated' => $elementary['year_graduated'],
-                            'degree'         => Configure::read('degree.Elementary')
-                        ];
-                        $user_attainment_elementary_entity = $this->UserAttainment->newEntity();
-                        $user_attainment_elementary_entity = $this->UserAttainment->patchEntity($user_attainment_elementary_entity, $elementary_data);
-                        $this->UserAttainment->save($user_attainment_elementary_entity);
+                        if (!empty($elementary['school_name'])) {
+                            $elementary_data = [
+                                'user_id'        => $user_id,
+                                'school_name'    => $elementary['school_name'],
+                                'level_attained' => $elementary['level_attained'],
+                                'year_graduated' => $elementary['year_graduated'],
+                                'degree'         => Configure::read('degree.Elementary')
+                            ];
+                            $user_attainment_elementary_entity = $this->UserAttainment->newEntity();
+                            $user_attainment_elementary_entity = $this->UserAttainment->patchEntity($user_attainment_elementary_entity, $elementary_data);
+                            $this->UserAttainment->save($user_attainment_elementary_entity);
+                        }
                     }
                 }
             }
@@ -660,112 +691,127 @@ class UsersController extends AppController
                             'user_id'        => $user_id
                         ];
                     }
-
-                    $user_checklist_entity = $this->UserChecklist->newEntities($requirement_id);
-                    foreach ($user_checklist_entity as $entity) {
-                        $this->UserChecklist->save($entity);
+                    if (!empty($requirement_id)) {
+                        $user_checklist_entity = $this->UserChecklist->newEntities($requirement_id);
+                        foreach ($user_checklist_entity as $entity) {
+                            $this->UserChecklist->save($entity);
+                        }
                     }
                 }
 
                 //for work experience
                 if ($session->check('Data.Work_experience')) {
                     $work_experience_data = $session->read('Data.Work_experience');
-                    $work_experience      = [
-                        'user_id'      => $user_id,
-                        'start_work'   => $work_experience_data['start_work'],
-                        'end_work'     => $work_experience_data['end_work'],
-                        'position'     => $work_experience_data['position'],
-                        'company_name' => $work_experience_data['company_name']
-                    ];
-                    $work_experience_entity = $this->WorkExperience->newEntity();
-                    $work_experience_entity = $this->WorkExperience->patchEntity($work_experience_entity, $work_experience);
-                    $this->WorkExperience->save($work_experience_entity);
+                    if (!empty($work_experience_data['company_name'])) {
+                        $work_experience      = [
+                            'user_id'      => $user_id,
+                            'start_work'   => $work_experience_data['start_work'],
+                            'end_work'     => $work_experience_data['end_work'],
+                            'position'     => $work_experience_data['position'],
+                            'company_name' => $work_experience_data['company_name']
+                        ];
+                        $work_experience_entity = $this->WorkExperience->newEntity();
+                        $work_experience_entity = $this->WorkExperience->patchEntity($work_experience_entity, $work_experience);
+                        $this->WorkExperience->save($work_experience_entity);
+                    }
                 }
                 //for eligibility
                 if ($session->check('Data.Elegibility')) {
                     $user_eligibilities      = $session->read('Data.Elegibility');
-                    $user_eligibilities_data = [
-                        'user_id'     => $user_id,
-                        'exam_name'   => $user_eligibilities['exam_name'],
-                        'license_no'  => $user_eligibilities['license_no'],
-                        'valid_until' => $user_eligibilities['valid_until']
-                    ];
-                    $user_eligibility_entity = $this->UserEligibility->newEntity();
-                    $user_eligibility_entity = $this->UserEligibility->patchEntity($user_eligibility_entity, $user_eligibilities_data);
-                    $this->UserEligibility->save($user_eligibility_entity);
+                    if (!empty($user_eligibilities['exam_name'])) {
+                        $user_eligibilities_data = [
+                            'user_id'     => $user_id,
+                            'exam_name'   => $user_eligibilities['exam_name'],
+                            'license_no'  => $user_eligibilities['license_no'],
+                            'valid_until' => $user_eligibilities['valid_until']
+                        ];
+                        $user_eligibility_entity = $this->UserEligibility->newEntity();
+                        $user_eligibility_entity = $this->UserEligibility->patchEntity($user_eligibility_entity, $user_eligibilities_data);
+                        $this->UserEligibility->save($user_eligibility_entity);
+                    }
                 }
                 //for Doctorate
                 if ($session->check('Data.Doctorate')) {
                     $doctorate      = $session->read('Data.Doctorate');
-                    $doctorate_data = [
-                        'user_id'        => $user_id,
-                        'school_name'    => $doctorate['school_name'],
-                        'course'         => $doctorate['course'],
-                        'units'          => $doctorate['units'],
-                        'year_graduated' => $doctorate['year_graduated'],
-                        'degree'         => Configure::read('degree.Doctorate')
-                    ];
-                    $user_attainment_doctorate_entity = $this->UserAttainment->newEntity();
-                    $user_attainment_doctorate_entity = $this->UserAttainment->patchEntity($user_attainment_doctorate_entity, $doctorate_data);
-                    $this->UserAttainment->save($user_attainment_doctorate_entity);
+                    if (!empty($doctorate['school_name'])) {
+                        $doctorate_data = [
+                            'user_id'        => $user_id,
+                            'school_name'    => $doctorate['school_name'],
+                            'course'         => $doctorate['course'],
+                            'units'          => $doctorate['units'],
+                            'year_graduated' => $doctorate['year_graduated'],
+                            'degree'         => Configure::read('degree.Doctorate')
+                        ];
+                        $user_attainment_doctorate_entity = $this->UserAttainment->newEntity();
+                        $user_attainment_doctorate_entity = $this->UserAttainment->patchEntity($user_attainment_doctorate_entity, $doctorate_data);
+                        $this->UserAttainment->save($user_attainment_doctorate_entity);
+                    }
                 }
                 //for Master
                 if ($session->check('Data.Master')) {
                     $master      = $session->read('Data.Master');
-                    $master_data = [
-                        'user_id'        => $user_id,
-                        'school_name'    => $master['school_name'],
-                        'course'         => $master['course'],
-                        'units'          => $master['units'],
-                        'year_graduated' => $master['year_graduated'],
-                        'degree'         => Configure::read('degree.Master')
-                    ];
-                    $user_attainment_master_entity = $this->UserAttainment->newEntity();
-                    $user_attainment_master_entity = $this->UserAttainment->patchEntity($user_attainment_master_entity, $master_data);
-                    $this->UserAttainment->save($user_attainment_master_entity);
+                    if (!empty($master['school_name'])) {
+                        $master_data = [
+                            'user_id'        => $user_id,
+                            'school_name'    => $master['school_name'],
+                            'course'         => $master['course'],
+                            'units'          => $master['units'],
+                            'year_graduated' => $master['year_graduated'],
+                            'degree'         => Configure::read('degree.Master')
+                        ];
+                        $user_attainment_master_entity = $this->UserAttainment->newEntity();
+                        $user_attainment_master_entity = $this->UserAttainment->patchEntity($user_attainment_master_entity, $master_data);
+                        $this->UserAttainment->save($user_attainment_master_entity);
+                    }
                 }
                 //for College
                 if ($session->check('Data.College')) {
                     $college      = $session->read('Data.College');
-                    $college_data = [
-                        'user_id'        => $user_id,
-                        'school_name'    => $college['school_name'],
-                        'course'         => $college['course'],
-                        'level_attained' => $college['level_attained'],
-                        'year_graduated' => $college['year_graduated'],
-                        'degree'         => Configure::read('degree.College')
-                    ];
-                    $user_attainment_college_entity = $this->UserAttainment->newEntity();
-                    $user_attainment_college_entity = $this->UserAttainment->patchEntity($user_attainment_college_entity, $college_data);
-                    $this->UserAttainment->save($user_attainment_college_entity);
+                    if (!empty($college['school_name'])) {
+                        $college_data = [
+                            'user_id'        => $user_id,
+                            'school_name'    => $college['school_name'],
+                            'course'         => $college['course'],
+                            'level_attained' => $college['level_attained'],
+                            'year_graduated' => $college['year_graduated'],
+                            'degree'         => Configure::read('degree.College')
+                        ];
+                        $user_attainment_college_entity = $this->UserAttainment->newEntity();
+                        $user_attainment_college_entity = $this->UserAttainment->patchEntity($user_attainment_college_entity, $college_data);
+                        $this->UserAttainment->save($user_attainment_college_entity);
+                    }
                 }
                 //for Secondary
                 if ($session->check('Data.Secondary')) {
                     $secondary      = $session->read('Data.Secondary');
-                    $secondary_data = [
-                        'user_id'        => $user_id,
-                        'school_name'    => $secondary['school_name'],
-                        'level_attained' => $secondary['level_attained'],
-                        'year_graduated' => $secondary['year_graduated'],
-                        'degree'         => Configure::read('degree.Secondary')
-                    ];
-                    $user_attainment_secondary_entity = $this->UserAttainment->newEntity();
-                    $user_attainment_secondary_entity = $this->UserAttainment->patchEntity($user_attainment_secondary_entity, $secondary_data);
-                    $this->UserAttainment->save($user_attainment_secondary_entity);
+                    if (!empty($secondary['school_name'])) {
+                        $secondary_data = [
+                            'user_id'        => $user_id,
+                            'school_name'    => $secondary['school_name'],
+                            'level_attained' => $secondary['level_attained'],
+                            'year_graduated' => $secondary['year_graduated'],
+                            'degree'         => Configure::read('degree.Secondary')
+                        ];
+                        $user_attainment_secondary_entity = $this->UserAttainment->newEntity();
+                        $user_attainment_secondary_entity = $this->UserAttainment->patchEntity($user_attainment_secondary_entity, $secondary_data);
+                        $this->UserAttainment->save($user_attainment_secondary_entity);
+                    }
                 }
                 //for Elementary
                 if ($session->check('Data.Elementary')) {
                     $elementary      = $session->read('Data.Elementary');
-                    $elementary_data = [
-                        'user_id'        => $user_id,
-                        'school_name'    => $elementary['school_name'],
-                        'level_attained' => $elementary['level_attained'],
-                        'year_graduated' => $elementary['year_graduated'],
-                        'degree'         => Configure::read('degree.Elementary')
-                    ];
-                    $user_attainment_elementary_entity = $this->UserAttainment->newEntity();
-                    $user_attainment_elementary_entity = $this->UserAttainment->patchEntity($user_attainment_elementary_entity, $elementary_data);
-                    $this->UserAttainment->save($user_attainment_elementary_entity);
+                    if (!empty($elementary['school_name'])) {
+                        $elementary_data = [
+                            'user_id'        => $user_id,
+                            'school_name'    => $elementary['school_name'],
+                            'level_attained' => $elementary['level_attained'],
+                            'year_graduated' => $elementary['year_graduated'],
+                            'degree'         => Configure::read('degree.Elementary')
+                        ];
+                        $user_attainment_elementary_entity = $this->UserAttainment->newEntity();
+                        $user_attainment_elementary_entity = $this->UserAttainment->patchEntity($user_attainment_elementary_entity, $elementary_data);
+                        $this->UserAttainment->save($user_attainment_elementary_entity);
+                    }
                 }
                 $this->Flash->success(__('Your employee has been successfully updated.'));
                 $session->delete('Data');
