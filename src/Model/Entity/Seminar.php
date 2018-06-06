@@ -29,13 +29,13 @@ class Seminar extends Entity
      * @var array
      */
     protected $_accessible = [
-        'attended' => true,
-        'user_id' => true,
+        'attended'     => true,
+        'user_id'      => true,
         'conducted_by' => true,
-        'date' => true,
-        'del_flg' => true,
+        'date'         => true,
+        'del_flg'      => true,
         'deleted_date' => true,
-        'created' => true,
-        'modified' => true
+        'created'      => true,
+        'modified'     => true
     ];
 }

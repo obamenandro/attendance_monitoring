@@ -31,12 +31,16 @@ class SeminarsController extends AppController
             ->toArray();
 
         if ($this->request->is('POST')) {
-            $data = $this->request->getData();
+            $data            = $this->request->getData();
+            $data['user_id'] = $this->request->session()->read('Auth.User.id');
+            $entity          = $this->Seminar->newEntity();
+            $entity          = $this->Seminar->patchEntity($entity, $data);
 
-            $entity = $this->Seminar->newEntity();
-            $entity = $this->Seminar->patchEntity($entity, $data);
             if ($this->Seminar->save($entity)) {
                 $this->Flash->success('Your seminars has been successfully saved.');
+                return $this->redirect('/seminars');
+            } else {
+                $this->Flash->error('Your seminars has been failed saved.');
                 return $this->redirect('/seminars');
             }
             $this->set('seminars', $entity);

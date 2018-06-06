@@ -38,7 +38,7 @@
                 'label'    => false,
                 'required' => false,
                 'class'    => 'form__inputbox'
-              ]) 
+              ])
             ?>
             <span class="form__error"><?= $this->Form->error('attended'); ?></span>
           </div>
@@ -51,7 +51,7 @@
                 'label'    => false,
                 'required' => false,
                 'class'    => 'form__inputbox'
-              ]) 
+              ])
             ?>
             <span class="form__error"><?= $this->Form->error('conducted_by'); ?></span>
             </div>
@@ -67,13 +67,12 @@
                       'class'       => 'form__inputbox js-datepicker',
                       'placeholder' => 'yyyy-mm-dd',
                       'readonly'    => true
-                    ]) 
+                    ])
                   ?>
                   <i class="fa fa-calendar form__icon"></i>
                   <span class="form__error"><?= $this->Form->error('date'); ?></span>
                 </div>
             </div>
-            <?= $this->Form->control('user_id', ['type' => 'hidden', 'value' => 21]) ?>
           <div class="modal__button">
             <input type="submit" class="button button--submit" value="Save">
           </div>
