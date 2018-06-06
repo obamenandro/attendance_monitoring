@@ -22,8 +22,6 @@
             <tr class="table__head">
             <th class="table__head-list">ID</th>
             <th class="table__head-list">Date</th>
-            <th class="table__head-list">Logged In</th>
-            <th class="table__head-list">Logged Out</th>
             <th class="table__head-list">Status</th>
             <th class="table__head-list">Action</th>
             </tr>
@@ -33,8 +31,6 @@
             <tr class="table__body">
                 <td class="table__body-list"><?= $attendanceList['id']; ?></td>
                 <td class="table__body-list"><?= date('Y-m-d', strtotime($attendanceList['date'])); ?></td>
-                <td class="table__body-list"><?= date('h:i A', strtotime($attendanceList['timein'])); ?></td>
-                <td class="table__body-list"><?= date('h:i A', strtotime($attendanceList['timeout'])); ?></td>
                 <td class="table__body-list">
                 <span class="table__note
                     <?php
