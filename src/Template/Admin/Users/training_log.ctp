@@ -5,7 +5,20 @@
 <div class="panel__container">
   <div class="panel__content">
     <div>
-      <div class="form__content">
+      <div class="form__content form__content--report">
+        <div class="panel__search panel__search--report">
+          <div class="panel__search-box">
+            <label class="panel__search-label">ID:</label>
+            <input type="text" name="" class="panel__search-input">
+          </div>
+          <div class="panel__search-box">
+            <label class="panel__search-label">Name:</label>
+            <input type="text" name="" class="panel__search-input">
+          </div>
+          <div class="panel__search-box">
+            <input type="submit" name="" class="panel__search-button" value="search">
+          </div>
+        </div>
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
@@ -52,9 +65,9 @@
           title: 'Training Log',
           customize: function (doc) {
             var rowCount = document.getElementById("dataTable").rows.length;
-            doc.content[1].table.widths = 
+            doc.content[1].table.widths =
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-            
+
             for (i = 1; i < rowCount; i++) {
               doc.content[1].table.body[i][0].alignment = 'center';
               doc.content[1].table.body[i][1].alignment = 'center';
