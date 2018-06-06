@@ -82,11 +82,6 @@
   </div>
 </div>
 <script>
-    // $('.js-datepicker').datepicker({
-    //     format: 'yyyy-mm-dd',
-    //     endDate: "today"
-    // })
-
     $('#seminar_table').DataTable({
       "paging":   false,
       "ordering": false,

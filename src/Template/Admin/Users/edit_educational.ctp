@@ -252,7 +252,6 @@
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up Degree/Course</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
