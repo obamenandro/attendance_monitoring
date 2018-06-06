@@ -1163,4 +1163,8 @@ class UsersController extends AppController
         $this->set('technical2', $total != 0 ? round($technical2->count()/$total*100) : 0);
         $this->set('technical3', $total != 0 ? round($technical3->count()/$total*100) : 0);
     }
+
+    public function attendance_monitoring() {
+
+    }
 }

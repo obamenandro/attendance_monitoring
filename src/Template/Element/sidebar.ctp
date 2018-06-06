@@ -107,6 +107,13 @@
           </li>
         </ul>
       </li>
+      <li class="sidebar__list">
+        <a href="/admin/users/attendance_monitoring" class="sidebar__item sidebar__item--js">
+          <i class="fa fa-calendar sidebar__icon" aria-hidden="true"></i>
+          <span>Attendance Monitoring</span>
+          <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
+        </a>
+      </li>
     </ul>
   </nav>
 </aside>
