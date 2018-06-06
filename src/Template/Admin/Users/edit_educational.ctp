@@ -53,7 +53,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up name of school</span>
             </div>
           </div>
           <div class="form__list form__list--user-title">
@@ -74,7 +73,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up Degree/Course</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -95,7 +93,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up Units Earned</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -117,7 +114,6 @@
                     ]);
                   ?>
               </div>
-              <span class="form__error">Please fill up Year Graduated</span>
             </div>
           </div>
         </div>
@@ -147,7 +143,6 @@
                 ]);
               ?>
             </div>
-            <span class="form__error">Please fill up name of school</span>
           </div>
         </div>
         <div class="form__list form__list--user-title">
@@ -168,7 +163,6 @@
                 ]);
               ?>
             </div>
-            <span class="form__error">Please fill up Degree/Course</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -189,7 +183,6 @@
                 ]);
               ?>
             </div>
-            <span class="form__error">Please fill up units earned</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -211,7 +204,6 @@
                 ]);
               ?>
             </div>
-            <span class="form__error">Please fill up year graduated</span>
           </div>
         </div>
       </div>
@@ -234,13 +226,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[3]) && !empty($educational[3]['school_name'])
                             ? $educational[3]['school_name'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up name of school</span>
           </div>
         </div>
         <div class="form__list form__list--user-title">
@@ -255,7 +246,7 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[3]) && !empty($educational[3]['course'])
                             ? $educational[3]['course'] : ''
                 ]);
@@ -277,13 +268,12 @@
                   'error'    => false,
                   'required' => false,
                   'readonly' => true,
-                  'class'    => 'form__inputbox required form__year-graduated',
+                  'class'    => 'form__inputbox form__year-graduated',
                   'value'    => isset($educational[3]) && !empty($educational[3]['year_graduated'])
                             ? $educational[3]['year_graduated'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up year graduated</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -298,13 +288,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[3]) && !empty($educational[3]['level_attained'])
                             ? $educational[3]['level_attained'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up highest year level attained</span>
           </div>
         </div>
       </div>
@@ -327,13 +316,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[4]) && !empty($educational[4]['school_name'])
                             ? $educational[4]['school_name'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up name of school</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -349,13 +337,12 @@
                   'error'    => false,
                   'required' => false,
                   'readonly' => true,
-                  'class'    => 'form__inputbox required form__year-graduated',
+                  'class'    => 'form__inputbox form__year-graduated',
                   'value'    => isset($educational[4]) && !empty($educational[4]['year_graduated'])
                             ? $educational[4]['year_graduated'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up year graduated</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -370,13 +357,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[4]) && !empty($educational[4]['level_attained'])
                             ? $educational[4]['level_attained'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up highest year level attained</span>
           </div>
         </div>
       </div>
@@ -399,13 +385,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[5]) && !empty($educational[5]['school_name'])
                             ? $educational[5]['school_name'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up name of school</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -421,13 +406,12 @@
                   'error'    => false,
                   'required' => false,
                   'readonly' => true,
-                  'class'    => 'form__inputbox required form__year-graduated',
+                  'class'    => 'form__inputbox form__year-graduated',
                   'value'    => isset($educational[5]) && !empty($educational[5]['year_graduated'])
                             ? $educational[5]['year_graduated'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up year graduated</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -442,13 +426,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($educational[5]) && !empty($educational[5]['level_attained'])
                             ? $educational[5]['level_attained'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up highest year level attained</span>
           </div>
         </div>
       </div>
@@ -471,13 +454,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($eligibility[0]) && !empty($eligibility[0]['exam_name'])
                             ? $eligibility[0]['exam_name'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up name of exam</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -492,13 +474,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($eligibility[0]) && !empty($eligibility[0]['license_no'])
                             ? $eligibility[0]['license_no'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up license no.</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -513,13 +494,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required js-datepicker-elegibility',
+                  'class'    => 'form__inputbox js-datepicker-elegibility',
                   'value'    => isset($eligibility[0]) && !empty($eligibility[0]['valid_until'])
                             ? $eligibility[0]['valid_until'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up validity</span>
           </div>
         </div>
       </div>
@@ -542,14 +522,13 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox js-datepicker-from required',
+                  'class'    => 'form__inputbox js-datepicker-from',
                   'readonly' => true,
                   'value'    => isset($work_experience[0]) && !empty($work_experience[0]['start_work'])
                             ? date('m/d/Y', strtotime($work_experience[0]['start_work'])) : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up year from</span>
           </div>
         </div>
         <div class="form__list form__list--user-range">
@@ -564,14 +543,13 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox js-datepicker-from required',
+                  'class'    => 'form__inputbox js-datepicker-from',
                   'readonly' => true,
                   'value'    => isset($work_experience[0]) && !empty($work_experience[0]['end_work'])
                             ? date('m/d/Y', strtotime($work_experience[0]['end_work'])) : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up date</span>
           </div>
         </div>
         <div class="form__list form__list--user-title">
@@ -586,13 +564,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($work_experience[0]) && !empty($work_experience[0]['position'])
                             ? $work_experience[0]['position'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up position</span>
           </div>
         </div>
         <div class="form__list form__list--user-title">
@@ -607,13 +584,12 @@
                   'div'      => false,
                   'error'    => false,
                   'required' => false,
-                  'class'    => 'form__inputbox required',
+                  'class'    => 'form__inputbox',
                   'value'    => isset($work_experience[0]) && !empty($work_experience[0]['company_name'])
                             ? $work_experience[0]['company_name'] : ''
                 ]);
               ?>
             </div>
-            <span class="form__error form__error-required">Please fill up company name</span>
           </div>
         </div>
       </div>
@@ -627,18 +603,10 @@
 </div>
 </div>
 
-<style>
-.form__error {
-display: none;
-padding: 7px 0 5px;
-}
-</style>
-
 <script type="text/javascript">
      $('.button--back').click(function() {
         window.history.back()
     })
-
 
     $('.form__year-graduated').datepicker({
         format: 'yyyy',
@@ -647,7 +615,6 @@ padding: 7px 0 5px;
         endDate: "today"
     }).attr('readonly','readonly');
 
-
     $('.js-datepicker-from, .js-datepicker-to').datepicker({
         endDate: "today",
     }).attr('readonly','readonly');
@@ -655,79 +622,5 @@ padding: 7px 0 5px;
     $('.js-datepicker-elegibility').datepicker({
         startDate: "today"
     }).attr('readonly','readonly');
-
-    $('.button--addform').on('click', function( e ) {
-      var empty = $(this).parent().parent().find('input').filter(function() {
-        return this.value === "";
-      })
-
-      if ( empty.length ) {
-          e.preventDefault();
-          $(this).parent().parent().find('.form__error').css('display','inline-block');
-      } else {
-        var a = $(this).parent().prev().html();
-        $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append'))
-        $(this).parent().parent().find('.js-wrapper-append .form__error').hide();
-      }
-    })
-
-    $('.button--submit').click(function( e ) {
-
-        var empty = $('.js-wrapper-doctorate').find('input').filter(function() {
-      return this.value !== "";
-    });
-
-    if ( empty.length > 0 ) {
-      e.preventDefault();
-      $('.js-wrapper-doctorate .form__inputbox').each(function(i , el) {
-        var data = $(el).val();
-        var len = data.length;
-        if ( len < 1 ) {
-          $(el).parent().parent().next().css('display','inline-block');
-          e.preventDefault();
-        } else {
-          $(el).parent().parent().next().css('display','none');
-
-        }
-      })
-    } else {
-      $('.js-wrapper-doctorate').find('.form__error').hide();
-
-    }
-
-    var empty1 = $('.js-wrapper-masters').find('input').filter(function() {
-      return this.value !== "";
-    });
-
-    if ( empty1.length > 0) {
-        e.preventDefault();
-        $('.js-wrapper-masters .form__inputbox').each(function(i , el) {
-        var data = $(el).val();
-        var len = data.length;
-        if ( len < 1 ) {
-          $(el).parent().parent().next().css('display','inline-block');
-          e.preventDefault();
-        } else {
-          $(el).parent().parent().next().css('display','none');
-
-        }
-      })
-    } else {
-      $('.js-wrapper-masters').find('.form__error').hide();
-
-    }
-
-      $('.required').each(function(i , el) {
-        var data = $(el).val();
-        var len = data.length;
-        e.preventDefault();
-        if ( len < 1 ) {
-          $(el).parent().parent().next().css('display','inline-block');
-        } else {
-          $(el).parent().parent().next().css('display','none');
-          $(this).unbind( e );
-        }
-      })
-    })
 
 </script>

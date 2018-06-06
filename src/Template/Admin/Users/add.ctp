@@ -62,7 +62,7 @@
                 <label class="form__label">Date Hired</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <?= 
+                <?=
                   $this->Form->control('date_hired', [
                     'type'     => 'text',
                     'class'    => 'form__inputbox form--date-js',
@@ -75,10 +75,10 @@
                 <span class="form__error"><?= $this->Form->error('date_hired'); ?></span>
               </div>
             </div>
-            
+
             <div class="form__list">
               <div class="form__label-wrapper">
-                <label class="form__label">Deparment:</label>
+                <label class="form__label">Department:</label>
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=

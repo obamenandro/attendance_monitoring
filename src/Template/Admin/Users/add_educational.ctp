@@ -50,7 +50,6 @@
                     ]);
                   ?>
                 </div>
-                <span class="form__error">Please fill up name of school</span>
               </div>
             </div>
             <div class="form__list form__list--user-title">
@@ -69,7 +68,6 @@
                     ]);
                   ?>
                 </div>
-                <span class="form__error">Please fill up Degree/Course</span>
               </div>
             </div>
             <div class="form__list form__list--user-range">
@@ -88,7 +86,6 @@
                     ]);
                   ?>
                 </div>
-                <span class="form__error">Please fill up Units Earned</span>
               </div>
             </div>
             <div class="form__list form__list--user-range">
@@ -108,13 +105,9 @@
                     ]);
                   ?>
                 </div>
-                <span class="form__error">Please fill up Year Graduated</span>
               </div>
             </div>
           </div>
-        </div>
-        <div class="form__list-addform">
-          <a class="button button--addform button--doctorate">Add</a>
         </div>
       </div>
 
@@ -139,7 +132,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up name of school</span>
             </div>
           </div>
           <div class="form__list form__list--user-title">
@@ -158,7 +150,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up Degree/Course</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -177,7 +168,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up units earned</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -197,7 +187,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error">Please fill up year graduated</span>
             </div>
           </div>
         </div>
@@ -220,11 +209,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up name of school</span>
             </div>
           </div>
           <div class="form__list form__list--user-title">
@@ -239,11 +227,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up Degree/Course</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -259,11 +246,10 @@
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
-                    'class'    => 'form__inputbox required form__year-graduated'
+                    'class'    => 'form__inputbox form__year-graduated'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up year graduated</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -278,11 +264,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up highest year level attained</span>
             </div>
           </div>
         </div>
@@ -305,11 +290,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up name of school</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -325,11 +309,10 @@
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
-                    'class'    => 'form__inputbox required form__year-graduated'
+                    'class'    => 'form__inputbox form__year-graduated'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up year graduated</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -344,11 +327,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up highest year level attained</span>
             </div>
           </div>
         </div>
@@ -371,11 +353,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up name of school</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -391,11 +372,10 @@
                     'error'    => false,
                     'required' => false,
                     'readonly' => true,
-                    'class'    => 'form__inputbox required form__year-graduated'
+                    'class'    => 'form__inputbox form__year-graduated'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up year graduated</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -410,11 +390,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required form__year-graduated'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up highest year level attained</span>
             </div>
           </div>
         </div>
@@ -437,11 +416,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up name of exam</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -456,11 +434,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up license no.</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -475,11 +452,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required js-datepicker-elegibility'
+                    'class'    => 'form__inputbox js-datepicker-elegibility'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up validity</span>
             </div>
           </div>
         </div>
@@ -507,7 +483,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up year from</span>
             </div>
           </div>
           <div class="form__list form__list--user-range">
@@ -527,7 +502,6 @@
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up date</span>
             </div>
           </div>
           <div class="form__list form__list--user-title">
@@ -542,11 +516,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up position</span>
             </div>
           </div>
           <div class="form__list form__list--user-title">
@@ -561,11 +534,10 @@
                     'div'      => false,
                     'error'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox required'
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
-              <span class="form__error form__error-required">Please fill up company name</span>
             </div>
           </div>
         </div>
@@ -579,18 +551,10 @@
 </div>
 </div>
 
-<style>
-.form__error {
-  display: none;
-  padding: 7px 0 5px;
-}
-</style>
-
 <script type="text/javascript">
     $('.button--back').click(function() {
         window.history.back()
     })
-
 
     $('.form__year-graduated').datepicker({
         format: 'yyyy',
@@ -599,7 +563,6 @@
         endDate: "today"
     }).attr('readonly','readonly');
 
-
     $('.js-datepicker-from, .js-datepicker-to').datepicker({
         endDate: "today",
     }).attr('readonly','readonly');
@@ -607,6 +570,7 @@
     $('.js-datepicker-elegibility').datepicker({
         startDate: "today"
     }).attr('readonly','readonly');
+
 
     $('.button--addform').on('click', function( e ) {
       var empty = $(this).parent().parent().find('input').filter(function() {
@@ -621,64 +585,5 @@
         $(a).insertAfter($(this).parent().parent().find('.js-wrapper-append'))
         $(this).parent().parent().find('.js-wrapper-append .form__error').hide();
       }
-    })
-
-    $('.button--submit').click(function( e ) {
-
-        var empty = $('.js-wrapper-doctorate').find('input').filter(function() {
-      return this.value !== "";
-    });
-
-    if ( empty.length > 0 ) {
-      e.preventDefault();
-      $('.js-wrapper-doctorate .form__inputbox').each(function(i , el) {
-        var data = $(el).val();
-        var len = data.length;
-        if ( len < 1 ) {
-          $(el).parent().parent().next().css('display','inline-block');
-          e.preventDefault();
-        } else {
-          $(el).parent().parent().next().css('display','none');
-
-        }
-      })
-    } else {
-      $('.js-wrapper-doctorate').find('.form__error').hide();
-
-    }
-
-    var empty1 = $('.js-wrapper-masters').find('input').filter(function() {
-      return this.value !== "";
-    });
-
-    if ( empty1.length > 0) {
-        e.preventDefault();
-        $('.js-wrapper-masters .form__inputbox').each(function(i , el) {
-        var data = $(el).val();
-        var len = data.length;
-        if ( len < 1 ) {
-          $(el).parent().parent().next().css('display','inline-block');
-          e.preventDefault();
-        } else {
-          $(el).parent().parent().next().css('display','none');
-
-        }
-      })
-    } else {
-      $('.js-wrapper-masters').find('.form__error').hide();
-
-    }
-
-      $('.required').each(function(i , el) {
-        var data = $(el).val();
-        var len = data.length;
-        e.preventDefault();
-        if ( len < 1 ) {
-          $(el).parent().parent().next().css('display','inline-block');
-        } else {
-          $(el).parent().parent().next().css('display','none');
-          $(this).unbind( e );
-        }
-      })
     })
 </script>
