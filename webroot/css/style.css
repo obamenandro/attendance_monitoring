@@ -991,7 +991,7 @@ span.sidebar__information-data {
 .view-info__data {
   display: inline-block;
   width: 50%;
-  padding: 15px 0; }
+  padding: 15px; }
 
 .view-info__label {
   display: inline-block;
