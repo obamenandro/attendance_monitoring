@@ -64,9 +64,8 @@
                       'div'         => false,
                       'label'       => false,
                       'required'    => false,
-                      'class'       => 'form__inputbox js-datepicker',
+                      'class'       => 'form__inputbox',
                       'placeholder' => 'yyyy-mm-dd',
-                      'readonly'    => true
                     ])
                   ?>
                   <i class="fa fa-calendar form__icon"></i>
@@ -83,10 +82,10 @@
   </div>
 </div>
 <script>
-    $('.js-datepicker').datepicker({
-        format: 'yyyy-mm-dd',
-        endDate: "today"
-    })
+    // $('.js-datepicker').datepicker({
+    //     format: 'yyyy-mm-dd',
+    //     endDate: "today"
+    // })
 
     $('#seminar_table').DataTable({
       "paging":   false,

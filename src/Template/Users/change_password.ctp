@@ -66,3 +66,43 @@
 
   </div>
 </div>
+
+<div class="modal" id="js-modal-success" style="display: inline-block;">
+  <div class="modal__container">
+    <div class="modal__header">
+      <div class="modal__close">
+        <span class="modal__exit">x</span>
+      </div>
+      <div class="modal__title">
+        <h3>Changed Password</h3>
+      </div>
+    </div>
+
+    <div class="modal__content">
+      <div class="modal__content-text">
+       <span>You've Successfully Changed Your Password</span>
+      </div>
+      <div class="modal__button">
+        <a href="/users/edit_information" class="button button--submit">OK</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backdrop"></div>
+
+
+<script>
+  $('.button--submit').click(function() {
+    $('.backdrop').show();
+    $('#js-modal-success').css({
+        top: 0
+    });
+  })
+
+  $('.modal__close').click(function() {
+    $('.backdrop').hide();
+    $('#js-modal-success').css({
+      top: '-100%'
+    })
+  })
+</script>

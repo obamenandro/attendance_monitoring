@@ -23,9 +23,9 @@
               <td class="table__body-list"><?= $user['id'] ?></td>
               <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
               <td class="table__body-list"><?= isset($department[$user['department']]) ? $department[$user['department']] : 'N/A' ?></td>
-              <td class="table__body-list"><?= !empty($user['user_checklists'][0]['requirement_id']) ? 'true' : 'false'  ?></td>
-              <td class="table__body-list"><?= !empty($user['user_checklists'][1]['requirement_id']) ? 'true' : 'false'  ?></td>
-              <td class="table__body-list"><?= !empty($user['user_checklists'][2]['requirement_id']) ? 'true' : 'false'  ?></td>
+              <td class="table__body-list"><?= !empty($user['user_checklists'][0]['requirement_id']) ? '✔' : '✖'  ?></td>
+              <td class="table__body-list"><?= !empty($user['user_checklists'][1]['requirement_id']) ? '✔' : '✖'  ?></td>
+              <td class="table__body-list"><?= !empty($user['user_checklists'][2]['requirement_id']) ? '✔' : '✖'  ?></td>
             </tr>
             <?php endforeach; ?>
           </tbody>
@@ -60,9 +60,9 @@
           pageSize: 'LEGAL',
           customize: function (doc) {
             var rowCount = document.getElementById("dataTable").rows.length;
-            doc.content[1].table.widths = 
+            doc.content[1].table.widths =
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-            
+
             for (i = 1; i < rowCount; i++) {
               doc.content[1].table.body[i][0].alignment = 'center';
               doc.content[1].table.body[i][1].alignment = 'center';

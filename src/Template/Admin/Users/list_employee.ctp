@@ -11,7 +11,6 @@
             <tr class="table__head">
               <th class="table__head-list">Name</th>
               <th class="table__head-list">Positions</th>
-              <th class="table__head-list">Date Hired</th>
             </tr>
           </thead>
           <tbody>
@@ -19,7 +18,6 @@
             <tr>
               <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
               <td class="table__body-list"><?= $user['position'] ?></td>
-              <td class="table__body-list"><?= !empty($user['date_hired']) ? date('m-d-Y', strtotime($user['date_hired'])) : 'N/A' ?></td>
             </tr>
             <?php endforeach; ?>
           </tbody>
