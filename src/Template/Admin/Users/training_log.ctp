@@ -1,5 +1,5 @@
 <div class="panel__title">
-  <h3>TRAINING LOG</h3>
+  <h3>TRAINING PLAN</h3>
 </div>
 
 <div class="panel__container">
@@ -25,6 +25,7 @@
               <th class="table__head-list">Trainings/Seminars Attended</th>
               <th class="table__head-list">Conducted By/at</th>
               <th class="table__head-list">Date Conducted</th>
+              <th class="table__head-list">Attended By</th>
             </tr>
           </thead>
           <tbody>
@@ -33,6 +34,7 @@
               <td class="table__body-list"><?= $user['id'] ?></td>
               <td class="table__body-list"><?= $user['conducted_by'] ?></td>
               <td class="table__body-list"><?= $user['date'] ?></td>
+              <td class="table__body-list">Daryll</td>
             </tr>
             <?php endforeach ?>
           </tbody>
@@ -68,11 +70,12 @@
             doc.content[1].table.widths =
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
 
-            for (i = 1; i < rowCount; i++) {
-              doc.content[1].table.body[i][0].alignment = 'center';
-              doc.content[1].table.body[i][1].alignment = 'center';
-              doc.content[1].table.body[i][2].alignment = 'center';
-            }
+            // for (i = 1; i < rowCount; i++) {
+            //   doc.content[1].table.body[i][0].alignment = 'center';
+            //   doc.content[1].table.body[i][1].alignment = 'center';
+            //   doc.content[1].table.body[i][2].alignment = 'center';
+            //   doc.content[1].table.body[i][3].alignment = 'center';
+            // }
           }
         },
         {
