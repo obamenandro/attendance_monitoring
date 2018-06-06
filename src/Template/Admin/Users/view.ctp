@@ -326,7 +326,7 @@
                         <input type="hidden" name="id" value="<?= $attendanceList['id']; ?>">
                         <div class="form__content">
                           <div class="form__data form__data--modal">
-                            <div class="form__list form__list--date">
+                            <div class="form__list">
                               <div class="form__label-wrapper">
                                 <label class="form__label">Date:</label>
                               </div>
@@ -335,7 +335,7 @@
                               </div>
                             </div>
 
-                            <div class="form__list" style="display: block;">
+                            <div class="form__list">
                               <div class="form__label-wrapper">
                                 <label class="form__label">Status:</label>
                               </div>
@@ -350,25 +350,6 @@
                                     'value'    => $attendanceList['status']
                                   ]);
                                 ?>
-                              </div>
-                            </div>
-
-                            <div class="form__list">
-                              <div class="form__label-wrapper">
-                                <label class="form__label">Logged In:</label>
-                              </div>
-                              <div class="form__input form__input--fullwidth">
-                                <input type="text" name="timein" class="form__inputbox js-timepicker-edit js-loggedin" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timein'])); ?>">
-                              </div>
-                            </div>
-
-                            <div class="form__list">
-                              <div class="form__label-wrapper">
-                                <label class="form__label">Logged Out:</label>
-                              </div>
-                              <div class="form__input form__input--fullwidth">
-                                <input type="text" name="timeout" class="form__inputbox js-timepicker-edit js-loggedout" data-time-format="H:i" placeholder="hh:mm" value="<?= date('h:i', strtotime($attendanceList['timeout'])); ?>">
-                                <span class="js-loggedout-error">Error</span>
                               </div>
                             </div>
 
@@ -407,7 +388,7 @@
         <?= $this->Form->create(); ?>
         <div class="form__content">
           <div class="form__data form__data--modal">
-            <div class="form__list form__list--date">
+            <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Date:</label>
               </div>
@@ -416,7 +397,7 @@
               </div>
             </div>
 
-            <div class="form__list" style="display: block">
+            <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Status:</label>
               </div>
@@ -430,25 +411,6 @@
                     'class'    => 'form__inputbox form__inputbox--select'
                   ]);
                 ?>
-              </div>
-            </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Logged In:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <input type="text" name="timein" class="form__inputbox js-timepicker-add js-loggedin" data-time-format="H:i" placeholder="hh:mm">
-              </div>
-            </div>
-
-            <div class="form__list">
-              <div class="form__label-wrapper">
-                <label class="form__label">Logged Out:</label>
-              </div>
-              <div class="form__input form__input--fullwidth">
-                <input type="text" name="timeout" class="form__inputbox js-timepicker-add js-loggedout" data-time-format="H:i" placeholder="hh:mm">
-                <span class="js-loggedout-error">Error</span>
               </div>
             </div>
 
@@ -468,12 +430,6 @@
   </div>
 </div>
 
-<style type="text/css">
-  .form__inputbox--select-readonly {
-    background: #e3e0e0;
-    color: #939191;
-  }
-</style>
 <script type="text/javascript">
   var id = "";
 
@@ -507,46 +463,6 @@
       top: 0
     });
   });
-
-  $('.form__inputbox--select').change(function() {
-    if ( $(this).val() > 0 ) {
-      $('.js-timepicker-add, .js-timepicker-edit').prop('readonly','readonly');
-      $('.js-timepicker-add, .js-timepicker-edit').val('00:00')
-      $('.js-timepicker-add, .js-timepicker-edit').addClass('form__inputbox--select-readonly');
-    } else {
-      $('.js-timepicker-add, .js-timepicker-edit').prop('readonly',false);
-      $('.js-timepicker-add, .js-timepicker-edit').val('');
-      $('.js-timepicker-add, .js-timepicker-edit').removeClass('form__inputbox--select-readonly');
-    }
-  })
-
-  $('.js-datepicker').datepicker({
-    format: 'yyyy-mm-dd',
-    endDate: "today"
-  });
-  $('.js-timepicker-add, .js-timepicker-edit').timepicker();
-  var loggedin = '';
-  var loggedout = ''
-
-  $('.js-timepicker-add, .js-timepicker-edit ').on('change', function() {
-
-    if ( $(this).hasClass('js-timepicker-add') )  {
-      loggedin = $('.js-timepicker-add.js-loggedin').val();
-      loggedout = $('.js-timepicker-add.js-loggedout').val();
-    } else {
-      loggedin = $('.js-timepicker-edit.js-loggedin').val();
-      loggedout = $('.js-timepicker-edit.js-loggedout').val();
-    }
-
-    if ( loggedin >= loggedout ) {
-      $('.js-loggedout-error').addClass('form__error').text('logged out must be greater than time in')
-      $('.button--submit').attr('disabled', true).addClass('button--disabled')
-    }
-    else {
-      $('.js-loggedout-error').removeClass('form__error').text('')
-      $('.button--submit').attr('disabled', false).removeClass('button--disabled')
-    }
-  })
 
   $('.modal__exit').click(function() {
     loggedin = '';

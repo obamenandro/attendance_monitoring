@@ -945,7 +945,7 @@ span.sidebar__information-data {
     width: 60%;
     background: #FFFFFF;
     border-radius: 7px;
-    height: 480px; }
+    height: 300px; }
   .modal__header {
     position: relative; }
   .modal__close {
@@ -960,7 +960,7 @@ span.sidebar__information-data {
     padding: 20px 30px 10px;
     border-bottom: 1px solid #024E6C; }
   .modal__button {
-    padding-top: 20px;
+    padding-top: 50px;
     text-align: center; }
   .modal__content-text {
     font-size: 16px;
