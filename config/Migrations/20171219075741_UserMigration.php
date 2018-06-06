@@ -31,12 +31,18 @@ class UserMigration extends AbstractMigration
                 'null'   => true
             ])
             ->addColumn('birthdate', 'string', [
-                'length' => 255
+                'default' => null,
+                'null'    => true,
+                'length'  => 255
             ])
             ->addColumn('address', 'string', [
+                'default' => null,
+                'null'    => true,
                 'length' => 255
             ])
             ->addColumn('contact', 'biginteger', [
+                'default' => null,
+                'null'    => true,
                 'length' => 11
             ])
             ->addColumn('email', 'string', [
@@ -44,6 +50,8 @@ class UserMigration extends AbstractMigration
                 'null'   => false
             ])
             ->addColumn('password', 'string', [
+                'default' => null,
+                'null'    => true,
                 'length' => 255
             ])
             ->addColumn('role', 'integer', [
@@ -51,12 +59,18 @@ class UserMigration extends AbstractMigration
                 'length'  => 11
             ])
             ->addColumn('place_of_birth', 'string', [
+                'default' => null,
+                'null'    => true,
                 'length' => 255
             ])
             ->addColumn('citizenship', 'string', [
+                'default' => null,
+                'null'    => true,
                 'length' => 255
             ])
             ->addColumn('civil_status', 'string', [
+                'default' => null,
+                'null'    => true,
                 'length' => 255
             ])
             ->addColumn('name_of_spouse', 'string', [

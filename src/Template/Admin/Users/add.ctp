@@ -147,7 +147,7 @@
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
-                <span class="form__error"><?= $this->Form->error('leave'); ?></span>
+                <span class="form__error"><?= $this->Form->error('total_leave'); ?></span>
               </div>
             </div>
           </div>

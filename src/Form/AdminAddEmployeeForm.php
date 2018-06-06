@@ -23,9 +23,8 @@ class AdminAddEmployeeForm extends Form
             ->addField('designation', 'integer')
             ->addField('date_hired', 'string')
             ->addField('department', 'integer')
-            ->addField('position', 'string')
             ->addField('subject', 'string')
-            ->addField('leave', 'integer');
+            ->addField('total_leave', 'integer');
     }
 
     /**
@@ -41,9 +40,7 @@ class AdminAddEmployeeForm extends Form
             ->notEmpty('designation', __('Designation is required.'))
             ->notEmpty('date_hired', __('Date Hired is required.'))
             ->notEmpty('department', __('Department is required.'))
-            ->notEmpty('position', __('Position is required.'))
-            ->notEmpty('subject', __('Subject is required.'))
-            ->notEmpty('leave', __('Leave is required.'));     
+            ->notEmpty('total_leave', __('Leave is required.'));     
     }
 
     /**

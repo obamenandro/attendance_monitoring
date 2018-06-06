@@ -16,7 +16,6 @@ class EmployeeRegistrationForm extends Form
             ->addField('lastname', 'string')
             ->addField('bday', 'date')
             ->addField('address', 'string')
-            ->addField('contact', 'integer')
             ->addField('email', 'string')
             ->addField('password', 'string')
             ->addField('place_of_birth', 'string')
@@ -37,28 +36,15 @@ class EmployeeRegistrationForm extends Form
     {
         return $validator->notEmpty('firstname', __('Firstname is required.'))
                          ->notEmpty('lastname', __('Lastname is required.'))
-                         ->notEmpty('middlename', __('Middlename is required.'))
-                         ->notEmpty('birthdate', __('Birthday is required.'))
                          ->notEmpty('address', __('Address is required.'))
-                         ->notEmpty('contact', __('Contact is required.'))
                          ->notEmpty('email', __('Email is required.'))
                          ->notEmpty('password', __('Password is required.'))
-                         ->notEmpty('citizenship', __('Citizenship is required.'))
-                         ->notEmpty('civil_status', __('Civil status is required.'))
-                         ->notEmpty('place_of_birth', __('Place of birth is required.'))
-                         ->notEmpty('gender', __('Gender is required.'))
                          ->allowEmpty('tin_number')
                          ->allowEmpty('philhealth_number')
                          ->allowEmpty('pagibig_number')
                          ->allowEmpty('sss_number')
                          ->allowEmpty('gsis_number')
-                         // ->allowEmpty('image')
-                         // ->add('image', [
-                         //    'validExtension' => [
-                         //        'rule' => ['extension',['jpeg', 'png', 'jpg']],
-                         //        'message' => __('These files extension are allowed: .png, .jpg, .jpeg')
-                         //    ]
-                         // ])
+                         ->allowEmpty('contact')
                          ->add('email', [
                             'uniqueEmailRule' => [
                                 'rule'    => [$this, 'isUnique'],
