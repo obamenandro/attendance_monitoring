@@ -1024,6 +1024,35 @@ span.sidebar__information-data {
   text-align: center;
   padding: 50px 0; }
 
+.view-info__data.view-info__data--attainment {
+  width: 100%; }
+  .view-info__data.view-info__data--attainment .view-info__data-title {
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #CCC;
+    width: 100%;
+    display: block;
+    padding-bottom: 8px;
+    margin-bottom: 10px; }
+  .view-info__data.view-info__data--attainment .view-info__data-wrapper {
+    display: inline-block;
+    width: 50%;
+    padding: 0 20px 10px; }
+  .view-info__data.view-info__data--attainment .view-info__label {
+    width: 25%;
+    padding-bottom: 0;
+    line-height: 1.5em; }
+  .view-info__data.view-info__data--attainment .view-info__info {
+    width: 75%; }
+  .view-info__data.view-info__data--attainment .view-info__data-wrapper--fullwidth {
+    width: 100%; }
+    .view-info__data.view-info__data--attainment .view-info__data-wrapper--fullwidth .view-info__label {
+      width: 12%;
+      padding-bottom: 0;
+      line-height: 1.5em; }
+    .view-info__data.view-info__data--attainment .view-info__data-wrapper--fullwidth .view-info__info {
+      width: 85%; }
+
 .success-msg__content {
   padding: 50px 0; }
 

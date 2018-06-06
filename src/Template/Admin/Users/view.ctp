@@ -126,7 +126,139 @@
           <label class="view-info__label"> Pagibig Number: </label>
           <span class="view-info__info"> • <?= !empty($employee['pagibig_number']) ? $employee['pagibig_number'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
+
+        <div class="view-info__title">
+          <h3>Educational Attainment</h3>
+        </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">Doctorate</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Name of School: </label>
+          <span class="view-info__info">Iskul Bukol</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Degree/Course: </label>
+          <span class="view-info__info">Of Course</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Units Earned: </label>
+          <span class="view-info__info"><span class="not-applicable">N/A</span></span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Year Graduated: </label>
+          <span class="view-info__info">2018</span>
+        </div>
       </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">Masters</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Name of School: </label>
+          <span class="view-info__info">Iskul Bukol</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Degree/Course: </label>
+          <span class="view-info__info">Of Course</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Units Earned: </label>
+          <span class="view-info__info"><span class="not-applicable">N/A</span></span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Year Graduated: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+      </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">College</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Name of School: </label>
+          <span class="view-info__info">Iskul Bukol</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Degree/Course: </label>
+          <span class="view-info__info">Of Course</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Highest Year Level Attained: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Year Graduated: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+      </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">Secondary</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Name of School: </label>
+          <span class="view-info__info">Iskul Bukol</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Highest Year Level Attained: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Year Graduated: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+      </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">Elementary</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Name of School: </label>
+          <span class="view-info__info">Iskul Bukol</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Highest Year Level Attained: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Year Graduated: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+      </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">Elegibility</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Name of exam: </label>
+          <span class="view-info__info">Example</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> License No.: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Valid Until: </label>
+          <span class="view-info__info">2018-02-02</span>
+        </div>
+      </div>
+
+      <div class="view-info__title">
+        <h3>Latest Work Experience</h3>
+      </div>
+
+      <div class="view-info__data view-info__data--attainment">
+        <span class="view-info__data-title">Company Name Dito</span>
+        <div class="view-info__data-wrapper">
+          <label class="view-info__label"> Position Title: </label>
+          <span class="view-info__info">Dogs</span>
+        </div>
+        <div class="view-info__data-wrapper view-info__data-wrapper--fullwidth">
+          <label class="view-info__label"> Date Hired.: </label>
+          <span class="view-info__info">2018</span>
+        </div>
+        <div class="view-info__data-wrapper view-info__data-wrapper--fullwidth">
+          <label class="view-info__label"> Date Leave: </label>
+          <span class="view-info__info">2018-02-02</span>
+        </div>
+      </div>
+    </div>
     </div>
 
     <div>
