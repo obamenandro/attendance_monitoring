@@ -92,6 +92,22 @@ a {
   }
 }
 
+.calendar__days-number.calendar__days-number--halfday {
+  background:rgba(115, 112, 106, 0.2);
+
+  .js-status {
+    background: #bfbfbf;
+  }
+}
+
+.calendar__days-number.calendar__days-number--late {
+  background: rgba(177, 174, 6, 0.2);
+
+  .js-status {
+    background: #fff132;
+  }
+}
+
 .calendar__days-number.calendar__days-number--holiday {
   background: rgba(250, 192, 192, 0.4);
 

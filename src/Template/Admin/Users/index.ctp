@@ -65,7 +65,7 @@
 </div>
 
 <div class="modal" id="js-modal-confirm" style="display: inline-block;">
-  <div class="modal__container modal__container--confirm">
+  <div class="modal__container">
     <div class="modal__header">
       <div class="modal__close">
         <span class="modal__exit">x</span>

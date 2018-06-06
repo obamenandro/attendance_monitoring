@@ -112,8 +112,29 @@ $( document ).ready( function(){
               $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
           }
+        }
+        else if ( tabId == 3 ) {
+          for ( var i = 1; i <= day; i++ ) {
+            $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').removeClass('calendar__days-number--absent').html('<span>'+ i +'<span>');
+            if ( data.dates[i].status == 3 ) {
+              var status = 'calendar__days-number--late';
+              var statusTitle = 'Late';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+            }
+          }
+        }
+        else if ( tabId == 4 ) {
+          for ( var i = 1; i <= day; i++ ) {
+            $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').removeClass('calendar__days-number--absent').html('<span>'+ i +'<span>');
+            if ( data.dates[i].status == 4 ) {
+              var status = 'calendar__days-number--halfday';
+              var statusTitle = 'Half Day';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+            }
+          }
         }  // SHOW ALL
         else {
+          console.log(data)
           for ( var i = 1; i <= day; i++ ) {
             if ( data.dates[i].status == 1 ) {
               var status = 'calendar__days-number--absent';
@@ -123,6 +144,16 @@ $( document ).ready( function(){
             else if ( data.dates[i].status == 2 ) {
               var status = 'calendar__days-number--leave';
               var statusTitle = 'On Leave';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+            }
+            else if ( data.dates[i].status == 3 ) {
+              var status = 'calendar__days-number--late';
+              var statusTitle = 'Late';
+              $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
+            }
+            else if ( data.dates[i].status == 4 ) {
+              var status = 'calendar__days-number--halfday';
+              var statusTitle = 'Half Day';
               $('.calendar__days-number[data-index="'+ data.year +"-"+ data.month +"-"+ i +'"]').addClass(status).append('<span class="js-status">'+ statusTitle +'<span>');
             }
             else if ( data.dates[i].status == 0 ) {

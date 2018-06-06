@@ -5,6 +5,8 @@
         <li class="calendar__tab-list calendar__tab-list--active" data-index="0">All</li>
         <li class="calendar__tab-list" data-index="1">Absent</li>
         <li class="calendar__tab-list" data-index="2">Leave</li>
+        <li class="calendar__tab-list" data-index="3">Late</li>
+        <li class="calendar__tab-list" data-index="4">Half day</li>
       </ul>
     </div>
     <div class="calendar__container">
