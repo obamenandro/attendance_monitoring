@@ -8,28 +8,28 @@
 
       <ul class="form-edit-info__leave-list">
         <li class="form-edit-info__leave-item">
-          <span class="form-edit-info__leave-number">2</span>
+          <span class="form-edit-info__leave-number"><?= $used_leave; ?></span>
           <span>Used Leave</span>
         </li>
         <li class="form-edit-info__leave-item">
-          <span class="form-edit-info__leave-number">3</span>
+          <span class="form-edit-info__leave-number"><?= $user['total_leave'] - $used_leave; ?></span>
           <span>Remaining Leave</span>
         </li>
         <li class="form-edit-info__leave-item">
-         <span class="form-edit-info__leave-number">5</span>
+         <span class="form-edit-info__leave-number"><?= $user['total_leave'] ?></span>
           <span>Leave Total</span>
         </li>
       </ul>
 
       <div class="form-edit-info__wrapper">
         <div class="form-edit-info__list form-edit-info__list--leavetype">
-          <label class="form-edit-info__label"> Leave Type </label>
+          <!-- <label class="form-edit-info__label"> Leave Type </label> -->
           <div class="form-edit-info__input-wrapper">
-            <select class="form-edit-info__input">
+            <!-- <select class="form-edit-info__input">
               <option>--select</option>
               <option>Incentive Leave</option>
               <option>Unpaid Leave</option>
-            </select>
+            </select> -->
           </div>
         </div>
       

@@ -57,19 +57,6 @@ class AttendancesTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
-        $validator
-            ->scalar('timein')
-            ->maxLength('timein', 255)
-            ->requirePresence('timein', 'create')
-            ->notEmpty('timein');
-
-        $validator
-            ->scalar('timeout')
-            ->maxLength('timeout', 255)
-            ->requirePresence('timeout', 'create')
-            ->notEmpty('timeout');
-
         $validator
             ->integer('status')
             ->allowEmpty('status');

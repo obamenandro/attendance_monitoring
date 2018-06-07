@@ -52,9 +52,14 @@ class UserLeavesController extends AppController
      */
     public function add()
     {
+        $used_leave   = count($this->UserLeave->find('all')->where(['user_id' => $this->Auth->User('id')]));
         $userLeave    = $this->UserLeave->newEntity();
         if ($this->request->is('post')) {
             $data               = $this->request->getData();
+            if ($used_leave > $this->Auth->User('total_leave')) {
+                $this->Flash->error(__('You already reach the maximum leave.'));
+                return $this->redirect('/UserLeaves/add');
+            }
             $userLeave          = $this->UserLeave->patchEntity($userLeave, $data);
             $userLeave->user_id = $this->Auth->User('id');
             if ($data['date_start'] > $data['date_end']) {
@@ -62,12 +67,11 @@ class UserLeavesController extends AppController
             }
             if ($this->UserLeave->save($userLeave)) {
                 $this->Flash->success(__('The user leave has been saved.'));
-
                 return $this->redirect('/UserLeaves/add');
             }
             $this->Flash->error(__('The user leave could not be saved. Please, try again.'));
         }
-        $this->set(compact('userLeave'));
+        $this->set(compact('userLeave','used_leave'));
     }
 
     /**

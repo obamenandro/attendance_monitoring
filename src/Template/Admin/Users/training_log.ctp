@@ -6,19 +6,21 @@
   <div class="panel__content">
     <div>
       <div class="form__content form__content--report">
-        <div class="panel__search panel__search--report">
-          <div class="panel__search-box">
-            <label class="panel__search-label">ID:</label>
-            <input type="text" name="" class="panel__search-input">
+        <form method="GET">      
+          <div class="panel__search panel__search--report">
+            <div class="panel__search-box">
+              <label class="panel__search-label">ID:</label>
+              <input type="text" name="user_id" class="panel__search-input" value="<?= isset($_GET['user_id']) ? $_GET['user_id'] : '' ?>">
+            </div>
+            <div class="panel__search-box">
+              <label class="panel__search-label">Name:</label>
+              <input type="text" name="firstname" class="panel__search-input" value="<?= isset($_GET['firstname']) ? $_GET['firstname'] : '' ?>">
+            </div>
+            <div class="panel__search-box">
+              <input type="submit" name="" class="panel__search-button" value="search">
+            </div>
           </div>
-          <div class="panel__search-box">
-            <label class="panel__search-label">Name:</label>
-            <input type="text" name="" class="panel__search-input">
-          </div>
-          <div class="panel__search-box">
-            <input type="submit" name="" class="panel__search-button" value="search">
-          </div>
-        </div>
+        </form>
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
@@ -31,10 +33,10 @@
           <tbody>
             <?php foreach($users as $user): ?>
             <tr>
-              <td class="table__body-list"><?= $user['id'] ?></td>
+              <td class="table__body-list"><?= $user['attended'] ?></td>
               <td class="table__body-list"><?= $user['conducted_by'] ?></td>
               <td class="table__body-list"><?= $user['date'] ?></td>
-              <td class="table__body-list">Daryll</td>
+              <td class="table__body-list"><?= ucfirst($user['user']['lastname']).', '.ucfirst($user['user']['firstname']) ?></td>
             </tr>
             <?php endforeach ?>
           </tbody>

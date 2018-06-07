@@ -257,7 +257,9 @@ Configure::write('role', [
 Configure::write('status', [
     0 => 'Present',
     1 => 'Absent',
-    2 => 'Leave'
+    2 => 'On Leave',
+    3 => 'Half Day',
+    4 => 'Late'
 ]);
 
 Configure::write('leave_status', [

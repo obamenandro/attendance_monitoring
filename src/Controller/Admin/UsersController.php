@@ -889,35 +889,6 @@ class UsersController extends AppController
             ])
             ->first()
             ->toArray();
-        $attendanceLists = $this->Attendance->find('all')
-             ->where(['Attendances.user_id' => $id])
-             ->toArray();
-
-        if ($this->request->is('POST')) {
-            $data            = $this->request->data;
-            $check_date = $this->Attendance->find('all')
-                ->where([
-                    'Attendances.user_id' => $id,
-                    'Attendances.date'     => $data['date']
-                ])
-                ->toArray();
-            if (!empty($check_date)) {
-                $this->Flash->error(__('Date is already exists'));
-                return $this->redirect('/admin/users/view/'.$id);
-            }
-            $entity          = $this->Attendance->newEntity();
-            $entity          = $this->Attendance->patchEntity($entity, $data);
-            $entity->user_id = $id;
-            $entity->date    = $data['date'];
-            if ($this->Attendance->save($entity)) {
-                $this->Flash->success(__('Attendance has been successfully added.'));
-                return $this->redirect('/admin/users/view/'.$id);
-            } else {
-                $this->Flash->error(__('Attendance has been failed to added.'));
-                return $this->redirect('/admin/users/view/'.$id);
-            }
-        }
-
         $this->set('civil_status', Configure::read('civil_status'));
         $this->set('jobtype', Configure::read('job_type'));
         $this->set('designation', Configure::read('designation'));
@@ -938,10 +909,10 @@ class UsersController extends AppController
 
             if ($this->Attendance->save($attendanceEdit)) {
                 $this->Flash->success('Attendance has been successfully updated.');
-                return $this->redirect('/admin/users/view/'.$user_id);
+                return $this->redirect('/admin/users/attendance_monitoring');
             } else {
                 $this->Flash->error('Attendance has been failed to updated.');
-                return $this->redirect('/admin/users/view/'.$user_id);
+                return $this->redirect('/admin/users/attendance_monitoring');
             }
         }
 
@@ -1138,9 +1109,24 @@ class UsersController extends AppController
     }
 
     public function training_log() {
+        $conditions = [];
+        if ($this->request->query) {
+            if (!empty($this->request->query['firstname'])) {
+                $conditions['Users.firstname LIKE'] = '%'.$this->request->query['firstname'].'%';
+            }
+            if (!empty($this->request->query['user_id'])) {
+                $conditions['Users.id'] = $this->request->query['user_id'];
+            }
+        }
+        $conditions['Seminars.del_flg'] = 0;
+        $conditions['Users.del_flg']    = 0;
+        $conditions['Users.role']       = Configure::read('role.employee');
+
         $users = $this->Seminar->find('all')
-            ->where(['del_flg' => 0])
+            ->contain(['Users'])
+            ->where([$conditions])
             ->toArray();
+
         $this->set(compact('users'));
     }
 
@@ -1211,6 +1197,48 @@ class UsersController extends AppController
     }
 
     public function attendance_monitoring() {
+        $attendance_lists = $this->Attendance->find('all')
+            ->contain(['Users'])
+            ->toArray();
+        $employees        = $this->User->find('all')
+            ->where(['role' => Configure::read('role.employee'), 'del_flg' => 0])
+            ->toArray();
 
+        $employee_lists = [];
+        foreach ($employees as $key => $value) {
+            $employee_lists[$value['id']] = ucfirst($value['lastname']).', '.ucfirst($value['firstname']); 
+        }
+
+        if ($this->request->is('POST')) {
+            $data       = $this->request->data;
+            if (!empty($data['user_id'])) {
+                $check_date = $this->Attendance->find('all')
+                    ->where([
+                        'Attendances.user_id' => $data['user_id'],
+                        'Attendances.date'    => $data['date']
+                    ])
+                    ->toArray();
+                if (!empty($check_date)) {
+                    $this->Flash->error(__('Date is already exists'));
+                    return $this->redirect('/admin/users/attendance_monitoring');
+                }
+                $entity          = $this->Attendance->newEntity();
+                $entity          = $this->Attendance->patchEntity($entity, $data);
+                $entity->date    = $data['date'];
+
+                if ($this->Attendance->save($entity)) {
+                    $this->Flash->success(__('Attendance has been successfully added.'));
+                    return $this->redirect('/admin/users/attendance_monitoring');
+                } else {
+                    $this->Flash->error(__('Attendance has been failed to added.'));
+                    return $this->redirect('/admin/users/attendance_monitoring');
+                }
+            } else {
+                $this->Flash->error(__('Attendance has been failed to added.'));
+                return $this->redirect('/admin/users/attendance_monitoring');
+            }
+        }
+        $this->set(compact('attendance_lists', 'employees', 'employee_lists'));
+        $this->set('status', Configure::read('status'));
     }
 }

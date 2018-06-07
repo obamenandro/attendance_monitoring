@@ -21,36 +21,38 @@
         <thead>
             <tr class="table__head">
             <th class="table__head-list">ID</th>
+            <th class="table__head-list">Employee Name</th>
             <th class="table__head-list">Date</th>
             <th class="table__head-list">Status</th>
             <th class="table__head-list">Action</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach($attendanceLists as $key => $attendanceList): ?>
+            <?php foreach($attendance_lists as $key => $attendance): ?>
             <tr class="table__body">
-                <td class="table__body-list"><?= $attendanceList['id']; ?></td>
-                <td class="table__body-list"><?= date('Y-m-d', strtotime($attendanceList['date'])); ?></td>
+                <td class="table__body-list"><?= $attendance['id']; ?></td>
+                <td class="table__body-list"><?= ucfirst($attendance['user']['lastname']).", ".ucfirst($attendance['user']['firstname']) ?></td>
+                <td class="table__body-list"><?= date('Y-m-d', strtotime($attendance['date'])); ?></td>
                 <td class="table__body-list">
                 <span class="table__note
                     <?php
-                    if ( $status[$attendanceList['status']] == 'Leave' ) {
+                    if ( $status[$attendance['status']] == 'Leave' ) {
                         echo "table__note--leave";
                     }
-                    else if ( $status[$attendanceList['status']] == 'Present' ) {
+                    else if ( $status[$attendance['status']] == 'Present' ) {
                         echo "table__note--present";
                     }
                     ?>
                 ">
-                <?= $status[$attendanceList['status']]; ?>
+                <?= $status[$attendance['status']]; ?>
                 </span>
                 </td>
                 <td class="table__body-list">
-                <a class="table__view js-table-edit table__view--edit" id="<?= $attendanceList['id']; ?>">Edit</a>
+                <a class="table__view js-table-edit table__view--edit" id="<?= $attendance['id']; ?>">Edit</a>
                 </td>
             </tr>
             <!-- MODAL FOR EDIT -->
-            <div class="modal" id="js-modal-edit-<?= $attendanceList['id']; ?>">
+            <div class="modal" id="js-modal-edit-<?= $attendance['id']; ?>">
                 <div class="modal__container">
                 <div class="modal__header">
                     <div class="modal__close">
@@ -63,8 +65,8 @@
 
                 <div class="modal__content">
                     <div>
-                    <form action="/admin/users/attendanceEdit/<?= $attendanceList['user_id']; ?>" method="POST">
-                        <input type="hidden" name="id" value="<?= $attendanceList['id']; ?>">
+                    <form action="/admin/users/attendanceEdit/<?= $attendance['user_id']; ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $attendance['id']; ?>">
                         <div class="form__content">
                         <div class="form__data form__data--modal">
                             <div class="form__list">
@@ -72,7 +74,7 @@
                                 <label class="form__label">Date:</label>
                             </div>
                             <div class="form__input form__input--fullwidth">
-                                <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD" value="<?= date('Y-m-d', strtotime($attendanceList['date'])); ?>" readonly>
+                                <input type="text" name="date" class="form__inputbox js-datepicker" placeholder="YYYY-MM-DD" value="<?= date('Y-m-d', strtotime($attendance['date'])); ?>" readonly>
                             </div>
                             </div>
 
@@ -88,7 +90,7 @@
                                     'div'      => false,
                                     'label'    => false,
                                     'class'    => 'form__inputbox form__inputbox--select',
-                                    'value'    => $attendanceList['status']
+                                    'value'    => $attendance['status']
                                 ]);
                                 ?>
                             </div>
@@ -127,7 +129,7 @@
       <div class="form">
         <?= $this->Form->create(); ?>
         <div class="form__content">
-          <div class="form__data form__data--modal">
+          <div class="form__data">
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Date:</label>
@@ -148,6 +150,25 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
+                    'empty'    => '- Select Status -',
+                    'class'    => 'form__inputbox form__inputbox--select'
+                  ]);
+                ?>
+              </div>
+            </div>
+
+            <div class="form__list">
+              <div class="form__label-wrapper">
+                <label class="form__label">Employee:</label>
+              </div>
+              <div class="form__input form__input--fullwidth">
+                <?=
+                  $this->Form->input('user_id', [
+                    'options'  => $employee_lists,
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'empty'    => '- Select Employee -',
                     'class'    => 'form__inputbox form__inputbox--select'
                   ]);
                 ?>
