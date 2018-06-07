@@ -57,10 +57,13 @@ class UsersTable extends Table
         $this->hasMany('UserChecklists', [
             'foreignKey' => 'user_id'
         ]);
-        $this->hasMany('UserEligibilities', [
+        $this->hasOne('UserEligibilities', [
             'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Seminars', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasOne('WorkExperience', [
             'foreignKey' => 'user_id'
         ]);
     }

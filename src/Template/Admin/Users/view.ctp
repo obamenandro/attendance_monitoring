@@ -130,112 +130,59 @@
         <div class="view-info__title">
           <h3>Educational Attainment</h3>
         </div>
-
-      <div class="view-info__data view-info__data--attainment">
-        <span class="view-info__data-title">Doctorate</span>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Name of School: </label>
-          <span class="view-info__info">Iskul Bukol</span>
+      <?php foreach($employee['user_attainments'] as $key => $attainment): ?>
+        <?php if ($attainment['degree'] <= 3): ?>
+        <div class="view-info__data view-info__data--attainment">
+          <span class="view-info__data-title"><?= isset($degree_name[$attainment['degree']]) ? $degree_name[$attainment['degree']] : '<span class="not-applicable">N/A</span>' ?></span>
+          <div class="view-info__data-wrapper">
+            <label class="view-info__label"> Name of School: </label>
+            <span class="view-info__info"><?= !empty($attainment['school_name']) ? $attainment['school_name'] : '<span class="not-applicable">N/A</span>' ?></span>
+          </div>
+          <div class="view-info__data-wrapper">
+            <label class="view-info__label"> Degree/Course: </label>
+            <span class="view-info__info"><?= !empty($attainment['course']) ? $attainment['course'] : '<span class="not-applicable">N/A</span>' ?></span>
+          </div>
+          <div class="view-info__data-wrapper">
+            <label class="view-info__label"> Units Earned: </label>
+            <span class="view-info__info"><?= !empty($attainment['units']) ? $attainment['units'] : '<span class="not-applicable">N/A</span>' ?></span>
+          </div>
+          <div class="view-info__data-wrapper">
+            <label class="view-info__label"> Year Graduated: </label>
+            <span class="view-info__info"><?= !empty($attainment['year_graduated']) ? $attainment['year_graduated'] : '<span class="not-applicable">N/A</span>' ?></span>
+          </div>
         </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Degree/Course: </label>
-          <span class="view-info__info">Of Course</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Units Earned: </label>
-          <span class="view-info__info"><span class="not-applicable">N/A</span></span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Year Graduated: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-      </div>
-
-      <div class="view-info__data view-info__data--attainment">
-        <span class="view-info__data-title">Masters</span>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Name of School: </label>
-          <span class="view-info__info">Iskul Bukol</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Degree/Course: </label>
-          <span class="view-info__info">Of Course</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Units Earned: </label>
-          <span class="view-info__info"><span class="not-applicable">N/A</span></span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Year Graduated: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-      </div>
-
-      <div class="view-info__data view-info__data--attainment">
-        <span class="view-info__data-title">College</span>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Name of School: </label>
-          <span class="view-info__info">Iskul Bukol</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Degree/Course: </label>
-          <span class="view-info__info">Of Course</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Highest Year Level Attained: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Year Graduated: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-      </div>
-
-      <div class="view-info__data view-info__data--attainment">
-        <span class="view-info__data-title">Secondary</span>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Name of School: </label>
-          <span class="view-info__info">Iskul Bukol</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Highest Year Level Attained: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Year Graduated: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-      </div>
-
-      <div class="view-info__data view-info__data--attainment">
-        <span class="view-info__data-title">Elementary</span>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Name of School: </label>
-          <span class="view-info__info">Iskul Bukol</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Highest Year Level Attained: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-        <div class="view-info__data-wrapper">
-          <label class="view-info__label"> Year Graduated: </label>
-          <span class="view-info__info">2018</span>
-        </div>
-      </div>
+        <?php else: ?>
+          <div class="view-info__data view-info__data--attainment">
+            <span class="view-info__data-title"><?= isset($degree_name[$attainment['degree']]) ? $degree_name[$attainment['degree']] : '<span class="not-applicable">N/A</span>' ?></span>
+            <div class="view-info__data-wrapper">
+              <label class="view-info__label"> Name of School: </label>
+              <span class="view-info__info"><?= !empty($attainment['school_name']) ? $attainment['school_name'] : '<span class="not-applicable">N/A</span>' ?></span>
+            </div>
+            <div class="view-info__data-wrapper">
+              <label class="view-info__label"> Highest Year Level Attained: </label>
+              <span class="view-info__info"><?= !empty($attainment['level_attained']) ? $attainment['level_attained'] : '<span class="not-applicable">N/A</span>' ?></span>
+            </div>
+            <div class="view-info__data-wrapper">
+              <label class="view-info__label"> Year Graduated: </label>
+              <span class="view-info__info"><?= !empty($attainment['year_graduated']) ? $attainment['year_graduated'] : '<span class="not-applicable">N/A</span>' ?></span>
+            </div>
+          </div>
+        <?php endif; ?>
+      <?php endforeach; ?>
 
       <div class="view-info__data view-info__data--attainment">
         <span class="view-info__data-title">Elegibility</span>
         <div class="view-info__data-wrapper">
           <label class="view-info__label"> Name of exam: </label>
-          <span class="view-info__info">Example</span>
+          <span class="view-info__info"><?= !empty($employee['user_elligibility']['exam_name']) ? $employee['user_elligibility']['exam_name'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
         <div class="view-info__data-wrapper">
           <label class="view-info__label"> License No.: </label>
-          <span class="view-info__info">2018</span>
+          <span class="view-info__info"><?= !empty($employee['user_elligibility']['license_no']) ? $employee['user_elligibility']['license_no'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
         <div class="view-info__data-wrapper">
           <label class="view-info__label"> Valid Until: </label>
-          <span class="view-info__info">2018-02-02</span>
+          <span class="view-info__info"><?= !empty($employee['user_elligibility']['valid_until']) ? $employee['user_elligibility']['valid_until'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
       </div>
 
@@ -244,18 +191,18 @@
       </div>
 
       <div class="view-info__data view-info__data--attainment">
-        <span class="view-info__data-title">Company Name Dito</span>
+        <span class="view-info__data-title"><?= !empty($employee['work_experience']['company_name']) ? $employee['work_experience']['company_name'] : '<span class="not-applicable">N/A</span>' ?></span>
         <div class="view-info__data-wrapper">
           <label class="view-info__label"> Position Title: </label>
-          <span class="view-info__info">Dogs</span>
+          <span class="view-info__info"><?= !empty($employee['work_experience']['position']) ? $employee['work_experience']['position'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
         <div class="view-info__data-wrapper view-info__data-wrapper--fullwidth">
           <label class="view-info__label"> Date Hired.: </label>
-          <span class="view-info__info">2018</span>
+          <span class="view-info__info"><?= !empty($employee['date_hired']) ? $employee['date_hired'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
         <div class="view-info__data-wrapper view-info__data-wrapper--fullwidth">
           <label class="view-info__label"> Date Leave: </label>
-          <span class="view-info__info">2018-02-02</span>
+          <span class="view-info__info"><?= !empty($employee['work_experience']['end_work']) ? $employee['work_experience']['end_work'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
       </div>
     </div>

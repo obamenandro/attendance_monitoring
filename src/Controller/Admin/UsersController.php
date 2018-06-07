@@ -882,6 +882,7 @@ class UsersController extends AppController
 
     public function view($id = NULL) {
         $employee = $this->User->find()
+            ->contain(['UserAttainments', 'UserEligibilities', 'WorkExperience'])
             ->where([
                 'Users.id'      => $id,
                 'Users.role'    => Configure::read('role.employee'),
@@ -895,6 +896,7 @@ class UsersController extends AppController
         $this->set('department', Configure::read('departments'));
         $this->set(compact('employee', 'attendanceLists'));
         $this->set('status', Configure::read('status'));
+        $this->set('degree_name', Configure::read('degree_name'));
         $this->set('_serialize',['employee', 'civilStatus', 'attendanceLists']);
     }
 

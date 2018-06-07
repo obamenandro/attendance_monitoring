@@ -304,3 +304,11 @@ Configure::write('degree', [
     'Secondary'  => 4,
     'Elementary' => 5
 ]);
+
+Configure::write('degree_name', [
+    1 => 'Doctorate'  ,
+    2 => 'Master'     ,
+    3 => 'College'    ,
+    4 => 'Secondary'  ,
+    5 => 'Elementary'
+]);
