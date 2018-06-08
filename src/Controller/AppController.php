@@ -51,7 +51,8 @@ class AppController extends Controller
                         'fields' => [
                             'username' => 'email',
                             'password' => 'password'
-                        ]
+                        ],
+                        'scope' => ['Users.del_flg' => 0]
                     ]
                 ],
                 'loginAction' => [
