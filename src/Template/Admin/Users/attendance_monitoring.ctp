@@ -36,11 +36,17 @@
                 <td class="table__body-list">
                 <span class="table__note
                     <?php
-                    if ( $status[$attendance['status']] == 'Leave' ) {
+                    if ( $status[$attendance['status']] == 'On Leave' ) {
                         echo "table__note--leave";
                     }
                     else if ( $status[$attendance['status']] == 'Present' ) {
                         echo "table__note--present";
+                    }
+                    else if ( $status[$attendance['status']] == 'Half Day' ) {
+                        echo "table__note--halfday";
+                    }
+                    else if ( $status[$attendance['status']] == 'Late' ) {
+                        echo "table__note--late";
                     }
                     ?>
                 ">
@@ -115,7 +121,7 @@
 <div class="backdrop"></div>
 
 <div class="modal" id="js-modal-add">
-  <div class="modal__container">
+  <div class="modal__container modal__container--attendance">
     <div class="modal__header">
       <div class="modal__close">
         <span class="modal__exit">x</span>
@@ -199,7 +205,7 @@
     id = $(this).attr('id');
     $('#js-modal-edit-'+id).css({
       top: 0
-    });    
+    });
    });
 
   $('.modal__exit').on('click', function() {
