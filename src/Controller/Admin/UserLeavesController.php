@@ -16,7 +16,7 @@ class UserLeavesController extends AppController
 
     public function initialize() {
         parent::initialize();
-        $this->viewBuilder()->setLayout('Admin');
+        $this->viewBuilder()->setLayout('admin');
         $this->loadComponent('Upload');    ## Load upload component for uploading images
     }
 
