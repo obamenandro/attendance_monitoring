@@ -34,6 +34,7 @@ class Attendance extends Entity
         'timein' => true,
         'timeout' => true,
         'status' => true,
+        'del_flg' => true,
         'deleted_date' => true,
         'created' => true,
         'modified' => true,

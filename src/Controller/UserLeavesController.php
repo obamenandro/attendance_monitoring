@@ -52,7 +52,10 @@ class UserLeavesController extends AppController
      */
     public function add()
     {
-        $used_leave   = count($this->UserLeave->find('all')->where(['user_id' => $this->Auth->User('id')]));
+        $used_leave   = count($this->UserLeave->find('all')->where([
+            'user_id' => $this->Auth->User('id'),
+            'status'  => 1
+        ]));
         $userLeave    = $this->UserLeave->newEntity();
         if ($this->request->is('post')) {
             $data               = $this->request->getData();

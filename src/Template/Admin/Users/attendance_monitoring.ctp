@@ -55,7 +55,7 @@
                 </td>
                 <td class="table__body-list">
                   <a class="table__view js-table-edit table__view--edit" id="<?= $attendance['id']; ?>">Edit</a>
-                  <a class="table__view js-table-edit table__view--delete">Delete</a>
+                  <a class="table__view js-table-edit table__view--delete delete" data-id="<?= $attendance['id']; ?>">Delete</a>
                 </td>
             </tr>
             <!-- MODAL FOR EDIT -->
@@ -271,5 +271,12 @@
       top: 0
     });
   });
+  var attendance_id = "";
+  $('.delete').on('click', function() {
+    attendance_id = $(this).data('id');
+  });
 
+  $('.user-delete').on('click', function() {
+    window.location.href = '/admin/users/attendance_delete/'+attendance_id;
+  });
 </script>
