@@ -23,7 +23,7 @@
               <td class="table__body-list"><?= date('m-d-Y', strtotime($record['date'])) ?></td>
               <td class="table__body-list">
                 <a class="table__view table__view--edit" href="/seminars/edit/<?= $record['id'] ?>">Edit</a>
-                <a class="table__view table__view--delete">Delete</a>
+                <a class="table__view table__view--delete delete" data-id="<?= $record['id'] ?>">Delete</a>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -134,4 +134,13 @@
         top: '-100%'
       })
     })
+
+  var seminar_id = "";
+  $('.delete').on('click', function() {
+    seminar_id = $(this).data('id');
+  });
+
+  $('.user-delete').on('click', function() {
+    window.location.href = '/seminars/seminar_delete/'+seminar_id;
+  });
 </script>

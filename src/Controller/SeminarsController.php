@@ -62,4 +62,20 @@ class SeminarsController extends AppController
 
         $this->set(compact('seminar'));
     }
+
+    public function seminarDelete($id) {
+        $this->autoRender = false;
+        if (!$id)  return $this->redirect('/seminars');
+        if (!$this->Seminar->exists(['id' => $id])) return $this->redirect('/seminars');
+
+        $seminar = $this->Seminar->get($id);
+        $seminar = $this->Seminar->patchEntity($seminar, ['del_flg' => 1],['validate' => false]);
+        if ($this->Seminar->save($seminar)) {
+            $this->Flash->success(__('Seminar has been successfully deleted.'));
+            return $this->redirect('/seminars');
+        } else {
+            $this->Flash->error(__('Seminar has been failed to deleted.'));
+            return $this->redirect('/seminars');
+        }
+    }
 }
