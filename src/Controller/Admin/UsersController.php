@@ -1201,6 +1201,7 @@ class UsersController extends AppController
     public function attendance_monitoring() {
         $attendance_lists = $this->Attendance->find('all')
             ->contain(['Users'])
+            ->where(['Attendances.del_flg' => 0])
             ->toArray();
         $employees        = $this->User->find('all')
             ->where(['role' => Configure::read('role.employee'), 'del_flg' => 0])
@@ -1242,5 +1243,21 @@ class UsersController extends AppController
         }
         $this->set(compact('attendance_lists', 'employees', 'employee_lists'));
         $this->set('status', Configure::read('status'));
+    }
+
+    public function attendance_delete($id) {
+        $this->autoRender = false;
+        if (!$id)  return $this->redirect('/admin/users');
+        if (!$this->Attendance->exists(['id' => $id])) return $this->redirect('/admin/users');
+
+        $attendance = $this->Attendance->get($id);
+        $attendance = $this->Attendance->patchEntity($attendance, ['del_flg' => 1],['validate' => false]);
+        if ($this->Attendance->save($attendance)) {
+            $this->Flash->success(__('Attendance has been successfully deleted.'));
+            return $this->redirect('/admin/users/attendance_monitoring');
+        } else {
+            $this->Flash->error(__('Attendance has been failed to deleted.'));
+            return $this->redirect('/admin/users/attendance_monitoring');
+        }
     }
 }
