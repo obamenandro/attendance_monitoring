@@ -23,6 +23,7 @@
               <td class="table__body-list"><?= date('m-d-Y', strtotime($record['date'])) ?></td>
               <td class="table__body-list">
                 <a class="table__view table__view--edit" href="/seminars/edit/<?= $record['id'] ?>">Edit</a>
+                <a class="table__view table__view--delete">Delete</a>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -81,6 +82,30 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="js-modal-confirm" style="display: inline-block;">
+  <div class="modal__container">
+    <div class="modal__header">
+      <div class="modal__close">
+        <span class="modal__exit">x</span>
+      </div>
+      <div class="modal__title">
+        <h3>Confirmation</h3>
+      </div>
+    </div>
+
+    <div class="modal__content">
+      <div class="modal__content-text">
+       <span>Are you sure you want to Delete?</span>
+      </div>
+      <div class="modal__button">
+        <a class="button button--back">Close</a>
+        <a class="button button--delete user-delete">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backdrop"></div>
 <script>
     $('#seminar_table').DataTable({
       "paging":   false,
@@ -96,9 +121,16 @@
       });
     })
 
-    $('.modal__close').click(function() {
+    $('.table__view--delete').click(function() {
+      $('.backdrop').show();
+      $('#js-modal-confirm').css({
+          top: 0
+      });
+    })
+
+    $('.modal__close, .button--back, .modal__exit').click(function() {
       $('.backdrop').hide();
-      $('#js-modal-edit').css({
+      $('#js-modal-edit, #js-modal-confirm ').css({
         top: '-100%'
       })
     })
