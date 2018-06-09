@@ -571,7 +571,7 @@
                       'div'      => false,
                       'error'    => false,
                       'required' => false,
-                      'class'    => 'form__inputbox js-datepicker-to required',
+                      'class'    => 'form__inputbox',
                       'value'    => isset($work_experience[0]) && !empty($work_experience[0]['position'])
                                 ? $work_experience[0]['position'] : ''
                     ]);

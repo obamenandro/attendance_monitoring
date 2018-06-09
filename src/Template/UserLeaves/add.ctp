@@ -23,13 +23,7 @@
 
       <div class="form-edit-info__wrapper">
         <div class="form-edit-info__list form-edit-info__list--leavetype">
-          <!-- <label class="form-edit-info__label"> Leave Type </label> -->
           <div class="form-edit-info__input-wrapper">
-            <!-- <select class="form-edit-info__input">
-              <option>--select</option>
-              <option>Incentive Leave</option>
-              <option>Unpaid Leave</option>
-            </select> -->
           </div>
         </div>
       
@@ -99,5 +93,5 @@
   $('.js-datepicker-from, .js-datepicker-to').datepicker({
     format: 'yyyy-mm-dd',
     startDate: "today"
-  })
+  }).attr('readonly','readonly')
 </script>
