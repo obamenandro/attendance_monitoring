@@ -429,7 +429,7 @@
                       'div'      => false,
                       'error'    => false,
                       'required' => false,
-                      'class'    => 'form__inputbox required form__year-graduated',
+                      'class'    => 'form__inputbox required',
                       'value'    => isset($educational[5]) && !empty($educational[5]['level_attained'])
                                 ? $educational[5]['level_attained'] : ''
                     ]);
@@ -475,7 +475,7 @@
                 <div class="input text">
                   <?=
                     $this->Form->control('Elegibility.license_no', [
-                      'type'     => 'number',
+                      'type'     => 'text',
                       'div'      => false,
                       'error'    => false,
                       'required' => false,
@@ -514,7 +514,7 @@
 
         <div class="form">
           <div class="form__user-title">
-            <span>Work Experience</span>
+            <span>Latest Work Experience</span>
           </div>
           <div class="js-wrapper-append">
             <div class="form__list form__list--user-range">
@@ -571,7 +571,7 @@
                       'div'      => false,
                       'error'    => false,
                       'required' => false,
-                      'class'    => 'form__inputbox js-datepicker-to required',
+                      'class'    => 'form__inputbox',
                       'value'    => isset($work_experience[0]) && !empty($work_experience[0]['position'])
                                 ? $work_experience[0]['position'] : ''
                     ]);

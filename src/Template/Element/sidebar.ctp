@@ -4,7 +4,7 @@
       <li class="sidebar__list">
         <a href="/admin/users/home" class="sidebar__item sidebar__item--active">
           <i class="fa fa-home sidebar__icon" aria-hidden="true"></i>
-          <span class="sidebar__link-text">Home</span>
+          <span class="sidebar__link-text">Dashboard</span>
           <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
         </a>
       </li>

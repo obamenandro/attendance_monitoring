@@ -1,6 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <div class="panel__title">
-  <h3>Home</h3>
+  <h3>Dashboard</h3>
 </div>
 
 <div class="panel__container">
