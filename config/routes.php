@@ -49,24 +49,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/admin', ['controller' => 'Pages', 'action' => 'display', 'admin_index']);
-    $routes->connect('/login', ['controller' => 'Pages', 'action' => 'display', 'admin_login']);
-    $routes->connect('/employee', ['controller' => 'Pages', 'action' => 'display', 'admin_employee']);
-    $routes->connect('/add/attendance', ['controller' => 'Pages', 'action' => 'display', 'admin_add_attendance']);
-    $routes->connect('/view/info', ['controller' => 'Pages', 'action' => 'display', 'admin_view_info']);
-    $routes->connect('/admin/edit', ['controller' => 'Pages', 'action' => 'display', 'admin_edit']);
-    $routes->connect('/admin/department/add', ['controller' => 'Pages', 'action' => 'display', 'admin_add_department']);
-    $routes->connect('/admin/subject/add', ['controller' => 'Pages', 'action' => 'display', 'admin_add_subject']);
-    $routes->connect('/admin/department/list', ['controller' => 'Pages', 'action' => 'display', 'admin_list_department']);
-    $routes->connect('/admin/subject/list', ['controller' => 'Pages', 'action' => 'display', 'admin_list_subject']);
-    $routes->connect('/admin/success', ['controller' => 'Pages', 'action' => 'display', 'admin_success']);
-
-    $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'user_home']);
-    $routes->connect('/user/login', ['controller' => 'Pages', 'action' => 'display', 'user_login']);
-    $routes->connect('/user/edit/info', ['controller' => 'Pages', 'action' => 'display', 'user_edit_info']);
     $routes->connect('/user/leave', ['controller' => 'Pages', 'action' => 'display', 'user_leave']);
-
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
@@ -94,6 +77,7 @@ Router::prefix('admin', function ($routes) {
     // All routes here will be prefixed with `/admin`
     // And have the prefix => admin route element added.
     $routes->fallbacks('InflectedRoute');
+    $routes->connect('/user_leaves', ['controller' => 'UserLeaves', 'action' => 'index']);
 });
 /**
  * Load all plugin routes. See the Plugin documentation on
