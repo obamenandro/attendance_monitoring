@@ -152,6 +152,18 @@ class EmployeeEditForm extends Form
                             ]
                          ]);
     }
+    public function isUnique ($value, $context) {
+        $Users = TableRegistry::get('Users');
+        $user  = $Users->find('all')
+                ->where([
+                    'email'   => $value,
+                    'del_flg' => 0
+                ]);
+        if ($user->isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Defines what to execute once the From is being processed

@@ -24,7 +24,7 @@
             <tr class="table__head">
               <th class="table__head-list">No</th>
               <th class="table__head-list">Name</th>
-              <th class="table__head-list">Highest Educational Attainment with School Attended</th>
+              <th class="table__head-list">Highest Educational Attainment</th>
               <th class="table__head-list">Designation</th>
               <th class="table__head-list">Date Hired</th>
               <th class="table__head-list">Status</th>
@@ -38,7 +38,22 @@
               <td class="table__body-list"><?= $value['id'] ?></td>
               <td class="table__body-list"><?= ucfirst($value['lastname']).", ".ucfirst($value['firstname']) ?></td>
               <td class="table__body-list">
-                <span class="table__body-span"><?= isset($value['user_attainments'][0]['course']) ? $value['user_attainments'][0]['course'] : 'N/A' ?></span>
+                <span class="table__body-span">
+                  <?php 
+                    if (!empty($value['user_attainments'])) {
+                      if ($value['user_attainments'][0]['degree'] >= 4 && 
+                        !empty($value['user_attainments'][0]['level_attained'])) {
+                        echo $value['user_attainments'][0]['level_attained'];
+                      } elseif(!empty($value['user_attainments'][0]['course']) && $value['user_attainments'][0]['degree'] <= 3) {
+                        echo $value['user_attainments'][0]['course'];
+                      } else {
+                        echo "N/A";  
+                      }
+                    } else {
+                      echo "N/A";
+                    }
+                  ?>
+                  </span>
                 <!-- <span class="table__body-span">BS Marine Transportation</span> -->
               </td>
               <td class="table__body-list"><?= isset($designation[$value['designation']]) ? $designation[$value['designation']] : 'N/A' ?></td>
