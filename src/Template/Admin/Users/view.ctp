@@ -197,11 +197,11 @@
           <span class="view-info__info"><?= !empty($employee['work_experience']['position']) ? $employee['work_experience']['position'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
         <div class="view-info__data-wrapper view-info__data-wrapper--fullwidth">
-          <label class="view-info__label"> Date Hired.: </label>
-          <span class="view-info__info"><?= !empty($employee['date_hired']) ? $employee['date_hired'] : '<span class="not-applicable">N/A</span>' ?></span>
+          <label class="view-info__label"> Date Start: </label>
+          <span class="view-info__info"><?= !empty($employee['work_experience']['start_work']) ? $employee['work_experience']['start_work'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
         <div class="view-info__data-wrapper view-info__data-wrapper--fullwidth">
-          <label class="view-info__label"> Date Leave: </label>
+          <label class="view-info__label"> Date End: </label>
           <span class="view-info__info"><?= !empty($employee['work_experience']['end_work']) ? $employee['work_experience']['end_work'] : '<span class="not-applicable">N/A</span>' ?></span>
         </div>
       </div>

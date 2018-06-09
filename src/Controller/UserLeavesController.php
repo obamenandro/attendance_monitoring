@@ -14,7 +14,7 @@ class UserLeavesController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('User');
+        $this->viewBuilder()->setLayout('user');
     }
 
     /**
