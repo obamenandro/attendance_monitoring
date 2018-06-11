@@ -93,10 +93,6 @@ class UsersTable extends Table
             ->requirePresence('lastname', 'update')
             ->notEmpty('lastname', 'Lastname is required.');
         $validator
-            ->scalar('middlename')
-            ->requirePresence('middlename', 'update')
-            ->notEmpty('middlename', 'Middlename is required.');
-        $validator
             ->scalar('firstname', 'update')
             ->requirePresence('firstname', 'update')
             ->notEmpty('firstname', 'Firstname is required.');
@@ -121,7 +117,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
+        // $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['government_id'], 'Governments'));
 
         return $rules;

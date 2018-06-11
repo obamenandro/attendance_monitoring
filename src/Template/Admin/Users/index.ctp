@@ -6,25 +6,26 @@
   <?= $this->Flash->render(); ?>
   <div class="panel__content">
     <div>
-      <form action="upload.php" method="post" enctype="multipart/form-data">
-        <div class="form__content">
+      <div class="form__content">
+        <form method="GET">
           <div class="panel__search">
             <div class="panel__search-box">
               <label class="panel__search-label">ID:</label>
-              <input type="text" name="" class="panel__search-input">
+              <input type="text" name="user_id" class="panel__search-input">
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Name:</label>
-              <input type="text" name="" class="panel__search-input">
+              <input type="text" name="user_name" class="panel__search-input">
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Status:</label>
-              <input type="text" name="" class="panel__search-input">
+              <input type="text" name="status_id" class="panel__search-input">
             </div>
             <div class="panel__search-box">
               <input type="submit" name="" class="panel__search-button" value="search">
             </div>
           </div>
+          </form>
 
           <table id="dataTable" class="display table table--list-employee" style="width: 100%">
             <thead>
@@ -59,7 +60,6 @@
             </tbody>
           </table>
         </div>
-      </form>
     </div>
   </div>
 </div>
