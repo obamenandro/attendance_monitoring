@@ -54,7 +54,6 @@
                     }
                   ?>
                   </span>
-                <!-- <span class="table__body-span">BS Marine Transportation</span> -->
               </td>
               <td class="table__body-list"><?= isset($designation[$value['designation']]) ? $designation[$value['designation']] : 'N/A' ?></td>
               <td class="table__body-list"><?= !empty($value['date_hired']) ? date('m/d/Y', strtotime($value['date_hired'])) : 'N/A' ?></td>
