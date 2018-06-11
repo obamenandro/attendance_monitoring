@@ -211,9 +211,6 @@ class UsersTable extends Table
             ->scalar('position')
             ->notEmpty('position', __('Position is required.'));
         $validator
-            ->scalar('subject')
-            ->notEmpty('subject', __('Subject is required.'));
-        $validator
             ->scalar('leave')
             ->notEmpty('leave', __('Leave is required.'));
         return $validator;
