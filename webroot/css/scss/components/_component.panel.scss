@@ -9,7 +9,8 @@
 
   &__search-box {
     display: inline-block;
-    width: 30%;
+    margin-right: 2%;
+    width: 26%;
     vertical-align: middle;
 
     &:last-child {
@@ -46,17 +47,17 @@
 
   &__search-label {
     display: inline-block;
-    margin-right: 5%;
-    width: 20%;
+    margin-right: 10%;
+    width: 30%;
     font-size: $secondary-fontsize;
     color: $primary-color;
     vertical-align: middle;
-    text-align: center;
+    text-align: right;
   }
 
   &__search-input {
     display: inline-block;
-    width: 65%;
+    width: 60%;
     padding: 8px;
     border-radius: 5px;
     vertical-align: middle;

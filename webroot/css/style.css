@@ -317,7 +317,8 @@ span.sidebar__information-data {
   background: #F0F0F0; }
   .panel__search-box {
     display: inline-block;
-    width: 30%;
+    margin-right: 2%;
+    width: 26%;
     vertical-align: middle; }
     .panel__search-box:last-child {
       width: 10%; }
@@ -342,15 +343,15 @@ span.sidebar__information-data {
     padding: 20px 0 40px; }
   .panel__search-label {
     display: inline-block;
-    margin-right: 5%;
-    width: 20%;
+    margin-right: 10%;
+    width: 30%;
     font-size: 14px;
     color: #2D3134;
     vertical-align: middle;
-    text-align: center; }
+    text-align: right; }
   .panel__search-input {
     display: inline-block;
-    width: 65%;
+    width: 60%;
     padding: 8px;
     border-radius: 5px;
     vertical-align: middle;

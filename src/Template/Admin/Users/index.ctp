@@ -18,8 +18,12 @@
               <input type="text" name="user_name" class="panel__search-input">
             </div>
             <div class="panel__search-box">
-              <label class="panel__search-label">Status:</label>
-              <input type="text" name="status_id" class="panel__search-input">
+              <label class="panel__search-label">Designation:</label>
+              <select class="panel__search-input">
+                <option>--</option>
+                <option>Teaching</option>
+                <option>Non Teaching</option>
+              </select>
             </div>
             <div class="panel__search-box">
               <input type="submit" name="" class="panel__search-button" value="search">

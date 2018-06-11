@@ -21,6 +21,46 @@
         </li>
       </ul>
 
+      <table id="seminar_table" class="display table" style="width: 800px; margin: 35px auto 0;">
+          <thead>
+            <tr class="table__head">
+              <th class="table__head-list">Leave Start</th>
+              <th class="table__head-list">Leave End</th>
+              <th class="table__head-list">Status</th>
+              <th class="table__head-list">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table__body">
+              <td class="table__body-list">2018-06-20</td>
+              <td class="table__body-list">2018-06-22</td>
+              <td class="table__body-list"><span class="table__body-approved">APPROVED</span></td>
+              <td class="table__body-list">
+                <a class="table__view table__view--edit">Edit</a>
+                <a class="table__view table__view--delete">Delete</a>
+              </td>
+            </tr>
+            <tr class="table__body">
+              <td class="table__body-list">2018-06-20</td>
+              <td class="table__body-list">2018-06-22</td>
+              <td class="table__body-list"><span class="table__body-disapproved">DISAPPROVED</span></td>
+              <td class="table__body-list">
+                <a class="table__view table__view--edit">Edit</a>
+                <a class="table__view table__view--delete">Delete</a>
+              </td>
+            </tr>
+            <tr class="table__body">
+              <td class="table__body-list">2018-06-20</td>
+              <td class="table__body-list">2018-06-22</td>
+              <td class="table__body-list"><span class="table__body-approved">--</span></td>
+              <td class="table__body-list">
+                <a class="table__view table__view--edit">Edit</a>
+                <a class="table__view table__view--delete">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
       <div class="form-edit-info__wrapper">
         <div class="form-edit-info__list form-edit-info__list--leavetype">
           <div class="form-edit-info__input-wrapper">
@@ -86,12 +126,49 @@
       </div>
       <?= $this->Form->end(); ?>
   </div>
-
 </div>
+
+<div class="modal" id="js-modal-confirm" style="display: inline-block;">
+  <div class="modal__container">
+    <div class="modal__header">
+      <div class="modal__close">
+        <span class="modal__exit">x</span>
+      </div>
+      <div class="modal__title">
+        <h3>Confirmation</h3>
+      </div>
+    </div>
+
+    <div class="modal__content">
+      <div class="modal__content-text">
+       <span>Are you sure you want to Delete?</span>
+      </div>
+      <div class="modal__button">
+        <a class="button button--back">Close</a>
+        <a class="button button--delete user-delete">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backdrop"></div>
 
 <script>
   $('.js-datepicker-from, .js-datepicker-to').datepicker({
     format: 'yyyy-mm-dd',
     startDate: "today"
   }).attr('readonly','readonly')
+
+  $('.table__view--delete').click(function() {
+    $('.backdrop').show();
+    $('#js-modal-confirm').css({
+        top: 0
+    });
+  })
+
+  $('.button--back, .modal__exit').click(function() {
+    $('.backdrop').hide();
+    $('#js-modal-confirm ').css({
+      top: '-100%'
+    })
+  })
 </script>

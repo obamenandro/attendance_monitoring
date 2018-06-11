@@ -45,6 +45,11 @@
           <label class="view-info__label"> Leave: </label>
           <span class="view-info__info"> • <?= $employee['total_leave'] ?></span>
         </div>
+        
+        <div class="view-info__data">
+          <label class="view-info__label"> Remaining Leave: </label>
+          <span class="view-info__info"> • 1</span>
+        </div>
 
         <div class="view-info__title">
           <h3>Employee Information</h3>
