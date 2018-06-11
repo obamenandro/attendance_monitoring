@@ -444,103 +444,6 @@ class UsersController extends AppController
         }
 
         $this->set(compact('userEdit', 'designation', 'jobtype', 'departments'));
-        // if ($this->request->is('POST')) {
-        //     $data               = $this->request->data;
-        //     $userEdit           = $this->User->patchEntity($userEdit, $data);
-        //     $userEdit->modified = date('Y-m-d H:i:s');
-
-        //     //validate government data
-        //     $this->__government_validation($data, $userEdit);
-        //     if ($this->request->data['image']['size'] == 0) {
-        //         $userEdit->image = $employee['image'];
-        //     }
-        //     if ($this->User->save($userEdit)) {
-        //         $this->UserDepartment->deleteAll(['user_id' => $id]);
-        //         if ($this->request->data['image']['size'] != 0) {
-        //             $this->Upload->upload($this->request->data['image']);
-        //             if($this->Upload->uploaded) {
-        //                 $imageName = md5(time());
-        //                 $this->Upload->file_new_name_body = $imageName;
-        //                 $this->Upload->process('webroot/uploads/employee/'.$id.'/');
-        //                 $profileImage = $this->Upload->file_dst_name;
-
-        //                 $addImage = $this->User->get($id);
-        //                 $addImage->image = '/uploads/employee/'.$id.'/'.$profileImage;
-        //                 $this->User->save($addImage);
-        //             }
-        //         }
-        //         if (!empty($data['sss_number'])        ||
-        //             !empty($data['gsis_number'])       ||
-        //             !empty($data['philhealth_number']) ||
-        //             !empty($data['pagibig_number'])    ||
-        //             !empty($data['tin_number']))
-        //         {
-        //             $governmentData = [
-        //                 'sss_number'        => $data['sss_number'],
-        //                 'gsis_number'       => $data['gsis_number'],
-        //                 'philhealth_number' => $data['philhealth_number'],
-        //                 'pagibig_number'    => $data['pagibig_number'],
-        //                 'tin_number'        => $data['tin_number']
-        //             ];
-        //             if ($government) {
-        //                 $governmentEdit = $this->Government->get($government['id']);
-        //                 $governmentEdit = $this->Government->patchEntity($governmentEdit, $governmentData);
-        //                 $this->Government->save($governmentEdit);
-        //             } else {
-        //                 $governmentData['user_id'] = $userId;
-        //                 $government                = $this->Government->newEntity();
-        //                 $government                = $this->Government->patchEntity($government, $governmentData);
-        //                 $this->Government->save($government);
-        //             }
-        //         }
-        //         if (!empty($data['department_id'])) {
-        //             $this->UserDepartment = TableRegistry::get('UserDepartments');
-        //             $userDepartment       = [];
-
-        //             foreach ($data['department_id'] as $department) {
-        //                 $userDepartment[] = [
-        //                     'department_id' => $department,
-        //                     'user_id'       => $id
-        //                 ];
-        //             }
-
-        //             $userDepartmentEntity = $this->UserDepartment->newEntities($userDepartment);
-        //             foreach ($userDepartmentEntity as $entity) {
-        //                 $this->UserDepartment->save($entity);
-        //             }
-        //         }
-
-        //         if (!empty($data['subject_id'])) {
-        //             $this->UserSubject = TableRegistry::get('UserSubjects');
-        //             $userSubject       = [];
-        //             foreach ($data['subject_id'] as $subject) {
-        //                 $userSubject[] = [
-        //                     'subject_id' => $subject,
-        //                     'user_id'    => $id
-        //                 ];
-        //             }
-        //             $userSubjectEntity = $this->UserSubject->newEntities($userSubject);
-        //             foreach ($userSubjectEntity as $entity) {
-        //                 $this->UserSubject->save($entity);
-        //             }
-        //         }
-
-        //         $this->Flash->success(__('Your employee has been successfully updated.'));
-        //         return $this->redirect(['action' => 'index']);
-        //     }
-        // }
-
-        // $this->set(compact(
-        //     'userEdit',
-        //     'employee',
-        //     'civilStatus',
-        //     'designation',
-        //     'jobtype',
-        //     'subjects',
-        //     'departments',
-        //     'userDepartments',
-        //     'government'
-        // ));
     }
 
     public function edit_personal () {
@@ -1099,6 +1002,7 @@ class UsersController extends AppController
         $users = $this->User->find('all')
             ->contain('UserAttainments', function($res) {
                 return $res
+                ->where(['UserAttainments.school_name !=' => ''])
                 ->order(['UserAttainments.degree' => 'ASC']);
             })
             ->where([
