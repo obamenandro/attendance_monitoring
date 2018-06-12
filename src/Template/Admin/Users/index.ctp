@@ -11,18 +11,18 @@
           <div class="panel__search">
             <div class="panel__search-box">
               <label class="panel__search-label">ID:</label>
-              <input type="text" name="user_id" class="panel__search-input">
+              <input type="text" name="user_id" class="panel__search-input" value="<?= !empty($_GET['user_id']) ? $_GET['user_id'] : '' ?>">
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Name:</label>
-              <input type="text" name="user_name" class="panel__search-input">
+              <input type="text" name="firstname" class="panel__search-input" value="<?= !empty($_GET['firstname']) ? $_GET['firstname'] : '' ?>">
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Designation:</label>
-              <select class="panel__search-input">
-                <option>--</option>
-                <option>Teaching</option>
-                <option>Non Teaching</option>
+              <select class="panel__search-input" name="designation_id">
+                <option value="">--</option>
+                <option value="1" <?= !empty($_GET['designation_id']) && $_GET['designation_id'] == 1 ? 'selected' : '' ?>>Teaching</option>
+                <option value="2" <?= !empty($_GET['designation_id']) && $_GET['designation_id'] == 2 ? 'selected' : '' ?>>Non Teaching</option>
               </select>
             </div>
             <div class="panel__search-box">

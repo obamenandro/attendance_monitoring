@@ -1,58 +1,10 @@
 <div class="user-panel__field">
   <div class="form-edit-info">
     <?= $this->Flash->render(); ?>
-    <?= $this->Form->create($userLeave, ['type' => 'POST']); ?>
+    <?= $this->Form->create($leave, ['type' => 'POST']); ?>
       <div class="form-edit-info__title view-info__title">
         <h2>LEAVE APPLICATION</h2>
       </div>
-
-      <ul class="form-edit-info__leave-list">
-        <li class="form-edit-info__leave-item">
-          <span class="form-edit-info__leave-number"><?= $used_leave; ?></span>
-          <span>Used Leave</span>
-        </li>
-        <li class="form-edit-info__leave-item">
-          <span class="form-edit-info__leave-number"><?= $user['total_leave'] - $used_leave; ?></span>
-          <span>Remaining Leave</span>
-        </li>
-        <li class="form-edit-info__leave-item">
-         <span class="form-edit-info__leave-number"><?= $user['total_leave'] ?></span>
-          <span>Leave Total</span>
-        </li>
-      </ul>
-
-      <table id="seminar_table" class="display table" style="width: 800px; margin: 35px auto 0;">
-          <thead>
-            <tr class="table__head">
-              <th class="table__head-list">Leave Start</th>
-              <th class="table__head-list">Leave End</th>
-              <th class="table__head-list">Status</th>
-              <th class="table__head-list">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($user_leave_records as $key => $value): ?>
-            <tr class="table__body">
-              <td class="table__body-list"><?= date('Y-m-d', strtotime($value['date_start'])) ?></td>
-              <td class="table__body-list"><?= date('Y-m-d', strtotime($value['date_end'])) ?></td>
-              <td class="table__body-list">
-                <?php if($value['status'] == 1): ?>
-                <span class="table__body-approved">APPROVED</span>
-                <?php elseif($value['status'] == 2): ?>
-                <span class="table__body-disapproved">DECLINED</span>
-                <?php else: ?>
-                <span class="table__body-approved">PENDING</span>
-                <?php endif; ?>
-              </td>
-              <td class="table__body-list">
-                <a href="/UserLeaves/edit/<?= $value['id'] ?>" class="table__view table__view--edit">Edit</a>
-                <a class="table__view table__view--delete delete" data-id="<?= $value['id'] ?>">Delete</a>
-              </td>
-            </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-
       <div class="form-edit-info__wrapper">
         <div class="form-edit-info__list form-edit-info__list--leavetype">
           <div class="form-edit-info__input-wrapper">
@@ -163,13 +115,4 @@
       top: '-100%'
     })
   })
-
-  var id = "";
-  $('.delete').on('click', function() {
-    id = $(this).data('id');
-  });
-
-  $('.user-delete').on('click', function() {
-    window.location.href = '/UserLeaves/delete/'+id;
-  });
 </script>

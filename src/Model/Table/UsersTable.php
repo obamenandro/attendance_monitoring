@@ -66,6 +66,9 @@ class UsersTable extends Table
         $this->hasOne('WorkExperience', [
             'foreignKey' => 'user_id'
         ]);
+        $this->hasMany('UserLeaves', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**

@@ -54,8 +54,9 @@ class UserLeavesController extends AppController
     {
         $used_leave   = count($this->UserLeave->find('all')->where([
             'user_id' => $this->Auth->User('id'),
-            'status'  => 1
-        ]));
+            'status'  => 1,
+            'del_flg' => 0
+        ])->toArray());
         $userLeave    = $this->UserLeave->newEntity();
         if ($this->request->is('post')) {
             $data               = $this->request->getData();
@@ -74,7 +75,14 @@ class UserLeavesController extends AppController
             }
             $this->Flash->error(__('The user leave could not be saved. Please, try again.'));
         }
-        $this->set(compact('userLeave','used_leave'));
+
+        $user_leave_records = $this->UserLeave->find()
+            ->where([
+                'user_id' => $this->Auth->User('id'),
+                'del_flg' => 0
+            ])
+            ->toArray();
+        $this->set(compact('userLeave','used_leave', 'user_leave_records'));
     }
 
     /**
@@ -86,38 +94,37 @@ class UserLeavesController extends AppController
      */
     public function edit($id = null)
     {
-        $userLeave = $this->UserLeaves->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $userLeave = $this->UserLeaves->patchEntity($userLeave, $this->request->getData());
-            if ($this->UserLeaves->save($userLeave)) {
-                $this->Flash->success(__('The user leave has been saved.'));
+        if (!$id)  return $this->redirect('/UserLeaves/add');
+        if (!$this->UserLeave->exists(['id' => $id])) return $this->redirect('/UserLeaves/add');
 
-                return $this->redirect(['action' => 'index']);
+        $leave = $this->UserLeave->get($id);
+
+        if ($this->request->is('POST')) {
+            $data  = $this->request->getData();
+            $leave = $this->UserLeave->patchEntity($leave, $data);
+            if ($this->UserLeave->save($leave)) {
+                $this->Flash->success('Your leave has been successfully updated.');
+                return $this->redirect('/UserLeaves/edit/'.$id);
             }
-            $this->Flash->error(__('The user leave could not be saved. Please, try again.'));
         }
-        $this->set(compact('userLeave'));
+
+        $this->set(compact('leave'));
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id User Leave id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $userLeave = $this->UserLeaves->get($id);
-        if ($this->UserLeaves->delete($userLeave)) {
-            $this->Flash->success(__('The user leave has been deleted.'));
-        } else {
-            $this->Flash->error(__('The user leave could not be deleted. Please, try again.'));
-        }
+    public function delete($id) {
+        $this->autoRender = false;
+        if (!$id)  return $this->redirect('/UserLeaves/add');
+        if (!$this->UserLeave->exists(['id' => $id])) return $this->redirect('/UserLeaves/add');
 
-        return $this->redirect(['action' => 'index']);
+        $user = $this->UserLeave->get($id);
+        $user = $this->UserLeave->patchEntity($user, ['del_flg' => 1],['validate' => false]);
+
+        if ($this->UserLeave->save($user)) {
+            $this->Flash->success(__('Your leave has been successfully deleted.'));
+            return $this->redirect('/UserLeaves/add');
+        } else {
+            $this->Flash->error(__('Your leave has been failed to deleted.'));
+            return $this->redirect('/UserLeaves/add');
+        }
     }
 }

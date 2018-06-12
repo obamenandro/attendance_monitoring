@@ -99,11 +99,22 @@ class UsersController extends AppController
         if ($this->request->session()->check('Flash') && empty($this->request->session()->read('Flash'))) {
             $this->request->session()->delete('Flash');
         }
+        $conditions = [];
+        if ($this->request->query) {
+            if (!empty($this->request->query['firstname'])) {
+                $conditions['Users.firstname LIKE'] = '%'.$this->request->query['firstname'].'%';
+            }
+            if (!empty($this->request->query['user_id'])) {
+                $conditions['Users.id'] = $this->request->query['user_id'];
+            }
+            if (!empty($this->request->query['designation_id'])) {
+                $conditions['Users.designation'] = $this->request->query['designation_id'];
+            }
+        }
+        $conditions['Users.del_flg']    = 0;
+        $conditions['Users.role']       = Configure::read('role.employee');
         $users = $this->User->find('all')
-            ->where([
-                'del_flg'    => 0,
-                'Users.role' => Configure::read('role.employee')
-            ])
+            ->where([$conditions])
             ->toArray();
         $this->set('civil_status',Configure::read('civil_status'));
         $this->set('designation', Configure::read('designation'));
@@ -788,7 +799,16 @@ class UsersController extends AppController
 
     public function view($id = NULL) {
         $employee = $this->User->find()
-            ->contain(['UserAttainments', 'UserEligibilities', 'WorkExperience'])
+            ->contain([
+                'UserAttainments', 
+                'UserEligibilities', 
+                'WorkExperience',
+                'UserLeaves' => function ($r) {
+                    return $r
+                    ->where(['status' => 1]);
+                }
+
+            ])
             ->where([
                 'Users.id'      => $id,
                 'Users.role'    => Configure::read('role.employee'),
