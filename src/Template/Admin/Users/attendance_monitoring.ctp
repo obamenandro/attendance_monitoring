@@ -279,4 +279,11 @@
   $('.user-delete').on('click', function() {
     window.location.href = '/admin/users/attendance_delete/'+attendance_id;
   });
+
+  $('#dataTable').dataTable({
+    info:     false,
+    searching: false,
+    ordering: false,
+    bLengthChange: false,
+  });
 </script>

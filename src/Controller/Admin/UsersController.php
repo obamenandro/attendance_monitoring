@@ -1187,4 +1187,8 @@ class UsersController extends AppController
             return $this->redirect('/admin/users/attendance_monitoring');
         }
     }
+
+    public function list_of_leave_reports() {
+
+    }
 }

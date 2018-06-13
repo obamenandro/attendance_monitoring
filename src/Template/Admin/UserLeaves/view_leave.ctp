@@ -19,6 +19,7 @@
               <th class="table__head-list">Leave End</th>
               <th class="table__head-list">Remaining Leave</th>
               <th class="table__head-list">Status</th>
+              <th class="table__head-list">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -34,6 +35,9 @@
               <td class="table__body-list">
                 <span class="table__body-<?= $record['status'] == 1 ? 'approved' : 'disapproved' ?>"><?= $record['status'] == 1 ? 'APPROVED' : 'REJECTED' ?></span>
               </td>
+              <td class="table__body-list">
+                <a class="table__view table__view--delete" style="width: 40%;">Delete</a>
+              </td>
             </tr>
             <?php endforeach; ?>
           </tbody>
@@ -42,3 +46,53 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="js-modal-confirm" style="display: inline-block;">
+  <div class="modal__container">
+    <div class="modal__header">
+      <div class="modal__close">
+        <span class="modal__exit">x</span>
+      </div>
+      <div class="modal__title">
+        <h3>Confirmation</h3>
+      </div>
+    </div>
+
+    <div class="modal__content">
+      <div class="modal__content-text">
+       <span>Are you sure you want to Delete?</span>
+      </div>
+      <div class="modal__button">
+        <a class="button button--back">Close</a>
+        <a class="button button--delete user-delete">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backdrop"></div>
+<script>
+  $('.table__view--delete').click(function() {
+    $('.backdrop').show();
+    $('#js-modal-confirm').css({
+        top: 0
+    });
+  })
+
+  $('.modal__close, .button--back').click(function() {
+    $('.backdrop').hide();
+    $('#js-modal-confirm').css({
+      top: '-100%'
+    })
+    $('#js-modal-disapproved-'+id).css({
+        top: '-100%'
+    })
+  });
+
+  $('#dataTable').dataTable({
+    info:     false,
+    searching: false,
+    ordering: false,
+    bLengthChange: false,
+  });
+  
+</script>

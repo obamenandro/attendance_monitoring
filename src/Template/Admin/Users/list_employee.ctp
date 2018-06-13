@@ -31,7 +31,7 @@
   $(document).ready(function() {
     $('#dataTable').DataTable( {
       dom: 'Bfrtip',
-      paging: false,
+      paging: true,
       autoWidth: true,
       ordering: false,
       info:     false,

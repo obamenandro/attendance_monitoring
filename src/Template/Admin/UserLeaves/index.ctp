@@ -150,4 +150,11 @@
         top: '-100%'
     })
   })
+
+  $('#dataTable').dataTable({
+    info:     false,
+    searching: false,
+    ordering: false,
+    bLengthChange: false,
+  });
 </script>

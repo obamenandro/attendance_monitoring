@@ -93,6 +93,14 @@
 <div class="backdrop"></div>
 
 <script>
+
+  $('#dataTable').dataTable({
+    info:     false,
+    searching: false,
+    ordering: false,
+    bLengthChange: false,
+  });
+
   $('.table__view--delete').click(function() {
     $('.backdrop').show();
     $('#js-modal-confirm').css({
