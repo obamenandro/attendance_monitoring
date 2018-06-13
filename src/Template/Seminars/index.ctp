@@ -20,7 +20,7 @@
             <tr class="table__body">
               <td class="table__body-list"><?= $record['attended'] ?></td>
               <td class="table__body-list"><?= $record['conducted_by'] ?></td>
-              <td class="table__body-list"><?= date('m-d-Y', strtotime($record['date'])) ?></td>
+              <td class="table__body-list"><?= $record['date'] ?></td>
               <td class="table__body-list">
                 <a class="table__view table__view--edit" href="/seminars/edit/<?= $record['id'] ?>">Edit</a>
                 <a class="table__view table__view--delete delete" data-id="<?= $record['id'] ?>">Delete</a>

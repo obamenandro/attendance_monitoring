@@ -25,7 +25,8 @@
             <?php foreach($records as $record): ?>
             <tr class="table__body">
               <td class="table__body-list"><?= $record['id'] ?></td>
-              <td class="table__body-list"><?= ucfirst($record['user']['firstname']) ?></td>
+              <td class="table__body-list"><?= ucfirst($record['user']['firstname']).' '.ucfirst($record['user']['middlename']).' '.ucfirst($record['user']['lastname']) ?>
+              </td>
               <td class="table__body-list"><?= $record['created']->i18nFormat('yyyy-MM-dd') ?></td>
               <td class="table__body-list"><?= $record['date_start']->i18nFormat('yyyy-MM-dd') ?></td>
               <td class="table__body-list"><?= $record['date_end']->i18nFormat('yyyy-MM-dd') ?></td>

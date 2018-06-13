@@ -48,7 +48,7 @@
         
         <div class="view-info__data">
           <label class="view-info__label"> Remaining Leave: </label>
-          <span class="view-info__info"> • <?= count($employee['user_leaves']) ?></span>
+          <span class="view-info__info"> • <?= $employee['total_leave'] - count($employee['user_leaves']) ?></span>
         </div>
 
         <div class="view-info__title">
