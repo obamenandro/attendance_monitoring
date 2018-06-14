@@ -8,7 +8,7 @@
         <div class="form__title">
           <h3>Leave Record</h3>
         </div>
-
+        <?= $this->Flash->render(); ?>
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
@@ -36,7 +36,7 @@
                 <span class="table__body-<?= $record['status'] == 1 ? 'approved' : 'disapproved' ?>"><?= $record['status'] == 1 ? 'APPROVED' : 'REJECTED' ?></span>
               </td>
               <td class="table__body-list">
-                <a class="table__view table__view--delete" style="width: 40%;">Delete</a>
+                <a class="table__view table__view--delete delete" data-id="<?= $record['id'] ?>" style="width: 40%;">Delete</a>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -94,5 +94,13 @@
     ordering: false,
     bLengthChange: false,
   });
-  
+
+  var id = "";
+  $('.delete').on('click', function() {
+    id = $(this).data('id');
+  });
+
+  $('.user-delete').on('click', function() {
+    window.location.href = '/admin/user_leaves/delete/'+id;
+  });
 </script>

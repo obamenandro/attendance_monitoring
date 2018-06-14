@@ -38,7 +38,7 @@ class UserLeavesController extends AppController
         $this->autoRender = false;
         $leave_request = $this->UserLeave->find('all')
                        ->where([
-                            'UserLeaves.id'     => $leave_id, 
+                            'UserLeaves.id'     => $leave_id,
                             'UserLeaves.status' => Configure::read('leave_status.Pending')
                         ])
                        ->toArray();
@@ -50,7 +50,7 @@ class UserLeavesController extends AppController
             if ($this->UserLeave->save($leave_request)) {
                 $this->Flash->success('Leave request has been successfully approved.');
                 return $this->redirect('/admin/user_leaves');
-            }            
+            }
         }
 
         return $this->redirect('/admin/user_leaves');
@@ -83,5 +83,21 @@ class UserLeavesController extends AppController
             ->toArray();
 
         $this->set(compact('records'));
+    }
+    public function delete($id) {
+        $this->autoRender = false;
+        if (!$id)  return $this->redirect('/admin/user_leaves/view_leave');
+        if (!$this->UserLeave->exists(['id' => $id])) return $this->redirect('/admin/user_leaves/view_leave');
+
+        $user = $this->UserLeave->get($id);
+        $user = $this->UserLeave->patchEntity($user, ['del_flg' => 1],['validate' => false]);
+
+        if ($this->UserLeave->save($user)) {
+            $this->Flash->success(__('Your leave has been successfully deleted.'));
+            return $this->redirect('/admin/user_leaves/view_leave');
+        } else {
+            $this->Flash->error(__('Your leave has been failed to deleted.'));
+            return $this->redirect('/admin/user_leaves/view_leave');
+        }
     }
 }

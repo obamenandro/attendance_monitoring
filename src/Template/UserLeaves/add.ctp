@@ -8,11 +8,11 @@
 
       <ul class="form-edit-info__leave-list">
         <li class="form-edit-info__leave-item">
-          <span class="form-edit-info__leave-number"><?= $used_leave; ?></span>
+          <span class="form-edit-info__leave-number"><?= $diff; ?></span>
           <span>Used Leave</span>
         </li>
         <li class="form-edit-info__leave-item">
-          <span class="form-edit-info__leave-number"><?= $user['total_leave'] - $used_leave; ?></span>
+          <span class="form-edit-info__leave-number"><?= $user['total_leave'] - $diff; ?></span>
           <span>Remaining Leave</span>
         </li>
         <li class="form-edit-info__leave-item">
@@ -58,11 +58,11 @@
           <div class="form-edit-info__input-wrapper">
           </div>
         </div>
-      
+
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Leave Start </label>
           <div class="form-edit-info__input-wrapper">
-            <?= 
+            <?=
               $this->Form->input('date_start', [
                 'type'        => 'text',
                 'class'       => 'form-edit-info__input js-datepicker-from',
@@ -81,7 +81,7 @@
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Leave End </label>
             <div class="form-edit-info__input-wrapper">
-              <?= 
+              <?=
                 $this->Form->input('date_end', [
                   'type'        => 'text',
                   'class'       => 'form-edit-info__input js-datepicker-to',
@@ -99,7 +99,7 @@
 
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Reason of leave </label>
-          <?= 
+          <?=
             $this->Form->input('leave_reason', [
               'type'     => 'textarea',
               'class'    => 'form-edit-info__textarea',

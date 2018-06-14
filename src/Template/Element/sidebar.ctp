@@ -105,12 +105,12 @@
               <span class="sidebar__text sidebar__text--reports">List of Resigned Employees</span>
             </a>
           </li>
-          <li class="sidebar__item-list">
+          <!-- <li class="sidebar__item-list">
             <a href="/admin/users/list_of_leave_reports" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
               <span class="sidebar__text sidebar__text--reports">List of Leave</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </li>
       <li class="sidebar__list">
