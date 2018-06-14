@@ -17,7 +17,6 @@
               <th class="table__head-list">Date Filed</th>
               <th class="table__head-list">Leave Start</th>
               <th class="table__head-list">Leave End</th>
-              <th class="table__head-list">Remaining Leave</th>
               <th class="table__head-list">Status</th>
               <th class="table__head-list">Action</th>
             </tr>
@@ -31,7 +30,6 @@
               <td class="table__body-list"><?= $record['created']->i18nFormat('yyyy-MM-dd') ?></td>
               <td class="table__body-list"><?= $record['date_start']->i18nFormat('yyyy-MM-dd') ?></td>
               <td class="table__body-list"><?= $record['date_end']->i18nFormat('yyyy-MM-dd') ?></td>
-              <td class="table__body-list">4</td>
               <td class="table__body-list">
                 <span class="table__body-<?= $record['status'] == 1 ? 'approved' : 'disapproved' ?>"><?= $record['status'] == 1 ? 'APPROVED' : 'REJECTED' ?></span>
               </td>
