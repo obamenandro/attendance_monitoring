@@ -45,17 +45,17 @@
           <label class="view-info__label"> Leave: </label>
           <span class="view-info__info"> • <?= $employee['total_leave'] ?></span>
         </div>
-        
+
         <div class="view-info__data">
           <label class="view-info__label"> Remaining Leave: </label>
-          <span class="view-info__info"> • 
+          <span class="view-info__info"> •
             <?php
               $diff = 0;
               foreach ($employee['user_leaves'] as $key => $value) {
-                $diff+=abs(strtotime($value['date_start']->i18nFormat('yyyy-MM-dd')) - strtotime($value['date_end']->i18nFormat('yyyy-MM-dd')))/(60 * 60 * 24);
+                $diff+=abs(strtotime($value['date_start']->i18nFormat('yyyy-MM-dd')) - strtotime($value['date_end']->i18nFormat('yyyy-MM-dd')))/(60 * 60 * 24)+1;
               }
               echo $employee['total_leave'] - $diff;
-            ?>    
+            ?>
           </span>
         </div>
 
