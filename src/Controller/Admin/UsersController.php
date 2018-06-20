@@ -155,7 +155,7 @@ class UsersController extends AppController
             'jobtype',
             'add_form'
         ));
-    }   
+    }
 
     public function delete($id) {
         $this->autoRender = false;
@@ -165,6 +165,12 @@ class UsersController extends AppController
         $user = $this->User->get($id);
         $user = $this->User->patchEntity($user, ['del_flg' => 1],['validate' => false]);
         if ($this->User->save($user)) {
+            $this->UserChecklist->deleteAll(['user_id' => $id]);
+            $this->UserEligibility->deleteAll(['user_id' => $id]);
+            $this->UserLeave->deleteAll(['user_id' => $id]);
+            $this->WorkExperience->deleteAll(['user_id' => $id]);
+            $this->UserAttainment->deleteAll(['user_id' => $id]);
+            $this->Seminar->deleteAll(['user_id' => $id]);
             $this->Flash->success(__('Your employee has been successfully deleted.'));
             return $this->redirect('/admin/users');
         } else {
@@ -800,8 +806,8 @@ class UsersController extends AppController
     public function view($id = NULL) {
         $employee = $this->User->find()
             ->contain([
-                'UserAttainments', 
-                'UserEligibilities', 
+                'UserAttainments',
+                'UserEligibilities',
                 'WorkExperience',
                 'UserLeaves' => function ($r) {
                     return $r
@@ -1136,7 +1142,7 @@ class UsersController extends AppController
 
         $employee_lists = [];
         foreach ($employees as $key => $value) {
-            $employee_lists[$value['id']] = ucfirst($value['lastname']).', '.ucfirst($value['firstname']); 
+            $employee_lists[$value['id']] = ucfirst($value['lastname']).', '.ucfirst($value['firstname']);
         }
 
         if ($this->request->is('POST')) {
