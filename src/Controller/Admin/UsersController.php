@@ -1183,9 +1183,10 @@ class UsersController extends AppController
         if (!$id)  return $this->redirect('/admin/users');
         if (!$this->Attendance->exists(['id' => $id])) return $this->redirect('/admin/users');
 
-        $attendance = $this->Attendance->get($id);
-        $attendance = $this->Attendance->patchEntity($attendance, ['del_flg' => 1],['validate' => false]);
-        if ($this->Attendance->save($attendance)) {
+        //$attendance_record = $this->Attendance->get($id);
+
+        //$attendance_record = $this->Attendance->patchEntity($attendance_record, ['Attendances.del_flg' => 1],['validate' => false]);
+        if ($this->Attendance->deleteAll(['id' => $id])) {
             $this->Flash->success(__('Attendance has been successfully deleted.'));
             return $this->redirect('/admin/users/attendance_monitoring');
         } else {
