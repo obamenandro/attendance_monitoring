@@ -75,10 +75,10 @@
                 ?>
               </div>
             </div>
-            
+
             <div class="form__list">
               <div class="form__label-wrapper">
-                <label class="form__label">Deparment:</label>
+                <label class="form__label">Department:</label>
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
@@ -87,7 +87,7 @@
                     'required' => false,
                     'div'      => false,
                     'label'    => false,
-                    'empty'    => 'Select Deparment',
+                    'empty'    => 'Select Department',
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
