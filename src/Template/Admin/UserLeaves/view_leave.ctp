@@ -1,19 +1,16 @@
 <div class="panel__title">
-  <h3>List of Leave</h3>
+  <h3>List of Leave Filed</h3>
 </div>
 <div class="panel__container">
   <div class="panel__content">
     <div>
       <div class="form__content">
-        <div class="form__title">
-          <h3>Leave Record</h3>
-        </div>
         <?= $this->Flash->render(); ?>
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
               <th class="table__head-list">ID</th>
-              <th class="table__head-list">Name</th>
+              <th class="table__head-list">Last Name, First Name</th>
               <th class="table__head-list">Date Filed</th>
               <th class="table__head-list">Leave Start</th>
               <th class="table__head-list">Leave End</th>
@@ -89,7 +86,15 @@
   $('#dataTable').dataTable({
     info:     false,
     searching: false,
-    ordering: false,
+    ordering: true,
+    columnDefs: [
+        { targets: 0, orderable: false},
+        { targets: 2, orderable: false},
+        { targets: 3, orderable: false},
+        { targets: 4, orderable: false},
+        { targets: 5, orderable: false},
+        { targets: 6, orderable: false}
+    ],
     bLengthChange: false,
   });
 

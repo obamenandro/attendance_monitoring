@@ -77,3 +77,13 @@
   background-color: #FF0000;
   color: $white-color;
 }
+
+.button.button--browse {
+  display: inline-block;
+  width: 15%;
+  vertical-align: middle;
+  background: #d6d6d6;
+  border-radius: 2px;
+  text-align: center;
+  padding: 7px 0;
+}

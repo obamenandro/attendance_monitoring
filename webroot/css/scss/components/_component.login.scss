@@ -105,3 +105,20 @@
     float: left;
   }
 }
+
+.login__list.login__list--apply-now {
+  font-size: 14px;
+  text-align: right;
+  padding-bottom: 20px;
+
+  a {
+    padding-bottom: 2px;
+    display: inline-block;
+    border-bottom: 1px solid #5A75CC;
+    color: #5A75CC;
+  }
+}
+
+.login__button.login__button--user {
+  padding: 20px 0 15px;
+}

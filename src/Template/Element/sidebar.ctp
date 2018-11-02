@@ -48,6 +48,12 @@
               <span class="sidebar__text">List of Leave Filed</span>
             </a>
           </li>
+          <li class="sidebar__item-list">
+            <a href="/admin/user_leaves/leave_report" class="sidebar__item">
+              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+              <span class="sidebar__text">Leave Report</span>
+            </a>
+          </li>
         </ul>
       </li>
       <li class="sidebar__list">

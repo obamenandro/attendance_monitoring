@@ -231,6 +231,13 @@
       color: #049FDA;
     }
   }
+
+  &__upload-file {
+    display: inline-block;
+    width: 84%;
+    vertical-align: middle;
+    margin-right: 1%;
+  }
 }
 
 .form__input.form__input--fullwidth {

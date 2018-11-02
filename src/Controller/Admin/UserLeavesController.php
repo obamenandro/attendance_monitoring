@@ -100,4 +100,8 @@ class UserLeavesController extends AppController
             return $this->redirect('/admin/user_leaves/view_leave');
         }
     }
+
+    public function leave_report() {
+        
+    }
 }

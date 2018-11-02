@@ -5,6 +5,7 @@
 
 <div class="panel__container">
   <div class="panel__content">
+    <h2 class="panel__text-title">Percentage of Technical Trainings Attended</h2>
       <div class="panel__chart">
         <canvas id="myChart"></canvas>
       <div>
@@ -31,9 +32,9 @@
                 label: 'Chart'
             }],
             labels: [
-                '3.12',
-                '6.09',
-                '6.10'
+                '6.09 Training Course for Instructors',
+                '3.12 Training Course for Assessors',
+                '6.10 Simulator Trainer and Assessor Course'
             ]
         },
         options: {
