@@ -375,3 +375,16 @@
 .form__content.form__content--report {
   position: relative;
 }
+
+.form__list.form__list--fullwidth {
+  display: block;
+  width: 100%;
+
+  .form__input {
+    width: 95%;
+  }
+
+  .form__inputbox {
+    width: 100%;
+  }
+}

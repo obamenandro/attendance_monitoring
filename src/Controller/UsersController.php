@@ -23,7 +23,7 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        $this->Auth->allow(['login','forgotPassword','emailActivation','newPassword']);
+        $this->Auth->allow(['login','forgotPassword','emailActivation','newPassword','apply']);
     }
 
     public function login() {
@@ -440,5 +440,10 @@ class UsersController extends AppController
             ->toArray();
         $this->set(compact('user_checklist'));
         $this->set('checklists' , Configure::read('checklists'));
+    }
+
+    public function apply() {
+        $this->layout = false;
+        $this->request->session()->destroy();
     }
 }

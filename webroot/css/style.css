@@ -662,6 +662,14 @@ span.sidebar__information-data {
 .form__content.form__content--report {
   position: relative; }
 
+.form__list.form__list--fullwidth {
+  display: block;
+  width: 100%; }
+  .form__list.form__list--fullwidth .form__input {
+    width: 95%; }
+  .form__list.form__list--fullwidth .form__inputbox {
+    width: 100%; }
+
 .button {
   padding: 10px;
   font-size: 14px;
@@ -1388,3 +1396,16 @@ span.sidebar__information-data {
     font-size: 14px;
     font-style: italic;
     font-weight: 600; }
+
+.apply-now {
+  height: 100%;
+  width: 100%; }
+  .apply-now__container {
+    margin: 2% auto 5%;
+    max-width: 700px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 8px 6px 14px #8B8B8B; }
+  .apply-now__title {
+    font-size: 18px;
+    padding: 20px 20px 5px; }
