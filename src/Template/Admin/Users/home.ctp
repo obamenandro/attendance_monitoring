@@ -1,4 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <div class="panel__title">
   <h3>Dashboard</h3>
 </div>
@@ -23,7 +22,10 @@
         type: 'pie',
         data: {
             datasets: [{
-                data: [<?= $technical1 ?>, <?= $technical2 ?>, <?= $technical3 ?>],
+                // data: [<?= $technical1 ?>, <?= $technical2 ?>, <?= $technical3 ?>],
+                data: [200,120, 50],
+                labelColor: '#FFF',
+                labelFontSize: '16',
                 backgroundColor: [
                     window.chartColors.green,
                     window.chartColors.red,
@@ -42,6 +44,27 @@
             legend: {
                 display: true,
                 position: 'right',
+            },
+            animation: false,
+            plugins: {
+                datalabels: {
+                formatter: function(value, context) {
+                    var length = Object.keys(context['dataset']['data']).length
+                    var total = 0;
+
+                    for ( let a = 0; a < length; a++ ) {
+                    var b = context['dataset']['data'][a];
+                    total = total + b;
+                    }
+
+                    if (value != 0) {
+                    return Math.round((value/total)*10000) / 100 + '%';
+                    } else {
+                    return '';
+                    }
+                },
+                color: "#FFFFFF"
+                }
             }
         },
        

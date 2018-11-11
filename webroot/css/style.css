@@ -165,14 +165,16 @@ span.sidebar__information-data {
   font-weight: 700; }
 
 .panel__chart {
-  width: 455px;
+  max-width: 600px;
   margin: 0 auto;
-  height: 500px;
-  padding: 40px 0; }
+  height: 400px;
+  padding: 70px 0; }
   .panel__chart canvas {
     display: block;
-    height: 100% !important;
-    width: 100% !important; }
+    height: 100%;
+    max-width: 580px !important;
+    margin: 0 auto;
+    text-align: center; }
 
 /*components*/
 .header {
