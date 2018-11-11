@@ -22,8 +22,7 @@
         type: 'pie',
         data: {
             datasets: [{
-                // data: [<?= $technical1 ?>, <?= $technical2 ?>, <?= $technical3 ?>],
-                data: [200,120, 50],
+                data: [<?= $technical1 ?>, <?= $technical2 ?>, <?= $technical3 ?>],
                 labelColor: '#FFF',
                 labelFontSize: '16',
                 backgroundColor: [
