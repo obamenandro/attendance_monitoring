@@ -25,7 +25,7 @@
       </div>
 
       <div class="login__title">
-        <h2 class="login__title-text">EMPLOYEE LOGIN</h2>
+        <h2 class="login__title-text">HR MANAGER LOGIN</h2>
       </div>
       <div class="login__flash">
         <?= $this->Flash->render() ?>
@@ -66,16 +66,13 @@
               <i class="fa fa-lock login__icon"></i>
             </div>
           </li>
-
           <li class="login__forgot-password login__forgot-password--user">
-            <div class="login__forgot-password-contain">
-              <a href="/admin/users/login" class="login__as-admin-text">Login as Admin?</a>
-              <a href="/admin/users/login" class="login__as-admin-text">Login as HR Manager?</a>
-            </div>
+          <a href="/users/login" class="login__as-admin-text">Login as HR Manager?</a>
+            <a href="/users/login" class="login__as-admin-text">Login as Employee?</a>
             <a class="login__forgot-text">Forgot Password?</a>
           </li>
 
-          <li class="login__button login__button--user">
+          <li class="login__button">
             <div class="login__label-wrap">
               <?= 
                 $this->Form->submit('Login', [
@@ -84,52 +81,43 @@
               ?>
             </div>
           </li>
-
-          <li class="login__list login__list--apply-now">
-            <a href="/users/apply">Apply Now!</a>
-          </li>
         </ul>
       <?= $this->Form->end(); ?>
     </div>
-  </main>
-
-<div class="modal" id="js-forgot">
-  <div class="modal__container modal__container--forgot-password">
-    <div class="modal__header">
-      <div class="modal__close">
-        <span class="modal__exit">x</span>
-      </div>
-      <div class="modal__title">
-        <h3>Forgot Password</h3>
-      </div>
-    </div>
-
-    <div class="modal__content">
-      <div class="form">
-        <?= 
-          $this->Form->create('', [
-            'id' => 'form_forgot_password',
-            'url' => '/users/forgot_password'
-          ]); 
-        ?>
-        <div class="form__content">
-          <div class="form__data form__data--modal">
-            <div class="form__label-wrapper">
-              <label class="form__label">Please Type Email Address:</label>
-            </div>
-            <input type="text" name="email" class="form__inputbox">
-            
-            <div class="form__leave-submit">
-              <input type="submit" value="submit" id="forgot_password" class="button button--submit">
-            </div>
+    <div class="modal" id="js-forgot">
+      <div class="modal__container modal__container--forgot-password">
+        <div class="modal__header">
+          <div class="modal__close">
+            <span class="modal__exit">x</span>
+          </div>
+          <div class="modal__title">
+            <h3>Forgot Password</h3>
           </div>
         </div>
-        <?= $this->Form->end(); ?>
+
+        <div class="modal__content">
+          <div class="form">
+            <?= $this->Form->create('', ['id' => 'form_forgot_password','url' => '/admin/users/forgot_password']); ?>
+              <div class="form__content">
+                <div class="form__data form__data--modal">
+                  <div class="form__label-wrapper">
+                    <label class="form__label">Please Type Email Address:</label>
+                  </div>
+                  <input type="text" name="email" class="form__inputbox">
+                  
+                  <div class="form__leave-submit">
+                    <input type="submit" value="submit" class="button button--submit">
+                  </div>
+                </div>
+              </div>
+            <?= $this->Form->end(); ?>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="backdrop" id="backdrop"></div>
+    <div class="backdrop" id="backdrop"></div>
+  </main>
+
   <script>
     $('.login__forgot-text').click(function() {
       $('.backdrop').show();

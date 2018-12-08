@@ -67,7 +67,10 @@
             </div>
           </li>
           <li class="login__forgot-password login__forgot-password--user">
-            <a href="/users/login" class="login__as-admin-text">Login as Employee?</a>
+            <div class="login__forgot-password--user">
+              <a href="/users/login" class="login__as-admin-text">Login as Admin?</a>
+              <a href="/users/login" class="login__as-admin-text">Login as Employee?</a>
+            </div>
             <a class="login__forgot-text">Forgot Password?</a>
           </li>
 
