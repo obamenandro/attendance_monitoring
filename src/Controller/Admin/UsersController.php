@@ -29,8 +29,6 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->Auth->allow(['add', 'login', 'register', 'forgot_password', 'email_activation']);
         $this->User = TableRegistry::get('Users');
-        $this->Auth->allow(['register']);
-        $this->Auth->allow(['login']);
     }
 
     public function register()
@@ -57,19 +55,7 @@ class UsersController extends AppController
     }
 
     public function login() {
-        $this->layout = false;
-        // $session = $this->request->session();
-        // if ($this->request->session()->check('Flash')) {
-        //     if (empty($session->read('Flash'))) {
-        //         $session->delete('Flash');
-        //     }
-        //     $session = $this->request->session();
-        //     if ($session->read('Flash.success')) {
-        //         $this->Flash->success(__($session->read('Flash.success')));
-        //     } else {
-        //         $this->Flash->error(__($session->read('Flash.error')));
-        //     }
-        // }
+        $this->viewBuilder()->setLayout('');
         $this->request->session()->destroy();
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
@@ -997,8 +983,8 @@ class UsersController extends AppController
     public function master_201() {
         $users = $this->User->find('all')
             ->where([
-                'Users.del_flg'    => 0,
-                'Users.role' => Configure::read('role.employee')
+                'Users.del_flg' => 0,
+                'Users.role'    => Configure::read('role.employee')
             ])
             ->toArray();
 
@@ -1182,10 +1168,6 @@ class UsersController extends AppController
         $this->autoRender = false;
         if (!$id)  return $this->redirect('/admin/users');
         if (!$this->Attendance->exists(['id' => $id])) return $this->redirect('/admin/users');
-
-        //$attendance_record = $this->Attendance->get($id);
-
-        //$attendance_record = $this->Attendance->patchEntity($attendance_record, ['Attendances.del_flg' => 1],['validate' => false]);
         if ($this->Attendance->deleteAll(['id' => $id])) {
             $this->Flash->success(__('Attendance has been successfully deleted.'));
             return $this->redirect('/admin/users/attendance_monitoring');
