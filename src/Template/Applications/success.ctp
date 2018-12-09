@@ -21,3 +21,12 @@
     </div>
   </div>
 </div>
+
+<style>
+  body {
+    background: rgba(45, 49, 52, 0.3);
+  }
+  .panel__content {
+    border: 1px 1px 3px #757575;
+  }
+</style>
