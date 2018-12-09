@@ -28,11 +28,22 @@ class DummyController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['index']);
+        $this->Auth->allow(['index','login','users_list','audit_trail']);
     }
 
     public function index() {
 
     }
+
+    public function login() {
+        $this->layout = false;
+    }
+
+    public function users_list() {
     
+    }
+
+    public function audit_trail() {
+
+    }
 }
