@@ -14,36 +14,26 @@
                 <th class="table__head-list">Email Address</th>
                 <th class="table__head-list">Designation</th>
                 <th class="table__head-list">Date Hired</th>
-                <th class="table__head-list">Action</th>
               </tr>
             </thead>
             <tbody>
                 <tr class="table__body">
                   <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list">obamenandro@gmail.com</td>
+                  <td class="table__body-list js-edit">obamenandro@gmail.com</td>
                   <td class="table__body-list">Software Engineer</td>
                   <td class="table__body-list">2018-11-21</td>
-                  <td class="table__body-list">
-                    <a class="table__view table__view--edit">Edit</a>
-                  </td>
                 </tr>
                 <tr class="table__body">
                   <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list">obamenandro@gmail.com</td>
+                  <td class="table__body-list js-edit">obamenandro@gmail.com</td>
                   <td class="table__body-list">Software Engineer</td>
                   <td class="table__body-list">2018-11-21</td>
-                  <td class="table__body-list">
-                    <a class="table__view table__view--edit">Edit</a>
-                  </td>
                 </tr>
                 <tr class="table__body">
                   <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list">obamenandro@gmail.com</td>
+                  <td class="table__body-list js-edit">obamenandro@gmail.com</td>
                   <td class="table__body-list">Software Engineer</td>
                   <td class="table__body-list">2018-11-21</td>
-                  <td class="table__body-list">
-                    <a class="table__view table__view--edit">Edit</a>
-                  </td>
                 </tr>
             </tbody>
           </table>
@@ -87,24 +77,66 @@
   </div>
 </div>
 <div class="backdrop"></div>
-
+<style>
+  .js-edit {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
 <script>
 
   $('#dataTable').dataTable({
     info:     false,
     searching: false,
     ordering: true,
+    dom: 'Bfrtip',
+    autoWidth: true,
     columnDefs: [
         { targets: 0, orderable: true},
         { targets: 1, orderable: false},
         { targets: 2, orderable: false},
         { targets: 3, orderable: true},
-        { targets: 4, orderable: false},
     ],
     bLengthChange: false,
+    buttons: [
+        {
+          extend: 'excelHtml5',
+          text: 'Save as Excel',
+          className: 'button button--report',
+          title: 'Users List',
+        },
+        {
+          extend: 'pdf',
+          text: 'Save as PDF',
+          className: 'button button--report',
+          title: 'Users List',
+          customize: function (doc) {
+            var rowCount = document.getElementById("dataTable").rows.length;
+            doc.content[1].table.widths = 
+              Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+
+            for (i = 1; i < rowCount; i++) {
+              doc.content[1].table.body[i][0].alignment = 'center';
+              doc.content[1].table.body[i][1].alignment = 'center';
+              doc.content[1].table.body[i][2].alignment = 'center';
+            }
+          }
+        },
+        {
+          extend: 'print',
+          text: 'Print Report',
+          className: 'button button--report',
+          title: 'Users List',
+          customize: function ( win ) {
+              $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
+              $(win.document.body).find('table').css('text-align','center' );
+              $(win.document.body).find('h1').addClass('h1-title-report');
+          }
+        },
+      ]
   });
 
-  $('.table__view--edit').click(function() {
+  $('.js-edit').click(function() {
     $('.backdrop').show();
     $('#js-modal-update').css({
         top: 0

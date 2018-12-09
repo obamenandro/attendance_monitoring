@@ -28,7 +28,7 @@ class DummyController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['index','login','users_list']);
+        $this->Auth->allow(['index','login','users_list','audit_trail']);
     }
 
     public function index() {
@@ -40,5 +40,10 @@ class DummyController extends AppController
     }
 
     public function users_list() {
+    
+    }
+
+    public function audit_trail() {
+
     }
 }
