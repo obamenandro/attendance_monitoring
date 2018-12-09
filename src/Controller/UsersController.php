@@ -202,8 +202,6 @@ class UsersController extends AppController
         }
         if ($this->request->is('post')) {
             $data      = $this->request->getData();
-            pr($data);
-            die();
             $user_id   = $this->request->session()->read('Auth.User.id');
             $user      = $this->User->get($user_id);
             $user_data = $session_data['User'];
