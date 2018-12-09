@@ -29,7 +29,10 @@
             <?php endforeach; ?>
           </tbody>
         </table>
-        <?= $this->Form->create($seminars, ['type' => 'POST']); ?>
+        <?= $this->Form->create($seminars, [
+            'enctype' => 'multipart/form-data',
+            'type'    => 'POST'
+          ]); ?>
         <div class="form__content">
           <div class="form__list form__list--seminars">
             <label class="form__label">Trainings/Seminars attended</label>
@@ -76,12 +79,11 @@
             <div class="form__list form__list--seminars">
                 <label class="form__label">Upload Certificate here:</label>
                 <div class="form__input-wrapper">
-                  <input type="file" id="fileupload" style="visibility:hidden;position:absolute">
+                  <input type="file" name="pdf" id="fileupload" style="visibility:hidden;position:absolute">
                   <div class="form__upload-file">
                     <input type="text" class="form__inputbox form__inputbox--filename" readonly="true">
                   </div>
                   <a class="button button--browse">Browse</a>
-                  <span class="form__error"><?= $this->Form->error('date'); ?></span>
                 </div>
             </div>
           <div class="modal__button">

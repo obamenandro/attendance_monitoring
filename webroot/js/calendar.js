@@ -169,8 +169,10 @@ $( document ).ready( function(){
     $.ajax({
       type: 'POST',
       url:  '/files/holiday.json',
+      dataType: 'json',
       success: function( result ) {
-        var data = JSON.parse( result );
+        // var data = JSON.parse( result );
+        var data = result;
         data.holidays.forEach(function( val, key ) {
           var statusTitle = data.holidays[key].holidayName;
           $('.calendar__days-number[data-index="'+ data.holidays[key].date +'"]').addClass('calendar__days-number--holiday').append('<span class="js-status">'+ statusTitle +'<span>').attr('title',statusTitle);

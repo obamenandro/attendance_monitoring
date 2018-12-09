@@ -14,8 +14,7 @@ use Cake\Mailer\Email;
  */
 class UsersController extends AppController
 {
-    public function initialize()
-    {
+    public function initialize() {
         parent::initialize();
         $this->viewBuilder()->setLayout('user');
         $this->loadComponent('Upload');    ## Load upload component for uploading images
@@ -27,7 +26,7 @@ class UsersController extends AppController
     }
 
     public function login() {
-        $this->layout = false;
+        $this->viewBuilder()->setLayout('');
         $this->request->session()->destroy();
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
@@ -203,6 +202,8 @@ class UsersController extends AppController
         }
         if ($this->request->is('post')) {
             $data      = $this->request->getData();
+            pr($data);
+            die();
             $user_id   = $this->request->session()->read('Auth.User.id');
             $user      = $this->User->get($user_id);
             $user_data = $session_data['User'];

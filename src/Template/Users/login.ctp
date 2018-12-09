@@ -86,7 +86,7 @@
           </li>
 
           <li class="login__list login__list--apply-now">
-            <a href="/users/apply">Apply Now!</a>
+            <a href="/applications/add">Apply Now!</a>
           </li>
         </ul>
       <?= $this->Form->end(); ?>

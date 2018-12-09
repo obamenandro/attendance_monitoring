@@ -92,6 +92,7 @@ class AppController extends Controller
         $this->UserChecklist   = TableRegistry::get('UserChecklists');
         $this->WorkExperience  = TableRegistry::get('WorkExperience');
         $this->Seminar         = TableRegistry::get('Seminars');
+        $this->Application     = TableRegistry::get('Applications');
 
         $session = $this->request->session();
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {

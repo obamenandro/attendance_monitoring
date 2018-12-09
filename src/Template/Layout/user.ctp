@@ -1,6 +1,3 @@
-<?php
-$this->layout = false;
-?>
 <!DOCTYPE html>
 <html>
 <head>
