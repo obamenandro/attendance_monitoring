@@ -38,7 +38,7 @@ $this->layout = false;
     <?= $this->element('header') ?>
     <div class="main-content__content">
 
-      <?= $this->element('sidebar') ?>      
+      <?= $this->element('admin_sidebar') ?>      
       <div class="panel">
         <?= $this->fetch('content') ?>
       </div>
