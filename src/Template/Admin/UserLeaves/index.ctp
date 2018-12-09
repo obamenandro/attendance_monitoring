@@ -28,9 +28,8 @@
               <td class="table__body-list"><?= $leave['created']->i18nFormat('YYY-MM-dd'); ?></td>
               <td class="table__body-list"><?= $leave['date_start']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
-              <td class="table__body-list">wala lang bakit</td>
+              <td class="table__body-list"><?= $leave_reason[$leave['leave_reason']] ?></td>
               <td class="table__body-list">
-                <!-- <a href="/admin/UserLeaves/leaveApprove/<?= $leave['id'] ?>" class="table__view">Approve</a> -->
                 <a class="table__view js-button-approve">Approve</a>
                 <a class="table__view table__view--decline" id="<?= $leave['id']; ?>">Decline</a>
               </td>

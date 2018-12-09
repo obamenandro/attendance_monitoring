@@ -108,19 +108,28 @@
               'div'      => false
             ]);
           ?> -->
-          <select class="form-edit-info__input">
+          <!-- <select class="form-edit-info__input">
             <option>--</option>
             <option>vacation leave</option>
-            <option>sick leave</option>
-            <option>maternity/paternity leave</option>
-            <option>bereavement leave</option>
-            <option>birthday leave</option>
-            <option>study leave</option>
-            <option>solo parent leave</option>
-            <option>travel leave</option>
-            <option>emergency leave</option>
-          </select>
-
+            <option>Sick leave</option>
+            <option>Maternity/paternity leave</option>
+            <option>Bereavement leave</option>
+            <option>Birthday leave</option>
+            <option>Study leave</option>
+            <option>Solo parent leave</option>
+            <option>Travel leave</option>
+            <option>Emergency leave</option>
+          </select> -->
+           <?=
+              $this->Form->control('leave_reason', [
+                'options'  => $leave_reason,
+                'required' => false,
+                'div'      => false,
+                'label'    => false,
+                'empty'    => 'Leave Reason',
+                'class'    => 'form__inputbox'
+              ]);
+            ?>
           <span class="form__error"><?= $this->Form->error('leave_reason') ?></span>
         </div>
 

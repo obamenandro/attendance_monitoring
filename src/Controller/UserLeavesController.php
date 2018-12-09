@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * UserLeaves Controller
@@ -53,9 +54,10 @@ class UserLeavesController extends AppController
     public function add()
     {
         $used_leave   = $this->UserLeave->find('all')->where([
-            'user_id' => $this->Auth->User('id'),
-            'status'  => 1,
-            'del_flg' => 0
+            'user_id'       => $this->Auth->User('id'),
+            'status'        => 1,
+            'del_flg'       => 0,
+            'YEAR(created)' => date('Y')
         ])->toArray();
         $diff = 0;
         foreach ($used_leave as $key => $value) {
@@ -87,6 +89,7 @@ class UserLeavesController extends AppController
             ])
             ->toArray();
 
+        $this->set('leave_reason', Configure::read('leave_reason'));
         $this->set(compact('userLeave','used_leave', 'user_leave_records', 'diff'));
     }
 

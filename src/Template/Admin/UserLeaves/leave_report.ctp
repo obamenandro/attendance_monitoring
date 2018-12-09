@@ -16,24 +16,14 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($users as $key => $val): ?>
             <tr class="table__body">
-              <td class="table__body-list">Digo, Daryll Jame</td>
-              <td class="table__body-list">12</td>
-              <td class="table__body-list">6</td>
-              <td class="table__body-list">6</td>
+              <td class="table__body-list"><?= ucfirst($val['lastname']).', '.ucfirst($val['firstname']) ?></td>
+              <td class="table__body-list"><?= $val['total_leave'] ?></td>
+              <td class="table__body-list"><?= $val['total_used_leave'] ?></td>
+              <td class="table__body-list"><?= $val['total_leave'] - $val['total_used_leave'] ?></td>
             </tr>
-            <tr class="table__body">
-              <td class="table__body-list">Digo, Daryll Jame</td>
-              <td class="table__body-list">12</td>
-              <td class="table__body-list">6</td>
-              <td class="table__body-list">6</td>
-            </tr>
-            <tr class="table__body">
-              <td class="table__body-list">Digo, Daryll Jame</td>
-              <td class="table__body-list">12</td>
-              <td class="table__body-list">6</td>
-              <td class="table__body-list">6</td>
-            </tr>
+            <?php endforeach ?>
           </tbody>
         </table>
       </div>

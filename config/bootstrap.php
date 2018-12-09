@@ -312,3 +312,15 @@ Configure::write('degree_name', [
     4 => 'Secondary'  ,
     5 => 'Elementary'
 ]);
+
+Configure::write('leave_reason', [
+    1 => 'Vacation leave'            ,
+    2 => 'Sick leave'                ,
+    3 => 'Maternity/Paternity leave' ,
+    4 => 'Bereavement leave'         ,
+    5 => 'Birthday leave'            ,
+    6 => 'Study leave'               ,
+    7 => 'Solo parent leave'         ,
+    9 => 'Travel leave'              ,
+    8 => 'Emergency leave' 
+]);
