@@ -303,5 +303,16 @@
             <?= $this->Form->end(); ?>
         </div>
     </div>
+    <style>
+        .panel__content {
+            border: 1px 1px 3px #757575;
+        }
+        .apply-now__container {
+            background-image: url('/img/logo/logo.png');
+            background-repeat: no-repeat;
+            background-size: 65px;
+            background-position: 95% 1%;
+        }
+    </style>
 </body>
 </html>
