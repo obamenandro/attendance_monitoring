@@ -1218,7 +1218,7 @@ class UsersController extends AppController
             $decline = $this->Application->get($id);
             $decline = $this->Application->patchEntity($decline, ['accepted' => 2], ['validate' => false]);
 
-            if ($this->Application->save($accepted)) {
+            if ($this->Application->save($decline)) {
                 $email = new Email('default');
                 $send_mail = $email->transport('gmail')
                    ->to($user['email'])
