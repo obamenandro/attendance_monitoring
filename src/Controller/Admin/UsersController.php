@@ -1117,51 +1117,59 @@ class UsersController extends AppController
         $this->set('technical3', $total != 0 ? round($technical3->count()/$total*100) : 0);
     }
 
-    public function attendance_monitoring() {
-        $attendance_lists = $this->Attendance->find('all')
-            ->contain(['Users'])
-            ->where(['Attendances.del_flg' => 0])
+    public function application_monitoring() {
+        // $attendance_lists = $this->Attendance->find('all')
+        //     ->contain(['Users'])
+        //     ->where(['Attendances.del_flg' => 0])
+        //     ->toArray();
+        // $employees        = $this->User->find('all')
+        //     ->where(['role' => Configure::read('role.employee'), 'del_flg' => 0])
+        //     ->toArray();
+
+        // $employee_lists = [];
+        // foreach ($employees as $key => $value) {
+        //     $employee_lists[$value['id']] = ucfirst($value['lastname']).', '.ucfirst($value['firstname']);
+        // }
+
+        // if ($this->request->is('POST')) {
+        //     $data       = $this->request->data;
+        //     if (!empty($data['user_id'])) {
+        //         $check_date = $this->Attendance->find('all')
+        //             ->where([
+        //                 'Attendances.user_id' => $data['user_id'],
+        //                 'Attendances.date'    => $data['date']
+        //             ])
+        //             ->toArray();
+        //         if (!empty($check_date)) {
+        //             $this->Flash->error(__('Date is already exists'));
+        //             return $this->redirect('/admin/users/attendance_monitoring');
+        //         }
+        //         $entity          = $this->Attendance->newEntity();
+        //         $entity          = $this->Attendance->patchEntity($entity, $data);
+        //         $entity->date    = $data['date'];
+
+        //         if ($this->Attendance->save($entity)) {
+        //             $this->Flash->success(__('Attendance has been successfully added.'));
+        //             return $this->redirect('/admin/users/attendance_monitoring');
+        //         } else {
+        //             $this->Flash->error(__('Attendance has been failed to added.'));
+        //             return $this->redirect('/admin/users/attendance_monitoring');
+        //         }
+        //     } else {
+        //         $this->Flash->error(__('Attendance has been failed to added.'));
+        //         return $this->redirect('/admin/users/attendance_monitoring');
+        //     }
+        // }
+        // $this->set(compact('attendance_lists', 'employees', 'employee_lists'));
+        // $this->set('status', Configure::read('status'));
+
+
+        $application_lists = $this->Application->find('all')
+            ->where(['Applications.del_flg' => 0, 'Applications.accepted' => 0])
             ->toArray();
-        $employees        = $this->User->find('all')
-            ->where(['role' => Configure::read('role.employee'), 'del_flg' => 0])
-            ->toArray();
 
-        $employee_lists = [];
-        foreach ($employees as $key => $value) {
-            $employee_lists[$value['id']] = ucfirst($value['lastname']).', '.ucfirst($value['firstname']);
-        }
-
-        if ($this->request->is('POST')) {
-            $data       = $this->request->data;
-            if (!empty($data['user_id'])) {
-                $check_date = $this->Attendance->find('all')
-                    ->where([
-                        'Attendances.user_id' => $data['user_id'],
-                        'Attendances.date'    => $data['date']
-                    ])
-                    ->toArray();
-                if (!empty($check_date)) {
-                    $this->Flash->error(__('Date is already exists'));
-                    return $this->redirect('/admin/users/attendance_monitoring');
-                }
-                $entity          = $this->Attendance->newEntity();
-                $entity          = $this->Attendance->patchEntity($entity, $data);
-                $entity->date    = $data['date'];
-
-                if ($this->Attendance->save($entity)) {
-                    $this->Flash->success(__('Attendance has been successfully added.'));
-                    return $this->redirect('/admin/users/attendance_monitoring');
-                } else {
-                    $this->Flash->error(__('Attendance has been failed to added.'));
-                    return $this->redirect('/admin/users/attendance_monitoring');
-                }
-            } else {
-                $this->Flash->error(__('Attendance has been failed to added.'));
-                return $this->redirect('/admin/users/attendance_monitoring');
-            }
-        }
-        $this->set(compact('attendance_lists', 'employees', 'employee_lists'));
-        $this->set('status', Configure::read('status'));
+        $this->set('application_status', Configure::read('application_status'));
+        $this->set(compact('application_lists'));
     }
 
     public function attendance_delete($id) {
@@ -1177,7 +1185,51 @@ class UsersController extends AppController
         }
     }
 
-    public function list_of_leave_reports() {
+    public function application_accept($id) {
+        if ($id) {
+            $user = $this->Application->find('all')
+                ->where(['Applications.id' => $id])
+                ->first();
 
+            $accept = $this->Application->get($id);
+            $accept = $this->Application->patchEntity($accept, ['accepted' => 1], ['validate' => false]);
+
+            if ($this->Application->save($accept)) {
+                $email = new Email('default');
+                $send_mail = $email->transport('gmail')
+                   ->to($user['email'])
+                   ->from('nameihris@gmail.com')
+                   ->emailFormat('html')
+                   ->template('application_accepted_email')
+                   ->subject(__('Namei Polytechnic Institute'))
+                   ->send();
+                $this->Flash->success(__('Application has been successfully accepted.'));
+                return $this->redirect('/admin/users/application_monitoring');
+            }
+        }
+    }
+
+    public function application_decline($id) {
+        if ($id) {
+            $user = $this->Application->find('all')
+                ->where(['Applications.id' => $id])
+                ->first();
+
+            $decline = $this->Application->get($id);
+            $decline = $this->Application->patchEntity($decline, ['accepted' => 2], ['validate' => false]);
+
+            if ($this->Application->save($accepted)) {
+                $email = new Email('default');
+                $send_mail = $email->transport('gmail')
+                   ->to($user['email'])
+                   ->from('nameihris@gmail.com')
+                   ->emailFormat('html')
+                   ->template('application_declined_email')
+                   ->subject(__('Namei Polytechnic Institute'))
+                   ->send();
+                $this->Flash->success(__('Application has been successfully decline.'));
+                return $this->redirect('/admin/users/application_monitoring');
+            }
+        }
     }
 }

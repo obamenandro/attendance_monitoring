@@ -324,3 +324,9 @@ Configure::write('leave_reason', [
     9 => 'Travel leave'              ,
     8 => 'Emergency leave' 
 ]);
+
+Configure::write('application_status', [
+    0 => 'Pending',
+    1 => 'Accepted',
+    2 => 'Declined'
+]);
