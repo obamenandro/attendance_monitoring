@@ -17,24 +17,14 @@
               </tr>
             </thead>
             <tbody>
+                <?php foreach($users as $key => $user): ?>
                 <tr class="table__body">
-                  <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list js-edit">obamenandro@gmail.com</td>
-                  <td class="table__body-list">Software Engineer</td>
-                  <td class="table__body-list">2018-11-21</td>
+                  <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
+                  <td class="table__body-list js-edit"><?= $user['email'] ?></td>
+                  <td class="table__body-list"><?= $user['designation'] ?></td>
+                  <td class="table__body-list"><?= $user['date_hired'] ?></td>
                 </tr>
-                <tr class="table__body">
-                  <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list js-edit">obamenandro@gmail.com</td>
-                  <td class="table__body-list">Software Engineer</td>
-                  <td class="table__body-list">2018-11-21</td>
-                </tr>
-                <tr class="table__body">
-                  <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list js-edit">obamenandro@gmail.com</td>
-                  <td class="table__body-list">Software Engineer</td>
-                  <td class="table__body-list">2018-11-21</td>
-                </tr>
+                <?php endforeach; ?>
             </tbody>
           </table>
         </div>
