@@ -56,6 +56,9 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
+    $routes->connect('/systemAdmins/statistics', ['controller' => 'SystemAdmins', 'action' => 'index']);
+    $routes->connect('/systemAdmins/login', ['controller' => 'SystemAdmins', 'action' => 'login']);
+    $routes->connect('/systemAdmins/lists', ['controller' => 'SystemAdmins', 'action' => 'users_list']);
     /**
      * Connect catchall routes for all controllers.
      *

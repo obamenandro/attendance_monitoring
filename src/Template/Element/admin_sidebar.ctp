@@ -2,13 +2,13 @@
 <nav class="sidebar__menu">
   <ul>
     <li class="sidebar__list">
-      <a href="/admin/users/home" class="sidebar__item sidebar__item--active">
+      <a href="/systemAdmins/statistics" class="sidebar__item sidebar__item--active">
         <i class="fa fa-dashboard sidebar__icon" aria-hidden="true"></i>
         <span class="sidebar__link-text">Statistics</span>
       </a>
     </li>
     <li class="sidebar__list">
-      <a href="" class="sidebar__item sidebar__item--js">
+      <a href="/systemAdmins/lists" class="sidebar__item sidebar__item--js">
         <i class="fa fa-users sidebar__icon" aria-hidden="true"></i>
         <span class="sidebar__link-text">Users</span>
       </a>
