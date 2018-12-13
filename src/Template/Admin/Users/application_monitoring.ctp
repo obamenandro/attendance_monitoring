@@ -1,5 +1,5 @@
 <div class="panel__title">
-  <h3>Attendance Monitoring</h3>
+  <h3>Application Monitoring</h3>
 </div>
 
 <div class="panel__container">

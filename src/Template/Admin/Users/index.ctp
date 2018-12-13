@@ -47,7 +47,7 @@
               <?php foreach($users as $user): ?>
                 <tr class="table__body">
                   <td class="table__body-list"><?= $user['id'] ?></td>
-                  <td class="table__body-list"><?= $user['firstname']." ".$user['lastname'] ?></td>
+                  <td class="table__body-list"><?= $user['lastname'].", ".$user['firstname'] ?></td>
                   <td class="table__body-list"><?= $user['position'] ?></td>
                   <td class="table__body-list"><?= isset($departments[$user['department']]) ?
                   $departments[$user['department']] : '<span class="not-applicable">N/A</span>' ?></td>

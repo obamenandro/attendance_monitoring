@@ -1232,4 +1232,8 @@ class UsersController extends AppController
             }
         }
     }
+
+    public function application_report() {
+        
+    }
 }

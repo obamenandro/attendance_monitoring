@@ -69,7 +69,7 @@
 
           <li class="login__forgot-password login__forgot-password--user">
             <div class="login__forgot-password-contain">
-              <a href="/admin/users/login" class="login__as-admin-text">Login as Admin?</a>
+              <a href="/systemAdmins/login" class="login__as-admin-text">Login as Admin?</a>
               <a href="/admin/users/login" class="login__as-admin-text">Login as HR Manager?</a>
             </div>
             <a class="login__forgot-text">Forgot Password?</a>
