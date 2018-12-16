@@ -20,10 +20,44 @@
                 <?php foreach($users as $key => $user): ?>
                 <tr class="table__body">
                   <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
-                  <td class="table__body-list js-edit"><?= $user['email'] ?></td>
+                  <td class="table__body-list js-edit" id="<?= $user['id'] ?>"><?= $user['email'] ?></td>
                   <td class="table__body-list"><?= $user['designation'] ?></td>
                   <td class="table__body-list"><?= $user['date_hired'] ?></td>
                 </tr>
+                <div class="modal" id="js-modal-update-<?= $user['id'] ?>" style="display: inline-block;">
+                  <div class="modal__container" style="height: 400px;">
+                    <div class="modal__header">
+                      <div class="modal__close">
+                        <span class="modal__exit">x</span>
+                      </div>
+                      <div class="modal__title">
+                        <h3>Change Email And Password</h3>
+                      </div>
+                    </div>
+
+                    <div class="modal__content">
+                      <form action="/systemAdmins/edit" method="POST">
+                        <div class="modal__content-text" style="padding: 30px 50px 0">
+                          <div class="modal__content-list">
+                             <label>Email Address</label>
+                             <input type="text" name="email" class="modal__content-input">
+                             <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                          </div>
+                          <div class="modal__content-list">
+                             <label>Password</label>
+                             <input type="password" name="password" class="modal__content-input">
+                          </div>
+                        </div>
+
+                        <div class="modal__button">
+                          <a class="button button--back">Close</a>
+                          <input type="submit" class="button button--submit" value="Update">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="backdrop"></div> -->
                 <?php endforeach; ?>
             </tbody>
           </table>
@@ -32,7 +66,7 @@
   </div>
 </div>
 
-<div class="modal" id="js-modal-update" style="display: inline-block;">
+<!-- <div class="modal" id="js-modal-update" style="display: inline-block;">
   <div class="modal__container" style="height: 400px;">
     <div class="modal__header">
       <div class="modal__close">
@@ -65,8 +99,8 @@
       </div>
     </div>
   </div>
-</div>
-<div class="backdrop"></div>
+</div>-->
+<div class="backdrop"></div> 
 <style>
   .js-edit {
     text-decoration: underline;
@@ -125,17 +159,18 @@
         },
       ]
   });
-
+  let id = '';
   $('.js-edit').click(function() {
     $('.backdrop').show();
-    $('#js-modal-update').css({
+    id = $(this).attr('id');
+    $('#js-modal-update-'+id).css({
         top: 0
     });
   })
 
   $('.modal__close, .button--back').click(function() {
     $('.backdrop').hide();
-    $('#js-modal-update').css({
+    $('#js-modal-update-'+id).css({
       top: '-100%'
     })
   })

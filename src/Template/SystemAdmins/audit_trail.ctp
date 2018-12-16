@@ -11,21 +11,23 @@
           <div class="panel__search" style="text-align: center; padding: 20px 0;">
             <div class="panel__search-box">
               <label class="panel__search-label">Date:</label>
-              <select class="panel__search-input" name="designation_id">
+              <select class="panel__search-input" name="date">
                 <option value="">--</option>
-                <option value="1">All</option>
-                <option value="2">Month</option>
-                <option value="2">Week</option>
-                <option value="2">Year</option>
+                <option value="all" <?= isset($_GET['date']) && $_GET['date'] == 'all' ? 'selected' : ''?>>All</option>
+                <option value="month" <?= isset($_GET['date']) && $_GET['date'] == 'month' ? 'selected' : ''?>>Month</option>
+                <option value="week" <?= isset($_GET['date']) && $_GET['date'] == 'week' ? 'selected' : ''?>>Week</option>
+                <option value="year" <?= isset($_GET['date']) && $_GET['date'] == 'year' ? 'selected' : ''?>>Year</option>
               </select>
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Actions:</label>
-              <select class="panel__search-input" name="designation_id">
+              <select class="panel__search-input" name="action">
                 <option value="">--</option>
-                <option value="">All</option>
-                <option value="">Added</option>
-                <option value="">Deleted</option>
+                <option value="all" <?= isset($_GET['action']) && $_GET['action'] == 'all' ? 'selected' : ''?>>All</option>
+                <option value="added" <?= isset($_GET['action']) && $_GET['action'] == 'added' ? 'selected' : ''?>>Added</option>
+                <option value="delete" <?= isset($_GET['action']) && $_GET['action'] == 'delete' ? 'selected' : ''?>>Deleted</option>
+                <option value="update" <?= isset($_GET['action']) && $_GET['action'] == 'update' ? 'selected' : ''?>>Updated</option>
+                <option value="report" <?= isset($_GET['action']) && $_GET['action'] == 'report' ? 'selected' : ''?>>Report</option>
             </select>
             </div>
             <div class="panel__search-box">
@@ -38,27 +40,20 @@
             <thead>
               <tr class="table__head">
                 <th class="table__head-list">Date</th>
-                <th class="table__head-list">Last Name, First Name</th>
-                <th class="table__head-list">HR Record</th>
-                <th class="table__head-list">Department</th>
+                <th class="table__head-list">Name</th>
+                <th class="table__head-list">Page</th>
                 <th class="table__head-list">Action</th>
               </tr>
             </thead>
             <tbody>
+              <?php foreach($logs as $key => $log): ?>
                 <tr class="table__body">
-                  <td class="table__body-list">2018-11-21</td>
-                  <td class="table__body-list">Oba, Menandro</td>
-                  <td class="table__body-list">Added New employee</td>
-                  <td class="table__body-list">Software engineer</td>
-                  <td class="table__body-list">Added</td>
+                  <td class="table__body-list"><?= $log['created']; ?></td>
+                  <td class="table__body-list"><?= $log['user']['firstname']; ?></td>
+                  <td class="table__body-list"><?= $log['page']; ?></td>
+                  <td class="table__body-list"><?= $log['action']; ?></td>
                 </tr>
-                <tr class="table__body">
-                  <td class="table__body-list">2018-12-21</td>
-                  <td class="table__body-list">Digo, Daryll James</td>
-                  <td class="table__body-list">Resigned employee</td>
-                  <td class="table__body-list">Front end engineer</td>
-                  <td class="table__body-list">Deleted</td>
-                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

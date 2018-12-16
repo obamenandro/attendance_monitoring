@@ -128,6 +128,13 @@ class UsersController extends AppController
             ],
             ['validate' => 'password']);
             if ($this->User->save($user)) {
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'USERS>CHANGE PASSWORD',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
                 $this->Flash->success('Your password has been successfully updated.');
                 return $this->redirect('/users/change_password');
             } else {
@@ -322,6 +329,13 @@ class UsersController extends AppController
                 }
                 $this->Flash->success(__('Your employee has been successfully updated.'));
                 $session->delete('Data');
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'USERS>EDIT INFORMATION',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
                 return $this->redirect('/users/edit_information');
             } else {
                 $this->Flash->error(__('Your employee has been failed to updated.'));
@@ -392,6 +406,13 @@ class UsersController extends AppController
                    ->send();
             }
             $this->Flash->success('Email activation has been send to your email.');
+            $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'USERS>FORGOT PASSWORD',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
             return $this->redirect('/users/login');
         } else {
             $this->Flash->error(__('Invalid email address.'));

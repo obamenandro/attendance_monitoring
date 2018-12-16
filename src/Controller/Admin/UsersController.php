@@ -158,6 +158,13 @@ class UsersController extends AppController
             $this->UserAttainment->deleteAll(['user_id' => $id]);
             $this->Seminar->deleteAll(['user_id' => $id]);
             $this->Flash->success(__('Your employee has been successfully deleted.'));
+            $user_logs = $this->UserLog->newEntity();
+            $user_logs = $this->UserLog->patchEntity($user_logs, [
+                'user_id' => $this->Auth->user('id'),
+                'page'    => 'EMPLOYEE>DELETE EMPLOYEE',
+                'action'  => 'Delete'
+            ]);
+            $this->UserLog->save($user_logs);
             return $this->redirect('/admin/users');
         } else {
             $this->Flash->error(__('Your employee has been failed to deleted.'));
@@ -414,6 +421,13 @@ class UsersController extends AppController
                 }
                 $this->Flash->success(__('Your employee has been successfully added.'));
                 $session->delete('Data');
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'EMPLOYEE>ADD EMPLOYEE',
+                    'action'  => 'Added'
+                ]);
+                $this->UserLog->save($user_logs);
                 return $this->redirect('/admin/users');
             } else {
                 $this->Flash->error(__('Your employee has been failed to added.'));
@@ -724,6 +738,13 @@ class UsersController extends AppController
                 }
                 $this->Flash->success(__('Your employee has been successfully updated.'));
                 $session->delete('Data');
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'EMPLOYEE>EDIT EMPLOYEE',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
                 return $this->redirect('/admin/users');
             } else {
                 $this->Flash->error(__('Your employee has been failed to updated.'));
@@ -987,7 +1008,13 @@ class UsersController extends AppController
                 'Users.role'    => Configure::read('role.employee')
             ])
             ->toArray();
-
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>MASTER 201',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set('department', Configure::read('departments'));
         $this->set(compact('users'));
     }
@@ -1004,6 +1031,13 @@ class UsersController extends AppController
                 'Users.role' => Configure::read('role.employee')
             ])
             ->toArray();
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>FACULTY PROFILE',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set('department', Configure::read('departments'));
         $this->set('jobtype', Configure::read('job_type'));
         $this->set('degree', Configure::read('degree'));
@@ -1022,6 +1056,13 @@ class UsersController extends AppController
                 'Users.role' => Configure::read('role.employee')
             ])
             ->toArray();
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>EMPLOYMENT RECORD',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set('department', Configure::read('departments'));
         $this->set('jobtype', Configure::read('job_type'));
         $this->set('designation', Configure::read('designation'));
@@ -1039,6 +1080,13 @@ class UsersController extends AppController
                 $conditions['Users.id'] = $this->request->query['user_id'];
             }
         }
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>TRAINING LOG',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $conditions['Seminars.del_flg'] = 0;
         $conditions['Users.del_flg']    = 0;
         $conditions['Users.role']       = Configure::read('role.employee');
@@ -1061,6 +1109,13 @@ class UsersController extends AppController
                 ]);
             })
             ->toArray();
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>FACULTY PROFILE LICENSE',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set('department', Configure::read('departments'));
         $this->set(compact('users'));
     }
@@ -1076,6 +1131,13 @@ class UsersController extends AppController
                 'Users.role' => Configure::read('role.employee')
             ])
             ->toArray();
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>FACULTY PROFILE TRAINING',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set('department', Configure::read('departments'));
         $this->set(compact('users'));
     }
@@ -1087,6 +1149,13 @@ class UsersController extends AppController
                 'Users.role' => Configure::read('role.employee')
             ])
             ->toArray();
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>LIST EMPLOYEE',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set(compact('users'));
     }
 
@@ -1098,6 +1167,13 @@ class UsersController extends AppController
                 'Users.role'    => Configure::read('role.employee')
             ])
             ->toArray();
+        $user_logs = $this->UserLog->newEntity();
+        $user_logs = $this->UserLog->patchEntity($user_logs, [
+            'user_id' => $this->Auth->user('id'),
+            'page'    => 'GENERATE REPORTS>RESIGNED EMPLOYEE',
+            'action'  => 'Report'
+        ]);
+        $this->UserLog->save($user_logs);
         $this->set(compact('users'));
     }
 
@@ -1118,52 +1194,6 @@ class UsersController extends AppController
     }
 
     public function application_monitoring() {
-        // $attendance_lists = $this->Attendance->find('all')
-        //     ->contain(['Users'])
-        //     ->where(['Attendances.del_flg' => 0])
-        //     ->toArray();
-        // $employees        = $this->User->find('all')
-        //     ->where(['role' => Configure::read('role.employee'), 'del_flg' => 0])
-        //     ->toArray();
-
-        // $employee_lists = [];
-        // foreach ($employees as $key => $value) {
-        //     $employee_lists[$value['id']] = ucfirst($value['lastname']).', '.ucfirst($value['firstname']);
-        // }
-
-        // if ($this->request->is('POST')) {
-        //     $data       = $this->request->data;
-        //     if (!empty($data['user_id'])) {
-        //         $check_date = $this->Attendance->find('all')
-        //             ->where([
-        //                 'Attendances.user_id' => $data['user_id'],
-        //                 'Attendances.date'    => $data['date']
-        //             ])
-        //             ->toArray();
-        //         if (!empty($check_date)) {
-        //             $this->Flash->error(__('Date is already exists'));
-        //             return $this->redirect('/admin/users/attendance_monitoring');
-        //         }
-        //         $entity          = $this->Attendance->newEntity();
-        //         $entity          = $this->Attendance->patchEntity($entity, $data);
-        //         $entity->date    = $data['date'];
-
-        //         if ($this->Attendance->save($entity)) {
-        //             $this->Flash->success(__('Attendance has been successfully added.'));
-        //             return $this->redirect('/admin/users/attendance_monitoring');
-        //         } else {
-        //             $this->Flash->error(__('Attendance has been failed to added.'));
-        //             return $this->redirect('/admin/users/attendance_monitoring');
-        //         }
-        //     } else {
-        //         $this->Flash->error(__('Attendance has been failed to added.'));
-        //         return $this->redirect('/admin/users/attendance_monitoring');
-        //     }
-        // }
-        // $this->set(compact('attendance_lists', 'employees', 'employee_lists'));
-        // $this->set('status', Configure::read('status'));
-
-
         $application_lists = $this->Application->find('all')
             ->where(['Applications.del_flg' => 0, 'Applications.accepted' => 0])
             ->toArray();
@@ -1203,6 +1233,13 @@ class UsersController extends AppController
                    ->template('application_accepted_email')
                    ->subject(__('Namei Polytechnic Institute'))
                    ->send();
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'APPLICATION MONITORING>ACCEPT',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
                 $this->Flash->success(__('Application has been successfully accepted.'));
                 return $this->redirect('/admin/users/application_monitoring');
             }
@@ -1227,6 +1264,13 @@ class UsersController extends AppController
                    ->template('application_declined_email')
                    ->subject(__('Namei Polytechnic Institute'))
                    ->send();
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'APPLICATION MONITORING>DECLINE',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
                 $this->Flash->success(__('Application has been successfully decline.'));
                 return $this->redirect('/admin/users/application_monitoring');
             }
@@ -1234,6 +1278,9 @@ class UsersController extends AppController
     }
 
     public function application_report() {
-        
+        $application_lists = $this->Application->find('all')
+            ->toArray();
+        $this->set(compact('application_lists'));
+        $this->set('application_status', Configure::read('application_status'));
     }
 }

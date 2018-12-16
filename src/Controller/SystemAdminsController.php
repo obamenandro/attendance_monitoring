@@ -3,9 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
-use App\Form\EmployeeRegistrationForm;
-use App\Form\AdminAddEmployeeForm;
-use App\Form\EmployeeEditForm;
+use App\Form\ValidateEmailAndPasswordForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\Mailer\Email;
@@ -102,7 +100,56 @@ class SystemAdminsController extends AppController
         $this->set(compact('users'));
     }
 
-    public function audit_trail() {
+    public function auditTrail() {
+        $conditions = [];
+        if ($this->request->query) {
+            if (!empty($this->request->query['date'])) {
+                if ($this->request->query['date'] == "month") {
+                    $conditions['MONTH(UserLogs.created)'] = date('m');
+                }
+                if ($this->request->query['date'] == "week") {
+                    $conditions['UserLogs.created'] = date('Y-m-d', strtotime("last saturday"));
+                }
+                if ($this->request->query['date'] == "year") {
+                    $conditions['YEAR(UserLogs.created)'] = date('Y');
+                }
+            }
+            if (!empty($this->request->query['action'])) {
+                if ($this->request->query['action'] != 'all') {
+                    $conditions['UserLogs.action LIKE'] = '%'.$this->request->query['action'].'%';
+                } 
+            }
+        }
+        $logs = $this->UserLog->find('all')
+            ->where([$conditions])
+            ->contain(['Users'])
+            ->toArray();
+        $this->set(compact('logs'));
+    }
 
+    public function edit () {
+        $this->autoRender = false;
+        if ($this->request->is('POST')) {
+            $data     = $this->request->getData();
+            $userEdit = $this->User->get($data['id']);
+            $userEdit = $this->User->patchEntity($userEdit, $data);
+            $validate = new ValidateEmailAndPasswordForm();
+            if ($validate->execute($data)) {
+                if ($this->User->save($userEdit)) {
+                    $this->Flash->success(__('Your employee has been successfully updated.'));
+                    $user_logs = $this->UserLog->newEntity();
+                    $user_logs = $this->UserLog->patchEntity($user_logs, [
+                        'user_id' => $this->Auth->user('id'),
+                        'page'    => 'USERS>EDIT',
+                        'action'  => 'Update'
+                    ]);
+                    $this->UserLog->save($user_logs);
+                    return $this->redirect('/systemAdmins/lists');
+                }
+            } else {
+                $this->Flash->error(__('Your employee has been failed to saved.'));
+                return $this->redirect('/systemAdmins/lists');
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@
       </a>
     </li>
     <li class="sidebar__list">
-      <a href="" class="sidebar__item sidebar__item--js">
+      <a href="/systemAdmins/audit_trail" class="sidebar__item sidebar__item--js">
         <i class="fa fa-building sidebar__icon" aria-hidden="true"></i>
         <span>Audit Trail</span>
       </a>

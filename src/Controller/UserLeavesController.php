@@ -77,6 +77,13 @@ class UserLeavesController extends AppController
             }
             if ($this->UserLeave->save($userLeave)) {
                 $this->Flash->success(__('The user leave has been saved.'));
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'USERS>ADD LEAVE',
+                    'action'  => 'Added'
+                ]);
+                $this->UserLog->save($user_logs);
                 return $this->redirect('/UserLeaves/add');
             }
             $this->Flash->error(__('The user leave could not be saved. Please, try again.'));
@@ -112,6 +119,13 @@ class UserLeavesController extends AppController
             $leave = $this->UserLeave->patchEntity($leave, $data);
             if ($this->UserLeave->save($leave)) {
                 $this->Flash->success('Your leave has been successfully updated.');
+                $user_logs = $this->UserLog->newEntity();
+                $user_logs = $this->UserLog->patchEntity($user_logs, [
+                    'user_id' => $this->Auth->user('id'),
+                    'page'    => 'USERS>UPDATE LEAVE',
+                    'action'  => 'Update'
+                ]);
+                $this->UserLog->save($user_logs);
                 return $this->redirect('/UserLeaves/edit/'.$id);
             }
         }
@@ -129,6 +143,13 @@ class UserLeavesController extends AppController
 
         if ($this->UserLeave->save($user)) {
             $this->Flash->success(__('Your leave has been successfully deleted.'));
+            $user_logs = $this->UserLog->newEntity();
+            $user_logs = $this->UserLog->patchEntity($user_logs, [
+                'user_id' => $this->Auth->user('id'),
+                'page'    => 'USERS>DELETE LEAVE',
+                'action'  => 'Update'
+            ]);
+            $this->UserLog->save($user_logs);
             return $this->redirect('/UserLeaves/add');
         } else {
             $this->Flash->error(__('Your leave has been failed to deleted.'));

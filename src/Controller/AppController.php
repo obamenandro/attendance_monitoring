@@ -93,6 +93,7 @@ class AppController extends Controller
         $this->WorkExperience  = TableRegistry::get('WorkExperience');
         $this->Seminar         = TableRegistry::get('Seminars');
         $this->Application     = TableRegistry::get('Applications');
+        $this->UserLog         = TableRegistry::get('UserLogs');
 
         $session = $this->request->session();
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {
