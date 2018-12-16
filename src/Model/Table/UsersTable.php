@@ -92,14 +92,6 @@ class UsersTable extends Table
             ->requirePresence('password', 'create')
             ->notEmpty('password');
         $validator
-            ->scalar('lastname')
-            ->requirePresence('lastname', 'update')
-            ->notEmpty('lastname', 'Lastname is required.');
-        $validator
-            ->scalar('firstname', 'update')
-            ->requirePresence('firstname', 'update')
-            ->notEmpty('firstname', 'Firstname is required.');
-        $validator
             ->add('image', 'file', [
                 'rule'  => ['mimeType', ['image/jpeg', 'image/png', 'image/jpg']],
                 'on'    => function ($context) {

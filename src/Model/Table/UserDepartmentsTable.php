@@ -62,17 +62,6 @@ class UserDepartmentsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
-        // $validator
-        //     ->integer('del_flg')
-        //     ->requirePresence('del_flg', 'create')
-        //     ->notEmpty('del_flg');
-
-        // $validator
-        //     ->scalar('deleted_date')
-        //     ->maxLength('deleted_date', 255)
-        //     ->allowEmpty('deleted_date');
-
         return $validator;
     }
 

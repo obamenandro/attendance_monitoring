@@ -48,6 +48,12 @@
               <span class="sidebar__text">List of Leave Filed</span>
             </a>
           </li>
+          <li class="sidebar__item-list">
+            <a href="/admin/user_leaves/leave_report" class="sidebar__item">
+              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+              <span class="sidebar__text">Leave Report</span>
+            </a>
+          </li>
         </ul>
       </li>
       <li class="sidebar__list">
@@ -105,20 +111,28 @@
               <span class="sidebar__text sidebar__text--reports">List of Resigned Employees</span>
             </a>
           </li>
-          <!-- <li class="sidebar__item-list">
-            <a href="/admin/users/list_of_leave_reports" class="sidebar__item">
-              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
-              <span class="sidebar__text sidebar__text--reports">List of Leave</span>
-            </a>
-          </li> -->
         </ul>
       </li>
       <li class="sidebar__list">
-        <a href="/admin/users/attendance_monitoring" class="sidebar__item sidebar__item--js">
-          <i class="fa fa-calendar sidebar__icon" aria-hidden="true"></i>
-          <span>Attendance Monitoring</span>
+        <a class="sidebar__item sidebar__item--js">
+          <i class="fa fa-users sidebar__icon" aria-hidden="true"></i>
+          <span class="sidebar__link-text">Applicant Monitoring</span>
           <i class="fa fa-chevron-right sidebar__icon-right" aria-hidden="true"></i>
         </a>
+        <ul class="sidebar__sub-list"">
+          <li class="sidebar__item-list">
+            <a href="/admin/users/application_monitoring" class="sidebar__item">
+              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+              <span class="sidebar__text">Application List</span>
+            </a>
+          </li>
+          <li class="sidebar__item-list">
+            <a href="/admin/users/application_report" class="sidebar__item">
+              <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
+              <span class="sidebar__text">Application Report</span>
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>

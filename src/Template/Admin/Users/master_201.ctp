@@ -10,6 +10,7 @@
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
+              <!-- <th class="table__head-list"></th> -->
               <th class="table__head-list">Department</th>
               <th class="table__head-list">Employee Name</th>
               <th class="table__head-list">Position</th>
@@ -18,6 +19,7 @@
           <tbody>
             <?php foreach($users as $user): ?>
               <tr>
+                <!-- <td class="table__body-list"></td> -->
                 <td class="table__body-list"><?= isset($department[$user['department']]) ? $department[$user['department']] : 'N/A' ?></td>
                 <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
                 <td class="table__body-list"><?= $user['position'] ?></td>
@@ -73,6 +75,9 @@
               $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
               $(win.document.body).find('table').css('text-align','center' );
               $(win.document.body).find('h1').addClass('h1-title-report');
+              // $(win.document.body).find('tr').each( function(index) {
+              //     $(this).find('td:first').html(index);
+              // });
           }
         },
       ]

@@ -99,7 +99,7 @@
 
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Reason of leave </label>
-          <?=
+          <!-- <?=
             $this->Form->input('leave_reason', [
               'type'     => 'textarea',
               'class'    => 'form-edit-info__textarea',
@@ -107,7 +107,29 @@
               'required' => false,
               'div'      => false
             ]);
-          ?>
+          ?> -->
+          <!-- <select class="form-edit-info__input">
+            <option>--</option>
+            <option>vacation leave</option>
+            <option>Sick leave</option>
+            <option>Maternity/paternity leave</option>
+            <option>Bereavement leave</option>
+            <option>Birthday leave</option>
+            <option>Study leave</option>
+            <option>Solo parent leave</option>
+            <option>Travel leave</option>
+            <option>Emergency leave</option>
+          </select> -->
+           <?=
+              $this->Form->control('leave_reason', [
+                'options'  => $leave_reason,
+                'required' => false,
+                'div'      => false,
+                'label'    => false,
+                'empty'    => 'Leave Reason',
+                'class'    => 'form__inputbox'
+              ]);
+            ?>
           <span class="form__error"><?= $this->Form->error('leave_reason') ?></span>
         </div>
 

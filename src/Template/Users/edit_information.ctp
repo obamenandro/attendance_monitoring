@@ -269,8 +269,7 @@
                     'div'      => false,
                     'label'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox',
-                    'readonly' => true
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
@@ -288,8 +287,7 @@
                     'div'      => false,
                     'label'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox',
-                    'readonly' => true
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
@@ -307,8 +305,7 @@
                     'div'      => false,
                     'label'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox',
-                    'readonly' => true
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>
@@ -326,8 +323,7 @@
                     'div'      => false,
                     'label'    => false,
                     'required' => false,
-                    'class'    => 'form__inputbox',
-                    'readonly' => true
+                    'class'    => 'form__inputbox'
                   ]);
                 ?>
               </div>

@@ -88,7 +88,7 @@
                     'div'      => false,
                     'label'    => false,
                     'value'    => !empty($session_data['department']) ? $session_data['department'] : !empty($this->request->data['department']) ? $this->request->data['department'] : '',
-                    'empty'    => 'Select Deparment',
+                    'empty'    => 'Select Department',
                     'class'    => 'form__inputbox'
                   ]);
                 ?>
