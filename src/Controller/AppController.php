@@ -66,7 +66,7 @@ class AppController extends Controller
         if ($this->request->action !== 'login'
             && $this->request->prefix == 'admin'
             && $this->Auth->user('role') !== 1) {
-            return $this->redirect('/admin/users/login');
+            // return $this->redirect('/admin/users/login');
         } else {
             $this->set('user', $this->Auth->user('firstname'));
         }
@@ -80,6 +80,7 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
+        $this->Auth->allow(['index']);
         $this->Department      = TableRegistry::get('Departments');
         $this->Government      = TableRegistry::get('Governments');
         $this->Attendance      = TableRegistry::get('Attendances');
@@ -91,6 +92,8 @@ class AppController extends Controller
         $this->UserChecklist   = TableRegistry::get('UserChecklists');
         $this->WorkExperience  = TableRegistry::get('WorkExperience');
         $this->Seminar         = TableRegistry::get('Seminars');
+        $this->Application     = TableRegistry::get('Applications');
+        $this->UserLog         = TableRegistry::get('UserLogs');
 
         $session = $this->request->session();
         if ($session->check('Auth') && $session->read('Auth.User.role') == 2) {

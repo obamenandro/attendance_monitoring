@@ -1,6 +1,3 @@
-<?php
-$this->layout = false;
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +25,9 @@ $this->layout = false;
   <?= $this->Html->script('plugins/datatables/datatable.pdf.font.js') ?>
   <?= $this->Html->script('plugins/datatables/datatable.html5.min.js') ?>
   <?= $this->Html->script('plugins/datatables/datatable.print.min.js') ?>
+
+  <?= $this->Html->script('/js/chartjs.js') ?>
+	<?= $this->Html->script('/js/chartjs-plugin-labels.min.js') ?>
 
 </head>
 <body>

@@ -13,24 +13,23 @@
           <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
-              <th class="table__head-list">ID</th>
-              <th class="table__head-list">Name</th>
+              <th class="table__head-list">Last Name, First Name</th>
               <th class="table__head-list">Date Filed</th>
               <th class="table__head-list">Leave Start</th>
               <th class="table__head-list">Leave End</th>
+              <th class="table__head-list">Reason for Leave</th>
               <th class="table__head-list">Action</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach($request_leaves as $leave): ?>
             <tr class="table__body">
-              <td class="table__body-list"><?= $leave['id'] ?></td>
               <td class="table__body-list"><?= ucfirst($leave['user']['firstname'])." ".ucfirst($leave['user']['lastname']) ?></td>
               <td class="table__body-list"><?= $leave['created']->i18nFormat('YYY-MM-dd'); ?></td>
               <td class="table__body-list"><?= $leave['date_start']->i18nFormat('YYY-MM-dd') ?></td>
               <td class="table__body-list"><?= $leave['date_end']->i18nFormat('YYY-MM-dd') ?></td>
+              <td class="table__body-list"><?= $leave_reason[$leave['leave_reason']] ?></td>
               <td class="table__body-list">
-                <!-- <a href="/admin/UserLeaves/leaveApprove/<?= $leave['id'] ?>" class="table__view">Approve</a> -->
                 <a class="table__view js-button-approve">Approve</a>
                 <a class="table__view table__view--decline" id="<?= $leave['id']; ?>">Decline</a>
               </td>
@@ -154,7 +153,14 @@
   $('#dataTable').dataTable({
     info:     false,
     searching: false,
-    ordering: false,
+    ordering: true,
+    columnDefs: [
+        { targets: 1, orderable: false},
+        { targets: 2, orderable: false},
+        { targets: 3, orderable: false},
+        { targets: 4, orderable: false},
+        { targets: 5, orderable: false}
+    ],
     bLengthChange: false,
   });
 </script>

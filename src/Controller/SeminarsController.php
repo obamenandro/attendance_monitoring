@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Mailer\Email;
 
 /**
  * Seminars Controller
@@ -17,6 +18,7 @@ class SeminarsController extends AppController
     {
         parent::initialize();
         $this->viewBuilder()->setLayout('user');
+        $this->loadComponent('Upload');
     }
     /**
      * Index method
@@ -25,11 +27,12 @@ class SeminarsController extends AppController
      */
     public function index()
     {
+        ini_set('memory_limit', '-1');
         $user_id = $this->request->session()->read('Auth.User.id');
         $seminar_records = $this->Seminar->find('all')
             ->where(['Seminars.del_flg' => 0, 'Seminars.user_id' => $user_id])
             ->toArray();
-
+        
         if ($this->request->is('POST')) {
             $data            = $this->request->getData();
             $data['user_id'] = $this->request->session()->read('Auth.User.id');
@@ -37,6 +40,25 @@ class SeminarsController extends AppController
             $entity          = $this->Seminar->patchEntity($entity, $data);
 
             if ($this->Seminar->save($entity)) {
+                $this->Upload->upload($data['pdf']);
+                if ($this->Upload->uploaded) {
+                    $pdf_files                        = md5(time());
+                    $ext = pathinfo($data['pdf']['name'], PATHINFO_EXTENSION);
+                    $this->Upload->file_new_name_body = $pdf_files;
+                    $this->Upload->process('uploads/employee/'.$user_id.'/');
+                    $pdf_file_name                    = $this->Upload->file_dst_name;
+                    $attachment                       = 'uploads/employee/'.$user_id.'/'.$pdf_file_name;
+
+                    $email  = new Email();
+                    $send_mail = $email->transport('gmail')
+                       ->attachments([ROOT.'/webroot/'.$attachment])
+                       ->to('nameihris@gmail.com')
+                       ->from('nameihris@gmail.com')
+                       ->emailFormat('html')
+                       ->subject(__('Namei Polytechnic Institute'))
+                       ->send();
+                }
+
                 $this->Flash->success('Your seminars has been successfully saved.');
                 return $this->redirect('/seminars');
             } else {

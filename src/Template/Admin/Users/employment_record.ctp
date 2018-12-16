@@ -6,7 +6,7 @@
   <div class="panel__content">
     <div>
       <div class="form__content form__content--report">
-        <div class="panel__search panel__search--report">
+        <!-- <div class="panel__search panel__search--report">
           <div class="panel__search-box">
             <label class="panel__search-label">ID:</label>
             <input type="text" name="" class="panel__search-input">
@@ -18,12 +18,11 @@
           <div class="panel__search-box">
             <input type="submit" name="" class="panel__search-button" value="search">
           </div>
-        </div>
+        </div> -->
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
-              <th class="table__head-list">No</th>
-              <th class="table__head-list">Name</th>
+              <th class="table__head-list">Last Name, First Name</th>
               <th class="table__head-list">Highest Educational Attainment</th>
               <th class="table__head-list">Designation</th>
               <th class="table__head-list">Date Hired</th>
@@ -35,7 +34,6 @@
           <tbody>
             <?php foreach($users as $key => $value): ?>
             <tr>
-              <td class="table__body-list"><?= $value['id'] ?></td>
               <td class="table__body-list"><?= ucfirst($value['lastname']).", ".ucfirst($value['firstname']) ?></td>
               <td class="table__body-list">
                 <span class="table__body-span">
@@ -75,7 +73,15 @@
       dom: 'Bfrtip',
       paging: true,
       autoWidth: true,
-      ordering: false,
+      ordering: true,
+      columnDefs: [
+        { targets: 1, orderable: false},
+        { targets: 2, orderable: false},
+        { targets: 3, orderable: false},
+        { targets: 4, orderable: false},
+        { targets: 5, orderable: false},
+        { targets: 6, orderable: false}
+      ],
       info:     false,
       searching: false,
       buttons: [
@@ -99,7 +105,6 @@
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
 
             for (i = 1; i < rowCount; i++) {
-              doc.content[1].table.body[i][0].alignment = 'center';
               doc.content[1].table.body[i][1].alignment = 'center';
               doc.content[1].table.body[i][2].alignment = 'center';
               doc.content[1].table.body[i][3].alignment = 'center';

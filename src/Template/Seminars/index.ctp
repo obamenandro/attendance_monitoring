@@ -29,7 +29,10 @@
             <?php endforeach; ?>
           </tbody>
         </table>
-        <?= $this->Form->create($seminars, ['type' => 'POST']); ?>
+        <?= $this->Form->create($seminars, [
+            'enctype' => 'multipart/form-data',
+            'type'    => 'POST'
+          ]); ?>
         <div class="form__content">
           <div class="form__list form__list--seminars">
             <label class="form__label">Trainings/Seminars attended</label>
@@ -65,12 +68,22 @@
                       'div'         => false,
                       'label'       => false,
                       'required'    => false,
-                      'class'       => 'form__inputbox',
-                      'placeholder' => 'yyyy-mm-dd',
+                      'class'       => 'form__inputbox'
                     ])
                   ?>
                   <i class="fa fa-calendar form__icon"></i>
                   <span class="form__error"><?= $this->Form->error('date'); ?></span>
+                </div>
+            </div>
+
+            <div class="form__list form__list--seminars">
+                <label class="form__label">Upload Certificate here:</label>
+                <div class="form__input-wrapper">
+                  <input type="file" name="pdf" id="fileupload" style="visibility:hidden;position:absolute">
+                  <div class="form__upload-file">
+                    <input type="text" class="form__inputbox form__inputbox--filename" readonly="true">
+                  </div>
+                  <a class="button button--browse">Browse</a>
                 </div>
             </div>
           <div class="modal__button">
@@ -143,4 +156,24 @@
   $('.user-delete').on('click', function() {
     window.location.href = '/seminars/seminar_delete/'+seminar_id;
   });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(input.files[0]);
+      var getFileName = input.files[0]['name'];
+      var splitDocsExtensions =  getFileName.split('.').pop();
+      if( splitDocsExtensions == 'pdf' || splitDocsExtensions == 'docx' ) {
+        $('.form__inputbox--filename').val(input.files[0]['name']);
+      }
+    }
+  }
+
+  $("#fileupload").change(function(){
+      readURL(this);
+  });
+
+  $('.button--browse').click(function(){
+    $('#fileupload').trigger('click')
+  })
 </script>

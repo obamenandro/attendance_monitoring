@@ -231,6 +231,13 @@
       color: #049FDA;
     }
   }
+
+  &__upload-file {
+    display: inline-block;
+    width: 84%;
+    vertical-align: middle;
+    margin-right: 1%;
+  }
 }
 
 .form__input.form__input--fullwidth {
@@ -367,4 +374,17 @@
 
 .form__content.form__content--report {
   position: relative;
+}
+
+.form__list.form__list--fullwidth {
+  display: block;
+  width: 100%;
+
+  .form__input {
+    width: 95%;
+  }
+
+  .form__inputbox {
+    width: 100%;
+  }
 }

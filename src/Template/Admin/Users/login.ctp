@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <title>Attendance Monitoring</title>
+  <title>NAMEI HRIS</title>
   <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.css"/>
   <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/>
   <link rel="stylesheet" type="text/css" href="/css/plugins/font-awesome-4.7.0/css/font-awesome.min.css"/>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="login__title">
-        <h2 class="login__title-text">ADMIN LOGIN</h2>
+        <h2 class="login__title-text">HR MANAGER LOGIN</h2>
       </div>
       <div class="login__flash">
         <?= $this->Flash->render() ?>
@@ -67,7 +67,10 @@
             </div>
           </li>
           <li class="login__forgot-password login__forgot-password--user">
-            <a href="/users/login" class="login__as-admin-text">Login as User?</a>
+            <div class="login__forgot-password-contain">
+              <a href="/systemAdmins/login" class="login__as-admin-text">Login as Admin?</a>
+              <a href="/users/login" class="login__as-admin-text">Login as Employee?</a>
+            </div>
             <a class="login__forgot-text">Forgot Password?</a>
           </li>
 

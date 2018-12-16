@@ -1,10 +1,10 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <div class="panel__title">
   <h3>Dashboard</h3>
 </div>
 
 <div class="panel__container">
   <div class="panel__content">
+    <h2 class="panel__text-title">Percentage of Technical Trainings Attended</h2>
       <div class="panel__chart">
         <canvas id="myChart"></canvas>
       <div>
@@ -23,6 +23,8 @@
         data: {
             datasets: [{
                 data: [<?= $technical1 ?>, <?= $technical2 ?>, <?= $technical3 ?>],
+                labelColor: '#FFF',
+                labelFontSize: '16',
                 backgroundColor: [
                     window.chartColors.green,
                     window.chartColors.red,
@@ -31,9 +33,9 @@
                 label: 'Chart'
             }],
             labels: [
-                '3.12',
-                '6.09',
-                '6.10'
+                '6.09 Training Course for Instructors',
+                '3.12 Training Course for Assessors',
+                '6.10 Simulator Trainer and Assessor Course'
             ]
         },
         options: {
@@ -41,6 +43,27 @@
             legend: {
                 display: true,
                 position: 'right',
+            },
+            animation: false,
+            plugins: {
+                datalabels: {
+                formatter: function(value, context) {
+                    var length = Object.keys(context['dataset']['data']).length
+                    var total = 0;
+
+                    for ( let a = 0; a < length; a++ ) {
+                    var b = context['dataset']['data'][a];
+                    total = total + b;
+                    }
+
+                    if (value != 0) {
+                    return Math.round((value/total)*10000) / 100 + '%';
+                    } else {
+                    return '';
+                    }
+                },
+                color: "#FFFFFF"
+                }
             }
         },
        

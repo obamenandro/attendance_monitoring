@@ -11,7 +11,7 @@
         <div class="sidebar__name">
         <span class="sidebar__user-name">
             <?= ucfirst(h($user['firstname'])) ?>
-            <?= (empty($user['middlename'])) ? "" : ucfirst(h($user['middlename'])).", "; ?>
+            <?= (empty($user['middlename'])) ? "" : ucfirst(h($user['middlename'])).""; ?>
             <?= ucfirst(h($user['lastname'])) ?>
         </span>
         <span class="sidebar__position"><?= !empty($user['position']) ? h($user['position']) : ""; ?></span>

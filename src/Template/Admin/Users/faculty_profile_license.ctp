@@ -9,8 +9,7 @@
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
-              <th class="table__head-list">No</th>
-              <th class="table__head-list">Name</th>
+              <th class="table__head-list">Last Name, First Name</th>
               <th class="table__head-list">Department</th>
               <th class="table__head-list">Name Of Exam</th>
               <th class="table__head-list">License Number</th>
@@ -20,7 +19,6 @@
           <tbody>
             <?php foreach($users as $user): ?>
             <tr>
-              <td class="table__body-list"><?= $user['id'] ?></td>
               <td class="table__body-list"><?= ucfirst($user['user']['lastname']).", ".ucfirst($user['user']['firstname']) ?></td>
               <td class="table__body-list"><?= isset($department[$user['user']['department']]) ? $department[$user['user']['department']] : 'N/A' ?></td>
               <td class="table__body-list"><?= $user['exam_name'] ?></td>
@@ -41,7 +39,13 @@
       dom: 'Bfrtip',
       paging: true,
       autoWidth: true,
-      ordering: false,
+      ordering: true,
+      columnDefs: [
+        { targets: 1, orderable: false},
+        { targets: 2, orderable: false},
+        { targets: 3, orderable: false},
+        { targets: 4, orderable: false}
+      ],
       info:     false,
       searching: false,
       buttons: [
@@ -64,7 +68,6 @@
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
             
             for (i = 1; i < rowCount; i++) {
-              doc.content[1].table.body[i][0].alignment = 'center';
               doc.content[1].table.body[i][1].alignment = 'center';
               doc.content[1].table.body[i][2].alignment = 'center';
               doc.content[1].table.body[i][3].alignment = 'center';

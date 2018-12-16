@@ -35,7 +35,7 @@
             <thead>
               <tr class="table__head">
                 <th class="table__head-list">ID</th>
-                <th class="table__head-list">Name</th>
+                <th class="table__head-list">Last Name, First Name</th>
                 <th class="table__head-list">Position</th>
                 <th class="table__head-list">Department</th>
                 <th class="table__head-list">Designation</th>
@@ -47,7 +47,7 @@
               <?php foreach($users as $user): ?>
                 <tr class="table__body">
                   <td class="table__body-list"><?= $user['id'] ?></td>
-                  <td class="table__body-list"><?= $user['firstname']." ".$user['lastname'] ?></td>
+                  <td class="table__body-list"><?= $user['lastname'].", ".$user['firstname'] ?></td>
                   <td class="table__body-list"><?= $user['position'] ?></td>
                   <td class="table__body-list"><?= isset($departments[$user['department']]) ?
                   $departments[$user['department']] : '<span class="not-applicable">N/A</span>' ?></td>
@@ -97,7 +97,15 @@
   $('#dataTable').dataTable({
     info:     false,
     searching: false,
-    ordering: false,
+    ordering: true,
+    columnDefs: [
+        { targets: 0, orderable: false},
+        { targets: 2, orderable: false},
+        { targets: 3, orderable: false},
+        { targets: 4, orderable: false},
+        { targets: 5, orderable: false},
+        { targets: 6, orderable: false}
+    ],
     bLengthChange: false,
   });
 
