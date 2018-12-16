@@ -72,8 +72,7 @@
         { targets: 0, orderable: true},
         { targets: 1, orderable: true},
         { targets: 2, orderable: false},
-        { targets: 3, orderable: false},
-        { targets: 4, orderable: false}
+        { targets: 3, orderable: false}
     ],
     bLengthChange: false,
     buttons: [
