@@ -9,7 +9,7 @@
       <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
         <thead>
           <tr class="table__head">
-            <th class="table__head-list">Name</th>
+            <th class="table__head-list">Last Name, First Name</th>
             <th class="table__head-list">Positions</th>
             <th class="table__head-list">Date Resigned</th>
           </tr>
@@ -35,7 +35,7 @@ $(document).ready(function() {
     dom: 'Bfrtip',
     paging: true,
     autoWidth: true,
-    ordering: false,
+    ordering: true,
     info:     false,
     searching: false,
     buttons: [

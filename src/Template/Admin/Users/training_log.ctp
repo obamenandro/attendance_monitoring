@@ -55,10 +55,6 @@
       ordering: true,
       info:     false,
       searching: false,
-      columnDefs: [
-          { targets: 1, orderable: false},
-          { targets: 3, orderable: false }
-      ],
       buttons: [
         {
           extend: 'excelHtml5',

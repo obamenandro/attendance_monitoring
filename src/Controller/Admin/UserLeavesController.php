@@ -28,12 +28,12 @@ class UserLeavesController extends AppController
      */
     public function index() {
         $request_leaves = $this->UserLeaves->find('all')
-                        ->contain(['Users'])
-                        ->where([
-                            'UserLeaves.status'     => Configure::read('leave_status.Pending'),
-                            'UserLeaves.created >=' => date('Y-m-d')
-                        ])
-                        ->toArray();
+            ->contain(['Users'])
+            ->where([
+                'UserLeaves.status'              => Configure::read('leave_status.Pending'),
+                'YEAR(UserLeaves.date_start) >=' => date('Y-m-d')
+            ])
+            ->toArray();
         $this->set('leave_reason', Configure::read('leave_reason'));
         $this->set(compact('request_leaves'));
     }
@@ -43,8 +43,9 @@ class UserLeavesController extends AppController
         $leave_request = $this->UserLeave->find('all')
             ->contain(['Users'])
             ->where([
-                'UserLeaves.id'     => $leave_id,
-                'UserLeaves.status' => Configure::read('leave_status.Pending')
+                'UserLeaves.id'               => $leave_id,
+                'UserLeaves.status'           => Configure::read('leave_status.Pending'),
+                'YEAR(UserLeaves.date_start)' => date('Y')
             ])
             ->toArray();
         if ($leave_request) {
@@ -59,7 +60,6 @@ class UserLeavesController extends AppController
                 $this->Flash->error(__('This User has already reach the maximum leave.'));
                 return $this->redirect('/admin/UserLeaves');
             }
-
             $leave_request           = $this->UserLeave->get($leave_id);
             $leave_request->status   = Configure::read('leave_status.Accept');
             $leave_request->modified = date('Y-m-d H:i:s');
@@ -96,9 +96,14 @@ class UserLeavesController extends AppController
                 return $r
                 ->where(['role' => Configure::read('role.employee')]);
             })
-            ->where(['UserLeaves.del_flg' => 0, 'UserLeaves.status !=' => 0])
+            ->where([
+                'UserLeaves.del_flg'          => 0, 
+                'UserLeaves.status !='        => 0,
+                'YEAR(UserLeaves.date_start)' => date('Y')
+            ])
             ->toArray();
 
+        $this->set('leave_reason', Configure::read('leave_reason'));            
         $this->set(compact('records'));
     }
     public function delete($id) {

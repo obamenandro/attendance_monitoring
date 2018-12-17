@@ -6,19 +6,6 @@
   <div class="panel__content">
     <div>
       <div class="form__content form__content--report">
-        <!-- <div class="panel__search panel__search--report">
-          <div class="panel__search-box">
-            <label class="panel__search-label">ID:</label>
-            <input type="text" name="" class="panel__search-input">
-          </div>
-          <div class="panel__search-box">
-            <label class="panel__search-label">Name:</label>
-            <input type="text" name="" class="panel__search-input">
-          </div>
-          <div class="panel__search-box">
-            <input type="submit" name="" class="panel__search-button" value="search">
-          </div>
-        </div> -->
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
@@ -74,14 +61,6 @@
       paging: true,
       autoWidth: true,
       ordering: true,
-      columnDefs: [
-        { targets: 1, orderable: false},
-        { targets: 2, orderable: false},
-        { targets: 3, orderable: false},
-        { targets: 4, orderable: false},
-        { targets: 5, orderable: false},
-        { targets: 6, orderable: false}
-      ],
       info:     false,
       searching: false,
       buttons: [

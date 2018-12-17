@@ -425,7 +425,7 @@ class UsersController extends AppController
                 $user_logs = $this->UserLog->patchEntity($user_logs, [
                     'user_id' => $this->Auth->user('id'),
                     'page'    => 'EMPLOYEE>ADD EMPLOYEE',
-                    'action'  => 'Added'
+                    'action'  => 'Add'
                 ]);
                 $this->UserLog->save($user_logs);
                 return $this->redirect('/admin/users');

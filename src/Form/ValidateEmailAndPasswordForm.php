@@ -40,7 +40,6 @@ class ValidateEmailAndPasswordForm extends Form
                     'message' => 'Email already registered'
                 ]
             ])
-            ->requirePresence('email')
             ->add('email', 'validFormat', [
                 'rule'    => 'email',
                 'message' => __('Invalid email address')
@@ -53,7 +52,7 @@ class ValidateEmailAndPasswordForm extends Form
                     'email'   => $value,
                     'del_flg' => 0
                 ]);
-        if ($user->isEmpty()) {
+        if ($user->isEmpty() || $value == $context['data']['email']) {
             return true;
         }
         return false;

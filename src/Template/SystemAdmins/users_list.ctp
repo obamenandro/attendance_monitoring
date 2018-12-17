@@ -21,7 +21,7 @@
                 <tr class="table__body">
                   <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
                   <td class="table__body-list js-edit" id="<?= $user['id'] ?>"><?= $user['email'] ?></td>
-                  <td class="table__body-list"><?= $user['designation'] ?></td>
+                  <td class="table__body-list"><?= $designation[$user['designation']] ?></td>
                   <td class="table__body-list"><?= $user['date_hired'] ?></td>
                 </tr>
                 <div class="modal" id="js-modal-update-<?= $user['id'] ?>" style="display: inline-block;">
@@ -36,19 +36,18 @@
                     </div>
 
                     <div class="modal__content">
-                      <form action="/systemAdmins/edit" method="POST">
+                      <form action="/systemAdmins/edit" method="post">
                         <div class="modal__content-text" style="padding: 30px 50px 0">
                           <div class="modal__content-list">
                              <label>Email Address</label>
                              <input type="text" name="email" class="modal__content-input">
-                             <input type="hidden" name="id" value="<?= $user['id'] ?>">
                           </div>
                           <div class="modal__content-list">
                              <label>Password</label>
                              <input type="password" name="password" class="modal__content-input">
                           </div>
                         </div>
-
+                        <input type="hidden" name="id" value="<?= $user['id'] ?>">
                         <div class="modal__button">
                           <a class="button button--back">Close</a>
                           <input type="submit" class="button button--submit" value="Update">
@@ -57,7 +56,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="backdrop"></div> -->
                 <?php endforeach; ?>
             </tbody>
           </table>
@@ -65,41 +63,6 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="modal" id="js-modal-update" style="display: inline-block;">
-  <div class="modal__container" style="height: 400px;">
-    <div class="modal__header">
-      <div class="modal__close">
-        <span class="modal__exit">x</span>
-      </div>
-      <div class="modal__title">
-        <h3>Change Email And Password</h3>
-      </div>
-    </div>
-
-    <div class="modal__content">
-      <div class="modal__content-text" style="padding: 30px 50px 0">
-       <form>
-            <div class="modal__content-list">
-               <label>Email Address</label>
-               <input type="text" class="modal__content-input">
-               <span class="modal__form-error">error</span>
-            </div>
-            <div class="modal__content-list">
-               <label>Password</label>
-               <input type="password" class="modal__content-input">
-               <span class="modal__form-error">error</span>
-            </div>
-        </form>
-      </div>
-
-      <div class="modal__button">
-        <a class="button button--back">Close</a>
-        <a class="button button--submit">Update</a>
-      </div>
-    </div>
-  </div>
-</div>-->
 <div class="backdrop"></div> 
 <style>
   .js-edit {
@@ -115,12 +78,6 @@
     ordering: true,
     dom: 'Bfrtip',
     autoWidth: true,
-    columnDefs: [
-        { targets: 0, orderable: true},
-        { targets: 1, orderable: false},
-        { targets: 2, orderable: false},
-        { targets: 3, orderable: true},
-    ],
     bLengthChange: false,
     buttons: [
         {

@@ -81,7 +81,7 @@ class UserLeavesController extends AppController
                 $user_logs = $this->UserLog->patchEntity($user_logs, [
                     'user_id' => $this->Auth->user('id'),
                     'page'    => 'USERS>ADD LEAVE',
-                    'action'  => 'Added'
+                    'action'  => 'Add'
                 ]);
                 $this->UserLog->save($user_logs);
                 return $this->redirect('/UserLeaves/add');
@@ -129,7 +129,7 @@ class UserLeavesController extends AppController
                 return $this->redirect('/UserLeaves/edit/'.$id);
             }
         }
-
+        $this->set('leave_reason', Configure::read('leave_reason'));
         $this->set(compact('leave'));
     }
 

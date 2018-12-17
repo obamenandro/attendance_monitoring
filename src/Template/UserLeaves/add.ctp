@@ -45,8 +45,10 @@
                 <?php endif; ?>
               </td>
               <td class="table__body-list">
+                <?php if ($value['status'] == 0): ?>
                 <a href="/UserLeaves/edit/<?= $value['id'] ?>" class="table__view table__view--edit">Edit</a>
                 <a class="table__view table__view--delete delete" data-id="<?= $value['id'] ?>">Delete</a>
+                <?php endif; ?>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -99,27 +101,6 @@
 
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Reason of leave </label>
-          <!-- <?=
-            $this->Form->input('leave_reason', [
-              'type'     => 'textarea',
-              'class'    => 'form-edit-info__textarea',
-              'label'    => false,
-              'required' => false,
-              'div'      => false
-            ]);
-          ?> -->
-          <!-- <select class="form-edit-info__input">
-            <option>--</option>
-            <option>vacation leave</option>
-            <option>Sick leave</option>
-            <option>Maternity/paternity leave</option>
-            <option>Bereavement leave</option>
-            <option>Birthday leave</option>
-            <option>Study leave</option>
-            <option>Solo parent leave</option>
-            <option>Travel leave</option>
-            <option>Emergency leave</option>
-          </select> -->
            <?=
               $this->Form->control('leave_reason', [
                 'options'  => $leave_reason,

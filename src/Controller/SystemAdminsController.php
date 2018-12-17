@@ -96,7 +96,7 @@ class SystemAdminsController extends AppController
         $users = $this->User->find('all')
             ->where(['Users.role' => 2])
             ->toArray();
-
+        $this->set('designation', Configure::read('designation'));
         $this->set(compact('users'));
     }
 
@@ -132,6 +132,12 @@ class SystemAdminsController extends AppController
         if ($this->request->is('POST')) {
             $data     = $this->request->getData();
             $userEdit = $this->User->get($data['id']);
+            if (empty($data['password'])) {
+                unset($data['password']);
+            }
+            if (empty($data['email'])) {
+                unset($data['email']);
+            }
             $userEdit = $this->User->patchEntity($userEdit, $data);
             $validate = new ValidateEmailAndPasswordForm();
             if ($validate->execute($data)) {

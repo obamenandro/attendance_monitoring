@@ -74,7 +74,7 @@ class ApplicationForm extends Form
     }
 
     public function validZipCode ($value, $context) {
-        if (preg_match('#[0-9]{5}#', $value)) {
+        if (preg_match('#[0-9]{4}#', $value)) {
             return true;
         }
         return false;

@@ -10,7 +10,7 @@
           <thead>
             <tr class="table__head">
               <th class="table__head-list" rowspan="2">Department</th>
-              <th class="table__head-list" rowspan="2">Name of Faculty</th>
+              <th class="table__head-list" rowspan="2">Last Name, First Name</th>
               <th class="table__head-list" colspan="3">Highest Educational Attainment</th>
               <th class="table__head-list" rowspan="2">Subjects Being Taught</th>
               <th class="table__head-list" rowspan="2">Status</th>
@@ -53,7 +53,7 @@
       dom: 'Bfrtip',
       paging: true,
       autoWidth: true,
-      ordering: false,
+      ordering: true,
       info:     false,
       searching: false,
       buttons: [

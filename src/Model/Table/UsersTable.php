@@ -82,24 +82,6 @@ class UsersTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-        $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email', 'Email is required.');
-        $validator
-            ->scalar('password')
-            ->maxLength('password', 255)
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
-        $validator
-            ->add('image', 'file', [
-                'rule'  => ['mimeType', ['image/jpeg', 'image/png', 'image/jpg']],
-                'on'    => function ($context) {
-                    return !empty($context['data']['image']);
-                },
-                'message' => "Image must be jpeg, jpg and jpeg"
-            ])
-            ->allowEmpty('image');
         return $validator;
     }
 

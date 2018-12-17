@@ -51,13 +51,14 @@
 
         <div class="form-edit-info__list">
           <label class="form-edit-info__label"> Reason of leave </label>
-          <?= 
-            $this->Form->input('leave_reason', [
-              'type'     => 'textarea',
-              'class'    => 'form-edit-info__textarea',
-              'label'    => false,
+          <?=
+            $this->Form->control('leave_reason', [
+              'options'  => $leave_reason,
               'required' => false,
-              'div'      => false
+              'div'      => false,
+              'label'    => false,
+              'empty'    => 'Leave Reason',
+              'class'    => 'form__inputbox'
             ]);
           ?>
           <span class="form__error"><?= $this->Form->error('leave_reason') ?></span>

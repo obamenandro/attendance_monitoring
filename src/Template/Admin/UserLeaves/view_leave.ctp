@@ -9,11 +9,11 @@
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
-              <th class="table__head-list">ID</th>
               <th class="table__head-list">Last Name, First Name</th>
               <th class="table__head-list">Date Filed</th>
               <th class="table__head-list">Leave Start</th>
               <th class="table__head-list">Leave End</th>
+              <th class="table__head-list">Reason</th>
               <th class="table__head-list">Status</th>
               <th class="table__head-list">Action</th>
             </tr>
@@ -21,12 +21,13 @@
           <tbody>
             <?php foreach($records as $record): ?>
             <tr class="table__body">
-              <td class="table__body-list"><?= $record['id'] ?></td>
               <td class="table__body-list"><?= ucfirst($record['user']['firstname']).' '.ucfirst($record['user']['middlename']).' '.ucfirst($record['user']['lastname']) ?>
               </td>
               <td class="table__body-list"><?= $record['created']->i18nFormat('yyyy-MM-dd') ?></td>
               <td class="table__body-list"><?= $record['date_start']->i18nFormat('yyyy-MM-dd') ?></td>
               <td class="table__body-list"><?= $record['date_end']->i18nFormat('yyyy-MM-dd') ?></td>
+              <td class="table__body-list"><?= isset($leave_reason[$record['leave_reason']]) ? $leave_reason[$record['leave_reason']] : '' ?></td>
+              
               <td class="table__body-list">
                 <span class="table__body-<?= $record['status'] == 1 ? 'approved' : 'disapproved' ?>"><?= $record['status'] == 1 ? 'APPROVED' : 'REJECTED' ?></span>
               </td>

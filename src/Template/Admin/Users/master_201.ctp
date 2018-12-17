@@ -10,16 +10,14 @@
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
-              <!-- <th class="table__head-list"></th> -->
               <th class="table__head-list">Department</th>
-              <th class="table__head-list">Employee Name</th>
+              <th class="table__head-list">Last Name, First Name</th>
               <th class="table__head-list">Position</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach($users as $user): ?>
               <tr>
-                <!-- <td class="table__body-list"></td> -->
                 <td class="table__body-list"><?= isset($department[$user['department']]) ? $department[$user['department']] : 'N/A' ?></td>
                 <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
                 <td class="table__body-list"><?= $user['position'] ?></td>
@@ -38,7 +36,7 @@
       dom: 'Bfrtip',
       paging: true,
       autoWidth: true,
-      ordering: false,
+      ordering: true,
       info:     false,
       searching: false,
       buttons: [
