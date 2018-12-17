@@ -37,7 +37,7 @@ class UsersController extends AppController
                     $this->request->session()->destroy();
                 } else {
                     $this->Auth->setUser($user);
-                    $redirectUrl = '/users';
+                    $redirectUrl = '/users/edit_information';
                 }
                 return $this->redirect($redirectUrl);
             } else {

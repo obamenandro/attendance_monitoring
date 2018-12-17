@@ -1283,4 +1283,8 @@ class UsersController extends AppController
         $this->set(compact('application_lists'));
         $this->set('application_status', Configure::read('application_status'));
     }
+
+    public function application_view() {
+
+    }
 }
