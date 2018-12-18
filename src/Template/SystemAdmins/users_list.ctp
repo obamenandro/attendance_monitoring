@@ -117,7 +117,7 @@
       ]
   });
   let id = '';
-  $('.js-edit').click(function() {
+  $('html').delegate('.js-edit','click',function() {
     $('.backdrop').show();
     id = $(this).attr('id');
     $('#js-modal-update-'+id).css({
