@@ -31,33 +31,42 @@ class SystemAdminsController extends AppController
 
     public function index() {
         $admin_count = $this->User->find('all')
-            ->where(['Users.role' => 1]);
+            ->where([
+                'Users.role'    => 1,
+                'Users.del_flg' => 0
+            ]);
 
         $hr_count = $this->User->find('all')
-            ->where(['Users.role' => 3]);
+            ->where(['Users.role' => 3,  'Users.del_flg' => 0]);
 
         $employee_count = $this->User->find('all')
-            ->where(['Users.role' => 2]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0]);
 
         $teaching_count = $this->User->find('all')
-            ->where(['Users.role' => 2, 'Users.designation' => 1]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.designation' => 1]);
 
         $no_teaching_count = $this->User->find('all')
-            ->where(['Users.role' => 2, 'Users.designation' => 2]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.designation' => 2]);
 
         $mt_count = $this->User->find('all')
-            ->where(['Users.role' => 2, 'Users.department' => 2]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.department' => 2]);
 
         $mare_count = $this->User->find('all')
-            ->where(['Users.role' => 2, 'Users.department' => 3]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.department' => 3]);
 
         $gened_count = $this->User->find('all')
-            ->where(['Users.role' => 2, 'Users.department' => 1]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.department' => 1]);
 
         $staff_count = $this->User->find('all')
-            ->where(['Users.role' => 2, 'Users.department' => 6]);
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.department' => 6]);
 
-        $total = $teaching_count->count() + $no_teaching_count->count() + $mt_count->count() + $mare_count->count() + $gened_count->count() + $staff_count->count();
+        $na_count = $this->User->find('all')
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.department' => 4]);
+
+        $maintenance_count = $this->User->find('all')
+            ->where(['Users.role' => 2, 'Users.del_flg' => 0, 'Users.department' => 7]);
+
+        $total = $maintenance_count->count() + $na_count->count() + $mt_count->count() + $mare_count->count() + $gened_count->count() + $staff_count->count();
 
         $this->set('admin', $admin_count->count());
         $this->set('hr', $hr_count->count());
@@ -68,6 +77,8 @@ class SystemAdminsController extends AppController
         $this->set('staff', $total != 0 ? round($staff_count->count()/$total*100) : 0);
         $this->set('mt', $total != 0 ? round($mt_count->count()/$total*100) : 0);
         $this->set('mare', $total != 0 ? round($mare_count->count()/$total*100) : 0);
+        $this->set('na', $total != 0 ? round($na_count->count()/$total*100) : 0);
+        $this->set('maintenance', $total != 0 ? round($maintenance_count->count()/$total*100) : 0);
         $this->set('total_users', $admin_count->count() + $employee_count->count() + $hr_count->count());
     }
 
@@ -117,7 +128,7 @@ class SystemAdminsController extends AppController
             if (!empty($this->request->query['action'])) {
                 if ($this->request->query['action'] != 'all') {
                     $conditions['UserLogs.action LIKE'] = '%'.$this->request->query['action'].'%';
-                } 
+                }
             }
         }
         $logs = $this->UserLog->find('all')

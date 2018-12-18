@@ -54,6 +54,19 @@ class UserLeavesController extends AppController
             foreach ($leave_request as $key => $val) {
                 $diff=abs(strtotime($val['date_start']->i18nFormat('yyyy-MM-dd')) - strtotime($val['date_end']->i18nFormat('yyyy-MM-dd')))/(60 * 60 * 24)+1;
                 $total_leave = $val['user']['total_leave'];
+                $user_id = $val['user']['id'];
+            }
+
+            //used leave
+            $used_leave   = $this->UserLeave->find('all')->where([
+                'user_id'       => $user_id,
+                'status'        => 1,
+                'del_flg'       => 0,
+                'YEAR(created)' => date('Y')
+            ])->toArray();
+
+            foreach ($used_leave as $key => $value) {
+                $diff+=abs(strtotime($value['date_start']->i18nFormat('yyyy-MM-dd')) - strtotime($value['date_end']->i18nFormat('yyyy-MM-dd')))/(60 * 60 * 24)+1;
             }
 
             if ($diff > $total_leave) {
@@ -97,13 +110,13 @@ class UserLeavesController extends AppController
                 ->where(['role' => Configure::read('role.employee')]);
             })
             ->where([
-                'UserLeaves.del_flg'          => 0, 
+                'UserLeaves.del_flg'          => 0,
                 'UserLeaves.status !='        => 0,
                 'YEAR(UserLeaves.date_start)' => date('Y')
             ])
             ->toArray();
 
-        $this->set('leave_reason', Configure::read('leave_reason'));            
+        $this->set('leave_reason', Configure::read('leave_reason'));
         $this->set(compact('records'));
     }
     public function delete($id) {
@@ -126,7 +139,11 @@ class UserLeavesController extends AppController
     public function leave_report() {
         $users = $this->User->find('all')
             ->contain('UserLeaves')
-            ->where(['Users.role' => 2, 'YEAR(Users.created)' => date('Y')])
+            ->where([
+                'Users.role'          => 2,
+                'YEAR(Users.created)' => date('Y'),
+                'Users.del_flg'       => 0
+            ])
             ->toArray();
 
         foreach ($users as $key => $val) {

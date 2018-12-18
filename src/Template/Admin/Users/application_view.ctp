@@ -12,9 +12,9 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Position Applying: </label>
-          <span class="view-info__info"> • Janitor</span>
+          <span class="view-info__info"> • <?= $applicant['positions'] ?> </span>
         </div>
-        
+
         <div class="view-info__data">
           <label class="view-info__label"> Application Status: </label>
           <span class="view-info__info"> <span class="pending">• Pending</span></span>
@@ -23,47 +23,47 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Last Name: </label>
-          <span class="view-info__info"> • Djpogs, Poging pogi</span>
+          <span class="view-info__info"> • <?= ucfirst($applicant['lastname']) ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> First Name: </label>
-          <span class="view-info__info"> • Poging pogi</span>
+          <span class="view-info__info"> • <?= ucfirst($applicant['firstname']) ?> </span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Address: </label>
-          <span class="view-info__info"> • cabalen pampanga</span>
+          <span class="view-info__info"> • <?= ucfirst($applicant['street1']) ?> </span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> City: </label>
-          <span class="view-info__info"> • Pampanga City</span>
+          <span class="view-info__info"> • <?= ucfirst($applicant['city']) ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Zip Code: </label>
-          <span class="view-info__info"> • 1122 </span>
+          <span class="view-info__info"> • <?= $applicant['zip_code'] ?> </span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Phone Number: </label>
-          <span class="view-info__info"> • 09123123</span>
+          <span class="view-info__info"> • <?= $applicant['phone'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Mobile Number: </label>
-          <span class="view-info__info"> • 09776270945</span>
+          <span class="view-info__info"> • <?= $applicant['mobile'] ?></span>
         </div>
 
         <div class="view-info__data">
           <label class="view-info__label"> Email Address: </label>
-          <span class="view-info__info"> • 09776270945</span>
+          <span class="view-info__info"> • <?= $applicant['email'] ?></span>
         </div>
 
         <div class="view-info__data view-info__data-last">
           <label class="view-info__label"> Qualification and Experience: </label>
-          <span class="view-info__info"> • asdasd asd kahdskahskd sa</span>
+          <span class="view-info__info"> • <?= $applicant['qualifications'] ?></span>
         </div>
       </div>
       <div class="view-button">

@@ -77,7 +77,7 @@
             </div>
 
             <div class="form__list form__list--seminars">
-                <label class="form__label">Upload Certificate here:</label>
+                <label class="form__label">Upload Certificate here(PDF format):</label>
                 <div class="form__input-wrapper">
                   <input type="file" name="pdf" id="fileupload" style="visibility:hidden;position:absolute">
                   <div class="form__upload-file">

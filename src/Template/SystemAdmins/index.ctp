@@ -45,7 +45,7 @@
       type: 'pie',
       data: {
           datasets: [{
-              data: [<?= $admin ?>, <?= $staff ?>, 3, <?= $gened ?>, <?= $mt ?>, <?= $mare ?>, 20],
+              data: [<?= $admin ?>, <?= $staff ?>, <?= $maintenance ?>, <?= $gened ?>, <?= $mt ?>, <?= $mare ?>, <?= $na ?>],
               labelColor: '#FFF',
               labelFontSize: '16',
               backgroundColor: [
@@ -56,7 +56,7 @@
                   window.chartColors.violet,
                   window.chartColors.aqua,
                   window.chartColors.maroon
-                  
+
               ],
               label: 'Chart'
           }],
@@ -98,7 +98,7 @@
               }
           }
       },
-     
+
   };
 
   window.onload = function() {
