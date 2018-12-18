@@ -139,7 +139,11 @@ class UserLeavesController extends AppController
     public function leave_report() {
         $users = $this->User->find('all')
             ->contain('UserLeaves')
-            ->where(['Users.role' => 2, 'YEAR(Users.created)' => date('Y')])
+            ->where([
+                'Users.role'          => 2,
+                'YEAR(Users.created)' => date('Y'),
+                'Users.del_flg'       => 0
+            ])
             ->toArray();
 
         foreach ($users as $key => $val) {

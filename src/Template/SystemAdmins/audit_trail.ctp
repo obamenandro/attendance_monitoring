@@ -40,7 +40,7 @@
             <thead>
               <tr class="table__head">
                 <th class="table__head-list">Date</th>
-                <th class="table__head-list">Name</th>
+                <th class="table__head-list">Lastname, Firstname</th>
                 <th class="table__head-list">Page</th>
                 <th class="table__head-list">Action</th>
               </tr>
@@ -49,7 +49,7 @@
               <?php foreach($logs as $key => $log): ?>
                 <tr class="table__body">
                   <td class="table__body-list"><?= $log['created']; ?></td>
-                  <td class="table__body-list"><?= $log['user']['firstname']; ?></td>
+                  <td class="table__body-list"><?= ucfirst($log['user']['lastname']).", ".ucfirst($log['user']['firstname']); ?></td>
                   <td class="table__body-list"><?= $log['page']; ?></td>
                   <td class="table__body-list"><?= $log['action']; ?></td>
                 </tr>
@@ -89,7 +89,7 @@
           title: 'AUDIT TRAIL',
           customize: function (doc) {
             var rowCount = document.getElementById("dataTable").rows.length;
-            doc.content[1].table.widths = 
+            doc.content[1].table.widths =
               Array(doc.content[1].table.body[0].length + 1).join('*').split('');
 
             for (i = 1; i < rowCount; i++) {
