@@ -100,4 +100,8 @@ class SeminarsController extends AppController
             return $this->redirect('/seminars');
         }
     }
+
+    public function preview() {
+
+    }
 }
