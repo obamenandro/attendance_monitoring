@@ -1284,7 +1284,14 @@ class UsersController extends AppController
         $this->set('application_status', Configure::read('application_status'));
     }
 
-    public function application_view() {
+    public function application_view($id) {
+        if ($id) {
+            $applicant = $this->Application->find('all')
+                ->where(['Applications.id' => $id])
+                ->first()
+                ->toArray();
 
+            $this->set(compact('applicant'));
+        }
     }
 }
