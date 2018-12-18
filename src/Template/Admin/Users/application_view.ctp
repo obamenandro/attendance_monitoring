@@ -17,8 +17,13 @@
 
         <div class="view-info__data">
           <label class="view-info__label"> Application Status: </label>
+          <?php if($applicant['accepted'] == 0): ?>
           <span class="view-info__info"> <span class="pending">• Pending</span></span>
+          <?php elseif($applicant['accepted'] == 1): ?>
           <span class="view-info__info"> <span class="accepted">• Accepted</span></span>
+          <?php else: ?>
+          <span class="view-info__info"> <span class="pending">• Declined</span></span>
+          <?php endif; ?>
         </div>
 
         <div class="view-info__data">
@@ -89,7 +94,7 @@
   vertical-align: top;
 }
 .view-info__data:nth-child(2n) {
-  width: 38%;  
+  width: 38%;
 }
 .pending {
   color: red;
