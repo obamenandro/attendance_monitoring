@@ -34,8 +34,10 @@
                 </td>
                 <td class="table__body-list">
                   <a href="/admin/users/application_view/<?= $application['id'] ?>" class="table__view">View</a>
+                  <?php if ($application['accepted'] == 0): ?>
                   <a href="/admin/users/application_accept/<?= $application['id'] ?>" class="table__view table__view--edit">Accept</a>
                   <a href="/admin/users/application_decline/<?= $application['id'] ?>" class="table__view table__view--delete delete" data-id="">Decline</a>
+                  <?php endif; ?>
                 </td>
             </tr>>
             <?php endforeach; ?>

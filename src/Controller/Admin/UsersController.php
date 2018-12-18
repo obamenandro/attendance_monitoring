@@ -1195,7 +1195,7 @@ class UsersController extends AppController
 
     public function application_monitoring() {
         $application_lists = $this->Application->find('all')
-            ->where(['Applications.del_flg' => 0, 'Applications.accepted' => 0])
+            ->where(['Applications.del_flg' => 0])
             ->toArray();
 
         $this->set('application_status', Configure::read('application_status'));
