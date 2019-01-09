@@ -109,7 +109,7 @@
     bLengthChange: false,
   });
 
-  $('.table__view--delete').click(function() {
+  $('html').delegate('.table__view--delete','click', function() {
     $('.backdrop').show();
     $('#js-modal-confirm').css({
         top: 0
@@ -127,11 +127,11 @@
   })
 
   var user_id = "";
-  $('.delete').on('click', function() {
+  $('html').delegate('.delete','click', function() {
     user_id = $(this).data('id');
   });
 
-  $('.user-delete').on('click', function() {
+  $('html').delegate('.user-delete','click', function() {
     window.location.href = '/admin/users/delete/'+user_id;
   });
 </script>

@@ -153,7 +153,7 @@
 <script type="text/javascript">
   var id = "";
 
-  $('.js-table-edit').on('click', function() {
+  $('html').delegate('.js-table-edit','click', function() {
     $('.backdrop').show();
     id = $(this).attr('id');
     $('#js-modal-edit-'+id).css({
@@ -193,18 +193,18 @@
     endDate: "today"
   })
 
-  $('.table__view--delete').click(function() {
+  $('html').delegate('.table__view--delete','click', function() {
     $('.backdrop').show();
     $('#js-modal-confirm').css({
       top: 0
     });
   });
   var attendance_id = "";
-  $('.delete').on('click', function() {
+  $('html').delegate('.delete','click', function() {
     attendance_id = $(this).data('id');
   });
 
-  $('.user-delete').on('click', function() {
+  $('html').delegate('.user-delete','click', function() {
     window.location.href = '/admin/users/attendance_delete/'+attendance_id;
   });
 
