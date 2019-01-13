@@ -57,7 +57,7 @@
                   <td class="table__body-list">
                     <a href="/admin/users/view/<?= $user['id'] ?>" class="table__view">View</a>
                     <a href="/admin/users/edit/<?= $user['id'] ?>" class="table__view table__view--edit">Edit</a>
-                    <a class="table__view table__view--delete delete" data-id="<?= $user['id'] ?>">Delete</a>
+                    <a href="/admin/users/delete/<?= $user['id'] ?>" class="table__view table__view--delete delete" data-id="<?= $user['id'] ?>">Delete</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
