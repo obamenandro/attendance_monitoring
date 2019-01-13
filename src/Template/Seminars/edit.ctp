@@ -50,7 +50,6 @@
                   <span class="form__error"><?= $this->Form->error('date'); ?></span>
                 </div>
             </div>
-            <?= $this->Form->control('user_id', ['type' => 'hidden', 'value' => 21]) ?>
           <div class="modal__button">
             <input type="submit" class="button button--submit" value="Save">
           </div>

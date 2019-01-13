@@ -37,14 +37,15 @@
       blue: 'rgb(54, 162, 235)',
       orange: 'rgb(255, 165, 1)',
       violet: 'rgb(238, 130, 238)',
-      aqua: 'rgb(76, 215, 195)'
+      aqua: 'rgb(76, 215, 195)',
+      maroon: 'rgb(128, 0, 1)',
   };
 
   var config = {
       type: 'pie',
       data: {
           datasets: [{
-              data: [<?= $teaching ?>, <?= $no_teaching ?>, <?= $mt ?>,<?= $mare ?>, <?= $gened ?>, <?= $staff ?>],
+              data: [<?= $admin ?>, <?= $staff ?>, <?= $maintenance ?>, <?= $gened ?>, <?= $mt ?>, <?= $mare ?>, <?= $na ?>],
               labelColor: '#FFF',
               labelFontSize: '16',
               backgroundColor: [
@@ -53,18 +54,20 @@
                   window.chartColors.blue,
                   window.chartColors.orange,
                   window.chartColors.violet,
-                  window.chartColors.aqua
-                  
+                  window.chartColors.aqua,
+                  window.chartColors.maroon
+
               ],
               label: 'Chart'
           }],
           labels: [
-              'Teaching',
-              'Non Teaching',
+              'Admin',
+              'Staff',
+              'Maintenance',
+              'GenEd',
               'MT',
               'MARE',
-              'GenEd',
-              'Staff'
+              'NA'
           ]
       },
       options: {
@@ -95,7 +98,7 @@
               }
           }
       },
-     
+
   };
 
   window.onload = function() {

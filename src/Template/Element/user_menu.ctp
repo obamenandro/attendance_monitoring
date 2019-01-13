@@ -24,14 +24,6 @@
         </div>
       </a>
     </li>
-    <li class="user-panel__menu-list <?= $this->Url->build(null) == '/users' ? 'user-panel__menu-list--active' : '' ?>">
-      <a href="/users" class="user-panel__menu-link">
-        <div class="user-panel__menu-text">
-          <i class="fa fa-calendar user-panel__icon" aria-hidden="true"></i>
-          <span>Attendance Record</span>
-        </div>
-      </a>
-    </li>
     <li class="user-panel__menu-list <?= $this->Url->build(null) == '/UserLeaves/add' ? 'user-panel__menu-list--active' : '' ?>">
       <a href="/UserLeaves/add" class="user-panel__menu-link">
         <div class="user-panel__menu-text">
@@ -42,3 +34,9 @@
     </li>
   </ul>
 </div>
+
+<style>
+.user-panel__menu-list {
+  width: 25%;
+}
+</style>

@@ -80,7 +80,7 @@ class ApplicationForm extends Form
         return false;
     }
     public function phoneMobile ($value, $context) {
-        if (preg_match('/^[0-9]{10}+$/', $value)) {
+        if (preg_match('/^[0-9]{11}+$/', $value)) {
             return true;
         }
         return false;

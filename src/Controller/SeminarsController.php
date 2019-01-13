@@ -32,7 +32,7 @@ class SeminarsController extends AppController
         $seminar_records = $this->Seminar->find('all')
             ->where(['Seminars.del_flg' => 0, 'Seminars.user_id' => $user_id])
             ->toArray();
-        
+
         if ($this->request->is('POST')) {
             $data            = $this->request->getData();
             $data['user_id'] = $this->request->session()->read('Auth.User.id');
@@ -72,7 +72,6 @@ class SeminarsController extends AppController
 
     public function edit($id) {
         $seminar = $this->Seminar->get($id);
-
         if ($this->request->is('POST')) {
             $data   = $this->request->getData();
             $seminar = $this->Seminar->patchEntity($seminar, $data);
@@ -99,5 +98,9 @@ class SeminarsController extends AppController
             $this->Flash->error(__('Seminar has been failed to deleted.'));
             return $this->redirect('/seminars');
         }
+    }
+
+    public function preview() {
+
     }
 }
