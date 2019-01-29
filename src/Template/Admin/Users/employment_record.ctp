@@ -5,11 +5,30 @@
 <div class="panel__container">
   <div class="panel__content">
     <div>
-      <div class="form__content form__content--report">
+      <div class="form__content form__content--report" style="position: relative">
+        <form method="GET">
+          <div class="panel__search" style="position: absolute; width: 80%;left: 15px;z-index:2; top: 10px; text-align: left; ">
+            <div class="panel__search-box">
+              <label class="panel__search-label">Designation:</label>
+              <input type="text" class="panel__search-input">
+            </div>
+            <div class="panel__search-box">
+              <label class="panel__search-label">Date Hired:</label>
+              <input type="number" class="panel__search-input" placeholder="month-year">
+            </div>
+            <div class="panel__search-box">
+              <label class="panel__search-label">status:</label>
+              <input type="text" class="panel__search-input">
+            </div>
+            <div class="panel__search-box">
+              <input type="submit" name="" class="panel__search-button" value="search">
+            </div>
+          </div>
+        </form>
         <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">
-              <th class="table__head-list">Last Name, First Name</th>
+              <th class="table__head-list sum">Last Name, First Name</th>
               <th class="table__head-list">Highest Educational Attainment</th>
               <th class="table__head-list">Designation</th>
               <th class="table__head-list">Date Hired</th>
@@ -21,7 +40,7 @@
           <tbody>
             <?php foreach($users as $key => $value): ?>
             <tr>
-              <td class="table__body-list"><?= ucfirst($value['lastname']).", ".ucfirst($value['firstname']) ?></td>
+              <td class="table__body-list sum"><?= ucfirst($value['lastname']).", ".ucfirst($value['firstname']) ?></td>
               <td class="table__body-list">
                 <span class="table__body-span">
                   <?php 
@@ -55,8 +74,7 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-    $('#dataTable').DataTable( {
+    var table = $('#dataTable').DataTable( {
       dom: 'Bfrtip',
       paging: true,
       autoWidth: true,
@@ -107,6 +125,4 @@
         },
       ]
     });
-  });
-
 </script>

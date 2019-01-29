@@ -26,6 +26,19 @@
               </select>
             </div>
             <div class="panel__search-box">
+              <label class="panel__search-label">Department:</label>
+              <select class="panel__search-input" name="designation_id">
+                <option value="">--</option>
+                <option value="">GenEd</option>
+                <option value="">BSMT</option>
+                <option value="">BSMARe</option>
+                <option value="">BSNA</option>
+                <option value="">Admin</option>
+                <option value="">Staff</option>
+                <option value="">Maintenance Personnel</option>
+              </select>
+            </div>
+            <div class="panel__search-box">
               <input type="submit" name="" class="panel__search-button" value="search">
             </div>
           </div>
@@ -95,6 +108,7 @@
 <script>
 
   $('#dataTable').dataTable({
+    dom: 'Bfrtip',
     info:     false,
     searching: false,
     ordering: true,
@@ -106,6 +120,51 @@
         { targets: 5, orderable: false},
         { targets: 6, orderable: false}
     ],
+    buttons: [
+        {
+          extend: 'excelHtml5',
+          text: 'Save as Excel',
+          className: 'button button--report',
+          title: 'List Of Employee',
+          exportOptions: {
+            columns: 'th:not(:last-child)'
+          }
+        },
+        {
+          extend: 'pdf',
+          text: 'Save as PDF',
+          className: 'button button--report',
+          title: 'List Of Employee',
+          exportOptions: {
+            columns: 'th:not(:last-child)'
+          },
+          customize: function (doc) {
+            var rowCount = document.getElementById("dataTable").rows.length;
+            doc.content[1].table.widths =
+              Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+
+            for (i = 1; i < rowCount; i++) {
+              doc.content[1].table.body[i][0].alignment = 'center';
+              doc.content[1].table.body[i][1].alignment = 'center';
+              doc.content[1].table.body[i][2].alignment = 'center';
+            }
+          }
+        },
+        {
+          extend: 'print',
+          text: 'Print Report',
+          className: 'button button--report',
+          title: 'List Of Employee',
+          exportOptions: {
+            columns: 'th:not(:last-child)'
+          },
+          customize: function ( win ) {
+              $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
+              $(win.document.body).find('table').css('text-align','center' );
+              $(win.document.body).find('h1').addClass('h1-title-report');
+          }
+        },
+      ],
     bLengthChange: false,
   });
 

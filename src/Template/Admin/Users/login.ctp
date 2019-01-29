@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <title>NAMEI HRIS</title>
+  <title>NAMEI PMIS</title>
   <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.css"/>
   <link rel="stylesheet" type="text/css" href="/js/plugins/jquery-ui-1.12.1/jquery-ui.theme.css"/>
   <link rel="stylesheet" type="text/css" href="/css/plugins/font-awesome-4.7.0/css/font-awesome.min.css"/>
@@ -21,7 +21,7 @@
       <div class="login__logo">
         <img src="/img/logo/logo.png" alt="logo" class="login__image">
         <span class="login__logo-text">NAMEI Polytechnic Institute</span>
-        <span class="login__logo-text">HRIS</span>
+        <span class="login__logo-text">PMIS</span>
       </div>
 
       <div class="login__title">

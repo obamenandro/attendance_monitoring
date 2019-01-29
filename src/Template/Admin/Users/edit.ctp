@@ -58,6 +58,16 @@
               </div>
             </div>
 
+            <div class="form__list date-resigned" style="display: none;">
+              <div class="form__label-wrapper">
+                <label class="form__label">Date Resigned:</label>
+              </div>
+              <div class="form__input form__input--fullwidth">
+                <input type="text" class="form__inputbox form--date-js" readonly>
+                <span class="form__error"><?= $this->Form->error('jobtype'); ?></span>
+              </div>
+            </div>
+
             <div class="form__list">
               <div class="form__label-wrapper">
                 <label class="form__label">Date Hired</label>
@@ -161,4 +171,12 @@
     format: 'yyyy-mm-dd',
     endDate: '+0d'
   });
+
+  $('#jobtype').on('change', function() {
+    if ( $(this).val() == 3 ) {
+      $('.date-resigned').show();
+    } else {
+      $('.date-resigned').hide();
+    }
+  })
 </script>

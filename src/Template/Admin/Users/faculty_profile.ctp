@@ -5,7 +5,26 @@
 <div class="panel__container">
   <div class="panel__content">
     <div>
-      <div class="form__content">
+      <div class="form__content" style="position: relative">
+        <form method="GET">
+          <div class="panel__search" style="position: absolute; width: 80%;left: 15px;z-index:2; top: 10px; text-align: left; ">
+            <div class="panel__search-box">
+              <label class="panel__search-label">Department:</label>
+              <input type="text" class="panel__search-input">
+            </div>
+            <div class="panel__search-box">
+              <label class="panel__search-label">Highest Educational:</label>
+              <input type="text" class="panel__search-input">
+            </div>
+            <div class="panel__search-box">
+              <label class="panel__search-label">status:</label>
+              <input type="text" class="panel__search-input">
+            </div>
+            <div class="panel__search-box">
+              <input type="submit" name="" class="panel__search-button" value="search">
+            </div>
+          </div>
+        </form>
         <table id="dataTable" class="display table table--attendance-view table--report" cellspacing="0" width="100%">
           <thead>
             <tr class="table__head">

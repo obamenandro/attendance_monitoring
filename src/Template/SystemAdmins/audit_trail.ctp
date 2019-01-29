@@ -63,7 +63,7 @@
 
 <script>
 
-  $('#dataTable').dataTable({
+  var table = $('#dataTable').dataTable({
     info:     false,
     searching: false,
     ordering: true,
@@ -112,5 +112,4 @@
         },
       ]
   });
-
 </script>

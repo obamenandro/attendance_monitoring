@@ -7,7 +7,7 @@
     <div>
       <div class="form__content form__content--report">
         <form method="GET">      
-          <div class="panel__search panel__search--report">
+          <div class="panel__search panel__search--report" style="position: absolute; width: 60%;left: 15px;z-index:2; top: 10px; text-align: left; ">
             <div class="panel__search-box">
               <label class="panel__search-label">ID:</label>
               <input type="text" name="user_id" class="panel__search-input" value="<?= isset($_GET['user_id']) ? $_GET['user_id'] : '' ?>">

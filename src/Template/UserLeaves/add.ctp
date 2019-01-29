@@ -27,6 +27,7 @@
               <th class="table__head-list">Leave Start</th>
               <th class="table__head-list">Leave End</th>
               <th class="table__head-list">Status</th>
+              <th class="table__head-list">Reason</th>
               <th class="table__head-list">Action</th>
             </tr>
           </thead>
@@ -43,6 +44,9 @@
                 <?php else: ?>
                 <span class="table__body-approved">PENDING</span>
                 <?php endif; ?>
+              </td>
+              <td>
+                Wala lang
               </td>
               <td class="table__body-list">
                 <?php if ($value['status'] == 0): ?>

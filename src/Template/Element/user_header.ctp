@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__content">
     <div class="header__company-name">
-      <h1>Welcome to NAMEI Polytechnic Institute HRIS!</h1>
+      <h1>Welcome to NAMEI Polytechnic Institute PMIS!</h1>
     </div>
     <div class="header__control">
       <a href="/users/change_password" class="header__control-link">

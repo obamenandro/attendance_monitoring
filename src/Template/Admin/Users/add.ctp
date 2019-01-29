@@ -134,7 +134,7 @@
 
             <div class="form__list">
               <div class="form__label-wrapper">
-                <label class="form__label">Leave:</label>
+                <label class="form__label">No. of Leave:</label>
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=

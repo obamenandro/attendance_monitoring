@@ -65,7 +65,7 @@ class UsersController extends AppController
                     $this->Flash->error(__('Invalid email address or password.'));
                 } else {
                     $this->Auth->setUser($user);
-                    $redirectUrl = '/admin/users';
+                    $redirectUrl = '/admin/users/home';
                 }
                 return $this->redirect($redirectUrl);
             } else {
@@ -1293,5 +1293,9 @@ class UsersController extends AppController
 
             $this->set(compact('applicant'));
         }
+    }
+
+    public function change_password() {
+    
     }
 }
