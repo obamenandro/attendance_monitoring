@@ -6,14 +6,14 @@
     <div>
       <div class="form__content">
         <?= $this->Flash->render(); ?>
-        <form method="GET">
+        <form method="GET" autocomplete="off">
           <div class="panel__search panel-search">
             <div class="panel__search-box panel__search-box-input">
-              <label class="panel__search-label">Search Name:</label>
-              <input type="text" class="panel__search-input">
+              <label class="panel__search-label">Last Name:</label>
+              <input type="text" name="last_name" class="panel__search-input">
             </div>
             <div class="panel__search-box">
-              <input type="submit" name="" class="panel__search-button" value="search">
+              <input type="submit" class="panel__search-button" value="search">
             </div>
           </div>
         </form>

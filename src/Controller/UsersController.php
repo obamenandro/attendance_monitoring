@@ -214,16 +214,16 @@ class UsersController extends AppController
             $user_data = $session_data['User'];
             $user      = $this->User->patchEntity($user, $user_data);
             if ($user = $this->User->save($user)) {
-                $this->Upload->upload($data['image']);
-                if($this->Upload->uploaded) {
-                    $image_name = md5(time());
-                    $this->Upload->file_new_name_body = $image_name;
-                    $this->Upload->process('uploads/employee/'.$user_id.'/');
-                    $profile_image    = $this->Upload->file_dst_name;
-                    $add_image        = $this->User->get($user_id);
-                    $add_image->image = '/uploads/employee/'.$user_id.'/'.$profile_image;
-                    $this->User->save($add_image);
-                }
+                // $this->Upload->upload($data['image']);
+                // if($this->Upload->uploaded) {
+                //     $image_name = md5(time());
+                //     $this->Upload->file_new_name_body = $image_name;
+                //     $this->Upload->process('uploads/employee/'.$user_id.'/');
+                //     $profile_image    = $this->Upload->file_dst_name;
+                //     $add_image        = $this->User->get($user_id);
+                //     $add_image->image = '/uploads/employee/'.$user_id.'/'.$profile_image;
+                //     $this->User->save($add_image);
+                // }
                 $this->UserAttainment->deleteAll(['user_id' => $user_id]);
                 $this->UserEligibility->deleteAll(['user_id' => $user_id]);
                 $this->WorkExperience->deleteAll(['user_id' => $user_id]);

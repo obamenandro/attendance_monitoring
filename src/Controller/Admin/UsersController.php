@@ -8,6 +8,7 @@ use App\Form\AdminAddEmployeeForm;
 use App\Form\EmployeeEditForm;
 use Cake\Core\Configure;
 use Cake\Event\Event;
+use Cake\Collection\Collection;
 use Cake\Mailer\Email;
 
 /**
@@ -1188,6 +1189,84 @@ class UsersController extends AppController
         $technical3 =$this->UserChecklist->find('all')
             ->where(['UserChecklists.requirement_id' => '11']);
         $total = $technical1->count() + $technical2->count() + $technical3->count();
+
+        $departments = $this->Users->find('all')
+        ->contain(['UserLeaves' => function ($q) {
+            return $q
+                ->where([
+                    'status' => 0
+                ]);
+            }
+        ])
+        ->toArray();
+        //collection
+        foreach ($departments as $key => $value) {
+            $collection = new Collection($value['user_leaves']);
+            $departments[$key]['total_leave']= $collection->sumOf(function($v) {
+                if ($v['status'] == 0) {
+                    return 1;
+                }
+            });
+        }
+        //Staff
+        $collection = new Collection($departments);
+        $departments['total_pending_leaves'] =  $collection->sumOf(function ($value) {
+            if (!empty($value['total_leave'])) {
+                return $value['total_leave'];
+            }
+        });
+        $departments['total_staff'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 2 && $value['department'] == 6) {
+                return 1;
+            }
+        });
+        //Maintenance
+        $departments['total_maintenance'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 2 && $value['department'] == 7) {
+                return 1;
+            }
+        });
+        //GENED
+        $departments['total_gened'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 2 && $value['department'] == 1) {
+                return 1;
+            }
+        });
+        //bsmt
+        $departments['total_mt'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 2 && $value['department'] == 2) {
+                return 1;
+            }
+        });
+        //bsmare
+        $departments['total_mare'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 2 && $value['department'] == 3) {
+                return 1;
+            }
+        });
+        //bsna
+        $departments['total_na'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 2 && $value['department'] == 4) {
+                return 1;
+            }
+        });
+        //admin
+        $departments['total_admin'] =  $collection->sumOf(function ($value) {
+            if ($value['role'] == 1) {
+                return 1;
+            }
+        });
+        //Applicant
+        $applications = $this->Application->find('all')
+        ->toArray();
+        $collection = new Collection($applications);
+        $applications['total_pending'] =  $collection->sumOf(function ($value) {
+            if ($value['accepted'] == 0) {
+                return 1;
+            }
+        });
+
+        $this->set(compact('departments', 'applications'));
         $this->set('technical1', $total != 0 ? round($technical1->count()/$total*100) : 0);
         $this->set('technical2', $total != 0 ? round($technical2->count()/$total*100) : 0);
         $this->set('technical3', $total != 0 ? round($technical3->count()/$total*100) : 0);

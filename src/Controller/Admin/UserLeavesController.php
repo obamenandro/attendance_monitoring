@@ -104,18 +104,22 @@ class UserLeavesController extends AppController
     }
 
     public function view_leave() {
+        $conditions = [];
+        if (!empty($this->request->getQuery('date'))) {
+            $conditions['MONTH(UserLeaves.created)'] = $this->request->getQuery('date');
+        }
+        $conditions = array_merge($conditions, [
+            'UserLeaves.del_flg'          => 0,
+            'UserLeaves.status !='        => 0,
+            'YEAR(UserLeaves.date_start)' => date('Y'),
+        ]);
         $records = $this->UserLeave->find('all')
             ->contain('Users', function ($r) {
                 return $r
                 ->where(['role' => Configure::read('role.employee')]);
             })
-            ->where([
-                'UserLeaves.del_flg'          => 0,
-                'UserLeaves.status !='        => 0,
-                'YEAR(UserLeaves.date_start)' => date('Y')
-            ])
+            ->where($conditions)
             ->toArray();
-
         $this->set('leave_reason', Configure::read('leave_reason'));
         $this->set(compact('records'));
     }
@@ -137,13 +141,21 @@ class UserLeavesController extends AppController
     }
 
     public function leave_report() {
+        $conditions = [];
+        if (!empty($this->request->getQuery('last_name'))) {
+            $conditions['Users.lastname LIKE'] = '%'.$this->request->getQuery('last_name').'%' ;
+        }
+        $conditions = array_merge($conditions, [
+            'Users.role'          => 2,
+            'Users.del_flg'       => 0
+        ]);
+
         $users = $this->User->find('all')
-            ->contain('UserLeaves')
-            ->where([
-                'Users.role'          => 2,
-                'YEAR(Users.created)' => date('Y'),
-                'Users.del_flg'       => 0
-            ])
+            ->contain(['UserLeaves' => function($q) {
+                return $q
+                ->where(['YEAR(UserLeaves.date_start)' => date('Y')]);
+            }])
+            ->where($conditions)
             ->toArray();
 
         foreach ($users as $key => $val) {
@@ -157,6 +169,7 @@ class UserLeavesController extends AppController
                 }
             );
         }
+        $this->set('results', count($users));
         $this->set(compact('users'));
     }
 }

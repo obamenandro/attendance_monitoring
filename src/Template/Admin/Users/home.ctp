@@ -9,31 +9,31 @@
       <ul>
         <li class="panel__content-item">
           <span class="panel__content-text">Admin</span>
-          <span class="panel__content-number">3</span>
+          <span class="panel__content-number"><?= $departments['total_admin'] ?></span>
         </li>
         <li class="panel__content-item">
           <span class="panel__content-text">Staff</span>
-          <span class="panel__content-number">1</span>
+          <span class="panel__content-number"><?= $departments['total_staff'] ?></span>
         </li>
         <li class="panel__content-item">
           <span class="panel__content-text">Maintenance</span>
-          <span class="panel__content-number">1</span>
+          <span class="panel__content-number"><?= $departments['total_maintenance'] ?></span>
         </li>
         <li class="panel__content-item">
           <span class="panel__content-text">GenEd</span>
-          <span class="panel__content-number">1</span>
+          <span class="panel__content-number"><?= $departments['total_gened'] ?></span>
         </li>
         <li class="panel__content-item">
           <span class="panel__content-text">MT</span>
-          <span class="panel__content-number">1</span>
+          <span class="panel__content-number"><?= $departments['total_mt'] ?></span>
         </li>
         <li class="panel__content-item">
           <span class="panel__content-text">MARE</span>
-          <span class="panel__content-number">1</span>
+          <span class="panel__content-number"><?= $departments['total_mare'] ?></span>
         </li>
         <li class="panel__content-item">
           <span class="panel__content-text">NA</span>
-          <span class="panel__content-number">1</span>
+          <span class="panel__content-number"><?= $departments['total_na'] ?></span>
         </li>
       </ul>
     </div>
@@ -44,7 +44,7 @@
           <span>Applicant Monitoring</span>
           <li class="panel__content-item panel__content-item-applicant">
             <span class="panel__content-text">Applicants Pending</span>
-            <span class="panel__content-number">1</span>
+            <span class="panel__content-number"><?= $applications['total_pending'] ?></span>
           </li>
         </ul>
       </div>
@@ -53,7 +53,7 @@
           <span>Leave Monitoring</span>
           <li class="panel__content-item panel__content-item-leave">
             <span class="panel__content-text">Leaves Pending</span>
-            <span class="panel__content-number">1</span>
+            <span class="panel__content-number"><?= $departments['total_pending_leaves'] ?></span>
           </li>
         </ul>
       </div>

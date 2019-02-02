@@ -6,14 +6,28 @@
     <div>
       <div class="form__content">
         <?= $this->Flash->render(); ?>
-        <form method="GET">
+        <form method="GET" autocomplete='off'>
           <div class="panel__search panel-search">
             <div class="panel__search-box panel__search-box-input">
               <label class="panel__search-label">Search By Date:</label>
-              <input type="text" class="panel__search-input js-date" value="">
+              <select name="date" class="panel__search-input" id="date">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+              <!-- <input type="text" name="date" class="panel__search-input js-date" readonly> -->
             </div>
             <div class="panel__search-box">
-              <input type="submit" name="" class="panel__search-button" value="search">
+              <input type="submit"  class="panel__search-button" value="search">
             </div>
           </div>
         </form>
@@ -79,6 +93,17 @@
 </div>
 <div class="backdrop"></div>
 <script>
+  $(function() {
+    let date = "<?= !empty($_GET['date']) ? $_GET['date'] : '' ?>"
+    $('#date').val(date);
+
+    $('.js-date').datepicker({
+      changeMonth: true,
+      dateFormat: 'MM',
+    });
+  });
+
+
   $('.table__view--delete').click(function() {
     $('.backdrop').show();
     $('#js-modal-confirm').css({
@@ -95,8 +120,6 @@
         top: '-100%'
     })
   });
-
-  $('.js-date').datepicker();
 
   $('#dataTable').dataTable({
     info:     false,

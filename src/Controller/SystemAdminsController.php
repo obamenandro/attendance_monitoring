@@ -170,7 +170,7 @@ class SystemAdminsController extends AppController
         }
     }
 
-    public function change_password() {
+    public function changePassword() {
 
     }
 }
