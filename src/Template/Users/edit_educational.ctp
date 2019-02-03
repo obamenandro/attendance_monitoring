@@ -606,7 +606,7 @@
 
         <div class="form__button">
           <a href="/users/edit_information" class="button button--back">Back</a>
-          <input type="submit" class="button button--submit" value="NEXT">
+          <input type="submit" class="button button--submit" value="SUBMIT">
         </div>
         <?= $this->Form->end(); ?>
       </div>

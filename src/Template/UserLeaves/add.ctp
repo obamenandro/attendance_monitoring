@@ -45,8 +45,10 @@
                 <span class="table__body-approved">PENDING</span>
                 <?php endif; ?>
               </td>
-              <td>
-                Wala lang
+              <td class="table__body-list">
+                <?php if($value['status'] == 2): ?>
+                <span><?= $value['cancel_reason'] ?></span>
+                <?php endif; ?>
               </td>
               <td class="table__body-list">
                 <?php if ($value['status'] == 0): ?>
