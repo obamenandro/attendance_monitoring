@@ -4,10 +4,10 @@
 <div class="panel__container">
   <div class="panel__content">
     <div>
-      <div class="form__content">
+      <div class="form__content" style="position: relative">
         <?= $this->Flash->render(); ?>
         <form method="GET" autocomplete='off'>
-          <div class="panel__search panel-search">
+          <div class="panel__search panel-search" style="position: absolute; width: 100%;left: 15px;z-index:2; top: 30px; text-align: left;">
             <div class="panel__search-box panel__search-box-input">
               <label class="panel__search-label">Search By Date:</label>
               <select name="date" class="panel__search-input" id="date">
@@ -63,6 +63,11 @@
             </tr>
             <?php endforeach; ?>
           </tbody>
+          <tfoot>
+            <tr>
+              <td class="table__footer"></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>
@@ -121,7 +126,7 @@
     })
   });
 
-  $('#dataTable').dataTable({
+  var table = $('#dataTable').dataTable({
     info:     false,
     searching: false,
     ordering: true,
@@ -142,6 +147,7 @@
         text: 'Save as Excel',
         className: 'button button--report',
         title: 'List of Filed Report',
+        footer: true,
         exportOptions: {
           columns: 'th:not(:last-child)'
         }
@@ -151,6 +157,7 @@
         text: 'Save as PDF',
         className: 'button button--report',
         title: 'List of Filed Report',
+        footer: true,
         exportOptions: {
           columns: 'th:not(:last-child)'
         },
@@ -172,6 +179,7 @@
         text: 'Print Report',
         className: 'button button--report',
         title: 'List of Filed Report',
+        footer: true,
         exportOptions: {
           columns: 'th:not(:last-child)'
         },
@@ -192,4 +200,6 @@
   $('.user-delete').on('click', function() {
     window.location.href = '/admin/user_leaves/delete/'+id;
   });
+
+  $('.table__footer').html('Total row: '+ table.fnGetData().length);
 </script>

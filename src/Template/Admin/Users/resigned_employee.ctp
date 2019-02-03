@@ -47,6 +47,11 @@
           </tr>
           <?php endforeach; ?>
         </tbody>
+        <tfoot>
+          <tr>
+            <td class="table__footer"></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </div>
@@ -55,7 +60,7 @@
 
 <script>
 $(document).ready(function() {
-  $('#dataTable').DataTable( {
+  var table = $('#dataTable').DataTable( {
     dom: 'Bfrtip',
     paging: true,
     autoWidth: true,
@@ -68,12 +73,14 @@ $(document).ready(function() {
         text: 'Save as Excel',
         className: 'button button--report',
         title: 'List Of Resigned Employee',
+        footer: true,
       },
       {
         extend: 'pdf',
         text: 'Save as PDF',
         className: 'button button--report',
         title: 'List Of Resigned Employee',
+        footer: true,
         customize: function (doc) {
           var rowCount = document.getElementById("dataTable").rows.length;
           doc.content[1].table.widths =
@@ -91,6 +98,7 @@ $(document).ready(function() {
         text: 'Print Report',
         className: 'button button--report',
         title: 'List Of Resigned Employee',
+        footer: true,
         customize: function ( win ) {
             $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
             $(win.document.body).find('table').css('text-align','center' );
@@ -99,6 +107,8 @@ $(document).ready(function() {
       },
     ]
   });
+  var info = table.page.info();
+  $('.table__footer').html('Total row: '+ info['recordsTotal'])
 });
 
 </script>

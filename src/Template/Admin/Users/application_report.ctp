@@ -46,6 +46,11 @@
             </tr>>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+              <td class="table__footer"></td>
+            </tr>
+          </tfoot>
         </table>
     </div>
   </div>
@@ -53,7 +58,7 @@
 
 
 <script type="text/javascript">
-  $('#dataTable').dataTable({
+  var table = $('#dataTable').dataTable({
     bLengthChange: false,
     dom: 'Bfrtip',
     paging: true,
@@ -68,12 +73,14 @@
         messageTop:'College Department',
         className: 'button button--report',
         title: 'Application Monitoring Report',
+        footer: true,
     },
     {
         extend: 'pdf',
         text: 'Save as PDF',
         className: 'button button--report',
         title: 'Application Monitoring Report',
+        footer: true,
         customize: function (doc) {
             var rowCount = document.getElementById("dataTable").rows.length;
             doc.content[1].table.widths = 
@@ -92,6 +99,7 @@
         text: 'Print Report',
         className: 'button button--report',
         title: 'Application Monitoring Report',
+        footer: true,
         customize: function ( win ) {
                 $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
                 $(win.document.body).find('table').css('text-align','center' );
@@ -100,4 +108,5 @@
         },
     ]
   });
+  $('.table__footer').html('Total row: '+ table.fnGetData().length);
 </script>

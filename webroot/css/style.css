@@ -1536,3 +1536,15 @@ span.sidebar__information-data {
   width: 32%;
   display: inline-block;
 }
+.dataTables_info {
+  font-size: 14px;
+}
+.dt-buttons {
+  position: relative;
+  z-index: 3;
+  width: 40%;
+  float: right;
+}
+.table__footer {
+  font-size: 14px;
+}

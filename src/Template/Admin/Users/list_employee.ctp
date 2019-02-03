@@ -21,6 +21,11 @@
             </tr>
             <?php endforeach; ?>
           </tbody>
+          <tfoot>
+            <tr>
+              <td class="table__footer"></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>
@@ -29,7 +34,7 @@
 
 <script>
   $(document).ready(function() {
-    $('#dataTable').DataTable( {
+    var table = $('#dataTable').DataTable( {
       dom: 'Bfrtip',
       paging: true,
       autoWidth: true,
@@ -42,11 +47,13 @@
           text: 'Save as Excel',
           className: 'button button--report',
           title: 'List Of Employee',
+          footer: true,
         },
         {
           extend: 'pdf',
           text: 'Save as PDF',
           className: 'button button--report',
+          footer: true,
           title: 'List Of Employee',
           customize: function (doc) {
             var rowCount = document.getElementById("dataTable").rows.length;
@@ -64,6 +71,7 @@
           extend: 'print',
           text: 'Print Report',
           className: 'button button--report',
+          footer: true,
           title: 'List Of Employee',
           customize: function ( win ) {
               $(win.document.body).css( 'font-size', '12px', 'text-align','center' );
@@ -73,6 +81,8 @@
         },
       ]
     });
+    var info = table.page.info();
+    $('.table__footer').html('Total row: '+ info['recordsTotal'])
   });
 
 </script>
