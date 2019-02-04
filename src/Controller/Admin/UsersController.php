@@ -1357,7 +1357,13 @@ class UsersController extends AppController
     }
 
     public function application_report() {
+        $conditions = [];
+        if (!empty($this->request->getQuery('status'))) {
+            $conditions['Applications.accepted'] = $this->request->getQuery('status');
+        }
+
         $application_lists = $this->Application->find('all')
+            ->where($conditions)
             ->toArray();
         $this->set(compact('application_lists'));
         $this->set('application_status', Configure::read('application_status'));

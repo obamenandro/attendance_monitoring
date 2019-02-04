@@ -12,10 +12,11 @@
           <div class="panel__search panel-search" style="position: absolute; width: 100%;left: 15px;z-index:2; top: 30px; text-align: left; ">
             <div class="panel__search-box panel__search-box-input">
               <label class="panel__search-label" style="width: 25%;">Status:</label>
-              <select class="panel__search-input">
+              <select class="panel__search-input" name="status" id="status">
                   <option value="">--</option>
-                  <option value="">Pending</option>
-                  <option value="">Accepted</option>
+                  <option value="0">Pending</option>
+                  <option value="1">Accepted</option>
+                  <option value="2">Declined</option>
               </select>
             </div>
             <div class="panel__search-box">
@@ -108,5 +109,9 @@
         },
     ]
   });
-  $('.table__footer').html('Total row: '+ table.fnGetData().length);
+  $('.table__footer').html('Results: '+ table.fnGetData().length);
+  $(function() {
+    let status = "<?= !empty($_GET['status']) ? $_GET['status'] : '' ?>"
+    $('#status').val(status);
+  });
 </script>

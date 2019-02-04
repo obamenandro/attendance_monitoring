@@ -201,5 +201,5 @@
     window.location.href = '/admin/user_leaves/delete/'+id;
   });
 
-  $('.table__footer').html('Total row: '+ table.fnGetData().length);
+  $('.table__footer').html('Results: '+ table.fnGetData().length);
 </script>

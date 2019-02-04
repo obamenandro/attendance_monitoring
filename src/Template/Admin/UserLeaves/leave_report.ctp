@@ -103,6 +103,6 @@ $(document).ready(function() {
       },
     ]
   });
-  $('.table__footer').html('Total row: '+ table.fnGetData().length);
+  $('.table__footer').html('Results: '+ table.fnGetData().length);
 });
 </script>
