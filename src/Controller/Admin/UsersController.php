@@ -97,6 +97,10 @@ class UsersController extends AppController
             if (!empty($this->request->query['designation_id'])) {
                 $conditions['Users.designation'] = $this->request->query['designation_id'];
             }
+
+            if (!empty($this->request->query['department'])) {
+                $conditions['Users.department'] = $this->request->query['department'];
+            }
         }
         $conditions['Users.del_flg']    = 0;
         $conditions['Users.role']       = Configure::read('role.employee');
@@ -135,7 +139,7 @@ class UsersController extends AppController
         $departments  = Configure::read('departments');
         $designation  = Configure::read('designation');
         $jobtype      = Configure::read('job_type');
-
+        unset($jobtype[3]);
         $this->set(compact(
             'departments',
             'designation',
@@ -1021,16 +1025,22 @@ class UsersController extends AppController
     }
 
     public function faculty_profile() {
+        if (!empty($this->request->getQuery('department'))) {
+            $conditions['Users.department'] = $this->request->getQuery('department');
+        }
+        if (!empty($this->request->getQuery('status'))) {
+            $conditions['Users.status'] = $this->request->getQuery('status');
+        }
+        
+        $conditions['Users.del_flg'] = 0;
+        $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->User->find('all')
-            ->contain('UserAttainments', function($res) {
+            ->contain('UserAttainments', function($res) use ($attainments){
                 return $res
                 ->where(['UserAttainments.degree IN' => ['1','2','3']])
                 ->order(['UserAttainments.degree' => 'DESC']);
             })
-            ->where([
-                'Users.del_flg'    => 0,
-                'Users.role' => Configure::read('role.employee')
-            ])
+            ->where($conditions)
             ->toArray();
         $user_logs = $this->UserLog->newEntity();
         $user_logs = $this->UserLog->patchEntity($user_logs, [
@@ -1194,10 +1204,13 @@ class UsersController extends AppController
         ->contain(['UserLeaves' => function ($q) {
             return $q
                 ->where([
-                    'status' => 0
+                    'status'           => 0,
+                    'del_flg'          => 0,
+                    'YEAR(date_start)' => date('Y'),
                 ]);
             }
         ])
+        ->where(['Users.del_flg' => 0])
         ->toArray();
         //collection
         foreach ($departments as $key => $value) {
@@ -1258,6 +1271,7 @@ class UsersController extends AppController
         });
         //Applicant
         $applications = $this->Application->find('all')
+        ->where(['Applications.del_flg' => 0])
         ->toArray();
         $collection = new Collection($applications);
         $applications['total_pending'] =  $collection->sumOf(function ($value) {

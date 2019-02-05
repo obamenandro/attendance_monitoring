@@ -63,7 +63,18 @@
                 <label class="form__label">Date Resigned:</label>
               </div>
               <div class="form__input form__input--fullwidth">
-                <input type="text" class="form__inputbox form--date-js" readonly>
+                <?=
+                  $this->Form->control('resigned_date', [
+                    'type'     => 'text',
+                    'required' => false,
+                    'div'      => false,
+                    'label'    => false,
+                    'readonly' => true,
+                    'class'    => 'form__inputbox form--date-js',
+                    'readonly' => true
+                  ]);
+                ?>
+                <!-- <input type="text" class="form__inputbox form--date-js" readonly name_> -->
                 <span class="form__error"><?= $this->Form->error('jobtype'); ?></span>
               </div>
             </div>
@@ -141,7 +152,7 @@
 
             <div class="form__list">
               <div class="form__label-wrapper">
-                <label class="form__label">Leave:</label>
+                <label class="form__label">No. of Leave:</label>
               </div>
               <div class="form__input form__input--fullwidth">
                 <?=
@@ -179,4 +190,10 @@
       $('.date-resigned').hide();
     }
   })
+
+  $(function() {
+    if ($('#jobtype').val() == 3) {
+      $('.date-resigned').show();
+    }
+  });
 </script>

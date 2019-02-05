@@ -226,7 +226,8 @@ Configure::write('civil_status', [
 
 Configure::write('job_type', [
     '1' => 'Full Time',
-    '2' => 'Part Time'
+    '2' => 'Part Time',
+    '3' => 'Resigned'
 ]);
 
 Configure::write('designation', [

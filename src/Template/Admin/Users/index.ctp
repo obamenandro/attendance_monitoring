@@ -27,15 +27,15 @@
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Department:</label>
-              <select class="panel__search-input" name="designation_id">
+              <select class="panel__search-input" name="department" id="department">
                 <option value="">--</option>
-                <option value="">GenEd</option>
-                <option value="">BSMT</option>
-                <option value="">BSMARe</option>
-                <option value="">BSNA</option>
-                <option value="">Admin</option>
-                <option value="">Staff</option>
-                <option value="">Maintenance Personnel</option>
+                <option value="1">GenEd</option>
+                <option value="2">BSMT</option>
+                <option value="3">BSMARe</option>
+                <option value="4">BSNA</option>
+                <option value="5">Admin</option>
+                <option value="6">Staff</option>
+                <option value="7">Maintenance Personnel</option>
               </select>
             </div>
             <div class="panel__search-box">
@@ -75,6 +75,11 @@
                 </tr>
               <?php endforeach; ?>
             </tbody>
+            <tfoot>
+              <tr>
+                <td class="table__footer"></td>
+              </tr>
+            </tfoot>
           </table>
         </div>
     </div>
@@ -106,8 +111,12 @@
 <div class="backdrop"></div>
 
 <script>
+  $(function() {
+    let department = "<?php echo !empty($_GET['department']) ? $_GET['department'] : '' ?>"
 
-  $('#dataTable').dataTable({
+    $('#department').val(department);
+  });
+  let table = $('#dataTable').dataTable({
     dom: 'Bfrtip',
     info:     false,
     searching: false,
@@ -193,4 +202,5 @@
   $('html').delegate('.user-delete','click', function() {
     window.location.href = '/admin/users/delete/'+user_id;
   });
+  $('.table__footer').html('Results: '+ table.fnGetData().length);
 </script>

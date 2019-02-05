@@ -10,15 +10,34 @@
           <div class="panel__search" style="position: absolute; width: 80%;left: 15px;z-index:2; top: 10px; text-align: left; ">
             <div class="panel__search-box">
               <label class="panel__search-label">Department:</label>
-              <input type="text" class="panel__search-input">
+              <select class="panel__search-input" name="department" id="department">
+                <option value="">--</option>
+                <option value="1">GenEd</option>
+                <option value="2">BSMT</option>
+                <option value="3">BSMARe</option>
+                <option value="4">BSNA</option>
+                <option value="5">Admin</option>
+                <option value="6">Staff</option>
+                <option value="7">Maintenance Personnel</option>
+              </select>
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Highest Educational:</label>
-              <input type="text" class="panel__search-input">
+              <select class="panel__search-input" name="degree" id="degree">
+                <option value="">--</option>
+                <option value="1">Doctorate</option>
+                <option value="2">Masters</option>
+                <option value="3">Bachelors</option>
+              </select>
             </div>
             <div class="panel__search-box">
-              <label class="panel__search-label">status:</label>
-              <input type="text" class="panel__search-input">
+              <label class="panel__search-label">Status:</label>
+              <select class="panel__search-input" name="status" id="status">
+                <option value="">--</option>
+                <option value="1">Full Time</option>
+                <option value="2">Part Time</option>
+                <option value="3">Resigned</option>
+              </select>
             </div>
             <div class="panel__search-box">
               <input type="submit" name="" class="panel__search-button" value="search">
@@ -120,4 +139,13 @@
     $('.table__footer').html('Total row: '+ info['recordsTotal'])
   });
 
+  $(function() {
+    let department =  "<?= !empty($_GET['department']) ? $_GET['department'] : '' ?>";
+    let status =  "<?= !empty($_GET['status']) ? $_GET['status'] : '' ?>";
+    let degree =  "<?= !empty($_GET['degree']) ? $_GET['degree'] : '' ?>";
+
+    $('#department').val(department);
+    $('#status').val(status);
+    $('#degree').val(degree);
+  });
 </script>

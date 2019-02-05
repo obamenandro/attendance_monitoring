@@ -11,6 +11,7 @@
             <div class="panel__search-box panel__search-box-input">
               <label class="panel__search-label">Search By Date:</label>
               <select name="date" class="panel__search-input" id="date">
+                <option value="">---</option>
                 <option value="01">January</option>
                 <option value="02">February</option>
                 <option value="03">March</option>
