@@ -10,23 +10,23 @@
           <div class="panel__search" style="position: absolute; width: 100%;left: 15px;z-index:2">
             <div class="panel__search-box">
               <label class="panel__search-label">Name:</label>
-              <input type="text" class="panel__search-input">
+              <input type="text" name="firstname" class="panel__search-input">
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Department:</label>
-              <select class="panel__search-input">
+              <select class="panel__search-input" name="department">
                 <option value="">--</option>
-                <option value="">GenEd</option>
-                <option value="">BSMT</option>
-                <option value="">BSMARe</option>
-                <option value="">BSNA</option>
-                <option value="">Admin</option>
-                <option value="">Staff</option>
-                <option value="">Maintenance Personnel</option>
+                <option value="1">GenEd</option>
+                <option value="2">BSMT</option>
+                <option value="3">BSMARe</option>
+                <option value="4">BSNA</option>
+                <option value="5">Admin</option>
+                <option value="6">Staff</option>
+                <option value="7">Maintenance Personnel</option>
               </select>
             </div>
             <div class="panel__search-box">
-              <input type="submit" name="" class="panel__search-button" value="search">
+              <input type="submit" class="panel__search-button" value="search">
             </div>
           </div>
         </form>
@@ -118,5 +118,11 @@
     var info = table.page.info();
     $('.table__footer').html('Total row: '+ info['recordsTotal'])
   });
+  $(function() {
+    let department =  "<?= !empty($_GET['department']) ? $_GET['department'] : '' ?>";
+    let firstname =  "<?= !empty($_GET['firstname']) ? $_GET['firstname'] : '' ?>";
 
+    $('select[name=department]').val(department);
+    $('input[name=firstname]').val(firstname);
+  });
 </script>

@@ -1031,13 +1031,19 @@ class UsersController extends AppController
         if (!empty($this->request->getQuery('status'))) {
             $conditions['Users.status'] = $this->request->getQuery('status');
         }
+
+        if (!empty($this->request->getQuery('degree'))) {
+            $attainments['UserAttainments.degree'] = $this->request->getQuery('degree');
+        } else {
+            $attainments['UserAttainments.degree IN'] = ['1','2','3'];
+        }
         
         $conditions['Users.del_flg'] = 0;
         $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->User->find('all')
             ->contain('UserAttainments', function($res) use ($attainments){
                 return $res
-                ->where(['UserAttainments.degree IN' => ['1','2','3']])
+                ->where($attainments)
                 ->order(['UserAttainments.degree' => 'DESC']);
             })
             ->where($conditions)
@@ -1111,13 +1117,20 @@ class UsersController extends AppController
     }
 
     public function faculty_profile_license() {
+        if ($this->request->query) {
+            if (!empty($this->request->query['firstname'])) {
+                $conditions['Users.firstname LIKE'] = '%'.$this->request->query['firstname'].'%';
+            }
+            if (!empty($this->request->query['department'])) {
+                $conditions['Users.department'] = $this->request->query['department'];
+            }
+        }
+        $conditions['Users.del_flg'] = 0;
+        $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->UserEligibility->find('all')
-            ->contain('Users', function($res) {
+            ->contain('Users', function($res) use ($conditions) {
                 return $res
-                ->where([
-                    'Users.del_flg' => 0,
-                    'Users.role'    => Configure::read('role.employee')
-                ]);
+                ->where($conditions);
             })
             ->toArray();
         $user_logs = $this->UserLog->newEntity();
@@ -1132,15 +1145,27 @@ class UsersController extends AppController
     }
 
     public function faculty_profile_training() {
+        $check_list = [];
+        if (!empty($this->request->query['department'])) {
+            $conditions['Users.department'] = $this->request->query['department'];
+        }
+        if (!empty($this->request->query['checklist'])) {
+            $ids = $this->UserChecklist->find('list', [
+                'keyField'   => 'user_id',
+                'valueField' => 'user_id'
+            ])
+            ->where(['UserChecklists.requirement_id' => $this->request->query['checklist']])
+            ->toArray();
+            $conditions['Users.id IN'] = $ids;
+        }
+        $conditions['Users.del_flg'] = 0;
+        $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->User->find('all')
-            ->contain('UserChecklists', function($res) {
+            ->contain('UserChecklists', function($res){
                 return $res
                 ->where(['UserChecklists.requirement_id IN' => ['9','10','11']]);
             })
-            ->where([
-                'Users.del_flg'    => 0,
-                'Users.role' => Configure::read('role.employee')
-            ])
+            ->where($conditions)
             ->toArray();
         $user_logs = $this->UserLog->newEntity();
         $user_logs = $this->UserLog->patchEntity($user_logs, [
@@ -1171,12 +1196,19 @@ class UsersController extends AppController
     }
 
     public function resigned_employee() {
+        if ($this->request->query) {
+            if (!empty($this->request->query['firstname'])) {
+                $conditions['Users.firstname LIKE'] = '%'.$this->request->query['firstname'].'%';
+            }
+            if (!empty($this->request->query['department'])) {
+                $conditions['Users.department'] = $this->request->query['department'];
+            }
+        }
+        $conditions['Users.del_flg'] = 0;
+        $conditions['Users.jobtype'] = 3;
+        $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->User->find('all')
-            ->where([
-                'Users.del_flg' => 0,
-                'Users.jobtype' => 3,
-                'Users.role'    => Configure::read('role.employee')
-            ])
+            ->where($conditions)
             ->toArray();
         $user_logs = $this->UserLog->newEntity();
         $user_logs = $this->UserLog->patchEntity($user_logs, [
@@ -1279,11 +1311,11 @@ class UsersController extends AppController
                 return 1;
             }
         });
-
         $this->set(compact('departments', 'applications'));
         $this->set('technical1', $total != 0 ? round($technical1->count()/$total*100) : 0);
         $this->set('technical2', $total != 0 ? round($technical2->count()/$total*100) : 0);
         $this->set('technical3', $total != 0 ? round($technical3->count()/$total*100) : 0);
+        $this->set('department_lists', Configure::read('departments'));
     }
 
     public function application_monitoring() {

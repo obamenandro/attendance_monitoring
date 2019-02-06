@@ -60,15 +60,40 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach($users as $user): ?>
+            <?php foreach($users as $key => $user): ?>
+            <?php if(!empty($this->request->getQuery('degree')) && !empty(trim($user['user_attainments'][0]['course']))): ?>
             <tr>
               <td class="table__body-list"><?= isset($department[$user['department']]) ?
               $department[$user['department']] : 'N/A' ?></td>
               <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
               <?php if(!empty($user['user_attainments'])): ?>
-              <td class="table__body-list"><?= isset($user['user_attainments'][0]['degree']) && $user['user_attainments'][0]['degree'] == 3 ? $user['user_attainments'][0]['course'] : 'N/A' ?></td>
-              <td class="table__body-list"><?= isset($user['user_attainments'][1]['degree']) && $user['user_attainments'][1]['degree'] == 2 ? $user['user_attainments'][1]['course'] : 'N/A' ?></td>
-              <td class="table__body-list"><?= isset($user['user_attainments'][2]['degree']) && $user['user_attainments'][2]['degree'] == 1 ? $user['user_attainments'][2]['course'] : 'N/A' ?></td>
+              <td class="table__body-list">
+                <?php 
+                  if ($this->request->getQuery('degree') == 3 && !empty($user['user_attainments'][0]['course'])) {
+                    echo $user['user_attainments'][0]['course'];
+                  } else {
+                    echo 'N/A';
+                  }
+                ?>
+              </td>
+              <td class="table__body-list">
+                <?php 
+                  if ($this->request->getQuery('degree') == 2 && !empty(trim($user['user_attainments'][0]['course']))) {
+                    echo $user['user_attainments'][0]['course'];
+                  } else {
+                    echo 'N/A';
+                  }
+                ?>
+              </td>
+              <td class="table__body-list">
+                <?php 
+                  if ($this->request->getQuery('degree') == 1 && !empty(trim($user['user_attainments'][0]['course']))) {
+                    echo $user['user_attainments'][0]['course'];
+                  } else {
+                    echo 'N/A';
+                  }
+                ?>
+              </td>
               <?php else: ?>
                 <td class="table__body-list">N/A</td>
                 <td class="table__body-list">N/A</td>
@@ -77,6 +102,24 @@
               <td class="table__body-list"><?= !empty($user['subject']) ? $user['subject'] : 'N/A' ?></td>
               <td class="table__body-list"><?= isset($jobtype[$user['jobtype']]) ? $jobtype[$user['jobtype']] : 'N/A' ?></td>
             </tr>
+            <?php elseif(empty($this->request->getQuery('degree'))): ?>
+            <tr>
+              <td class="table__body-list"><?= isset($department[$user['department']]) ?
+               $department[$user['department']]  : 'N/A' ?></td>
+              <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
+              <?php if(!empty($user['user_attainments'])): ?>
+              <td class="table__body-list"><?= isset($user['user_attainments'][0]['degree']) && $user['user_attainments'][0]['degree'] == 3 && !empty(trim($user['user_attainments'][0]['course']))? $user['user_attainments'][0]['course'] : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($user['user_attainments'][1]['degree']) && $user['user_attainments'][1]['degree'] == 2 && !empty(trim($user['user_attainments'][1]['course']))? $user['user_attainments'][1]['course'] : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($user['user_attainments'][2]['degree']) && $user['user_attainments'][2]['degree'] == 1 && !empty(trim($user['user_attainments'][2]['course']))? $user['user_attainments'][2]['course'] : 'N/A' ?></td>
+              <?php else: ?>
+                <td class="table__body-list">N/A</td>
+                <td class="table__body-list">N/A</td>
+                <td class="table__body-list">N/A</td>
+               <?php endif; ?>
+              <td class="table__body-list"><?= !empty($user['subject']) ? $user['subject'] : 'N/A' ?></td>
+              <td class="table__body-list"><?= isset($jobtype[$user['jobtype']]) ? $jobtype[$user['jobtype']] : 'N/A' ?></td>
+            </tr>
+            <?php endif; ?>
             <?php endforeach; ?>
           </tbody>
           <tfoot>

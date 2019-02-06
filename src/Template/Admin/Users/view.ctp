@@ -25,7 +25,12 @@
           <label class="view-info__label"> Date Hired: </label>
           <span class="view-info__info"> • <?= $employee['date_hired'] ?></span>
         </div>
-
+        <?php if(!empty($employee['resigned_date'])): ?>
+        <div class="view-info__data">
+          <label class="view-info__label"> Resigned date: </label>
+          <span class="view-info__info"> • <?= $employee['resigned_date'] ?></span>
+        </div>
+        <?php endif; ?>
         <div class="view-info__data">
           <label class="view-info__label"> Department: </label>
           <span class="view-info__info"> • <?= isset($department[$employee['department']]) ? $department[$employee['department']] : '<span class="not-applicable">N/A</span>' ?></span>
