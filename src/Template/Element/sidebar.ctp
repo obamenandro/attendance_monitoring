@@ -96,7 +96,7 @@
           <li class="sidebar__item-list">
             <a href="/admin/users/faculty_profile_training" class="sidebar__item">
               <i class="fa fa-circle-o sidebar__icon sidebar__icon--sub" aria-hidden="true"></i>
-              <span class="sidebar__text sidebar__text--reports">Faculty Profile 6.09, 3.12  and 6.10 Trainings (based on the checklist)</span>
+              <span class="sidebar__text sidebar__text--reports">Faculty Profile 6.09, 3.12  and 6.10 Trainings</span>
             </a>
           </li>
           <li class="sidebar__item-list">

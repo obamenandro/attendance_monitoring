@@ -1007,11 +1007,13 @@ class UsersController extends AppController
 
 
     public function master_201() {
+        if (!empty($this->request->query['department'])) {
+            $conditions['Users.department'] = $this->request->query['department'];
+        }
+        $conditions['Users.del_flg'] = 0;
+        $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->User->find('all')
-            ->where([
-                'Users.del_flg' => 0,
-                'Users.role'    => Configure::read('role.employee')
-            ])
+            ->where($conditions)
             ->toArray();
         $user_logs = $this->UserLog->newEntity();
         $user_logs = $this->UserLog->patchEntity($user_logs, [
@@ -1062,16 +1064,28 @@ class UsersController extends AppController
     }
 
     public function employment_record() {
+        if (!empty($this->request->getQuery('status'))) {
+            $conditions['Users.jobtype'] = $this->request->getQuery('status');
+        }
+        if (!empty($this->request->getQuery('designation'))) {
+            $conditions['Users.designation'] = $this->request->getQuery('designation');
+        }
+        if (!empty($this->request->getQuery('date_hired'))) {
+            $date = explode('-', $this->request->getQuery('date_hired'));
+            $month = isset($date[0]) ? $date[0] : '';
+            $year = isset($date[1]) ? $date[1] : '';
+            $conditions['MONTH(Users.date_hired)'] = $month;
+            $conditions['YEAR(Users.date_hired)'] = $year;
+        }
+        $conditions['Users.del_flg'] = 0;
+        $conditions['Users.role'] = Configure::read('role.employee');
         $users = $this->User->find('all')
             ->contain('UserAttainments', function($res) {
                 return $res
                 ->where(['UserAttainments.school_name !=' => ''])
                 ->order(['UserAttainments.degree' => 'ASC']);
             })
-            ->where([
-                'Users.del_flg'    => 0,
-                'Users.role' => Configure::read('role.employee')
-            ])
+            ->where($conditions)
             ->toArray();
         $user_logs = $this->UserLog->newEntity();
         $user_logs = $this->UserLog->patchEntity($user_logs, [
@@ -1297,7 +1311,7 @@ class UsersController extends AppController
         });
         //admin
         $departments['total_admin'] =  $collection->sumOf(function ($value) {
-            if ($value['role'] == 1) {
+            if ($value['role'] == 2 && $value['department'] == 5) {
                 return 1;
             }
         });

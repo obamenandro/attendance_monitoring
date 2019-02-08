@@ -62,36 +62,6 @@
     <h2 class="panel__text-title">Percentage of Technical Trainings Attended</h2>
       <div class="panel__chart">
         <canvas id="myChart"></canvas>
-        <table id="dataTable" class="display table table--attendance-view" cellspacing="0" width="100%" style="margin-top: 20px ">
-          <thead>
-            <tr class="table__head">
-              <th class="table__head-list">Department</th>
-              <th class="table__head-list">6.09</th>
-              <th class="table__head-list">3.12</th>
-              <th class="table__head-list">6.10</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list"></td>
-            </tr>
-            <tr>
-              <td class="table__body-list">BSMARE</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list"></td>
-            </tr>
-            <tr>
-              <td class="table__body-list">BSMT</td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list"></td>
-              <td class="table__body-list"></td>
-            </tr>
-          </tbody>
-        </table>
       <div>
   </div>
 </div>

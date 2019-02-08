@@ -43,7 +43,7 @@
           <tr>
             <td class="table__body-list"><?= ucfirst($user['lastname']).", ".ucfirst($user['firstname']) ?></td>
             <td class="table__body-list"><?= $user['position'] ?></td>
-            <td class="table__body-list"><?= !empty($user['date_hired']) ? date('m-d-Y', strtotime($user['date_hired'])) : 'N/A' ?></td>
+            <td class="table__body-list"><?= !empty($user['resigned_date']) ? date('m-d-Y', strtotime($user['resigned_date'])) : 'N/A' ?></td>
           </tr>
           <?php endforeach; ?>
         </tbody>
@@ -111,10 +111,10 @@ $(document).ready(function() {
   $('.table__footer').html('Total row: '+ info['recordsTotal'])
 });
 $(function() {
-    let department =  "<?= !empty($_GET['department']) ? $_GET['department'] : '' ?>";
-    let firstname =  "<?= !empty($_GET['firstname']) ? $_GET['firstname'] : '' ?>";
+  let department =  "<?= !empty($_GET['department']) ? $_GET['department'] : '' ?>";
+  let firstname =  "<?= !empty($_GET['firstname']) ? $_GET['firstname'] : '' ?>";
 
-    $('select[name=department]').val(department);
-    $('input[name=firstname]').val(firstname);
-  });
+  $('select[name=department]').val(department);
+  $('input[name=firstname]').val(firstname);
+});
 </script>

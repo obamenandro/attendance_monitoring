@@ -7,21 +7,30 @@
     <div>
       <div class="form__content form__content--report" style="position: relative">
         <form method="GET">
-          <div class="panel__search" style="position: absolute; width: 80%;left: 15px;z-index:2; top: 10px; text-align: left; ">
-            <div class="panel__search-box">
+          <div class="panel__search" style="position: absolute; width: 62%;left: 15px;z-index:2; top: 10px; text-align: left; ">
+            <div class="panel__search-box" style="width: 29%">
               <label class="panel__search-label">Designation:</label>
-              <input type="text" class="panel__search-input">
+              <select class="panel__search-input" name="designation">
+                <option value="">--</option>
+                <option value="1">Teaching</option>
+                <option value="2">Non-Teaching</option>
+              </select>
             </div>
             <div class="panel__search-box">
               <label class="panel__search-label">Date Hired:</label>
-              <input type="number" class="panel__search-input" placeholder="month-year">
+              <input type="text" class="panel__search-input" placeholder="month-year" name="date_hired">
+            </div>
+            <div class="panel__search-box" style="width: 29%">
+              <label class="panel__search-label">Status:</label>
+              <select class="panel__search-input" name="status">
+                <option value="">--</option>
+                <option value="1">Full Time</option>
+                <option value="2">Part Time</option>
+                <option value="3">Resigned</option>
+              </select>
             </div>
             <div class="panel__search-box">
-              <label class="panel__search-label">status:</label>
-              <input type="text" class="panel__search-input">
-            </div>
-            <div class="panel__search-box">
-              <input type="submit" name="" class="panel__search-button" value="search">
+              <input type="submit" class="panel__search-button" value="search">
             </div>
           </div>
         </form>
@@ -135,4 +144,13 @@
     });
     var info = table.page.info();
     $('.table__footer').html('Total row: '+ info['recordsTotal'])
+    $(function() {
+      let status =  "<?= !empty($_GET['status']) ? $_GET['status'] : '' ?>";
+      let date_hired =  "<?= !empty($_GET['date_hired']) ? $_GET['date_hired'] : '' ?>";
+      let designation =  "<?= !empty($_GET['designation']) ? $_GET['designation'] : '' ?>";
+
+      $('select[name=status]').val(status);
+      $('select[name=designation]').val(designation);
+      $('input[name=date_hired]').val(date_hired);
+    });
 </script>

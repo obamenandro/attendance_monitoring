@@ -9,7 +9,7 @@
         <form method="GET">
           <div class="panel__search" style="position: absolute; width: 100%;left: 15px;z-index:2">
           <div class="panel__search-box">
-              <label class="panel__search-label">Checklists:</label>
+              <label class="panel__search-label">Training:</label>
               <select class="panel__search-input" name="checklist">
                 <option value="">--</option>
                 <option value="9">6.09</option>

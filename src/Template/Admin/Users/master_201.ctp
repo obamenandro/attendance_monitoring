@@ -9,9 +9,18 @@
       <div class="form__content" style="position: relative">
         <form method="GET">
           <div class="panel__search panel-search" style="position: absolute; width: 100%;left: 15px;z-index:2; top: 30px; text-align: left; ">
-            <div class="panel__search-box panel__search-box-input">
+            <div class="panel__search-box" style="width: 29%">
               <label class="panel__search-label">Department:</label>
-              <input type="text" class="panel__search-input">
+              <select class="panel__search-input" name="department">
+                <option value="">--</option>
+                <option value="1">GenEd</option>
+                <option value="2">BSMT</option>
+                <option value="3">BSMARe</option>
+                <option value="4">BSNA</option>
+                <option value="5">Admin</option>
+                <option value="6">Staff</option>
+                <option value="7">Maintenance Personnel</option>
+              </select>
             </div>
             <div class="panel__search-box">
               <input type="submit" name="" class="panel__search-button" value="search">
@@ -101,6 +110,12 @@
     });
     var info = table.page.info();
     $('.table__footer').html('Total row: '+ info['recordsTotal'])
-  });
+    $(function() {
+      let department =  "<?= !empty($_GET['department']) ? $_GET['department'] : '' ?>";
+      let firstname =  "<?= !empty($_GET['firstname']) ? $_GET['firstname'] : '' ?>";
 
+      $('select[name=department]').val(department);
+      $('input[name=firstname]').val(firstname);
+    });
+  });
 </script>
