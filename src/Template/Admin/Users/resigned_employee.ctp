@@ -13,17 +13,8 @@
             <input type="text" class="panel__search-input" name="firstname">
           </div>
           <div class="panel__search-box">
-            <label class="panel__search-label">Department:</label>
-            <select class="panel__search-input" name="department">
-              <option value="">--</option>
-              <option value="1">GenEd</option>
-              <option value="2">BSMT</option>
-              <option value="3">BSMARe</option>
-              <option value="4">BSNA</option>
-              <option value="5">Admin</option>
-              <option value="6">Staff</option>
-              <option value="7">Maintenance Personnel</option>
-            </select>
+            <label class="panel__search-label">Resigned Date:</label>
+            <input type="text" class="panel__search-input" placeholder="month-year" name="resigned_date">
           </div>
           <div class="panel__search-box">
             <input type="submit" name="" class="panel__search-button" value="search">
@@ -111,10 +102,10 @@ $(document).ready(function() {
   $('.table__footer').html('Total row: '+ info['recordsTotal'])
 });
 $(function() {
-  let department =  "<?= !empty($_GET['department']) ? $_GET['department'] : '' ?>";
+  let resigned_date =  "<?= !empty($_GET['resigned_date']) ? $_GET['resigned_date'] : '' ?>";
   let firstname =  "<?= !empty($_GET['firstname']) ? $_GET['firstname'] : '' ?>";
 
-  $('select[name=department]').val(department);
+  $('input[name=resigned_date]').val(resigned_date);
   $('input[name=firstname]').val(firstname);
 });
 </script>

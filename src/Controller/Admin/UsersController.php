@@ -1210,13 +1210,15 @@ class UsersController extends AppController
     }
 
     public function resigned_employee() {
-        if ($this->request->query) {
-            if (!empty($this->request->query['firstname'])) {
-                $conditions['Users.firstname LIKE'] = '%'.$this->request->query['firstname'].'%';
-            }
-            if (!empty($this->request->query['department'])) {
-                $conditions['Users.department'] = $this->request->query['department'];
-            }
+        if (!empty($this->request->query['firstname'])) {
+            $conditions['Users.firstname LIKE'] = '%'.$this->request->query['firstname'].'%';
+        }
+        if (!empty($this->request->getQuery('resigned_date'))) {
+            $date = explode('-', $this->request->getQuery('resigned_date'));
+            $month = isset($date[0]) ? $date[0] : '';
+            $year = isset($date[1]) ? $date[1] : '';
+            $conditions['MONTH(Users.resigned_date)'] = $month;
+            $conditions['YEAR(Users.resigned_date)'] = $year;
         }
         $conditions['Users.del_flg'] = 0;
         $conditions['Users.jobtype'] = 3;
